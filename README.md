@@ -1,9 +1,58 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+# Ashiwani Kumar - Personal Portfolio
 
-## Getting Started
+Welcome to my personal portfolio website built with Next.js. This is a showcase of my professional work, skills, and experience in the DevOps and IT infrastructure domain.
 
-First, run the development server:
+## 🚀 About Me
 
+**Ashiwani Kumar** is a seasoned Linux DevOps Engineer with extensive experience in Government & Airport Infrastructure projects. I specialize in:
+
+- **Cloud & Infrastructure**: AWS, Terraform, Kubernetes, Multi-Cloud solutions
+- **DevOps & Automation**: CI/CD Automation, Jenkins, GoCD, DevSecOps
+- **Development**: Python, Node.js, Go
+- **System Administration**: Linux, Web Servers, Databases, Virtualization
+- **Projects**: UAE/Oman Government Infrastructure, Data Center Migration, EMR/HIS Migration
+
+## 🌐 Portfolio Website
+
+**Live Site**: [ashiwanikumar.in](https://ashiwanikumar.in)
+
+This portfolio showcases my professional journey, technical skills, project portfolio, and contact information.
+
+## 🛠️ Tech Stack
+
+This portfolio is built using:
+- **Framework**: Next.js 14 (App Router)
+- **Styling**: Tailwind CSS
+- **Deployment**: Vercel (recommended)
+- **Icons**: Custom SVG icons and FontAwesome
+- **Animations**: Custom JavaScript animations and CSS transitions
+
+## 🚀 Getting Started
+
+### Prerequisites
+- Node.js 18+ 
+- npm, yarn, pnpm, or bun
+
+### Installation
+
+1. Clone the repository:
+```bash
+git clone <your-repo-url>
+cd landing-page
+```
+
+2. Install dependencies:
+```bash
+npm install
+# or
+yarn install
+# or
+pnpm install
+# or
+bun install
+```
+
+3. Run the development server:
 ```bash
 npm run dev
 # or
@@ -14,23 +63,69 @@ pnpm dev
 bun dev
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+4. Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
 
-You can start editing the page by modifying `app/page.js`. The page auto-updates as you edit the file.
+## 📁 Project Structure
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+```
+src/
+├── app/                 # Next.js app router pages
+├── components/          # Reusable UI components
+│   ├── layout/         # Header, Footer, Navigation
+│   ├── sections/       # Page sections (Hero, About, Portfolio, etc.)
+│   └── shared/         # Common components (buttons, cards, etc.)
+├── context_api/        # React context providers
+├── hooks/              # Custom React hooks
+└── libs/               # Utility functions and animations
+```
 
-## Learn More
+## 🎨 Customization
 
-To learn more about Next.js, take a look at the following resources:
+The portfolio is designed to be easily customizable:
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+- **Content**: Update personal information in component files
+- **Styling**: Modify Tailwind classes and CSS variables
+- **Images**: Replace placeholder images in `public/img/` directory
+- **Data**: Update fake data files in `public/fakedata/` for dynamic content
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+## 📱 Features
 
-## Deploy on Vercel
+- **Responsive Design**: Mobile-first approach with Tailwind CSS
+- **Modern UI**: Clean, professional design suitable for tech professionals
+- **Performance**: Optimized with Next.js best practices
+- **SEO Ready**: Built-in SEO optimization features
+- **Contact Forms**: Integrated contact sections
+- **Portfolio Gallery**: Showcase projects and work samples
+- **Blog Support**: Built-in blog functionality (if needed)
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+## 🚀 Deployment
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+### Vercel (Recommended)
+The easiest way to deploy your Next.js portfolio:
+
+1. Push your code to GitHub
+2. Connect your repository to [Vercel](https://vercel.com)
+3. Configure your custom domain (ashiwanikumar.in)
+4. Deploy automatically on every push
+
+### Other Platforms
+- **Netlify**: Build and deploy with `npm run build`
+- **AWS Amplify**: Connect your Git repository
+- **Self-hosted**: Build with `npm run build` and serve the `out` directory
+
+## 📧 Contact
+
+- **LinkedIn**: [Ashiwani Kumar](https://linkedin.com/in/your-profile)
+- **GitHub**: [Your GitHub Username](https://github.com/your-username)
+- **Email**: [your-email@domain.com]
+- **Portfolio**: [ashiwanikumar.in](https://ashiwanikumar.in)
+
+## 📄 License
+
+This project is for personal use. The template design and components are part of the original template package.
+
+---
+
+**Built with ❤️ using Next.js and Tailwind CSS**
+
+*Last updated: December 2024*
