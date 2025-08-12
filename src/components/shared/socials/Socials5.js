@@ -3,7 +3,7 @@ const Socials5 = () => {
 		<ul className=" hidden xl:flex  gap-x-10px">
 			<li>
 				<a
-					href="https://www.facebook.com"
+					href="https://www.facebook.com/terminalrootuser"
 					className="text-primary-color hover:text-body-color text-size-13 border border-primary-color dark:border-border-color-3 dark:hover:border-primary-color w-30px h-30px rounded-full flex items-center justify-center overflow-hidden relative z-0 after:absolute after:top-1/2 after:left-1/2 after:-translate-x-1/2 after:-translate-y-1/2 after:w-full after:h-full after:scale-0 after:bg-primary-color hover:after:scale-105 after:transition-all after:duration-300 after:z-[-1] after:rounded-full"
 				>
 					<i className="fab fa-facebook-f"></i>
@@ -11,7 +11,7 @@ const Socials5 = () => {
 			</li>
 			<li>
 				<a
-					href="https://www.linkedin.com"
+					href="https://www.linkedin.com/in/ashiwanikumar/"
 					className="text-primary-color hover:text-body-color text-size-13 border border-primary-color dark:border-border-color-3 dark:hover:border-primary-color w-30px h-30px rounded-full flex items-center justify-center overflow-hidden relative z-0 after:absolute after:top-1/2 after:left-1/2 after:-translate-x-1/2 after:-translate-y-1/2 after:w-full after:h-full after:scale-0 after:bg-primary-color hover:after:scale-105 after:transition-all after:duration-300 after:z-[-1] after:rounded-full"
 				>
 					<i className="fa-brands fa-linkedin-in"></i>
@@ -19,7 +19,7 @@ const Socials5 = () => {
 			</li>
 			<li>
 				<a
-					href="https://www.github.com"
+					href="https://github.com/ashiwanikumar"
 					className="text-primary-color hover:text-body-color text-size-13 border border-primary-color dark:border-border-color-3 dark:hover:border-primary-color w-30px h-30px rounded-full flex items-center justify-center overflow-hidden relative z-0 after:absolute after:top-1/2 after:left-1/2 after:-translate-x-1/2 after:-translate-y-1/2 after:w-full after:h-full after:scale-0 after:bg-primary-color hover:after:scale-105 after:transition-all after:duration-300 after:z-[-1] after:rounded-full"
 				>
 					<i className="fa-brands fa-github"></i>

@@ -51,7 +51,7 @@ const Footer2 = () => {
 						<ul className="flex justify-center xl:-mx-10px 2xl:mx-0 items-center flex-wrap gap-10px md:gap-0  ">
 							<li className=" group md:border-r md:border-border-color dark:md:border-white-color-3 last:border-0">
 								<Link
-									href="https://www.facebook.com"
+									href="https://www.facebook.com/terminalrootuser"
 									className=" flex justify-center items-center w-160px sm:w-170px h-auto  md:h-160px lg:w-230px lg:h-210px xl:w-278px xl:h-238px p-10px relative text-base sm:text-lg xl:text-xl font-medium text-seondary-color dark:text-white-color tracking-normal xl:tracking-[0.02em] leading-1"
 								>
 									<span className=" transition-all duration-700 ease-in-out opacity-100 visible group-hover:invisible group-hover:opacity-0  group-hover:-translate-y-full inline-block">
@@ -90,7 +90,7 @@ const Footer2 = () => {
 							</li>
 							<li className=" group md:border-r md:border-border-color dark:md:border-white-color-3 last:border-0">
 								<Link
-									href="https://www.linkedin.com"
+									href="https://www.linkedin.com/in/ashiwanikumar/"
 									className=" flex justify-center items-center w-160px sm:w-170px h-auto  md:h-160px lg:w-230px lg:h-210px xl:w-278px xl:h-238px p-10px relative text-base sm:text-lg xl:text-xl font-medium text-seondary-color dark:text-white-color tracking-normal xl:tracking-[0.02em] leading-1"
 								>
 									<span className=" transition-all duration-700 ease-in-out opacity-100 visible group-hover:invisible group-hover:opacity-0  group-hover:-translate-y-full inline-block">
