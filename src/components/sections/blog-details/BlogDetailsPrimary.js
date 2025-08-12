@@ -248,7 +248,7 @@ const BlogDetailsPrimary = ({
 									<ul className="flex gap-x-5">
 										<li>
 											<Link
-												href="https://www.facebook.com"
+												href="https://www.facebook.com/terminalrootuser"
 												className="text-primary-color dark:text-white-color border border-primary-color hover:bg-primary-color w-10 h-10 rounded-full flex items-center justify-center overflow-hidden"
 											>
 												<i className="fa-brands fa-facebook-f"></i>
@@ -264,7 +264,7 @@ const BlogDetailsPrimary = ({
 										</li>
 										<li>
 											<Link
-												href="https://www.linkedin.com"
+												href="https://www.linkedin.com/in/ashiwanikumar/"
 												className="text-primary-color dark:text-white-color border border-primary-color hover:bg-primary-color w-10 h-10 rounded-full flex items-center justify-center overflow-hidden"
 											>
 												<i className="fa-brands fa-linkedin-in"></i>

@@ -115,9 +115,9 @@ The easiest way to deploy your Next.js portfolio:
 
 ## 📧 Contact
 
-- **LinkedIn**: [Ashiwani Kumar](https://linkedin.com/in/your-profile)
-- **GitHub**: [Your GitHub Username](https://github.com/your-username)
-- **Email**: [your-email@domain.com]
+- **LinkedIn**: [Ashiwani Kumar](https://www.linkedin.com/in/ashiwanikumar//comm/mynetwork/discovery-see-all?usecase=PEOPLE_FOLLOWS&followMember=ashiwanikumar)
+- **GitHub**: [ashiwanikumar](https://github.com/ashiwanikumar)
+- **Email**: [ashvanikumar109@gmail.com](mailto:ashvanikumar109@gmail.com)
 - **Portfolio**: [ashiwanikumar.in](https://ashiwanikumar.in)
 
 ## 📄 License

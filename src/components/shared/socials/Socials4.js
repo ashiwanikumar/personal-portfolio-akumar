@@ -7,7 +7,7 @@ const Socials4 = ({ type }) => {
 		>
 			<li>
 				<a
-					href="https://www.facebook.com"
+					href="https://www.facebook.com/terminalrootuser"
 					className={`text-primary-color hover:text-body-color border ${
 						type == 2
 							? "border-primary-color dark:border-seondary-color"
@@ -19,7 +19,7 @@ const Socials4 = ({ type }) => {
 			</li>
 			<li>
 				<a
-					href="https://www.linkedin.com"
+					href="https://www.linkedin.com/in/ashiwanikumar/"
 					className={`text-primary-color hover:text-body-color border ${
 						type == 2
 							? "border-primary-color dark:border-seondary-color"
@@ -31,7 +31,7 @@ const Socials4 = ({ type }) => {
 			</li>
 			<li>
 				<a
-					href="https://www.github.com"
+					href="https://github.com/ashiwanikumar"
 					className={`text-primary-color hover:text-body-color border ${
 						type == 2
 							? "border-primary-color dark:border-seondary-color"
