@@ -21,6 +21,7 @@ This portfolio showcases my professional journey, technical skills, project port
 ## 🛠️ Tech Stack
 
 This portfolio is built using:
+
 - **Framework**: Next.js 14 (App Router)
 - **Styling**: Tailwind CSS
 - **Deployment**: Vercel (recommended)
@@ -30,18 +31,21 @@ This portfolio is built using:
 ## 🚀 Getting Started
 
 ### Prerequisites
-- Node.js 18+ 
+
+- Node.js 18+
 - npm, yarn, pnpm, or bun
 
 ### Installation
 
 1. Clone the repository:
+
 ```bash
 git clone <your-repo-url>
 cd landing-page
 ```
 
 2. Install dependencies:
+
 ```bash
 npm install
 # or
@@ -53,6 +57,7 @@ bun install
 ```
 
 3. Run the development server:
+
 ```bash
 npm run dev
 # or
@@ -101,6 +106,7 @@ The portfolio is designed to be easily customizable:
 ## 🚀 Deployment
 
 ### Vercel (Recommended)
+
 The easiest way to deploy your Next.js portfolio:
 
 1. Push your code to GitHub
@@ -109,6 +115,7 @@ The easiest way to deploy your Next.js portfolio:
 4. Deploy automatically on every push
 
 ### Other Platforms
+
 - **Netlify**: Build and deploy with `npm run build`
 - **AWS Amplify**: Connect your Git repository
 - **Self-hosted**: Build with `npm run build` and serve the `out` directory
@@ -129,3 +136,4 @@ This project is for personal use. The template design and components are part of
 **Built with ❤️ using Next.js and Tailwind CSS**
 
 *Last updated: December 2024*
+..
