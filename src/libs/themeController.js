@@ -10,7 +10,7 @@ const themeController = () => {
   const currentMode = localStorage.getItem("theme");
   if (currentMode === "light") {
     html.classList.remove("dark");
-  } else if (currentMode === "light") {
+  } else if (currentMode === "dark") {
     html.classList.add("dark");
   }
   const themeController = document.querySelector(".theme-controller");

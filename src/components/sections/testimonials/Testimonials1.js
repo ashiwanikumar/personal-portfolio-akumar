@@ -8,7 +8,7 @@ const Testimonials1 = () => {
 	const testimonials = getTestimonials()?.slice(0, 4);
 	return (
 		<section id="testimonials">
-			<div className="bg-cream-light-color dark:bg-black-color py-60px md:py-20 lg:py-30">
+			<div className="bg-white-color dark:bg-black-color py-60px md:py-20 lg:py-30">
 				<div className="container">
 					<div className="testimonials grid lg:grid-cols-12 gap-6 overflow-x-hidden">
 						{/* <!-- section heading --> */}

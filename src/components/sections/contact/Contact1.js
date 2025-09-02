@@ -3,13 +3,13 @@ import FormSelect from "@/components/shared/Inputs/FormSelect";
 const Contact1 = () => {
 	return (
 		<section id="contact">
-			<div className="bg-cream-light-color dark:bg-black-color py-60px md:py-20 lg:py-100px xl:py-30">
+			<div className="bg-white-color dark:bg-black-color py-60px md:py-20 lg:py-100px xl:py-30">
 				<div className="container">
 					<div className="flex flex-col-reverse md:grid md:grid-cols-12 md:items-center gap-x-6 gap-y-10 overflow-hidden">
 						{/* <!-- section heading --> */}
 						<div className="md:col-start-1 md:col-span-7 lg:col-span-6">
 							<div className=" wow fadeInLeft" data-wow-delay=".3s">
-								<form className="contact px-15px py-30px md:px-5 lg:px-30px lg:py-10 xl:px-10 bg-white-color dark:bg-primary-color-light rounded-15px">
+								<form className="contact px-15px py-30px md:px-5 lg:px-30px lg:py-10 xl:px-10 bg-white-color dark:bg-black-color rounded-15px border border-gray-color dark:border-gray-color-3">
 									<div className="mb-25px text-center">
 										<h2 className="text-3xl md:text-size-35 lg:text-size-40 xl:text-size-45 bg-gradient-text-light dark:bg-gradient-text bg-clip-text xl:leading-1.2 text-transparent mb-15px">
 											Let’s work together!
@@ -32,7 +32,7 @@ const Contact1 = () => {
 											<input
 												type="text"
 												placeholder="First name"
-												className="text-white-color w-full px-5 py-14px border border-gray-color-3 bg-cream-light-color dark:bg-black-color focus:border-primary-color rounded-lg outline-none focus:outline-none transition-all duration-300 placeholder:text-gray-color leading-1"
+												className="text-black-color dark:text-white-color w-full px-5 py-14px border border-gray-color-3 bg-white-color dark:bg-black-color focus:border-primary-color rounded-lg outline-none focus:outline-none transition-all duration-300 placeholder:text-gray-color leading-1"
 											/>
 										</div>
 										{/* <!-- Last name --> */}
@@ -40,7 +40,7 @@ const Contact1 = () => {
 											<input
 												type="text"
 												placeholder="Last name"
-												className="text-white-color w-full px-5 py-14px border border-gray-color-3 bg-cream-light-color dark:bg-black-color focus:border-primary-color rounded-lg outline-none focus:outline-none transition-all duration-300 placeholder:text-gray-color leading-1"
+												className="text-black-color dark:text-white-color w-full px-5 py-14px border border-gray-color-3 bg-white-color dark:bg-black-color focus:border-primary-color rounded-lg outline-none focus:outline-none transition-all duration-300 placeholder:text-gray-color leading-1"
 											/>
 										</div>
 										{/* <!-- Email address --> */}
@@ -48,7 +48,7 @@ const Contact1 = () => {
 											<input
 												type="email"
 												placeholder="Email address"
-												className="text-white-color w-full px-5 py-14px border border-gray-color-3 bg-cream-light-color dark:bg-black-color focus:border-primary-color rounded-lg outline-none focus:outline-none transition-all duration-300 placeholder:text-gray-color leading-1"
+												className="text-black-color dark:text-white-color w-full px-5 py-14px border border-gray-color-3 bg-white-color dark:bg-black-color focus:border-primary-color rounded-lg outline-none focus:outline-none transition-all duration-300 placeholder:text-gray-color leading-1"
 											/>
 										</div>
 										{/* <!-- Phone number --> */}
@@ -56,7 +56,7 @@ const Contact1 = () => {
 											<input
 												type="text"
 												placeholder="Phone number"
-												className="text-white-color w-full px-5 py-14px border border-gray-color-3 bg-cream-light-color dark:bg-black-color focus:border-primary-color rounded-lg outline-none focus:outline-none transition-all duration-300 placeholder:text-gray-color leading-1"
+												className="text-black-color dark:text-white-color w-full px-5 py-14px border border-gray-color-3 bg-white-color dark:bg-black-color focus:border-primary-color rounded-lg outline-none focus:outline-none transition-all duration-300 placeholder:text-gray-color leading-1"
 											/>
 										</div>
 										<div className="form_group sm:col-start-1 sm:col-span-2">
@@ -67,7 +67,7 @@ const Contact1 = () => {
 												cols="1"
 												rows="10"
 												placeholder="Message"
-												className="text-white-color w-full px-5 py-14px border border-gray-color-3 bg-cream-light-color dark:bg-black-color focus:border-primary-color rounded-lg outline-none focus:outline-none transition-all duration-300 placeholder:text-gray-color leading-1"
+												className="text-black-color dark:text-white-color w-full px-5 py-14px border border-gray-color-3 bg-white-color dark:bg-black-color focus:border-primary-color rounded-lg outline-none focus:outline-none transition-all duration-300 placeholder:text-gray-color leading-1"
 											/>
 										</div>
 										<div className="sm:col-start-1 sm:col-span-2">

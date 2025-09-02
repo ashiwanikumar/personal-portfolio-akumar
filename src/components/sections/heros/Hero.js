@@ -5,7 +5,7 @@ import Image from "next/image";
 
 const Hero = () => {
 	return (
-		<section className="hero-section relative pt-130px lg:pt-40 xl:pt-200px pb-10 md:pb-30px lg:pb-50px after:absolute after:top-0 after:right-0 after:w-322px after:h-308px after:blur-[150px] after:rounded-50% after:bg-gradient-circle after:-z-1 after:-mt-5% after:-mr-5% overflow-hidden">
+		<section className="hero-section relative pt-130px lg:pt-40 xl:pt-200px pb-10 md:pb-30px lg:pb-50px overflow-hidden bg-white-color dark:bg-black-color">
 			{/* <!-- intro tex --> */}
 			<div className="intro_text">
 				<svg viewBox="0 0 1320 300" className="overflow-hidden">
@@ -60,7 +60,7 @@ const Hero = () => {
 							<Socials />
 						</div>
 					</div>
-					<div className="hidden md:flex md:justify-center md:items-center relative after:absolute after:bottom-0 after:left-0 after:w-220px after:h-220px after:blur-[150px] after:rounded-50% after:bg-gradient-circle after:-z-1 after:-mt-5% after:-mr-5%">
+					<div className="hidden md:flex md:justify-center md:items-center relative">
 						<Image
 							src="/img/hero/me.png"
 							width={437}

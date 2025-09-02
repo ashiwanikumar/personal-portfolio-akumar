@@ -38,19 +38,19 @@ Description: Gerold - Personal Portfolio Tailwind Template
 
 /* variable */
 :root {
-	--body-color: #dddddd;
+	--body-color: #000000;
 	--primary-color: #8750f7;
-	--primary-color-light: #140c1c;
+	--primary-color-light: #000000;
 	--secondary-color: #2a1454;
 	--white-color: #ffffff;
-	--off-white-color: #f6f3fc;
-	--black-color: #050709;
-	--gray-color: #d9d9d9;
-	--gray-color2: #747779;
-	--gray-color3: #22272c;
-	--accent-color: #0f0715;
-	--cream-light-color: #f6f3fc;
-	--bg-color-2: #ffffff1a;
+	--off-white-color: #ffffff;
+	--black-color: #000000;
+	--gray-color: #666666;
+	--gray-color2: #888888;
+	--gray-color3: #333333;
+	--accent-color: #000000;
+	--cream-light-color: #ffffff;
+	--bg-color-2: #ffffff;
 
 	/* font family */
 	--body-font: "Sora", sans-serif;
@@ -87,6 +87,11 @@ Description: Gerold - Personal Portfolio Tailwind Template
 body {
 	color: var(--body-color);
 	font-family: var(--body-font);
+	background-color: var(--white-color);
+}
+.dark body {
+	background-color: var(--black-color);
+	color: var(--white-color);
 }
 /* typography */
 h1,
@@ -204,10 +209,10 @@ img {
 .header-area {
 	position: relative;
 	z-index: 9;
-	background-color: var(--off-white-color);
+	background-color: transparent;
 }
 .dark .header-area {
-	background-color: var(--black-color);
+	background-color: transparent;
 }
 .header-area.header-absolute {
 	position: absolute;
@@ -1218,11 +1223,11 @@ img {
 .form_group textarea {
 	display: block;
 	width: 100%;
-	background: var(--cream-light-color);
+	background: var(--white-color);
 	border: 1px solid var(--gray-color3);
 	font-size: 16px;
 	line-height: 1;
-	color: var(--secondary-color);
+	color: var(--black-color);
 	padding: 14px 20px;
 	border-radius: 8px;
 	transition: all 0.3s 0s ease-out;
@@ -1468,7 +1473,7 @@ body.loaded {
 }
 
 .tj-blog-7-wrapper {
-	background: var(--cream-light-color);
+	background: transparent;
 	padding: 15px;
 	border-radius: 16px;
 	min-height: 205px;
@@ -1476,7 +1481,7 @@ body.loaded {
 	align-items: center;
 }
 .dark .tj-blog-7-wrapper {
-	background: var(--black-color);
+	background: transparent;
 }
 @media (max-width: 575px) {
 	.tj-blog-7-wrapper {
@@ -1719,14 +1724,14 @@ body.loaded {
 	background-color: transparent;
 }
 .faq-3 .accordion-single:has(.open) {
-	background-color: var(--cream-light-color);
+	background-color: transparent;
 }
 .dark .faq-2 .accordion-single:has(.open) {
 	background-color: transparent;
 	border-color: var(--primary-color);
 }
 .dark .faq-3 .accordion-single:has(.open) {
-	background-color: var(--black-color);
+	background-color: transparent;
 	border-color: transparent;
 }
 .accordion-btn {
