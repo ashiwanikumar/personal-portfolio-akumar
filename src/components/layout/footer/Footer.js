@@ -9,9 +9,7 @@ const Footer = () => {
 	return (
 		<footer>
 			<div
-				className={`footer-inner bg-seondary-color ${
-					footerType === 2 ? "dark:bg-seondary-color" : "dark:bg-dark-color"
-				}`}
+				className="footer-inner bg-black-color dark:bg-black-color"
 			>
 				<div className="container">
 					<div className="flex flex-col items-center pt-50px pb-5 md:pt-60px">

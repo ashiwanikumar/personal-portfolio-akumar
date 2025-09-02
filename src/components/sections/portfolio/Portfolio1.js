@@ -13,7 +13,7 @@ const Portfolio1 = () => {
 	}, []);
 	return (
 		<section id="portfolio">
-			<div className="pt-60px pb-30px md:pt-20 md:pb-60px lg:pt-100px lg:pb-20 overflow-hidden">
+			<div className="pt-60px pb-30px md:pt-20 md:pb-60px lg:pt-100px lg:pb-20 overflow-hidden bg-white-color dark:bg-black-color">
 				<div className="container">
 					{/* <!-- section heading --> */}
 					<div className="text-center flex flex-col items-center mb-10 md:mb-50px">

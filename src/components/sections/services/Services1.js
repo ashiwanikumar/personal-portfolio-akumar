@@ -7,7 +7,7 @@ const Services1 = () => {
 	const services = getALlServices();
 	return (
 		<section id="services">
-			<div className="bg-cream-light-color dark:bg-black-color py-60px md:py-20 lg:py-30 overflow-x-hidden">
+			<div className="bg-white-color dark:bg-black-color py-60px md:py-20 lg:py-30 overflow-x-hidden">
 				<div className="container">
 					{/* <!-- section heading --> */}
 					<div className="text-center flex flex-col items-center mb-10 md:mb-50px">

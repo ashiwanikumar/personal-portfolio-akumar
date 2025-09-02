@@ -7,7 +7,7 @@ const Blogs1 = () => {
     ?.slice(0, 3);
   return (
     <section>
-      <div className="py-60px md:py-20 lg:py-100px xl:py-30">
+      <div className="py-60px md:py-20 lg:py-100px xl:py-30 bg-white-color dark:bg-black-color">
         <div className="container">
           {/* <!-- section heading --> */}
           <div className="text-center flex flex-col items-center mb-10 md:mb-50px">
