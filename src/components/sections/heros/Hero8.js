@@ -111,14 +111,7 @@ const Hero8 = () => {
 			</div>
 
 			{/* <!-- scroll --> */}
-			<div className="hero_scroll -left-[15px] lg:-left-[35px] 3xl:-left-[-15px] hidden md:block">
-				<a className="down" href="#scroll-hero">
-					<span>
-						<i className="fa-regular fa-arrow-right"></i>
-					</span>
-					Scroll Down
-				</a>
-			</div>
+			{/* Removed scroll indicator to clean up the design */}
 		</section>
 	);
 };
