@@ -2,6 +2,7 @@
 
 import ButtonPopupVideo from "@/components/shared/buttons/ButtonPopupVideo";
 import ButtonPrimary from "@/components/shared/buttons/ButtonPrimary";
+import TypeWriter from "@/components/shared/others/TypeWriter";
 
 const Hero8 = () => {
 	return (
@@ -11,18 +12,19 @@ const Hero8 = () => {
 			<div className="container">
 				<div className="grid lg:grid-cols-2 gap-y-[100px] md:gap-y-20 lg:gap-y-0">
 					<div className="lg:pl-30px xl:pl-15px 2xl:pl-0">
-						<h4 className="text-gray-color-2 text-lg  leading-1.5  font-semibold flex items-center gap-10px mb-5 lg:mb-30px">
+						<h4 className="text-gray-color-2 text-lg leading-1.5 font-semibold flex items-center gap-10px mb-5 lg:mb-30px">
 							<span>
 								<img
 									className="origin-[70%_70%] animate-weave"
 									src="/img/icons/hero-h8-1.png"
 									alt="Icons"
 								/>
-							</span>{" "}
-							Hi There, I am{" "}
-							<span className="text-primary-color dark:text-white-color  ">
-								Ashiwani Kumar
 							</span>
+							<TypeWriter 
+								text="Hi There, I am Ashiwani Kumar" 
+								delay={150}
+								className="text-gray-color-2 dark:text-gray-color-2"
+							/>
 						</h4>
 
 						<h1 className="text-size-38 sm:text-size-45 md:text-size-50 xl:text-size-65 2xl:text-size-80 text-primary-color  dark:text-white-color leading-1.1 lg:leading-1.1  mb-5  tracking-[-0.02em] font-semibold uppercase ">

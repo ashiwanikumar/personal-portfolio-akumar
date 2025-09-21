@@ -7,30 +7,8 @@ const About5 = () => {
 				<div className="container">
 					{/* <!-- section heading --> */}
 
-					<div className="flex flex-wrap items-end justify-between gap-x-30px gap-y-50px">
-						<div
-							className="w-full max-w-[515px] lg:max-w-[390px] xl:max-w-[515px]  mx-auto lg:mx-0   relative z-0 before:w-full before:h-[300px] sm:before:h-[405px]   before:absolute  before:bottom-0 before:left-0  before:rounded-[120px_14px_14px_14px]
-						before:bg-gradient-13
-						before:animate-gratient 
-							before:bg-[length:600%_100%] before:shadow-shadow-inset 
-							before:-z-1  after:w-full after:h-[300px] sm:after:h-[405px] after:absolute  after:left-[-10px] after:bottom-[10px] after:border-2 after:border-primary-color  after:rounded-[120px_14px_14px_14px] after:shadow-shadow-inset-2 after:bg-transparent after:-z-[2]  wow zoomIn"
-							data-wow-delay=".3s"
-						>
-							<img
-								className="w-full"
-								src="/img/about/ab-8-images.png"
-								alt="Images"
-							/>
-							<div className="absolute w-full max-w-50px right-[30px] top-[120px]  z-1 animate-move-var">
-								<img
-									src="/img/shapes/ab-8-shapes.png"
-									className="w-full"
-									alt="Shapes"
-								/>
-							</div>
-						</div>
-
-						<div className="w-full max-w-[630px] lg:max-w-[510px] xl:max-w-[560px] 2xl:max-w-[630px]   ">
+					<div className="flex flex-wrap items-center justify-center">
+						<div className="w-full max-w-[1000px] mx-auto text-center">
 							<div className="mb-25px  ">
 								<span
 									className="text-xs  uppercase text-primary-color  font-semibold relative inline-block tracking-0.2em wow fadeInRight"

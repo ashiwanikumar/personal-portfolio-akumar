@@ -241,6 +241,68 @@ body.hacker-theme .button:hover {
 	background-color: var(--black-color);
 	color: var(--white-color);
 }
+
+/* Typewriter Animation */
+.typewriter {
+	overflow: hidden;
+	border-right: 2px solid #8750f7;
+	white-space: nowrap;
+	animation: typing 4s steps(25, end), blink-caret 0.8s step-end infinite;
+	display: inline-block;
+	max-width: fit-content;
+}
+
+@keyframes typing {
+	from { 
+		width: 0; 
+		border-right-color: currentColor;
+	}
+	to { 
+		width: 100%; 
+		border-right-color: currentColor;
+	}
+}
+
+@keyframes blink-caret {
+	from, to { 
+		border-right-color: transparent; 
+	}
+	50% { 
+		border-right-color: currentColor; 
+	}
+}
+
+/* Typewriter for hacker theme */
+body.hacker-theme .typewriter {
+	border-right-color: #00ff41;
+}
+
+body.hacker-theme .typewriter::after {
+	color: #00ff41;
+}
+
+/* Typewriter for dark theme */
+.dark .typewriter {
+	border-right-color: #8750f7;
+}
+
+.dark .typewriter::after {
+	color: #8750f7;
+}
+
+/* Default light theme typewriter */
+.typewriter {
+	border-right-color: #8750f7;
+}
+
+/* Hacker theme cursor for TypeWriter component */
+body.hacker-theme .bg-primary-color {
+	background-color: #00ff41 !important;
+}
+
+body.hacker-theme .text-primary-color {
+	color: #00ff41 !important;
+}
 /* typography */
 h1,
 h2,
