@@ -110,10 +110,10 @@ const Footer5 = () => {
 								<ul className="nav flex flex-col  gap-3">
 									<li className="nav_item group relative">
 										<Link
-											href="mailto:hello-designer@gerold.com"
+											href="mailto:ashvanikumar109@gmail.com"
 											className="text-size-15 font-normal text-seondary-color dark:text-white-color hover:text-primary-color dark:hover:text-primary-color capitalize  "
 										>
-											hello-designer@gerold.com
+											ashvanikumar109@gmail.com
 										</Link>
 									</li>
 
@@ -198,10 +198,42 @@ const Footer5 = () => {
 							}`}
 						>
 							<div>
-								<ul className="nav flex items-center    gap-4">
+								<ul className="social-nav flex items-center gap-4" style={{ border: 'none', backgroundColor: 'transparent', boxShadow: 'none' }}>
 									<li className="nav_item group relative ">
 										<Link
-											href="#"
+											href="https://github.com/ashiwanikumar"
+											target="_blank"
+											rel="noopener noreferrer"
+											className="text-size-15 font-normal text-seondary-color dark:text-white-color hover:text-primary-color dark:hover:text-primary-color capitalize flex gap-2 items-center "
+										>
+											<span
+												className="text-dark-color group-hover:text-white-color dark:text-white-color
+                    text-size-13 border border-border-color dark:border-border-color-3 group-hover:border-transparent dark:group-hover:border-transparent w-30px h-30px rounded-full flex items-center justify-center overflow-hidden relative z-0 after:absolute after:top-1/2 after:left-1/2 after:-translate-x-1/2 after:-translate-y-1/2 after:w-full after:h-full after:scale-0 after:bg-gradient-primary-8 group-hover:after:scale-105 after:transition-all after:duration-300 after:z-[-1] after:rounded-full"
+											>
+												<i className="fab fa-github"></i>
+											</span>
+										</Link>
+									</li>
+									<li className="nav_item group relative ">
+										<Link
+											href="https://www.linkedin.com/in/ashiwanikumar/"
+											target="_blank"
+											rel="noopener noreferrer"
+											className="text-size-15 font-normal text-seondary-color dark:text-white-color hover:text-primary-color dark:hover:text-primary-color capitalize flex gap-2 items-center "
+										>
+											<span
+												className="text-dark-color group-hover:text-white-color dark:text-white-color
+                    text-size-13 border border-border-color dark:border-border-color-3 group-hover:border-transparent dark:group-hover:border-transparent w-30px h-30px rounded-full flex items-center justify-center overflow-hidden relative z-0 after:absolute after:top-1/2 after:left-1/2 after:-translate-x-1/2 after:-translate-y-1/2 after:w-full after:h-full after:scale-0 after:bg-gradient-primary-8 group-hover:after:scale-105 after:transition-all after:duration-300 after:z-[-1] after:rounded-full"
+											>
+												<i className="fab fa-linkedin-in"></i>
+											</span>
+										</Link>
+									</li>
+									<li className="nav_item group relative ">
+										<Link
+											href="https://www.facebook.com/terminalrootuser"
+											target="_blank"
+											rel="noopener noreferrer"
 											className="text-size-15 font-normal text-seondary-color dark:text-white-color hover:text-primary-color dark:hover:text-primary-color capitalize flex gap-2 items-center "
 										>
 											<span
@@ -214,7 +246,9 @@ const Footer5 = () => {
 									</li>
 									<li className="nav_item group relative ">
 										<Link
-											href="#"
+											href="https://www.instagram.com/lsblk_a/"
+											target="_blank"
+											rel="noopener noreferrer"
 											className="text-size-15 font-normal text-seondary-color dark:text-white-color hover:text-primary-color dark:hover:text-primary-color capitalize flex gap-2 items-center "
 										>
 											<span
@@ -222,32 +256,6 @@ const Footer5 = () => {
                     text-size-13 border border-border-color dark:border-border-color-3 group-hover:border-transparent dark:group-hover:border-transparent w-30px h-30px rounded-full flex items-center justify-center overflow-hidden relative z-0 after:absolute after:top-1/2 after:left-1/2 after:-translate-x-1/2 after:-translate-y-1/2 after:w-full after:h-full after:scale-0 after:bg-gradient-primary-8 group-hover:after:scale-105 after:transition-all after:duration-300 after:z-[-1] after:rounded-full"
 											>
 												<i className="fab fa-instagram"></i>
-											</span>
-										</Link>
-									</li>
-									<li className="nav_item group relative ">
-										<Link
-											href="#"
-											className="text-size-15 font-normal text-seondary-color dark:text-white-color hover:text-primary-color dark:hover:text-primary-color capitalize flex gap-2 items-center "
-										>
-											<span
-												className="text-dark-color group-hover:text-white-color dark:text-white-color
-                    text-size-13 border border-border-color dark:border-border-color-3 group-hover:border-transparent dark:group-hover:border-transparent w-30px h-30px rounded-full flex items-center justify-center overflow-hidden relative z-0 after:absolute after:top-1/2 after:left-1/2 after:-translate-x-1/2 after:-translate-y-1/2 after:w-full after:h-full after:scale-0 after:bg-gradient-primary-8 group-hover:after:scale-105 after:transition-all after:duration-300 after:z-[-1] after:rounded-full"
-											>
-												<i className="fab fa-x-twitter"></i>
-											</span>
-										</Link>
-									</li>
-									<li className="nav_item group relative ">
-										<Link
-											href="#"
-											className="text-size-15 font-normal text-seondary-color dark:text-white-color hover:text-primary-color dark:hover:text-primary-color capitalize flex gap-2 items-center "
-										>
-											<span
-												className="text-dark-color group-hover:text-white-color dark:text-white-color
-                    text-size-13 border border-border-color dark:border-border-color-3 group-hover:border-transparent dark:group-hover:border-transparent w-30px h-30px rounded-full flex items-center justify-center overflow-hidden relative z-0 after:absolute after:top-1/2 after:left-1/2 after:-translate-x-1/2 after:-translate-y-1/2 after:w-full after:h-full after:scale-0 after:bg-gradient-primary-8 group-hover:after:scale-105 after:transition-all after:duration-300 after:z-[-1] after:rounded-full"
-											>
-												<i className="fab fa-linkedin-in"></i>
 											</span>
 										</Link>
 									</li>

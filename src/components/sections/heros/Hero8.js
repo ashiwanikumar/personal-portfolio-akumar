@@ -6,7 +6,7 @@ import TypeWriter from "@/components/shared/others/TypeWriter";
 
 const Hero8 = () => {
 	return (
-		<section className="hero-section relative pt-170px pb-110px md:pb-30 lg:pt-220px lg:pb-5 2xl:pt-250px 2xl:pb-50px bg-[url('/img/shapes/hero_8.svg')] bg-no-repeat  bg-[top_right]  after:absolute after:top-0 after:left-2/3 after:w-322px after:h-308px after:blur-[150px] after:rounded-50% after:bg-gradient-circle after:-z-1 after:-mt-5%  overflow-hidden">
+		<section className="hero-section relative pt-170px pb-110px md:pb-30 lg:pt-220px lg:pb-5 2xl:pt-250px 2xl:pb-50px after:absolute after:top-0 after:left-2/3 after:w-322px after:h-308px after:blur-[150px] after:rounded-50% after:bg-gradient-circle after:-z-1 after:-mt-5% overflow-hidden">
 			{/* <!-- bg --> */}
 
 			<div className="container">
@@ -48,7 +48,7 @@ const Hero8 = () => {
 			</div>
 			{/* <!-- hero socials --> */}
 			<div className="absolute bottom-20 sm:bottom-[85px] lg:bottom-auto lg:top-1/2  left-1/2 lg:left-[10px]  3xl:left-[50px]  -translate-x-1/2 lg:translate-x-0 lg:-translate-y-1/2">
-				<ul className="nav flex flex-row lg:flex-col items-center    gap-5">
+				<ul className="social-nav flex flex-row lg:flex-col items-center gap-5" style={{ border: 'none', backgroundColor: 'transparent', boxShadow: 'none' }}>
 					<li className="nav_item group relative ">
 						<a
 							href="https://github.com/ashiwanikumar"
