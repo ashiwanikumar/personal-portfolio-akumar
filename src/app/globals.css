@@ -58,6 +58,19 @@ Description: Gerold - Personal Portfolio Tailwind Template
   animation-delay: 4s;
 }
 
+@keyframes spin-slow {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+.animate-spin-slow {
+  animation: spin-slow 20s linear infinite;
+}
+
 /* variable */
 :root {
 	--body-color: #000000;
