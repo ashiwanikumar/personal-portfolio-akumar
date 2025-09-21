@@ -10,9 +10,9 @@ const Hero8 = () => {
 			{/* <!-- bg --> */}
 
 			<div className="container">
-				<div className="grid lg:grid-cols-2 gap-y-[100px] md:gap-y-20 lg:gap-y-0">
-					<div className="lg:pl-30px xl:pl-15px 2xl:pl-0">
-						<h4 className="text-gray-color-2 text-lg leading-1.5 font-semibold flex items-center gap-10px mb-5 lg:mb-30px">
+				<div className="grid lg:grid-cols-2 gap-y-[100px] md:gap-y-20 lg:gap-y-0 items-center">
+					<div className="lg:pl-30px xl:pl-15px 2xl:pl-0 text-center lg:text-left">
+						<h4 className="text-gray-color-2 text-lg leading-1.5 font-semibold flex items-center justify-center lg:justify-start gap-10px mb-5 lg:mb-30px">
 							<span>
 								<img
 									className="origin-[70%_70%] animate-weave"
@@ -33,7 +33,7 @@ const Hero8 = () => {
 							Expert.
 						</h1>
 
-						<p className="text-lg md:text-xl leading-1.5 text-gray-color-2 dark:text-gray-color-2 max-w-420px">
+						<p className="text-lg md:text-xl leading-1.5 text-gray-color-2 dark:text-gray-color-2 max-w-420px mx-auto lg:mx-0">
 							Automating cloud infrastructure, building CI/CD pipelines, and ensuring 
 							system reliability at scale.
 						</p>
@@ -42,6 +42,20 @@ const Hero8 = () => {
 							<ButtonPrimary isIcon={true} href="/#contact">
 								Get In Touch{" "}
 							</ButtonPrimary>
+						</div>
+					</div>
+					{/* DevOps Image Column */}
+					<div className="flex items-center justify-center lg:justify-end">
+						<div className="relative w-full max-w-[500px] animate-float">
+							<img
+								className="w-full h-auto filter drop-shadow-2xl"
+								src="/img/hero/ashiwani_devops.png"
+								alt="DevOps Symbol"
+							/>
+							{/* Animated particles around the image */}
+							<div className="absolute -top-10 -left-10 w-20 h-20 bg-gradient-to-r from-blue-500 to-purple-500 rounded-full blur-xl opacity-60 animate-pulse"></div>
+							<div className="absolute -bottom-10 -right-10 w-24 h-24 bg-gradient-to-r from-green-500 to-blue-500 rounded-full blur-xl opacity-60 animate-pulse animation-delay-2000"></div>
+							<div className="absolute top-1/2 -left-16 w-16 h-16 bg-gradient-to-r from-purple-500 to-pink-500 rounded-full blur-xl opacity-60 animate-pulse animation-delay-4000"></div>
 						</div>
 					</div>
 				</div>
