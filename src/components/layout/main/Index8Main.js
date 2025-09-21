@@ -6,7 +6,6 @@ import Portfolio8 from "@/components/sections/portfolio/Portfolio8";
 import Resume7 from "@/components/sections/resume/Resume7";
 import Services8 from "@/components/sections/services/Services8";
 import Testimonials8 from "@/components/sections/testimonials/Testimonials8";
-import MarqueeSingle2 from "@/components/shared/marquee/MarqueeSingle2";
 
 const Index8Main = () => {
 	return (
@@ -16,7 +15,6 @@ const Index8Main = () => {
 			<Services8 />
 			<Portfolio8 />
 			<Resume7 />
-			<MarqueeSingle2 />
 			<Testimonials8 />
 			<Blogs4 />
 			<Cta5 />

@@ -89,6 +89,44 @@ body {
 	font-family: var(--body-font);
 	background-color: var(--white-color);
 }
+
+/* Hacker Theme for Light Mode */
+body.hacker-theme {
+	background-color: #001100;
+	color: #00ff41;
+	font-family: 'Courier New', monospace;
+}
+
+body.hacker-theme .bg-white-color {
+	background-color: #001100 !important;
+}
+
+body.hacker-theme .bg-cream-light-color {
+	background-color: #002200 !important;
+}
+
+body.hacker-theme .text-seondary-color,
+body.hacker-theme .text-primary-color-light {
+	color: #00ff41 !important;
+}
+
+body.hacker-theme .text-gray-color-2 {
+	color: #00cc33 !important;
+}
+
+body.hacker-theme .text-primary-color {
+	color: #00ff41 !important;
+}
+
+body.hacker-theme .border-body-color,
+body.hacker-theme .border-border-color {
+	border-color: rgba(0, 255, 65, 0.3) !important;
+}
+
+body.hacker-theme .bg-gradient-primary-8 {
+	background: linear-gradient(-10deg, #003300 0%, #00ff41 100%) !important;
+}
+
 .dark body {
 	background-color: var(--black-color);
 	color: var(--white-color);

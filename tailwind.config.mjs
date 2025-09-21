@@ -63,6 +63,14 @@ const bgColor7 = "transparent";
 const bgColor8 = "#ffffff";
 const green1 = "#00ff2f";
 const green2 = "#00f721";
+
+// Hacker theme colors for light mode
+const hackerPrimary = "#00ff41";       // Matrix green
+const hackerSecondary = "#003300";     // Dark green
+const hackerBg = "#001100";            // Very dark green/black
+const hackerText = "#00ff41";          // Bright green text
+const hackerTextDim = "#00cc33";       // Dimmer green
+const hackerBorder = "#00ff4140";      // Transparent green border
 module.exports = {
 	content: [
 		"./demo/index.html",
@@ -124,6 +132,12 @@ module.exports = {
 				"bg-color-8": bgColor8,
 				green1: green1,
 				green2: green2,
+				"hacker-primary": hackerPrimary,
+				"hacker-secondary": hackerSecondary,
+				"hacker-bg": hackerBg,
+				"hacker-text": hackerText,
+				"hacker-text-dim": hackerTextDim,
+				"hacker-border": hackerBorder,
 			},
 			// area and spacing
 			width: {

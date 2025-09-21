@@ -26,32 +26,18 @@ const ThmeModeSwither = () => {
           ></path>
         </svg>
         <span className="text-base block dark:hidden">Dark</span>
-        {/* light  */}
+        {/* hacker theme */}
         <svg
           xmlns="http://www.w3.org/2000/svg"
           className="hidden mr-10px w-5 dark:block"
-          viewBox="0 0 512 512"
+          viewBox="0 0 640 512"
         >
           <path
-            fill="none"
-            stroke="currentColor"
-            strokeLinecap="round"
-            strokeMiterlimit="10"
-            strokeWidth="32"
-            d="M256 48v48M256 416v48M403.08 108.92l-33.94 33.94M142.86 369.14l-33.94 33.94M464 256h-48M96 256H48M403.08 403.08l-33.94-33.94M142.86 142.86l-33.94-33.94"
-          ></path>
-          <circle
-            cx="256"
-            cy="256"
-            r="80"
-            fill="none"
-            stroke="currentColor"
-            strokeLinecap="round"
-            strokeMiterlimit="10"
-            strokeWidth="32"
-          ></circle>
+            fill="currentColor"
+            d="M392.8 1.2c-17-4.9-34.7 5-39.6 22l-128 448c-4.9 17 5 34.7 22 39.6s34.7-5 39.6-22l128-448c4.9-17-5-34.7-22-39.6zm80.6 120.1c-12.5 12.5-12.5 32.8 0 45.3L562.7 256l-89.4 89.4c-12.5 12.5-12.5 32.8 0 45.3s32.8 12.5 45.3 0l112-112c12.5-12.5 12.5-32.8 0-45.3l-112-112c-12.5-12.5-32.8-12.5-45.3 0zm-306.7 0c-12.5-12.5-32.8-12.5-45.3 0l-112 112c-12.5 12.5-12.5 32.8 0 45.3l112 112c12.5 12.5 32.8 12.5 45.3 0s12.5-32.8 0-45.3L77.3 256l89.4-89.4c12.5-12.5 12.5-32.8 0-45.3z"
+          />
         </svg>
-        <span className="text-base hidden dark:block">Light</span>
+        <span className="text-base hidden dark:block">Hacker</span>
       </button>
     </div>
   );
