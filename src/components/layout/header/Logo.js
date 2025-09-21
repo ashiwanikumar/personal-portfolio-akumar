@@ -11,7 +11,7 @@ const Logo = ({ isSticky }) => {
 				className={`${
 					headerType === 9 || headerType === 10
 						? "w-full max-w-[190px]"
-						: "w-15 h-15 "
+						: "w-28 h-28 "
 				} ${
 					isInnerPage && !isSticky
 						? "inline-block   "
@@ -27,7 +27,7 @@ const Logo = ({ isSticky }) => {
 				height={1000}
 			/>
 			<Image
-				className={`w-15 h-15  ${
+				className={`w-28 h-28  ${
 					isInnerPage && !isSticky ? "hidden" : "inlin-block dark:hidden"
 				}`}
 				src="/img/logo/logo-dark.png"

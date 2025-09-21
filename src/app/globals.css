@@ -127,6 +127,116 @@ body.hacker-theme .bg-gradient-primary-8 {
 	background: linear-gradient(-10deg, #003300 0%, #00ff41 100%) !important;
 }
 
+/* Social Media Icons Visibility */
+body.hacker-theme .nav_item a span {
+	border-color: #00ff41 !important;
+	color: #00ff41 !important;
+}
+
+body.hacker-theme .nav_item a span i {
+	color: #00ff41 !important;
+}
+
+body.hacker-theme .nav_item a:hover span {
+	background: #00ff41 !important;
+	color: #001100 !important;
+	border-color: #00ff41 !important;
+}
+
+body.hacker-theme .nav_item a:hover span i {
+	color: #001100 !important;
+}
+
+/* Footer Social Icons */
+body.hacker-theme .socials a {
+	color: #00ff41 !important;
+	border-color: #00ff41 !important;
+}
+
+body.hacker-theme .socials a:hover {
+	background-color: #00ff41 !important;
+	color: #001100 !important;
+}
+
+/* Additional Hacker Theme Styles */
+body.hacker-theme .text-dark-color,
+body.hacker-theme .text-black-color {
+	color: #00ff41 !important;
+}
+
+body.hacker-theme .border-border-color-3,
+body.hacker-theme .border-border-color-4,
+body.hacker-theme .border-border-color-5 {
+	border-color: rgba(0, 255, 65, 0.2) !important;
+}
+
+body.hacker-theme button,
+body.hacker-theme .btn {
+	color: #00ff41 !important;
+	border-color: #00ff41 !important;
+}
+
+body.hacker-theme button:hover,
+body.hacker-theme .btn:hover {
+	background-color: #00ff41 !important;
+	color: #001100 !important;
+}
+
+/* Hero scroll indicator */
+body.hacker-theme .hero_scroll a {
+	color: #00ff41 !important;
+}
+
+/* Navigation and Header Improvements */
+body.hacker-theme .navbar a,
+body.hacker-theme .header a,
+body.hacker-theme .nav_item a {
+	color: #00ff41 !important;
+	font-weight: 500 !important;
+	text-shadow: 0 0 2px rgba(0, 255, 65, 0.3) !important;
+}
+
+body.hacker-theme .nav_item a:hover {
+	color: #00ff88 !important;
+	text-shadow: 0 0 5px rgba(0, 255, 65, 0.6) !important;
+}
+
+/* Header background for better contrast */
+body.hacker-theme .header-sticky,
+body.hacker-theme .header {
+	background-color: rgba(0, 17, 0, 0.95) !important;
+	backdrop-filter: blur(10px) !important;
+	border-bottom: 1px solid rgba(0, 255, 65, 0.2) !important;
+}
+
+/* Navigation container */
+body.hacker-theme .nav {
+	background-color: rgba(0, 17, 0, 0.8) !important;
+	border: 1px solid rgba(0, 255, 65, 0.3) !important;
+	backdrop-filter: blur(5px) !important;
+}
+
+/* "Let's Talk" button improvements */
+body.hacker-theme .btn,
+body.hacker-theme button[type="submit"],
+body.hacker-theme .button {
+	background: linear-gradient(135deg, #003300 0%, #00ff41 100%) !important;
+	color: #001100 !important;
+	border: 2px solid #00ff41 !important;
+	font-weight: 600 !important;
+	text-shadow: none !important;
+	box-shadow: 0 0 10px rgba(0, 255, 65, 0.3) !important;
+}
+
+body.hacker-theme .btn:hover,
+body.hacker-theme button[type="submit"]:hover,
+body.hacker-theme .button:hover {
+	background: #00ff41 !important;
+	color: #001100 !important;
+	box-shadow: 0 0 20px rgba(0, 255, 65, 0.6) !important;
+	transform: translateY(-2px) !important;
+}
+
 .dark body {
 	background-color: var(--black-color);
 	color: var(--white-color);

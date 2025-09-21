@@ -198,11 +198,6 @@ const Footer5 = () => {
 							}`}
 						>
 							<div>
-								<span className="text-xs leading-2 sm:leading-2 uppercase font-semibold text-seondary-color dark:text-white-color block relative pl-4 before:absolute before:left-0 before:top-1/2 before:-translate-y-1/2 before:w-[7px] before:h-[7px]  before:bg-green1 before:rounded-100% ">
-									AVAILABLE FOR FREELANCE
-								</span>
-							</div>
-							<div>
 								<ul className="nav flex items-center    gap-4">
 									<li className="nav_item group relative ">
 										<Link
@@ -259,12 +254,14 @@ const Footer5 = () => {
 								</ul>
 							</div>
 							<div className="copyright text-primary-color-light dark:text-gray-color-4  whitespace-nowrap text-sm  uppercase ">
-								©All rights reserved by
+								©All rights reserved by{" "}
 								<Link
-									href="/"
+									href="https://ashiwanikumar.com"
+									target="_blank"
+									rel="noopener noreferrer"
 									className="text-primary-color-light dark:text-white-color hover:text-primary-color dark:hover:text-primary-color"
 								>
-									ThemeJunction
+									Ashiwani Kumar
 								</Link>
 							</div>
 						</div>
