@@ -21,26 +21,26 @@ const Hero8 = () => {
 							</span>{" "}
 							Hi There, I am{" "}
 							<span className="text-primary-color dark:text-white-color  ">
-								Gerold
+								Ashiwani Kumar
 							</span>
 						</h4>
 
 						<h1 className="text-size-38 sm:text-size-45 md:text-size-50 xl:text-size-65 2xl:text-size-80 text-primary-color  dark:text-white-color leading-1.1 lg:leading-1.1  mb-5  tracking-[-0.02em] font-semibold uppercase ">
-							Let’s Building
+							DevOps & SRE
 							<span className="flex items-center gap-10px">
-								Digital{" "}
+								Engineer{" "}
 								<img
 									src="/img/hero/hero8-1.png"
 									className="mr-0  w-full   max-w-120px xl:max-w-140px h-55px xl:h-75px   inline-block relative    overflow-hidden  rounded-[150px]  object-cover    "
 									alt="Images"
 								/>
 							</span>
-							Straspan.
+							Expert.
 						</h1>
 
 						<p className="text-lg md:text-xl leading-1.5 text-gray-color-2 dark:text-gray-color-2 max-w-420px">
-							Digital marketing refers to the use of digital channels,
-							platforms.
+							Automating cloud infrastructure, building CI/CD pipelines, and ensuring 
+							system reliability at scale.
 						</p>
 						{/* <!-- action and social --> */}
 						<div className="mt-30px md:mt-10">
@@ -112,53 +112,59 @@ const Hero8 = () => {
 				<ul className="nav flex flex-row lg:flex-col items-center    gap-5">
 					<li className="nav_item group relative ">
 						<a
-							href="#"
+							href="https://github.com/ashiwanikumar"
+							target="_blank"
+							rel="noopener noreferrer"
 							className="text-size-15 font-normal text-seondary-color dark:text-white-color hover:text-primary-color dark:hover:text-primary-color capitalize flex gap-2 items-center "
 						>
 							<span
 								className="text-dark-color group-hover:text-white-color dark:text-white-color
  border border-border-color dark:border-border-color-3 group-hover:border-transparent dark:group-hover:border-transparent w-35px h-35px rounded-full flex items-center justify-center overflow-hidden relative z-0 after:absolute after:top-1/2 after:left-1/2 after:-translate-x-1/2 after:-translate-y-1/2 after:w-full after:h-full after:scale-0 after:bg-gradient-primary-8 group-hover:after:scale-105 after:transition-all after:duration-300 after:z-[-1] after:rounded-full"
 							>
-								<i className="fa-brands fa-behance "></i>
+								<i className="fa-brands fa-github "></i>
 							</span>
 						</a>
 					</li>
 					<li className="nav_item group relative ">
 						<a
-							href="#"
+							href="https://www.linkedin.com/in/ashiwanikumar/"
+							target="_blank"
+							rel="noopener noreferrer"
 							className="text-size-15 font-normal text-seondary-color dark:text-white-color hover:text-primary-color dark:hover:text-primary-color capitalize flex gap-2 items-center "
 						>
 							<span
 								className="text-dark-color group-hover:text-white-color dark:text-white-color
  border border-border-color dark:border-border-color-3 group-hover:border-transparent dark:group-hover:border-transparent w-35px h-35px rounded-full flex items-center justify-center overflow-hidden relative z-0 after:absolute after:top-1/2 after:left-1/2 after:-translate-x-1/2 after:-translate-y-1/2 after:w-full after:h-full after:scale-0 after:bg-gradient-primary-8 group-hover:after:scale-105 after:transition-all after:duration-300 after:z-[-1] after:rounded-full"
 							>
-								<i className="fa-light fa-basketball"></i>
+								<i className="fa-brands fa-linkedin-in"></i>
 							</span>
 						</a>
 					</li>
 					<li className="nav_item group relative ">
 						<a
-							href="#"
+							href="https://www.facebook.com/terminalrootuser"
+							target="_blank"
+							rel="noopener noreferrer"
 							className="text-size-15 font-normal text-seondary-color dark:text-white-color hover:text-primary-color dark:hover:text-primary-color capitalize flex gap-2 items-center "
 						>
 							<span
 								className="text-dark-color group-hover:text-white-color dark:text-white-color
  border border-border-color dark:border-border-color-3 group-hover:border-transparent dark:group-hover:border-transparent w-35px h-35px rounded-full flex items-center justify-center overflow-hidden relative z-0 after:absolute after:top-1/2 after:left-1/2 after:-translate-x-1/2 after:-translate-y-1/2 after:w-full after:h-full after:scale-0 after:bg-gradient-primary-8 group-hover:after:scale-105 after:transition-all after:duration-300 after:z-[-1] after:rounded-full"
 							>
-								<i className="fa-brands fa-instagram"></i>
+								<i className="fa-brands fa-facebook"></i>
 							</span>
 						</a>
 					</li>
 					<li className="nav_item group relative ">
 						<a
-							href="#"
+							href="mailto:ashvanikumar109@gmail.com"
 							className="text-size-15 font-normal text-seondary-color dark:text-white-color hover:text-primary-color dark:hover:text-primary-color capitalize flex gap-2 items-center "
 						>
 							<span
 								className="text-dark-color group-hover:text-white-color dark:text-white-color
  border border-border-color dark:border-border-color-3 group-hover:border-transparent dark:group-hover:border-transparent w-35px h-35px rounded-full flex items-center justify-center overflow-hidden relative z-0 after:absolute after:top-1/2 after:left-1/2 after:-translate-x-1/2 after:-translate-y-1/2 after:w-full after:h-full after:scale-0 after:bg-gradient-primary-8 group-hover:after:scale-105 after:transition-all after:duration-300 after:z-[-1] after:rounded-full"
 							>
-								<i className="fab fa-x-twitter"></i>
+								<i className="fa-regular fa-envelope"></i>
 							</span>
 						</a>
 					</li>

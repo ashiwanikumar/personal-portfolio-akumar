@@ -1,10 +1,10 @@
-import IndexMain from "@/components/layout/main/IndexMain";
+import Index8Main from "@/components/layout/main/Index8Main";
 import PageWrapper from "@/components/shared/wrappers/PageWrapper";
 
 export default function Home() {
   return (
-    <PageWrapper isIndexPage={true}>
-      <IndexMain />
+    <PageWrapper isIndexPage={true} headerType={6} footerType={8}>
+      <Index8Main />
     </PageWrapper>
   );
 }

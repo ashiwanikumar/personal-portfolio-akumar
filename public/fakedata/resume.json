@@ -4,50 +4,55 @@
     "iconName": "flaticon-recommendation",
     "resumeItems": [
       {
-        "date": "2022 - Present",
-        "title": "Programming course",
-        "desc": "Blockdots, London"
+        "date": "Jan 2024 - Present",
+        "title": "Linux DevOps Engineer - Astek Middle East",
+        "desc": "Managing 400+ servers across 5 UAE airports with 99.9% uptime"
       },
       {
-        "date": "2021 - 2022",
-        "title": "CMS course",
-        "desc": "Parsons, The New School"
+        "date": "Aug 2022 - Jan 2024",
+        "title": "System Engineer - NMC Healthcare",
+        "desc": "Managed healthcare infrastructure with 400+ VMs and 45+ physical servers"
       },
       {
-        "date": "2020 - 2021",
-        "title": "Web design course",
-        "desc": "House of Life, Leeds"
+        "date": "Jun 2021 - Jul 2022",
+        "title": "Linux System Administrator - CoreHive Computing",
+        "desc": "Administered 200+ SUSE Linux servers for telecom clients"
       },
       {
-        "date": "2018 - 2020",
-        "title": "Parsons, The New School",
-        "desc": "Theme Junction, Bursa"
+        "date": "Aug 2018 - Jun 2021",
+        "title": "SUSE Linux & VMware Admin - Dilip Buildcon",
+        "desc": "Managed enterprise infrastructure for construction management systems"
+      },
+      {
+        "date": "Feb 2016 - Dec 2016",
+        "title": "Technical Support Engineer - Seagull Global",
+        "desc": "Managed multi-OS environments and AWS EC2 instances for logistics"
       }
     ]
   },
   {
-    "title": "My Education",
+    "title": "My Education & Certifications",
     "iconName": "flaticon-graduation-cap",
     "resumeItems": [
       {
-        "date": "2020 - 2023",
-        "title": "BLOCKDOTS",
-        "desc": "Harverd University"
+        "date": "2023",
+        "title": "Certified Kubernetes Administrator (CKA)",
+        "desc": "CNCF Certification"
       },
       {
-        "date": "2016 - 2020",
-        "title": "Parsons, The New School",
-        "desc": "University of Denmark"
+        "date": "2022",
+        "title": "AWS Solutions Architect Professional",
+        "desc": "Amazon Web Services"
       },
       {
-        "date": "2012 - 2015",
-        "title": "IDEO",
-        "desc": "University of California"
+        "date": "2021",
+        "title": "HashiCorp Certified Terraform Associate",
+        "desc": "HashiCorp"
       },
       {
-        "date": "2010 - 2011",
-        "title": "Parsons, The New School",
-        "desc": "Parsons, The New School"
+        "date": "2011 - 2015",
+        "title": "Bachelor of Technology (B.Tech)",
+        "desc": "Computer Science & Engineering"
       }
     ]
   }
