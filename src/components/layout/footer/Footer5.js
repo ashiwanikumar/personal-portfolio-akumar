@@ -231,6 +231,21 @@ const Footer5 = () => {
 									</li>
 									<li className="nav_item group relative ">
 										<Link
+											href="https://x.com/theashvanikumar"
+											target="_blank"
+											rel="noopener noreferrer"
+											className="text-size-15 font-normal text-seondary-color dark:text-white-color hover:text-primary-color dark:hover:text-primary-color capitalize flex gap-2 items-center "
+										>
+											<span
+												className="text-dark-color group-hover:text-white-color dark:text-white-color
+                    text-size-13 border border-border-color dark:border-border-color-3 group-hover:border-transparent dark:group-hover:border-transparent w-30px h-30px rounded-full flex items-center justify-center overflow-hidden relative z-0 after:absolute after:top-1/2 after:left-1/2 after:-translate-x-1/2 after:-translate-y-1/2 after:w-full after:h-full after:scale-0 after:bg-gradient-primary-8 group-hover:after:scale-105 after:transition-all after:duration-300 after:z-[-1] after:rounded-full"
+											>
+												<i className="fab fa-x-twitter"></i>
+											</span>
+										</Link>
+									</li>
+									<li className="nav_item group relative ">
+										<Link
 											href="https://www.facebook.com/terminalrootuser"
 											target="_blank"
 											rel="noopener noreferrer"

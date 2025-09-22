@@ -95,6 +95,21 @@ const Hero8 = () => {
 					</li>
 					<li className="nav_item group relative ">
 						<a
+							href="https://x.com/theashvanikumar"
+							target="_blank"
+							rel="noopener noreferrer"
+							className="text-size-15 font-normal text-seondary-color dark:text-white-color hover:text-primary-color dark:hover:text-primary-color capitalize flex gap-2 items-center "
+						>
+							<span
+								className="text-dark-color group-hover:text-white-color dark:text-white-color
+ border border-border-color dark:border-border-color-3 group-hover:border-transparent dark:group-hover:border-transparent w-35px h-35px rounded-full flex items-center justify-center overflow-hidden relative z-0 after:absolute after:top-1/2 after:left-1/2 after:-translate-x-1/2 after:-translate-y-1/2 after:w-full after:h-full after:scale-0 after:bg-gradient-primary-8 group-hover:after:scale-105 after:transition-all after:duration-300 after:z-[-1] after:rounded-full"
+							>
+								<i className="fa-brands fa-x-twitter"></i>
+							</span>
+						</a>
+					</li>
+					<li className="nav_item group relative ">
+						<a
 							href="https://www.facebook.com/terminalrootuser"
 							target="_blank"
 							rel="noopener noreferrer"
