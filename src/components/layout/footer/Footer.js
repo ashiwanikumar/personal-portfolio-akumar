@@ -48,10 +48,10 @@ const Footer = () => {
 								</li>
 								<li>
 									<Link
-										href="/cv"
+										href="/resume"
 										className="text-[#00ff41] hover:text-[#00ff88] text-sm font-medium uppercase tracking-wider transition-all duration-300"
 									>
-										CV
+										Resume
 									</Link>
 								</li>
 								<li>
