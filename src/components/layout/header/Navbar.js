@@ -25,7 +25,7 @@ const Navbar = ({ isActiveMobileMenu, setIsActiveMobileMenu, isSticky }) => {
 					headerType === 5
 						? "gap-x-25px lg:gap-x-10px xl:gap-x-15px 2xl:gap-x-25px"
 						: headerType === 4 || headerType === 6 || headerType === 9
-						? `gap-x-5  2xl:gap-x-35px lg:px-10 rounded-full ${
+						? `gap-x-5  2xl:gap-x-25px lg:px-6 rounded-full ${
 								headerType === 6 || headerType === 9
 									? "lg:bg-cream-light-color lg:dark:bg-black-color"
 									: "lg:border lg:border-primary-color "
@@ -51,9 +51,9 @@ const Navbar = ({ isActiveMobileMenu, setIsActiveMobileMenu, isSticky }) => {
 										headerType === 5 || headerType === 10 ? "" : "py-10px "
 									}  ${
 										headerType === 5 || headerType === 6 || headerType === 9
-											? ` text-seondary-color hover:text-primary-color dark:text-gray-color-4 dark:hover:text-white-color ${
+											? ` text-[#00ff41] nav-glow-hover font-mono tracking-wider uppercase text-sm ${
 													headerType === 6 || headerType === 9
-														? "py-10px md:py-14px lg:py-14px 2xl:py-14px"
+														? "py-10px md:py-12px lg:py-12px 2xl:py-12px px-4"
 														: "px-14px py-3px border border-transparent hover:border-primary-color rounded-full"
 											  }   `
 											: headerType === 4

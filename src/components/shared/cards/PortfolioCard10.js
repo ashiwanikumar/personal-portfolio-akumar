@@ -5,11 +5,11 @@ const PortfolioCard10 = ({ portfolio, idx }) => {
 	return (
 		<div className="flex flex-col md:flex-row md:[&:nth-child(2n)]:flex-row-reverse items-center gap-30px lg:gap-60px xl:gap-75px 2xl:gap-40 overflow-hidden group mb-60px md:mb-80px">
 			<div
-				className="branding p-15px md:p-30px bg-cream-light-color dark:bg-black-color w-full max-w-[645px] rounded-15px transition-all duration-300 relative wow zoomIn"
+				className="branding p-15px md:p-30px bg-cream-light-color dark:bg-black-color w-full max-w-[645px] rounded-[30px] transition-all duration-300 relative wow zoomIn"
 				data-wow-delay=".3s"
 				data-tilt
 			>
-				<div className="rounded-15px overflow-hidden">
+				<div className="rounded-[30px] overflow-hidden">
 					<img src={img} className="transition-all duration-400 w-full" alt={title} />
 				</div>
 			</div>

@@ -25,34 +25,34 @@ const AIThoughts = () => {
 	];
 
 	return (
-		<section id="ai-thoughts" className="py-60px md:py-20 lg:py-30 bg-white dark:bg-dark-color-2">
+		<section id="ai-thoughts" className="py-60px md:py-20 lg:py-30 bg-[#001100]">
 			<div className="container">
 				<div className="text-center mb-50px">
-					<span className="text-xs uppercase text-primary-color font-semibold tracking-0.2em mb-4 block">
-						AI Vision
+					<span className="text-xs uppercase text-[#00ff41] font-semibold tracking-0.2em mb-4 block font-mono">
+						&gt;_ AI Vision
 					</span>
-					<h2 className="text-3xl md:text-size-35 lg:text-size-40 xl:text-size-45 uppercase font-semibold leading-1.2 -tracking-0.02em text-seondary-color dark:text-white-color mb-4">
+					<h2 className="text-3xl md:text-size-35 lg:text-size-40 xl:text-size-45 uppercase font-bold leading-1.2 -tracking-0.02em text-[#00ff41] mb-4">
 						Shaping the Future of AI Infrastructure
 					</h2>
-					<p className="text-gray-color-2 dark:text-gray-color-2 leading-1.5 max-w-600px mx-auto text-lg">
+					<p className="text-[#00cc33] leading-1.5 max-w-600px mx-auto text-lg font-mono">
 						Passionate about bridging the gap between DevOps excellence and AI innovation.
 						Here&apos;s my vision for the future of infrastructure.
 					</p>
 				</div>
 
-				<div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
+				<div className="grid md:grid-cols-2 lg:grid-cols-4 gap-30px">
 					{thoughts.map((thought, index) => (
 						<div
 							key={index}
-							className="group p-6 bg-cream-light-color dark:bg-black-color rounded-20 hover:bg-gradient-primary-8 transition-all duration-300"
+							className="group p-6 bg-[#002200] border border-[#00ff41]/30 rounded-[30px] hover:border-[#00ff41] hover:shadow-[0_0_20px_rgba(0,255,65,0.2)] transition-all duration-300"
 						>
-							<div className="w-16 h-16 bg-primary-color/10 group-hover:bg-white/20 rounded-full flex items-center justify-center mb-5 transition-all duration-300">
-								<i className={`${thought.icon} text-2xl text-primary-color group-hover:text-white transition-colors duration-300`}></i>
+							<div className="w-14 h-14 bg-[#00ff41]/10 group-hover:bg-[#00ff41]/20 rounded-[15px] flex items-center justify-center mb-5 transition-all duration-300 border border-[#00ff41]/30">
+								<i className={`${thought.icon} text-xl text-[#00ff41] transition-colors duration-300`}></i>
 							</div>
-							<h3 className="text-xl font-semibold text-seondary-color dark:text-white-color group-hover:text-white mb-3 transition-colors duration-300">
+							<h3 className="text-xl font-bold text-[#00ff41] mb-3 font-mono">
 								{thought.title}
 							</h3>
-							<p className="text-gray-color-2 group-hover:text-white/80 leading-1.5 transition-colors duration-300">
+							<p className="text-[#00cc33] leading-1.5 font-mono text-sm">
 								{thought.description}
 							</p>
 						</div>
@@ -60,15 +60,15 @@ const AIThoughts = () => {
 				</div>
 
 				<div className="text-center mt-50px">
-					<div className="inline-flex items-center gap-4 p-4 bg-gradient-to-r from-primary-color/10 to-purple-500/10 rounded-20">
-						<span className="text-lg text-seondary-color dark:text-white-color font-medium">
+					<div className="inline-flex flex-col sm:flex-row items-center gap-4 p-6 bg-[#002200] border border-[#00ff41]/30 rounded-[30px]">
+						<span className="text-lg text-[#00ff41] font-medium font-mono">
 							Want to discuss AI & DevOps?
 						</span>
 						<a
 							href="https://x.com/theashvanikumar"
 							target="_blank"
 							rel="noopener noreferrer"
-							className="inline-flex items-center gap-2 px-6 py-3 bg-primary-color text-white rounded-full hover:bg-primary-color/90 transition-colors duration-300"
+							className="inline-flex items-center gap-2 px-6 py-3 bg-[#00ff41] text-[#001100] font-bold rounded-full hover:bg-[#00ff88] hover:shadow-[0_0_20px_rgba(0,255,65,0.5)] transition-all duration-300 font-mono"
 						>
 							<i className="fa-brands fa-x-twitter"></i>
 							Follow @theashvanikumar

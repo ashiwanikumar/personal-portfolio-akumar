@@ -1,6 +1,7 @@
 import About5 from "@/components/sections/about/About5";
 import AIThoughts from "@/components/sections/ai-thoughts/AIThoughts";
 import Cta5 from "@/components/sections/cta/Cta5";
+import CVViewer from "@/components/sections/cv-viewer/CVViewer";
 import Hero8 from "@/components/sections/heros/Hero8";
 import Newsletter from "@/components/sections/newsletter/Newsletter";
 import Portfolio8 from "@/components/sections/portfolio/Portfolio8";
@@ -16,6 +17,7 @@ const Index8Main = () => {
 			<Services8 />
 			<Portfolio8 />
 			<Resume7 />
+			<CVViewer />
 			<AIThoughts />
 			<Testimonials8 />
 			<Newsletter />

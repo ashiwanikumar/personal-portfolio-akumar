@@ -41,7 +41,7 @@ const Resume7 = () => {
 								? resume[0].resumeItems.map((item, idx) => (
 									<div
 										key={idx}
-										className="py-30px px-15px xl:px-30px  border border-body-color dark:border-bg-color-2  rounded-15px  transition-all duration-300 wow fadeInUp "
+										className="py-30px px-15px xl:px-30px  border border-body-color dark:border-bg-color-2  rounded-[30px]  transition-all duration-300 wow fadeInUp "
 										data-wow-delay=".3s"
 									>
 										<div

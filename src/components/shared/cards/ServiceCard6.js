@@ -1,7 +1,7 @@
 const ServiceCard6 = ({ service, idx }) => {
 	const { title, iconName, shortDesc } = service || {};
 	return (
-		<div className="rounded-15px relative p-30px bg-white-color dark:bg-dark-color backdrop-blur-[40px] border border-border-color dark:border-transparent text-center z-0 group transition-all duration-500 h-full">
+		<div className="rounded-[30px] relative p-30px bg-white-color dark:bg-dark-color backdrop-blur-[40px] border border-border-color dark:border-transparent text-center z-0 group transition-all duration-500 h-full">
 			<div className="mb-35px">
 				<span className="w-16 h-16 bg-gradient-secondary bg-200 rounded-100% inline-flex justify-center items-center leading-1">
 					<i

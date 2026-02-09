@@ -71,6 +71,51 @@ Description: Personal Portfolio - Site Reliability Engineer & DevOps Expert
   animation: spin-slow 20s linear infinite;
 }
 
+/* Nav link glow effect */
+.nav-glow-hover {
+  position: relative;
+  transition: all 0.3s ease;
+}
+
+.nav-glow-hover::before {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: 2px;
+  background: linear-gradient(90deg, transparent, #00ff41, transparent);
+  transform: scaleX(0);
+  transform-origin: right;
+  transition: transform 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.nav-glow-hover::after {
+  content: '';
+  position: absolute;
+  bottom: -2px;
+  left: 0;
+  width: 100%;
+  height: 6px;
+  background: linear-gradient(90deg, transparent, #00ff41, transparent);
+  filter: blur(6px);
+  transform: scaleX(0);
+  transform-origin: right;
+  transition: transform 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+  opacity: 0.8;
+}
+
+.nav-glow-hover:hover::before,
+.nav-glow-hover:hover::after {
+  transform: scaleX(1);
+  transform-origin: left;
+}
+
+.nav-glow-hover:hover {
+  color: #00ff88;
+  text-shadow: 0 0 10px rgba(0, 255, 65, 0.8), 0 0 20px rgba(0, 255, 65, 0.5), 0 0 40px rgba(0, 255, 65, 0.3);
+}
+
 /* variable */
 :root {
 	--body-color: #000000;
