@@ -1553,6 +1553,7 @@ body.loaded {
 	display: -webkit-box;
 	display: -ms-flexbox;
 	display: flex;
+	flex-direction: column;
 	overflow: hidden;
 	-webkit-box-align: center;
 	-ms-flex-align: center;
@@ -1569,26 +1570,46 @@ body.loaded {
 	top: 0;
 	width: 100vw;
 	height: 110vh;
-	fill: var(--white-color);
+	fill: #001100;
 }
-.dark .preloader svg {
-	fill: var(--black-color);
-}
-.preloader .preloader-heading .load-text {
-	font-size: 20px;
-	font-weight: 200;
-	letter-spacing: 15px;
-	text-transform: uppercase;
-	color: var(--primary-color-light);
+
+.preloader .preloader-heading {
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	gap: 20px;
 	z-index: 20;
 }
-.dark .preloader .preloader-heading .load-text {
-	color: var(--white-color);
+
+.preloader .preloader-heading .load-text {
+	font-size: 36px;
+	font-weight: 700;
+	letter-spacing: 12px;
+	text-transform: uppercase;
+	color: #00ff41;
+	z-index: 20;
+	font-family: monospace;
+	text-shadow: 0 0 20px rgba(0, 255, 65, 0.5), 0 0 40px rgba(0, 255, 65, 0.3);
+}
+
+.preloader .preloader-heading .load-subtext {
+	font-size: 14px;
+	font-weight: 400;
+	letter-spacing: 3px;
+	color: #00cc33;
+	font-family: monospace;
+	animation: blink-text 1s infinite;
+}
+
+.preloader .preloader-heading .terminal-cursor {
+	color: #00ff41;
+	margin-right: 8px;
 }
 
 .load-text span {
-	-webkit-animation: loading 1s infinite alternate;
-	animation: loading 1s infinite alternate;
+	display: inline-block;
+	-webkit-animation: loading-glow 1.2s infinite alternate;
+	animation: loading-glow 1.2s infinite alternate;
 }
 
 .load-text span:nth-child(1) {
@@ -1626,21 +1647,39 @@ body.loaded {
 	animation-delay: 0.6s;
 }
 
-@-webkit-keyframes loading {
+.load-text span:nth-child(8) {
+	-webkit-animation-delay: 0.7s;
+	animation-delay: 0.7s;
+}
+
+@-webkit-keyframes loading-glow {
 	0% {
-		opacity: 1;
+		opacity: 0.4;
+		text-shadow: 0 0 10px rgba(0, 255, 65, 0.3);
 	}
 	100% {
-		opacity: 0;
+		opacity: 1;
+		text-shadow: 0 0 20px rgba(0, 255, 65, 0.8), 0 0 40px rgba(0, 255, 65, 0.5);
 	}
 }
 
-@keyframes loading {
+@keyframes loading-glow {
 	0% {
-		opacity: 1;
+		opacity: 0.4;
+		text-shadow: 0 0 10px rgba(0, 255, 65, 0.3);
 	}
 	100% {
-		opacity: 0;
+		opacity: 1;
+		text-shadow: 0 0 20px rgba(0, 255, 65, 0.8), 0 0 40px rgba(0, 255, 65, 0.5);
+	}
+}
+
+@keyframes blink-text {
+	0%, 50% {
+		opacity: 1;
+	}
+	51%, 100% {
+		opacity: 0.5;
 	}
 }
 

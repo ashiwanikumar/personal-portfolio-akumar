@@ -1,0 +1,137 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 600">
+  <defs>
+    <linearGradient id="bgGrad2" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#001100"/>
+      <stop offset="100%" style="stop-color:#002200"/>
+    </linearGradient>
+    <filter id="glow2">
+      <feGaussianBlur stdDeviation="3" result="coloredBlur"/>
+      <feMerge>
+        <feMergeNode in="coloredBlur"/>
+        <feMergeNode in="SourceGraphic"/>
+      </feMerge>
+    </filter>
+  </defs>
+
+  <!-- Background -->
+  <rect width="800" height="600" fill="url(#bgGrad2)"/>
+
+  <!-- Grid pattern -->
+  <g stroke="#00ff41" stroke-opacity="0.1" stroke-width="1">
+    <line x1="0" y1="100" x2="800" y2="100"/>
+    <line x1="0" y1="200" x2="800" y2="200"/>
+    <line x1="0" y1="300" x2="800" y2="300"/>
+    <line x1="0" y1="400" x2="800" y2="400"/>
+    <line x1="0" y1="500" x2="800" y2="500"/>
+    <line x1="100" y1="0" x2="100" y2="600"/>
+    <line x1="200" y1="0" x2="200" y2="600"/>
+    <line x1="300" y1="0" x2="300" y2="600"/>
+    <line x1="400" y1="0" x2="400" y2="600"/>
+    <line x1="500" y1="0" x2="500" y2="600"/>
+    <line x1="600" y1="0" x2="600" y2="600"/>
+    <line x1="700" y1="0" x2="700" y2="600"/>
+  </g>
+
+  <!-- Pipeline stages -->
+  <g filter="url(#glow2)">
+    <!-- Stage 1: Code -->
+    <rect x="50" y="250" width="100" height="80" rx="10" fill="none" stroke="#00ff41" stroke-width="2"/>
+    <text x="100" y="280" fill="#00ff41" font-family="monospace" font-size="11" text-anchor="middle">&lt;/&gt;</text>
+    <text x="100" y="310" fill="#00ff41" font-family="monospace" font-size="12" text-anchor="middle">CODE</text>
+
+    <!-- Arrow 1 -->
+    <path d="M155,290 L185,290" stroke="#00ff41" stroke-width="2" fill="none"/>
+    <polygon points="185,285 195,290 185,295" fill="#00ff41"/>
+
+    <!-- Stage 2: Build -->
+    <rect x="200" y="250" width="100" height="80" rx="10" fill="none" stroke="#00ff41" stroke-width="2"/>
+    <g transform="translate(250, 275)">
+      <rect x="-15" y="-10" width="30" height="20" fill="none" stroke="#00ff41" stroke-width="2"/>
+      <line x1="-10" y1="-5" x2="10" y2="-5" stroke="#00ff41" stroke-width="1"/>
+      <line x1="-10" y1="0" x2="5" y2="0" stroke="#00ff41" stroke-width="1"/>
+      <line x1="-10" y1="5" x2="8" y2="5" stroke="#00ff41" stroke-width="1"/>
+    </g>
+    <text x="250" y="310" fill="#00ff41" font-family="monospace" font-size="12" text-anchor="middle">BUILD</text>
+
+    <!-- Arrow 2 -->
+    <path d="M305,290 L335,290" stroke="#00ff41" stroke-width="2" fill="none"/>
+    <polygon points="335,285 345,290 335,295" fill="#00ff41"/>
+
+    <!-- Stage 3: Test -->
+    <rect x="350" y="250" width="100" height="80" rx="10" fill="none" stroke="#00ff41" stroke-width="2"/>
+    <g transform="translate(400, 275)">
+      <circle cx="0" cy="0" r="12" fill="none" stroke="#00ff41" stroke-width="2"/>
+      <path d="M-5,-2 L-2,4 L8,-6" stroke="#00ff41" stroke-width="2" fill="none"/>
+    </g>
+    <text x="400" y="310" fill="#00ff41" font-family="monospace" font-size="12" text-anchor="middle">TEST</text>
+
+    <!-- Arrow 3 -->
+    <path d="M455,290 L485,290" stroke="#00ff41" stroke-width="2" fill="none"/>
+    <polygon points="485,285 495,290 485,295" fill="#00ff41"/>
+
+    <!-- Stage 4: Deploy -->
+    <rect x="500" y="250" width="100" height="80" rx="10" fill="none" stroke="#00ff41" stroke-width="2"/>
+    <g transform="translate(550, 275)">
+      <path d="M-12,-8 L12,-8 L12,8 L-12,8 Z" fill="none" stroke="#00ff41" stroke-width="2"/>
+      <path d="M0,-12 L0,0 M-6,-6 L0,0 L6,-6" stroke="#00ff41" stroke-width="2" fill="none"/>
+    </g>
+    <text x="550" y="310" fill="#00ff41" font-family="monospace" font-size="12" text-anchor="middle">DEPLOY</text>
+
+    <!-- Arrow 4 -->
+    <path d="M605,290 L635,290" stroke="#00ff41" stroke-width="2" fill="none"/>
+    <polygon points="635,285 645,290 635,295" fill="#00ff41"/>
+
+    <!-- Stage 5: Monitor -->
+    <rect x="650" y="250" width="100" height="80" rx="10" fill="none" stroke="#00ff41" stroke-width="2"/>
+    <g transform="translate(700, 275)">
+      <ellipse cx="0" cy="0" rx="15" ry="10" fill="none" stroke="#00ff41" stroke-width="2"/>
+      <circle cx="0" cy="0" r="3" fill="#00ff41"/>
+    </g>
+    <text x="700" y="310" fill="#00ff41" font-family="monospace" font-size="12" text-anchor="middle">MONITOR</text>
+  </g>
+
+  <!-- Infinity loop (CI/CD symbol) -->
+  <g transform="translate(400, 150)" filter="url(#glow2)">
+    <path d="M-80,0 C-80,-40 -40,-40 0,-20 C40,0 80,0 80,-20 C80,-40 40,-40 0,-20 C-40,0 -80,0 -80,20 C-80,40 -40,40 0,20 C40,0 80,0 80,20 C80,40 40,40 0,20 C-40,0 -80,0 -80,0"
+          fill="none" stroke="#00ff41" stroke-width="3" stroke-linecap="round">
+      <animate attributeName="stroke-dasharray" values="0,1000;500,500" dur="3s" repeatCount="indefinite"/>
+    </path>
+  </g>
+
+  <!-- Git branch visualization -->
+  <g transform="translate(100, 420)" filter="url(#glow2)">
+    <line x1="0" y1="0" x2="600" y2="0" stroke="#00ff41" stroke-width="2"/>
+    <circle cx="0" cy="0" r="8" fill="#001100" stroke="#00ff41" stroke-width="2"/>
+    <circle cx="150" cy="0" r="8" fill="#001100" stroke="#00ff41" stroke-width="2"/>
+    <circle cx="300" cy="0" r="8" fill="#001100" stroke="#00ff41" stroke-width="2"/>
+    <circle cx="450" cy="0" r="8" fill="#001100" stroke="#00ff41" stroke-width="2"/>
+    <circle cx="600" cy="0" r="8" fill="#00ff41" stroke="#00ff41" stroke-width="2"/>
+
+    <!-- Branch -->
+    <path d="M150,0 Q200,-50 250,-50 L350,-50 Q400,-50 450,0" fill="none" stroke="#00cc33" stroke-width="2"/>
+    <circle cx="300" cy="-50" r="6" fill="#00cc33"/>
+  </g>
+
+  <!-- Labels for git -->
+  <text x="100" y="480" fill="#00cc33" font-family="monospace" font-size="10">commit</text>
+  <text x="250" y="480" fill="#00cc33" font-family="monospace" font-size="10">merge</text>
+  <text x="400" y="480" fill="#00cc33" font-family="monospace" font-size="10">release</text>
+  <text x="550" y="480" fill="#00cc33" font-family="monospace" font-size="10">tag</text>
+  <text x="680" y="480" fill="#00ff41" font-family="monospace" font-size="10">LIVE</text>
+
+  <!-- Title -->
+  <text x="400" y="540" fill="#00ff41" font-family="monospace" font-size="24" text-anchor="middle" filter="url(#glow2)">
+    CI/CD PIPELINE
+  </text>
+  <text x="400" y="570" fill="#00cc33" font-family="monospace" font-size="14" text-anchor="middle">
+    Continuous Integration &amp; Deployment
+  </text>
+
+  <!-- Decorative corners -->
+  <g stroke="#00ff41" stroke-width="2" fill="none">
+    <path d="M20,50 L20,20 L50,20"/>
+    <path d="M750,20 L780,20 L780,50"/>
+    <path d="M780,550 L780,580 L750,580"/>
+    <path d="M50,580 L20,580 L20,550"/>
+  </g>
+</svg>

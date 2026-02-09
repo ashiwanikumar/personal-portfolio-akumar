@@ -18,8 +18,17 @@ const Preloader = () => {
 
 			<div className="preloader-heading">
 				<div className="load-text">
-					<span>L</span> <span>o</span> <span>a</span> <span>d</span>{" "}
-					<span>i</span> <span>n</span> <span>g</span>
+					<span>A</span>
+					<span>S</span>
+					<span>H</span>
+					<span>I</span>
+					<span>W</span>
+					<span>A</span>
+					<span>N</span>
+					<span>I</span>
+				</div>
+				<div className="load-subtext">
+					<span className="terminal-cursor">&gt;_</span> Initializing...
 				</div>
 			</div>
 		</div>
