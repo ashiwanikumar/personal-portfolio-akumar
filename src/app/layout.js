@@ -28,7 +28,7 @@ export const metadata = {
 		url: "https://ashiwanikumar.com",
 		siteName: "Ashiwani Kumar - SRE & DevOps Engineer",
 		title: "Ashiwani Kumar | Site Reliability Engineer & DevOps Practitioner",
-		description: "Site Reliability Engineer with 7+ years experience. Skilled in Kubernetes, OpenShift, AWS, Terraform, Ansible, and building reliable infrastructure at scale. Open source advocate.",
+		description: "Site Reliability Engineer with 7+ years experience. Skilled in Kubernetes, OpenShift, AWS, Terraform, Ansible, and building reliable infrastructure at scale. Open source enthusiast.",
 		images: [
 			{
 				url: "/img/og-image.png",

@@ -1,3 +1,5 @@
+"use client";
+
 import ButtonPrimary from "@/components/shared/buttons/ButtonPrimary";
 
 const About5 = () => {
@@ -86,7 +88,7 @@ const About5 = () => {
 									<i className="fa-solid fa-heart text-[#00ff41]"></i>
 								</div>
 								<div>
-									<h4 className="text-[#00ff41] font-mono font-bold mb-2">Open Source Advocate</h4>
+									<h4 className="text-[#00ff41] font-mono font-bold mb-2">Open Source Enthusiast</h4>
 									<p className="text-[#00cc33]/80 font-mono text-sm leading-relaxed">
 										Passionate about open source tools and contributing to the community.
 										Building solutions with Linux, Kubernetes, Terraform, and other FOSS technologies.
@@ -102,8 +104,7 @@ const About5 = () => {
 								<div>
 									<h4 className="text-[#00ff41] font-mono font-bold mb-2">Aviation Infrastructure</h4>
 									<p className="text-[#00cc33]/80 font-mono text-sm leading-relaxed">
-										Managing critical systems for Abu Dhabi, Dubai, Sharjah, and other UAE airports.
-										DevSecOps implementation with 70% faster incident response.
+										Managing critical systems for Abu Dhabi, Sharjah, and other UAE airports, plus Muscat International Airport in Oman.
 									</p>
 								</div>
 							</div>

@@ -8,7 +8,7 @@ const MobileMenu = ({ isActiveMobileMenu }) => {
   const navItems = getNavItems();
   return (
     <div
-      className={`mobile-menu absolute left-0 top-full min-h-screen-90 w-full bg-seondary-color block origin-top-left lg:hidden ${
+      className={`mobile-menu absolute left-0 top-full min-h-screen-90 w-full bg-[#001100] block origin-top-left lg:hidden ${
         isActiveMobileMenu ? "active" : ""
       }`}
     >
@@ -19,7 +19,7 @@ const MobileMenu = ({ isActiveMobileMenu }) => {
                 <li key={idx}>
                   <Link
                     href={isIndexPage ? path : path2}
-                    className="text-size-25 text-white-color uppercase leading-1.2 py-15px"
+                    className="text-size-25 text-[#00ff41] hover:text-[#00ff88] uppercase leading-1.2 py-15px font-mono block transition-all duration-300"
                   >
                     {name}
                   </Link>
