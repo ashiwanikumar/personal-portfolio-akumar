@@ -1,32 +1,27 @@
 [
     {
       "name":"About",
-      "path":"#about",
-      "path2":"/#about"
+      "path":"/about",
+      "path2":"/about"
     },
     {
       "name":"Services",
-      "path":"#services",
-      "path2":"/#services"
+      "path":"/services",
+      "path2":"/services"
     },
     {
       "name":"Portfolio",
-      "path":"#portfolio",
-      "path2":"/#portfolio"
+      "path":"/portfolio",
+      "path2":"/portfolio"
     },
     {
       "name":"Resume",
-      "path":"#resume",
-      "path2":"/#resume"
-    },
-    {
-      "name":"CV",
-      "path":"#cv",
-      "path2":"/#cv"
+      "path":"/resume",
+      "path2":"/resume"
     },
     {
       "name":"Contact",
-      "path":"#contact",
-      "path2":"/#contact"
+      "path":"/contact",
+      "path2":"/contact"
     }
 ]
