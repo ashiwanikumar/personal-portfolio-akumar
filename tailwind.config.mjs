@@ -1,10 +1,10 @@
 /*-----------------------------------------------------------------------------------
 
-Theme Name: Gerold - Personal Portfolio Tailwind CSS Template
-Theme URI: https://themejunction.net/
-Author: Theme-Junction
-Author URI: https://themeforest.net/user/theme-junction
-Description: Gerold - Personal Portfolio Tailwind CSS Template
+Theme Name: Ashiwani Kumar - SRE & DevOps Portfolio
+Theme URI: https://ashiwanikumar.com
+Author: Ashiwani Kumar
+Author URI: https://ashiwanikumar.com
+Description: Personal Portfolio - Site Reliability Engineer & DevOps Expert
 
 -----------------------------------------------------------------------------------
 

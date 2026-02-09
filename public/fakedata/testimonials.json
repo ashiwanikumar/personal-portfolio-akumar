@@ -1,62 +1,42 @@
 [
 	{
 		"id": 1,
-		"authorName": "Tim Bailey",
-		"authorDesig": "SEO Specialist, Theme Junction",
+		"authorName": "Ahmed Al-Rashid",
+		"authorDesig": "Head of IT Operations, Government Sector",
 		"img": "/img/testimonials/user/1.jpg",
 		"logoImg": "/img/testimonials/logo/1.png",
 		"logoImgLight": "/img/testimonials/logo/1-dark.png",
 		"thumbImg": "/img/testimonials/user/testmonial-7-thumb.jpg",
-		"desc": "“Taylor is a professional Designer he really helps my business by providing value to my business."
+		"desc": "Ashiwani transformed our infrastructure operations. His expertise in Kubernetes and CI/CD pipelines reduced our deployment time by 80% while maintaining 99.9% uptime."
 	},
 	{
 		"id": 2,
-		"authorName": "Brandon Fraser",
-		"authorDesig": "Senior Software Dev, Cosmic Sport",
+		"authorName": "Sarah Chen",
+		"authorDesig": "CTO, Healthcare Technology",
 		"img": "/img/testimonials/user/2.jpg",
 		"logoImg": "/img/testimonials/logo/2.png",
 		"logoImgLight": "/img/testimonials/logo/2-dark.png",
 		"thumbImg": "/img/testimonials/user/h10-test.png",
-		"desc": "“Taylor is a professional Designer he really helps my business by providing value to my business."
+		"desc": "His deep understanding of cloud architecture and security compliance helped us achieve DOH certification while cutting infrastructure costs by 35%."
 	},
 	{
 		"id": 3,
-		"authorName": "Tim Bailey",
-		"authorDesig": "SEO Specialist, Theme Junction",
+		"authorName": "Rajesh Patel",
+		"authorDesig": "VP Engineering, Telecom Solutions",
 		"img": "/img/testimonials/user/1.jpg",
 		"logoImg": "/img/testimonials/logo/1.png",
 		"logoImgLight": "/img/testimonials/logo/1-dark.png",
 		"thumbImg": "/img/testimonials/user/testmonial-7-thumb.jpg",
-		"desc": "“Taylor is a professional Designer he really helps my business by providing value to my business."
+		"desc": "Ashiwani's automation scripts and Ansible playbooks revolutionized our server provisioning process. What took days now takes minutes."
 	},
 	{
 		"id": 4,
-		"authorName": "Brandon Fraser",
-		"authorDesig": "Senior Software Dev, Cosmic Sport",
+		"authorName": "Mohammed Al-Farsi",
+		"authorDesig": "Director of DevOps, Airport Authority",
 		"img": "/img/testimonials/user/2.jpg",
 		"logoImg": "/img/testimonials/logo/2.png",
 		"logoImgLight": "/img/testimonials/logo/2-dark.png",
 		"thumbImg": "/img/testimonials/user/h10-test.png",
-		"desc": "“Taylor is a professional Designer he really helps my business by providing value to my business."
-	},
-	{
-		"id": 1,
-		"authorName": "Tim Bailey",
-		"authorDesig": "SEO Specialist, Theme Junction",
-		"img": "/img/testimonials/user/1.jpg",
-		"logoImg": "/img/testimonials/logo/1.png",
-		"logoImgLight": "/img/testimonials/logo/1-dark.png",
-		"thumbImg": "/img/testimonials/user/testmonial-7-thumb.jpg",
-		"desc": "“Taylor is a professional Designer he really helps my business by providing value to my business."
-	},
-	{
-		"id": 2,
-		"authorName": "Brandon Fraser",
-		"authorDesig": "Senior Software Dev, Cosmic Sport",
-		"img": "/img/testimonials/user/2.jpg",
-		"logoImg": "/img/testimonials/logo/2.png",
-		"logoImgLight": "/img/testimonials/logo/2-dark.png",
-		"thumbImg": "/img/testimonials/user/testmonial-7-thumb.jpg",
-		"desc": "“Taylor is a professional Designer he really helps my business by providing value to my business."
+		"desc": "Managing infrastructure for multiple airports is complex. Ashiwani brought reliability, automation, and peace of mind to our operations team."
 	}
 ]

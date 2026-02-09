@@ -64,24 +64,8 @@ const Footer = () => {
 								</li>
 							</ul>
 						</div>
-						<div
-							className={`copyright ${
-								footerType === 2 || footerType === 3
-									? "text-primary-color"
-									: "text-gray-color"
-							} whitespace-nowrap text-sm md:text-base mt-5`}
-						>
-							© 2024 All rights reserved by{" "}
-							<Link
-								href="/"
-								className={`${
-									footerType === 2 || footerType === 3
-										? "text-primary-color "
-										: "text-white-color"
-								} hover:text-primary-color`}
-							>
-								ThemeJunction
-							</Link>
+						<div className="copyright text-gray-color whitespace-nowrap text-sm md:text-base mt-5">
+							© {new Date().getFullYear()} Ashiwani Kumar. All rights reserved.
 						</div>
 					</div>
 				</div>

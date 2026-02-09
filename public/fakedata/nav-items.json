@@ -1,33 +1,32 @@
 [
-
+    {
+      "name":"About",
+      "path":"#about",
+      "path2":"/#about"
+    },
     {
       "name":"Services",
       "path":"#services",
-      "path2":"/#services"  
+      "path2":"/#services"
     },
     {
-      "name":"Works",
+      "name":"Portfolio",
       "path":"#portfolio",
-      "path2":"/#portfolio"  
+      "path2":"/#portfolio"
     },
     {
       "name":"Resume",
       "path":"#resume",
-      "path2":"/#resume"  
+      "path2":"/#resume"
     },
     {
-      "name":"Skills",
-      "path":"#skills",
-      "path2":"/#skills"  
-    },
-    {
-      "name":"Testimonials",
-      "path":"#testimonials",
-      "path2":"/#testimonials"  
+      "name":"AI Vision",
+      "path":"#ai-thoughts",
+      "path2":"/#ai-thoughts"
     },
     {
       "name":"Contact",
       "path":"#contact",
-      "path2":"/#contact"  
+      "path2":"/#contact"
     }
 ]

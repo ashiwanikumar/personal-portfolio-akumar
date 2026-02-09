@@ -5,54 +5,49 @@
     "resumeItems": [
       {
         "date": "Jan 2024 - Present",
-        "title": "Linux DevOps Engineer - Astek Middle East",
-        "desc": "Managing 400+ servers across 5 UAE airports with 99.9% uptime"
+        "title": "Site Reliability Engineer - Astek Middle East",
+        "desc": "Managing critical infrastructure for 5 UAE airports with 99.9% uptime, serving 50M+ annual passengers. DevSecOps implementation with 70% faster incident response."
       },
       {
         "date": "Aug 2022 - Jan 2024",
         "title": "System Engineer - NMC Healthcare",
-        "desc": "Managed healthcare infrastructure with 400+ VMs and 45+ physical servers"
+        "desc": "Managed 400+ servers supporting EMR systems with 99.8% availability. Reduced cloud costs by 35% through AWS/Azure optimization."
       },
       {
         "date": "Jun 2021 - Jul 2022",
         "title": "Linux System Administrator - CoreHive Computing",
-        "desc": "Administered 200+ SUSE Linux servers for telecom clients"
+        "desc": "Administered 400+ SUSE Linux servers for telecom clients. Automated provisioning with Ansible, reducing setup time by 60%."
       },
       {
         "date": "Aug 2018 - Jun 2021",
         "title": "SUSE Linux & VMware Admin - Dilip Buildcon",
-        "desc": "Managed enterprise infrastructure for construction management systems"
-      },
-      {
-        "date": "Feb 2016 - Dec 2016",
-        "title": "Technical Support Engineer - Seagull Global",
-        "desc": "Managed multi-OS environments and AWS EC2 instances for logistics"
+        "desc": "Managed enterprise Linux and VMware environments. Improved operational efficiency by 40% through automation scripts."
       }
     ]
   },
   {
-    "title": "My Education & Certifications",
+    "title": "Education & Certifications",
     "iconName": "flaticon-graduation-cap",
     "resumeItems": [
       {
-        "date": "2023",
-        "title": "Certified Kubernetes Administrator (CKA)",
-        "desc": "CNCF Certification"
-      },
-      {
-        "date": "2022",
-        "title": "AWS Solutions Architect Professional",
+        "date": "2024",
+        "title": "AWS Solutions Architect - Associate",
         "desc": "Amazon Web Services"
       },
       {
-        "date": "2021",
-        "title": "HashiCorp Certified Terraform Associate",
-        "desc": "HashiCorp"
+        "date": "Certified",
+        "title": "RHCSA & CCNA",
+        "desc": "Red Hat Certified System Administrator & Cisco Certified Network Associate"
       },
       {
-        "date": "2011 - 2015",
-        "title": "Bachelor of Technology (B.Tech)",
-        "desc": "Computer Science & Engineering"
+        "date": "Certified",
+        "title": "JNCIA-Cloud, JNCIA-SEC, JNCIA-Junos",
+        "desc": "Juniper Networks Certified Associate - Cloud, Security & Junos"
+      },
+      {
+        "date": "2015 - 2018",
+        "title": "B.E. Computer Science Engineering",
+        "desc": "Rajiv Gandhi Prodyogiki Vishwavidyalaya - First Class Graduate"
       }
     ]
   }

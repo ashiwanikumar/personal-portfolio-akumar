@@ -24,7 +24,7 @@ const Portfolio8 = () => {
 								</span>
 							</div>
 							<h2 className="text-3xl md:text-size-35 lg:text-size-40 xl:text-size-45 uppercase font-semibold  leading-1.2 -tracking-0.02em inline-block text-seondary-color dark:text-white-color  max-w-580px w-full tj-text-invert">
-								Recent work for br MY clients
+								Featured Projects
 							</h2>
 						</div>
 					</div>

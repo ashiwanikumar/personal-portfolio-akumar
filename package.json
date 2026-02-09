@@ -1,7 +1,9 @@
 {
-	"name": "gerold",
-	"version": "0.1.0",
+	"name": "ashiwanikumar-portfolio",
+	"version": "1.0.0",
 	"private": true,
+	"description": "Personal Portfolio - Ashiwani Kumar - Site Reliability Engineer & DevOps Expert",
+	"author": "Ashiwani Kumar <ashvanikumar109@gmail.com>",
 	"scripts": {
 		"dev": "next dev --turbopack",
 		"build": "next build",
