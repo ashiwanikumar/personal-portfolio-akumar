@@ -1,7 +1,9 @@
 {
-	"name": "gerold",
-	"version": "0.1.0",
+	"name": "ashiwanikumar-portfolio",
+	"version": "1.0.0",
 	"private": true,
+	"description": "Personal Portfolio - Ashiwani Kumar - Site Reliability Engineer & DevOps Expert",
+	"author": "Ashiwani Kumar <ashvanikumar109@gmail.com>",
 	"scripts": {
 		"dev": "next dev --turbopack",
 		"build": "next build",
@@ -12,7 +14,7 @@
 		"glightbox": "^3.3.0",
 		"gsap": "^3.12.7",
 		"isotope-layout": "^3.0.6",
-		"next": "15.1.2",
+		"next": "^16.1.6",
 		"nice-select2": "^2.2.0",
 		"react": "^19.0.0",
 		"react-dom": "^19.0.0",

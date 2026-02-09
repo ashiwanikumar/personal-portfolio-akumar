@@ -1,213 +1,196 @@
 [
 	{
 		"id": 1,
-		"title": "Deloitte",
-		"title2": "Project Description",
+		"title": "Kubernetes Migration",
+		"title2": "Cloud Native Transformation",
 		"img": "/img/portfolio/2.jpg",
 		"img2": "/img/portfolio/portfolio-6-1.jpg",
 		"imgLarge": "/img/project/project-5.png",
 		"detailsImg": "/img/portfolio/portfolio-details-1.jpg",
-		"desc": "They are was greater open above shelter lets itself under appear sixth open gathering made upon can't own above midst gathering gathered he one us saying can't divide.",
-		"shortDesc": "Project was about precision and information",
-		"desc1": "The goal is there are many variations of passages of Lorem Ipsum available, but the majority have suffered alteration in some form, by injected humour, or randomised words which don't look even slightly believable.",
-		"desc2": "There are many variations of passages of Lorem Ipsum available, but the majority have suffered alteration in some form, by injected humour, or randomised words which don't look even slightly believable. If you are going to use a passage of Lorem Ipsum, you need to be sure there isn't anything embarrassing hidden in the middle of text.",
-
-		"category": "Branding",
+		"desc": "Led the migration of monolithic applications to microservices architecture on Kubernetes, resulting in 40% improvement in deployment speed.",
+		"shortDesc": "Enterprise-scale Kubernetes migration project",
+		"desc1": "Designed and implemented a complete Kubernetes platform for a Fortune 500 company, migrating over 100 applications from legacy infrastructure to cloud-native architecture. Implemented GitOps workflows with ArgoCD and established comprehensive monitoring.",
+		"desc2": "The project included setting up multi-cluster management, implementing service mesh with Istio, and establishing CI/CD pipelines with automated testing and security scanning. Reduced infrastructure costs by 35% through efficient resource utilization.",
+		"category": "Cloud Infrastructure",
 		"featured": true,
-		"featuredDesc": " Project was about precision and information. That’s all. Our design tem helps clients achieve their marketing Trager and branding that appeals to a website",
+		"featuredDesc": "Transformed legacy infrastructure to cloud-native Kubernetes platform, enabling faster deployments and better scalability",
 		"featuredImg": "/img/project/project-2.png",
 		"employee": {
-			"name": "Jeremy Doughlas",
-			"desig": "UI & UX designer",
+			"name": "Ashiwani Kumar",
+			"desig": "DevOps/SRE Engineer",
 			"img": "/img/project/project-1.png"
 		},
-		"tags": ["Branding", "Graphic Design", "User Stories"],
-		"dataFilter": "branding",
+		"tags": ["Kubernetes", "Cloud Migration", "GitOps"],
+		"dataFilter": "infrastructure",
 		"statusItem": [
 			{
 				"title": "Category",
-				"desc": "Web Design"
+				"desc": "Cloud Infrastructure"
 			},
 			{
-				"title": "Client",
-				"desc": "Artboard Studio"
+				"title": "Technologies",
+				"desc": "Kubernetes, ArgoCD, Istio"
 			},
 			{
-				"title": "Start Date",
-				"desc": "August 20, 2023"
+				"title": "Duration",
+				"desc": "6 months"
 			},
 			{
-				"title": "Designer",
-				"desc": "ThemeJunction"
+				"title": "Scale",
+				"desc": "100+ Applications"
 			}
 		],
 		"descItems": [
 			{
-				"title": "The story",
-				"desc": "There are many variations of passages of Lorem Ipsum available, but the majority have suffered alteration in some form, by injected humour, or randomised words which don't look even slightly believable. If you are going to use a passage of Lorem Ipsum, you need to be sure there isn't anything embarrassing hidden in the middle of text. There are many variations of passages of Lorem Ipsum available, but the majority have suffered alteration in some form, by injected humour, or randomised words which don't look even slightly believable. If you are going to use a passage of Lorem Ipsum, you need to be sure there isn't anything embarrassing hidden in the middle of text."
+				"title": "The Challenge",
+				"desc": "The client had a complex monolithic architecture with manual deployment processes that took days. They needed to modernize their infrastructure to support rapid development and deployment while ensuring high availability and scalability."
 			},
 			{
-				"title": "OUR APPROACH",
-				"desc": "There are many variations of passages of Lorem Ipsum available, but the majority have suffered alteration in some form, by injected humour, or randomised words which don't look even slightly believable. If you are going to use a passage of Lorem Ipsum, you need to be sure there isn't anything embarrassing hidden in the middle of text. There are many variations of passages of Lorem Ipsum available, but the majority have suffered alteration in some form, by injected humour, or randomised words which don't look even slightly believable. If you are going to use a passage of Lorem Ipsum, you need to be sure there isn't anything embarrassing hidden in the middle of text."
+				"title": "Our Approach",
+				"desc": "We implemented a phased migration strategy, starting with containerization of applications, followed by Kubernetes cluster setup across multiple regions. Established GitOps workflows for declarative infrastructure management and implemented comprehensive monitoring and alerting."
 			}
-		]
+		],
+		"challenge": {
+			"title": "The challenge of Project",
+			"desc": "Migrating critical production workloads without downtime while training teams on new technologies and processes."
+		}
 	},
 	{
 		"id": 2,
-		"title": "New Age",
-		"title2": "Project Description",
-		"img": "/img/portfolio/3.jpg",
+		"title": "CI/CD Pipeline Automation",
+		"title2": "DevOps Transformation",
+		"img": "/img/portfolio/1.jpg",
 		"img2": "/img/portfolio/portfolio-6-2.jpg",
-		"imgLarge": "/img/portfolio/1.jpg",
+		"imgLarge": "/img/project/project-1.png",
 		"detailsImg": "/img/portfolio/portfolio-details-2.jpg",
-		"desc": "They are was greater open above shelter lets itself under appear sixth open gathering made upon can't own above midst gathering gathered he one us saying can't divide.",
-		"shortDesc": "Project was about precision and information",
-		"desc1": "The goal is there are many variations of passages of Lorem Ipsum available, but the majority have suffered alteration in some form, by injected humour, or randomised words which don't look even slightly believable.",
-		"desc2": "There are many variations of passages of Lorem Ipsum available, but the majority have suffered alteration in some form, by injected humour, or randomised words which don't look even slightly believable. If you are going to use a passage of Lorem Ipsum, you need to be sure there isn't anything embarrassing hidden in the middle of text.",
-
-		"category": "UX/UI",
+		"desc": "Built enterprise CI/CD pipelines reducing deployment time from hours to minutes with automated testing and security scanning.",
+		"shortDesc": "End-to-end CI/CD pipeline implementation",
+		"desc1": "Implemented comprehensive CI/CD pipelines using Jenkins, GitLab CI, and GitHub Actions. Integrated automated testing, code quality checks, security scanning, and compliance validation into the deployment process.",
+		"desc2": "The solution included blue-green deployments, automated rollbacks, and feature flags for safe production releases. Achieved 99% reduction in deployment-related incidents and enabled multiple daily deployments.",
+		"category": "DevOps",
 		"featured": true,
-		"featuredDesc": " Project was about precision and information. That’s all. Our design tem helps clients achieve their marketing Trager and branding that appeals to a website",
+		"featuredDesc": "Automated software delivery pipeline enabling rapid, reliable deployments with built-in security and quality checks",
 		"featuredImg": "/img/project/project-3.png",
-		"employee": {
-			"name": "",
-			"desig": "",
-			"img": ""
-		},
-		"tags": ["Branding", "Graphic Design", "User Stories"],
-		"dataFilter": "uxui",
+		"tags": ["CI/CD", "Jenkins", "Automation"],
+		"dataFilter": "devops",
 		"statusItem": [
 			{
 				"title": "Category",
-				"desc": "Web Design"
+				"desc": "DevOps Automation"
 			},
 			{
-				"title": "Client",
-				"desc": "Artboard Studio"
+				"title": "Tools",
+				"desc": "Jenkins, GitLab CI, Sonar"
 			},
 			{
-				"title": "Start Date",
-				"desc": "August 20, 2023"
+				"title": "Deployment Time",
+				"desc": "< 10 minutes"
 			},
 			{
-				"title": "Designer",
-				"desc": "ThemeJunction"
+				"title": "Success Rate",
+				"desc": "99.5%"
 			}
 		],
 		"descItems": [
 			{
-				"title": "The story",
-				"desc": "There are many variations of passages of Lorem Ipsum available, but the majority have suffered alteration in some form, by injected humour, or randomised words which don't look even slightly believable. If you are going to use a passage of Lorem Ipsum, you need to be sure there isn't anything embarrassing hidden in the middle of text. There are many variations of passages of Lorem Ipsum available, but the majority have suffered alteration in some form, by injected humour, or randomised words which don't look even slightly believable. If you are going to use a passage of Lorem Ipsum, you need to be sure there isn't anything embarrassing hidden in the middle of text."
+				"title": "Pipeline Architecture",
+				"desc": "Designed multi-stage pipelines with parallel execution for faster builds. Implemented caching strategies and distributed builds to optimize performance. Integrated with multiple testing frameworks and security tools."
 			},
 			{
-				"title": "OUR APPROACH",
-				"desc": "There are many variations of passages of Lorem Ipsum available, but the majority have suffered alteration in some form, by injected humour, or randomised words which don't look even slightly believable. If you are going to use a passage of Lorem Ipsum, you need to be sure there isn't anything embarrassing hidden in the middle of text. There are many variations of passages of Lorem Ipsum available, but the majority have suffered alteration in some form, by injected humour, or randomised words which don't look even slightly believable. If you are going to use a passage of Lorem Ipsum, you need to be sure there isn't anything embarrassing hidden in the middle of text."
+				"title": "Results",
+				"desc": "Reduced deployment time by 90%, eliminated manual errors, and enabled developers to deploy with confidence. Established automated rollback procedures and comprehensive deployment metrics."
 			}
 		]
 	},
 	{
 		"id": 3,
-		"title": "Sebastian",
-		"title2": "Project Description",
-		"img": "/img/portfolio/4.jpg",
+		"title": "AWS Infrastructure Automation",
+		"title2": "Cloud Automation Project",
+		"img": "/img/portfolio/3.jpg",
 		"img2": "/img/portfolio/portfolio-6-3.jpg",
-		"imgLarge": "/img/portfolio/4.jpg",
+		"imgLarge": "/img/project/project-3.png",
 		"detailsImg": "/img/portfolio/portfolio-details-3.jpg",
-		"desc": "They are was greater open above shelter lets itself under appear sixth open gathering made upon can't own above midst gathering gathered he one us saying can't divide.",
-		"shortDesc": "Project was about precision and information",
-		"desc1": "The goal is there are many variations of passages of Lorem Ipsum available, but the majority have suffered alteration in some form, by injected humour, or randomised words which don't look even slightly believable.",
-		"desc2": "There are many variations of passages of Lorem Ipsum available, but the majority have suffered alteration in some form, by injected humour, or randomised words which don't look even slightly believable. If you are going to use a passage of Lorem Ipsum, you need to be sure there isn't anything embarrassing hidden in the middle of text.",
-
-		"category": "Apps",
-		"featured": true,
-		"featuredDesc": " Project was about precision and information. That’s all. Our design tem helps clients achieve their marketing Trager and branding that appeals to a website",
-		"featuredImg": "/img/project/project-4.png",
-		"employee": {
-			"name": "",
-			"desig": "",
-			"img": ""
-		},
-		"tags": ["Branding", "Graphic Design", "User Stories"],
-		"dataFilter": "mobile-app",
+		"desc": "Automated AWS infrastructure provisioning using Terraform, reducing setup time from days to minutes.",
+		"shortDesc": "Infrastructure as Code implementation on AWS",
+		"desc1": "Developed comprehensive Terraform modules for AWS infrastructure including VPCs, EKS clusters, RDS databases, and Lambda functions. Implemented automated compliance checking and cost optimization.",
+		"desc2": "Created reusable modules enabling teams to provision complete environments in minutes. Implemented GitOps workflows for infrastructure changes with automated testing and approval processes.",
+		"category": "Cloud",
+		"featured": false,
+		"tags": ["AWS", "Terraform", "IaC"],
+		"dataFilter": "cloud",
 		"statusItem": [
 			{
 				"title": "Category",
-				"desc": "Web Design"
+				"desc": "Cloud Automation"
 			},
 			{
-				"title": "Client",
-				"desc": "Artboard Studio"
+				"title": "Platform",
+				"desc": "AWS"
 			},
 			{
-				"title": "Start Date",
-				"desc": "August 20, 2023"
+				"title": "IaC Tool",
+				"desc": "Terraform"
 			},
 			{
-				"title": "Designer",
-				"desc": "ThemeJunction"
+				"title": "Cost Savings",
+				"desc": "45%"
 			}
 		],
 		"descItems": [
 			{
-				"title": "The story",
-				"desc": "There are many variations of passages of Lorem Ipsum available, but the majority have suffered alteration in some form, by injected humour, or randomised words which don't look even slightly believable. If you are going to use a passage of Lorem Ipsum, you need to be sure there isn't anything embarrassing hidden in the middle of text. There are many variations of passages of Lorem Ipsum available, but the majority have suffered alteration in some form, by injected humour, or randomised words which don't look even slightly believable. If you are going to use a passage of Lorem Ipsum, you need to be sure there isn't anything embarrassing hidden in the middle of text."
+				"title": "Infrastructure Design",
+				"desc": "Designed highly available, multi-region architecture with automated failover. Implemented least-privilege IAM policies and encryption at rest and in transit."
 			},
 			{
-				"title": "OUR APPROACH",
-				"desc": "There are many variations of passages of Lorem Ipsum available, but the majority have suffered alteration in some form, by injected humour, or randomised words which don't look even slightly believable. If you are going to use a passage of Lorem Ipsum, you need to be sure there isn't anything embarrassing hidden in the middle of text. There are many variations of passages of Lorem Ipsum available, but the majority have suffered alteration in some form, by injected humour, or randomised words which don't look even slightly believable. If you are going to use a passage of Lorem Ipsum, you need to be sure there isn't anything embarrassing hidden in the middle of text."
+				"title": "Automation Benefits",
+				"desc": "Reduced infrastructure provisioning time by 95%, eliminated configuration drift, and enabled self-service infrastructure for development teams."
 			}
 		]
 	},
 	{
 		"id": 4,
-		"title": "Mochnix",
-		"title2": "Project Description",
-		"img": "/img/portfolio/1.jpg",
+		"title": "SRE Implementation",
+		"title2": "Reliability Engineering",
+		"img": "/img/portfolio/4.jpg",
 		"img2": "/img/portfolio/portfolio-6-1.jpg",
-		"imgLarge": "/img/portfolio/3.jpg",
+		"imgLarge": "/img/project/project-4.png",
 		"detailsImg": "/img/portfolio/portfolio-details-4.jpg",
-		"desc": "They are was greater open above shelter lets itself under appear sixth open gathering made upon can't own above midst gathering gathered he one us saying can't divide.",
-		"shortDesc": "Project was about precision and information",
-		"desc1": "The goal is there are many variations of passages of Lorem Ipsum available, but the majority have suffered alteration in some form, by injected humour, or randomised words which don't look even slightly believable.",
-		"desc2": "There are many variations of passages of Lorem Ipsum available, but the majority have suffered alteration in some form, by injected humour, or randomised words which don't look even slightly believable. If you are going to use a passage of Lorem Ipsum, you need to be sure there isn't anything embarrassing hidden in the middle of text.",
-
-		"category": "Branding",
-		"featured": false,
-		"featuredDesc": " Project was about precision and information. That’s all. Our design tem helps clients achieve their marketing Trager and branding that appeals to a website",
-		"featuredImg": "/img/project/project-2.png",
-		"employee": {
-			"name": "",
-			"desig": "",
-			"img": ""
-		},
-		"tags": ["Branding", "Graphic Design", "User Stories"],
-		"dataFilter": "branding",
+		"desc": "Established SRE practices achieving 99.99% uptime through proactive monitoring and automated incident response.",
+		"shortDesc": "Site Reliability Engineering transformation",
+		"desc1": "Implemented comprehensive SRE practices including SLI/SLO definition, error budgets, and automated incident response. Built custom monitoring dashboards and intelligent alerting systems.",
+		"desc2": "Established chaos engineering practices, automated remediation for common issues, and comprehensive runbooks. Reduced MTTR by 70% through improved observability and automation.",
+		"category": "SRE",
+		"featured": true,
+		"featuredDesc": "Transformed operations with SRE practices, achieving industry-leading reliability and reduced incident response times",
+		"featuredImg": "/img/project/project-4.png",
+		"tags": ["SRE", "Monitoring", "Reliability"],
+		"dataFilter": "sre",
 		"statusItem": [
 			{
 				"title": "Category",
-				"desc": "Web Design"
+				"desc": "Site Reliability"
 			},
 			{
-				"title": "Client",
-				"desc": "Artboard Studio"
+				"title": "Uptime",
+				"desc": "99.99%"
 			},
 			{
-				"title": "Start Date",
-				"desc": "August 20, 2023"
+				"title": "MTTR Reduction",
+				"desc": "70%"
 			},
 			{
-				"title": "Designer",
-				"desc": "ThemeJunction"
+				"title": "Alert Reduction",
+				"desc": "80%"
 			}
 		],
 		"descItems": [
 			{
-				"title": "The story",
-				"desc": "There are many variations of passages of Lorem Ipsum available, but the majority have suffered alteration in some form, by injected humour, or randomised words which don't look even slightly believable. If you are going to use a passage of Lorem Ipsum, you need to be sure there isn't anything embarrassing hidden in the middle of text. There are many variations of passages of Lorem Ipsum available, but the majority have suffered alteration in some form, by injected humour, or randomised words which don't look even slightly believable. If you are going to use a passage of Lorem Ipsum, you need to be sure there isn't anything embarrassing hidden in the middle of text."
+				"title": "Observability Stack",
+				"desc": "Implemented Prometheus, Grafana, and ELK stack for comprehensive monitoring. Created custom dashboards for business metrics and established intelligent alerting with PagerDuty integration."
 			},
 			{
-				"title": "OUR APPROACH",
-				"desc": "There are many variations of passages of Lorem Ipsum available, but the majority have suffered alteration in some form, by injected humour, or randomised words which don't look even slightly believable. If you are going to use a passage of Lorem Ipsum, you need to be sure there isn't anything embarrassing hidden in the middle of text. There are many variations of passages of Lorem Ipsum available, but the majority have suffered alteration in some form, by injected humour, or randomised words which don't look even slightly believable. If you are going to use a passage of Lorem Ipsum, you need to be sure there isn't anything embarrassing hidden in the middle of text."
+				"title": "Incident Management",
+				"desc": "Established on-call procedures, automated incident creation, and post-mortem processes. Implemented automated remediation for 60% of common issues."
 			}
 		]
 	}

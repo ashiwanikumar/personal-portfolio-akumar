@@ -1,131 +1,131 @@
 [
 	{
-		"title": "Development",
+		"title": "Kubernetes",
 		"darkImg": "/img/roll/roll-img1.png",
 		"lightImg": "/img/brand/brand-dark-1.png"
 	},
 	{
-		"title": "Design",
+		"title": "Docker",
 		"darkImg": "/img/roll/roll-img2.png",
 		"lightImg": "/img/brand/brand-dark-2.png"
 	},
 	{
-		"title": "Development",
+		"title": "AWS",
 		"darkImg": "/img/roll/roll-img3.png",
 		"lightImg": "/img/brand/brand-dark-3.png"
 	},
 	{
-		"title": "Webflow",
+		"title": "Terraform",
 		"darkImg": "/img/roll/roll-img4.png",
 		"lightImg": "/img/brand/brand-dark-4.png"
 	},
 	{
-		"title": "Graphic",
+		"title": "Jenkins",
 		"darkImg": "/img/roll/roll-img5.png",
 		"lightImg": "/img/brand/brand-dark-5.png"
 	},
 	{
-		"title": " Design",
+		"title": "GitLab",
 		"darkImg": "/img/roll/roll-img6.png",
 		"lightImg": "/img/brand/brand-dark-6.png"
 	},
 	{
-		"title": " Motion",
+		"title": "Prometheus",
 		"darkImg": "/img/roll/roll-img7.png",
 		"lightImg": "/img/brand/brand-dark-7.png"
 	},
 	{
-		"title": "Development",
+		"title": "Grafana",
 		"darkImg": "/img/roll/roll-img8.png",
 		"lightImg": "/img/brand/brand-dark-8.png"
 	},
 	{
-		"title": "Development",
+		"title": "Azure",
 		"darkImg": "/img/roll/roll-img1.png",
 		"lightImg": "/img/brand/brand-dark-1.png"
 	},
 	{
-		"title": "Design",
+		"title": "GCP",
 		"darkImg": "/img/roll/roll-img2.png",
 		"lightImg": "/img/brand/brand-dark-2.png"
 	},
 	{
-		"title": "Development",
+		"title": "Ansible",
 		"darkImg": "/img/roll/roll-img3.png",
 		"lightImg": "/img/brand/brand-dark-3.png"
 	},
 	{
-		"title": "Webflow",
+		"title": "Helm",
 		"darkImg": "/img/roll/roll-img4.png",
 		"lightImg": "/img/brand/brand-dark-4.png"
 	},
 	{
-		"title": "Graphic",
+		"title": "Python",
 		"darkImg": "/img/roll/roll-img5.png",
 		"lightImg": "/img/brand/brand-dark-5.png"
 	},
 	{
-		"title": " Design",
+		"title": "Bash",
 		"darkImg": "/img/roll/roll-img6.png",
 		"lightImg": "/img/brand/brand-dark-6.png"
 	},
 	{
-		"title": " Motion",
+		"title": "Linux",
 		"darkImg": "/img/roll/roll-img7.png",
 		"lightImg": "/img/brand/brand-dark-7.png"
 	},
 	{
-		"title": "Development",
+		"title": "ArgoCD",
 		"darkImg": "/img/roll/roll-img8.png",
 		"lightImg": "/img/brand/brand-dark-8.png"
 	},
 	{
-		"title": "Development",
+		"title": "Kubernetes",
 		"darkImg": "/img/roll/roll-img1.png",
 		"lightImg": "/img/brand/brand-dark-1.png"
 	},
 	{
-		"title": "Design",
+		"title": "Docker",
 		"darkImg": "/img/roll/roll-img2.png",
 		"lightImg": "/img/brand/brand-dark-2.png"
 	},
 	{
-		"title": "Development",
+		"title": "AWS",
 		"darkImg": "/img/roll/roll-img3.png",
 		"lightImg": "/img/brand/brand-dark-3.png"
 	},
 	{
-		"title": "Webflow",
+		"title": "Terraform",
 		"darkImg": "/img/roll/roll-img4.png",
 		"lightImg": "/img/brand/brand-dark-4.png"
 	},
 	{
-		"title": "Graphic",
+		"title": "Jenkins",
 		"darkImg": "/img/roll/roll-img5.png",
 		"lightImg": "/img/brand/brand-dark-5.png"
 	},
 	{
-		"title": " Design",
+		"title": "GitLab",
 		"darkImg": "/img/roll/roll-img6.png",
 		"lightImg": "/img/brand/brand-dark-6.png"
 	},
 	{
-		"title": " Motion",
+		"title": "Prometheus",
 		"darkImg": "/img/roll/roll-img7.png",
 		"lightImg": "/img/brand/brand-dark-7.png"
 	},
 	{
-		"title": "Development",
+		"title": "Grafana",
 		"darkImg": "/img/roll/roll-img8.png",
 		"lightImg": "/img/brand/brand-dark-8.png"
 	},
 	{
-		"title": "Development",
+		"title": "Azure",
 		"darkImg": "/img/roll/roll-img1.png",
 		"lightImg": "/img/brand/brand-dark-1.png"
 	},
 	{
-		"title": "Design",
+		"title": "GCP",
 		"darkImg": "/img/roll/roll-img2.png",
 		"lightImg": "/img/brand/brand-dark-2.png"
 	}

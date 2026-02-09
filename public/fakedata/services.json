@@ -1,117 +1,109 @@
 [
 	{
 		"id": 1,
-		"title": "Web Development",
+		"title": "Cloud Infrastructure",
 		"img": "/img/services/1.png",
 		"imgSm": "/img/icons/services-10-icons-1.svg",
 		"iconName": "flaticon-design",
-
-		"desc": "Elizabeth some dodgy chavs are you taking the piss faff about pardon amongst car boot a load of old tosh is cracking goal blow off telling brown.",
-		"shortDesc": "Ensure your website looks great on any device,with layouts that adapt to different screen sizes seamlessly.",
-		"desc1": "Brolly show off show off pick your nose and blow off well A bit of how’s your father tomfoolery blimey, me old mucker starkers Queen’s English dropped a clanger bite your arm spiffing good time burke Why chancer. Hotpot bum bag cracking goal young delinquent naff bugger cup of chars bender loo it’s all gone to pot the nancy cheeky.",
-		"desc2": "At public school cras bog some dodgy chav Richard Why argy bargy vagabon William bender matie boy, off his nut chancer Jeffrey up the kyver say mufty you mug ummm telling pear shaped Oxford owt to do with me do one so said are you taking his.",
-		"totalProject": "10 Projects",
+		"desc": "Design and implement scalable cloud solutions on AWS, Azure, and GCP with focus on high availability and cost optimization.",
+		"shortDesc": "Build and manage scalable cloud infrastructure with automated provisioning and monitoring.",
+		"desc1": "Expert in designing and implementing cloud-native architectures using services like EC2, Lambda, Kubernetes, and managed databases. I ensure your infrastructure is secure, scalable, and cost-effective through proper resource sizing, auto-scaling policies, and comprehensive monitoring.",
+		"desc2": "Specialized in multi-cloud strategies, disaster recovery planning, and migration of legacy systems to cloud platforms. I implement Infrastructure as Code using Terraform and CloudFormation to ensure consistent and reproducible deployments.",
+		"totalProject": "50+ Cloud Projects",
 		"process": {
-			"title": "Services Process",
+			"title": "Cloud Implementation Process",
 			"img": "/img/services/service-details.jpg",
 			"imgSm": "/img/icons/services-10-icons-2.svg",
-			"iconName": "flaticon-ux-design ",
-
-			"desc": "Elizabeth some dodgy chavs are you taking the piss faff about pardon amongst car boot a load of old tosh is cracking goal blow off telling brown.",
+			"iconName": "flaticon-ux-design",
+			"desc": "Systematic approach to cloud infrastructure design and implementation ensuring reliability and scalability.",
 			"processItems": [
-				"Reinvent Your Business to Better",
-				"Pioneering the Internet's First",
-				"Pioneering the Design World's First",
-				"Pioneering the Design World's First",
-				"Pioneering the Design World's First",
-				"Pioneering the Design World's First"
+				"Architecture Design & Planning",
+				"Infrastructure as Code Development",
+				"Security & Compliance Implementation",
+				"Auto-scaling & Load Balancing Setup",
+				"Monitoring & Alerting Configuration",
+				"Cost Optimization & Review"
 			]
 		}
 	},
 	{
 		"id": 2,
-		"title": "UI/UX Design",
+		"title": "CI/CD Pipelines",
 		"img": "/img/services/2.png",
 		"imgSm": "/img/icons/services-10-icons-3.svg",
 		"iconName": "flaticon-ux-design",
-
-		"desc": "Elizabeth some dodgy chavs are you taking the piss faff about pardon amongst car boot a load of old tosh is cracking goal blow off telling brown.",
-		"shortDesc": "Set up user-friendly CMS solutions like WordPress or custom-built options so clients can manage content  easily.",
-		"desc1": "Brolly show off show off pick your nose and blow off well A bit of how’s your father tomfoolery blimey, me old mucker starkers Queen’s English dropped a clanger bite your arm spiffing good time burke Why chancer. Hotpot bum bag cracking goal young delinquent naff bugger cup of chars bender loo it’s all gone to pot the nancy cheeky.",
-		"desc2": "At public school cras bog some dodgy chav Richard Why argy bargy vagabon William bender matie boy, off his nut chancer Jeffrey up the kyver say mufty you mug ummm telling pear shaped Oxford owt to do with me do one so said are you taking his.",
-		"totalProject": "11 Projects",
+		"desc": "Build and optimize continuous integration and deployment pipelines for faster, reliable software delivery.",
+		"shortDesc": "Automate your software delivery process with robust CI/CD pipelines and deployment strategies.",
+		"desc1": "Implement end-to-end CI/CD pipelines using Jenkins, GitLab CI, GitHub Actions, and Azure DevOps. I focus on automated testing, code quality checks, and secure deployments with rollback capabilities to ensure reliable releases.",
+		"desc2": "Experience with various deployment strategies including blue-green deployments, canary releases, and feature flags. I integrate security scanning, dependency checks, and compliance validation into the pipeline for DevSecOps practices.",
+		"totalProject": "100+ Pipelines Built",
 		"process": {
-			"title": "Services Process",
+			"title": "CI/CD Implementation Process",
 			"img": "/img/services/service-details.jpg",
 			"imgSm": "/img/icons/services-10-icons-1.svg",
 			"iconName": "flaticon-design",
-
-			"desc": "Elizabeth some dodgy chavs are you taking the piss faff about pardon amongst car boot a load of old tosh is cracking goal blow off telling brown.",
+			"desc": "Structured approach to building reliable and efficient CI/CD pipelines.",
 			"processItems": [
-				"Reinvent Your Business to Better",
-				"Pioneering the Internet's First",
-				"Pioneering the Design World's First",
-				"Pioneering the Design World's First",
-				"Pioneering the Design World's First",
-				"Pioneering the Design World's First"
+				"Repository & Branch Strategy Design",
+				"Pipeline Architecture Planning",
+				"Automated Testing Integration",
+				"Security Scanning Implementation",
+				"Deployment Strategy Configuration",
+				"Monitoring & Rollback Setup"
 			]
 		}
 	},
 	{
 		"id": 3,
-		"title": "Content Writing",
+		"title": "Container Orchestration",
 		"img": "/img/services/3.png",
 		"imgSm": "/img/icons/services-10-icons-1.svg",
 		"iconName": "flaticon-web-design",
-
-		"desc": "Elizabeth some dodgy chavs are you taking the piss faff about pardon amongst car boot a load of old tosh is cracking goal blow off telling brown.",
-		"shortDesc": "Build and integrate APIs to connect websites with third-party applications, enhancing functionality and performance.",
-		"desc1": "Brolly show off show off pick your nose and blow off well A bit of how’s your father tomfoolery blimey, me old mucker starkers Queen’s English dropped a clanger bite your arm spiffing good time burke Why chancer. Hotpot bum bag cracking goal young delinquent naff bugger cup of chars bender loo it’s all gone to pot the nancy cheeky.",
-		"desc2": "At public school cras bog some dodgy chav Richard Why argy bargy vagabon William bender matie boy, off his nut chancer Jeffrey up the kyver say mufty you mug ummm telling pear shaped Oxford owt to do with me do one so said are you taking his.",
-		"totalProject": "15 Projects",
+		"desc": "Deploy and manage containerized applications using Kubernetes and Docker for scalable microservices architectures.",
+		"shortDesc": "Expert Kubernetes and Docker implementation for modern microservices deployments.",
+		"desc1": "Design and implement Kubernetes clusters with proper resource management, networking, and security policies. I handle everything from containerization of applications to complex multi-tenant Kubernetes deployments with service mesh integration.",
+		"desc2": "Proficient in Helm chart development, custom operator creation, and implementing GitOps workflows with ArgoCD. I ensure high availability, automatic scaling, and efficient resource utilization for containerized workloads.",
+		"totalProject": "40+ K8s Clusters",
 		"process": {
-			"title": "Services Process",
+			"title": "Container Platform Process",
 			"img": "/img/services/service-details.jpg",
 			"imgSm": "/img/icons/services-10-icons-1.svg",
 			"iconName": "flaticon-design",
-
-			"desc": "Elizabeth some dodgy chavs are you taking the piss faff about pardon amongst car boot a load of old tosh is cracking goal blow off telling brown.",
+			"desc": "Comprehensive approach to container orchestration and microservices deployment.",
 			"processItems": [
-				"Reinvent Your Business to Better",
-				"Pioneering the Internet's First",
-				"Pioneering the Design World's First",
-				"Pioneering the Design World's First",
-				"Pioneering the Design World's First",
-				"Pioneering the Design World's First"
+				"Container Strategy Assessment",
+				"Kubernetes Cluster Design",
+				"Microservices Architecture Planning",
+				"Service Mesh Implementation",
+				"Observability & Monitoring Setup",
+				"GitOps Workflow Configuration"
 			]
 		}
 	},
 	{
 		"id": 4,
-		"title": "Digital Marketing",
+		"title": "SRE & Monitoring",
 		"img": "/img/services/4.png",
 		"imgSm": "/img/icons/services-10-icons-1.svg",
 		"iconName": "flaticon-3d-movie",
-
-		"desc": "Elizabeth some dodgy chavs are you taking the piss faff about pardon amongst car boot a load of old tosh is cracking goal blow off telling brown.",
-		"shortDesc": "Refresh outdated websites with modern, appealing designs that align with current brand goals and user expectations.",
-		"desc1": "Brolly show off show off pick your nose and blow off well A bit of how’s your father tomfoolery blimey, me old mucker starkers Queen’s English dropped a clanger bite your arm spiffing good time burke Why chancer. Hotpot bum bag cracking goal young delinquent naff bugger cup of chars bender loo it’s all gone to pot the nancy cheeky.",
-		"desc2": "At public school cras bog some dodgy chav Richard Why argy bargy vagabon William bender matie boy, off his nut chancer Jeffrey up the kyver say mufty you mug ummm telling pear shaped Oxford owt to do with me do one so said are you taking his.",
-		"totalProject": "10 Projects",
+		"desc": "Implement Site Reliability Engineering practices with comprehensive monitoring, alerting, and incident response.",
+		"shortDesc": "Ensure system reliability with proactive monitoring and automated incident response.",
+		"desc1": "Establish SRE practices including SLI/SLO definition, error budgets, and automated incident response. I implement comprehensive monitoring solutions using Prometheus, Grafana, ELK stack, and APM tools for complete observability.",
+		"desc2": "Focus on reducing MTTR through automated remediation, chaos engineering practices, and thorough post-mortem processes. I build custom dashboards, implement intelligent alerting, and create runbooks for efficient incident management.",
+		"totalProject": "99.9% Uptime Achieved",
 		"process": {
-			"title": "Services Process",
+			"title": "SRE Implementation Process",
 			"img": "/img/services/service-details.jpg",
 			"imgSm": "/img/icons/services-10-icons-1.svg",
 			"iconName": "flaticon-design",
-
-			"desc": "Elizabeth some dodgy chavs are you taking the piss faff about pardon amongst car boot a load of old tosh is cracking goal blow off telling brown.",
+			"desc": "Systematic approach to implementing Site Reliability Engineering practices.",
 			"processItems": [
-				"Reinvent Your Business to Better",
-				"Pioneering the Internet's First",
-				"Pioneering the Design World's First",
-				"Pioneering the Design World's First",
-				"Pioneering the Design World's First",
-				"Pioneering the Design World's First"
+				"SLI/SLO Definition & Tracking",
+				"Monitoring Stack Implementation",
+				"Alert Strategy & Automation",
+				"Incident Response Procedures",
+				"Chaos Engineering Setup",
+				"Performance Optimization"
 			]
 		}
 	}

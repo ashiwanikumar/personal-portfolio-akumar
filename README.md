@@ -125,7 +125,10 @@ The easiest way to deploy your Next.js portfolio:
 - **LinkedIn**: [Ashiwani Kumar](https://www.linkedin.com/in/ashiwanikumar//comm/mynetwork/discovery-see-all?usecase=PEOPLE_FOLLOWS&followMember=ashiwanikumar)
 - **GitHub**: [ashiwanikumar](https://github.com/ashiwanikumar)
 - **Email**: [ashvanikumar109@gmail.com](mailto:ashvanikumar109@gmail.com)
-- **Portfolio**: [ashiwanikumar.in](https://ashiwanikumar.in)
+- **Portfolio**: [ashiwanikumar.com](https://ashiwanikumar.com)
+- **Facebook**: <https://www.facebook.com/terminalrootuser>
+- **Instagram**: <https://www.instagram.com/lsblk_a/>
+-
 
 ## 📄 License
 

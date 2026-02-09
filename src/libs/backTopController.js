@@ -1,19 +1,13 @@
 const backTopController = () => {
-  // Toggle light mode
-  //   const switchElement = document.querySelector(".switch");
-  //   switchElement.addEventListener("click", () => {
-  //     const body = document.body;
-  //     if (body.classList.contains("light")) {
-  //       body.classList.remove("light");
-  //       switchElement.classList.remove("switched");
-  //     } else {
-  //       body.classList.add("light");
-  //       switchElement.classList.add("switched");
-  //     }
-  //   });
-
   // Progress bar setup
   const progressPath = document.querySelector(".progress-wrap path");
+  const progressWrap = document.querySelector(".progress-wrap");
+
+  // Exit early if elements don't exist
+  if (!progressPath || !progressWrap) {
+    return;
+  }
+
   const pathLength = progressPath.getTotalLength();
 
   // Set initial stroke properties
@@ -39,7 +33,6 @@ const backTopController = () => {
 
   // Show/hide progress button
   window.addEventListener("scroll", () => {
-    const progressWrap = document.querySelector(".progress-wrap");
     if (window.scrollY > 50) {
       progressWrap.classList.add("active-progress");
     } else {
@@ -48,7 +41,6 @@ const backTopController = () => {
   });
 
   // Scroll to top on progress button click
-  const progressWrap = document.querySelector(".progress-wrap");
   progressWrap.addEventListener("click", (event) => {
     event.preventDefault();
     window.scrollTo({

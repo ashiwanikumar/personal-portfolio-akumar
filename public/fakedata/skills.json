@@ -1,32 +1,42 @@
 [
   {
-    "name": "Figma",
-    "img": "/img/icons/figma.png",
+    "name": "Kubernetes",
+    "img": "/img/icons/skills/kubernetes.svg",
+    "perchant": "95%"
+  },
+  {
+    "name": "AWS",
+    "img": "/img/icons/skills/aws.svg",
     "perchant": "92%"
   },
   {
-    "name": "Sketch",
-    "img": "/img/icons/sketch.png",
-    "perchant": "80%"
+    "name": "Terraform",
+    "img": "/img/icons/skills/terraform.svg",
+    "perchant": "90%"
   },
   {
-    "name": "XD",
-    "img": "/img/icons/xd.png",
+    "name": "Docker",
+    "img": "/img/icons/skills/docker.svg",
+    "perchant": "95%"
+  },
+  {
+    "name": "Jenkins",
+    "img": "/img/icons/skills/jenkins.svg",
+    "perchant": "88%"
+  },
+  {
+    "name": "Python",
+    "img": "/img/icons/skills/python.svg",
     "perchant": "85%"
   },
   {
-    "name": "WordPress",
-    "img": "/img/icons/wp.png",
-    "perchant": "99%"
+    "name": "Linux",
+    "img": "/img/icons/skills/linux.svg",
+    "perchant": "95%"
   },
   {
-    "name": "React",
-    "img": "/img/icons/react.png",
-    "perchant": "89%"
-  },
-  {
-    "name": "JavaScript",
-    "img": "/img/icons/js.png",
-    "perchant": "93%"
+    "name": "Prometheus",
+    "img": "/img/icons/skills/prometheus.svg",
+    "perchant": "88%"
   }
 ]

@@ -9,28 +9,28 @@ const Testimonials8 = () => {
 	const testimonials = getTestimonials()?.slice(0, 4);
 	return (
 		<section id="testimonials">
-			<div className=" py-20 md:py-100px xl:py-30   dark:bg-transparent">
+			<div className="py-20 md:py-100px xl:py-30 bg-[#001100]">
 				<div className="container">
-					<div className="testimonials ">
+					<div className="testimonials">
 						{/* <!-- section heading --> */}
-						<div className="mb-10 md:mb-50px xl:mb-60px text-center ">
+						<div className="mb-10 md:mb-50px xl:mb-60px text-center">
 							<div>
-								<div className="mb-25px  ">
+								<div className="mb-25px">
 									<span
-										className="text-xs  uppercase text-primary-color  font-semibold relative inline-block tracking-0.2em wow fadeInRight"
+										className="text-xs uppercase text-[#00ff41] font-semibold relative inline-block tracking-0.2em wow fadeInRight font-mono"
 										data-wow-delay=".3s"
 									>
-										Client feedback
+										&gt;_ Client Feedback
 									</span>
 								</div>
-								<h2 className="text-3xl md:text-size-35 lg:text-size-40 xl:text-size-45 uppercase font-semibold  leading-1.2 -tracking-0.02em inline-block text-seondary-color dark:text-white-color  max-w-580px w-full tj-text-invert">
+								<h2 className="text-3xl md:text-size-35 lg:text-size-40 xl:text-size-45 uppercase font-bold leading-1.2 -tracking-0.02em inline-block text-[#00ff41] max-w-580px w-full">
 									Hear From My Clients
 								</h2>
 							</div>
 						</div>
 						{/* <!-- testimonial single --> */}
 						<div
-							className=" wow fadeInRight overflow-hidden"
+							className="wow fadeInRight overflow-hidden"
 							data-wow-delay=".5s"
 						>
 							<Swiper

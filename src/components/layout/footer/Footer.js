@@ -1,26 +1,19 @@
 "use client";
-import Socials4 from "@/components/shared/socials/Socials4";
-import { useFooterContext } from "@/context_api/FooterContext";
 import Image from "next/image";
 import Link from "next/link";
 
 const Footer = () => {
-	const { footerType } = useFooterContext();
 	return (
 		<footer>
-			<div
-				className="footer-inner bg-black-color dark:bg-black-color"
-			>
+			<div className="footer-inner bg-[#001100]">
 				<div className="container">
 					<div className="flex flex-col items-center pt-50px pb-5 md:pt-60px">
-						{/* <!-- socials --> */}
-						{footerType === 3 ? <Socials4 type={2} /> : ""}
 						{/* logo */}
 						<div className="footer-logo w-75px h-75px mb-6">
 							<Link href="/">
 								<Image
 									src="/img/logo/logo.png"
-									alt=""
+									alt="Ashiwani Kumar"
 									width={400}
 									height={400}
 								/>
@@ -28,60 +21,88 @@ const Footer = () => {
 						</div>
 						{/* <!-- nav --> */}
 						<div>
-							<ul className="nav flex flex-wrap justify-center items-center gap-x-35px">
-								<li className="nav_item group relative">
+							<ul className="flex flex-wrap justify-center items-center gap-x-8 gap-y-2">
+								<li>
 									<Link
 										href="#about"
-										className="text-size-15 font-medium text-white-color capitalize py-10px md:py-15px lg:py-25px 2xl:py-30px relative z-0 after:w-0 after:h-0.5 after:bg-gradient-primary after:absolute after:right-0 hover:after:left-0 after:bottom-[25px] after:transition-all after:duration-500 group-hover:after:w-full"
+										className="text-[#00ff41] hover:text-[#00ff88] text-sm font-medium uppercase tracking-wider transition-all duration-300 hover:text-shadow-glow"
 									>
 										About
 									</Link>
 								</li>
-								<li className="nav_item group relative">
+								<li>
 									<Link
 										href="#services"
-										className="text-size-15 font-medium text-white-color capitalize py-10px md:py-15px lg:py-25px 2xl:py-30px relative z-0 after:w-0 after:h-0.5 after:bg-gradient-primary after:absolute after:right-0 hover:after:left-0 after:bottom-[25px] after:transition-all after:duration-500 group-hover:after:w-full"
+										className="text-[#00ff41] hover:text-[#00ff88] text-sm font-medium uppercase tracking-wider transition-all duration-300"
 									>
 										Services
 									</Link>
 								</li>
-								<li className="nav_item group relative">
+								<li>
 									<Link
 										href="#portfolio"
-										className="text-size-15 font-medium text-white-color capitalize py-10px md:py-15px lg:py-25px 2xl:py-30px relative z-0 after:w-0 after:h-0.5 after:bg-gradient-primary after:absolute after:right-0 hover:after:left-0 after:bottom-[25px] after:transition-all after:duration-500 group-hover:after:w-full"
+										className="text-[#00ff41] hover:text-[#00ff88] text-sm font-medium uppercase tracking-wider transition-all duration-300"
 									>
-										Portfolios
+										Portfolio
 									</Link>
 								</li>
-
-								<li className="nav_item group relative">
+								<li>
+									<Link
+										href="#cv"
+										className="text-[#00ff41] hover:text-[#00ff88] text-sm font-medium uppercase tracking-wider transition-all duration-300"
+									>
+										CV
+									</Link>
+								</li>
+								<li>
 									<Link
 										href="#contact"
-										className="text-size-15 font-medium text-white-color capitalize py-10px md:py-15px lg:py-25px 2xl:py-30px relative z-0 after:w-0 after:h-0.5 after:bg-gradient-primary after:absolute after:right-0 hover:after:left-0 after:bottom-[25px] after:transition-all after:duration-500 group-hover:after:w-full"
+										className="text-[#00ff41] hover:text-[#00ff88] text-sm font-medium uppercase tracking-wider transition-all duration-300"
 									>
 										Contact
 									</Link>
 								</li>
 							</ul>
 						</div>
-						<div
-							className={`copyright ${
-								footerType === 2 || footerType === 3
-									? "text-primary-color"
-									: "text-gray-color"
-							} whitespace-nowrap text-sm md:text-base mt-5`}
-						>
-							© 2024 All rights reserved by{" "}
-							<Link
-								href="/"
-								className={`${
-									footerType === 2 || footerType === 3
-										? "text-primary-color "
-										: "text-white-color"
-								} hover:text-primary-color`}
-							>
-								ThemeJunction
-							</Link>
+
+						{/* Legal Links */}
+						<div className="mt-6">
+							<ul className="flex flex-wrap justify-center items-center gap-x-6 gap-y-2">
+								<li>
+									<Link
+										href="/privacy-notice"
+										className="text-[#00cc33]/70 hover:text-[#00ff41] text-xs font-mono transition-all duration-300"
+									>
+										Privacy Notice
+									</Link>
+								</li>
+								<li>
+									<span className="text-[#00cc33]/30">|</span>
+								</li>
+								<li>
+									<Link
+										href="/terms-and-conditions"
+										className="text-[#00cc33]/70 hover:text-[#00ff41] text-xs font-mono transition-all duration-300"
+									>
+										Terms & Conditions
+									</Link>
+								</li>
+								<li>
+									<span className="text-[#00cc33]/30">|</span>
+								</li>
+								<li>
+									<Link
+										href="/cookies-policy"
+										className="text-[#00cc33]/70 hover:text-[#00ff41] text-xs font-mono transition-all duration-300"
+									>
+										Cookies Policy
+									</Link>
+								</li>
+							</ul>
+						</div>
+
+						<div className="text-[#00cc33] text-sm mt-6 font-mono">
+							© {new Date().getFullYear()} Ashiwani Kumar. All rights reserved.
 						</div>
 					</div>
 				</div>

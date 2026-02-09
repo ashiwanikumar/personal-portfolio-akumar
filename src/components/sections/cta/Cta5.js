@@ -1,89 +1,70 @@
 "use client";
-import textAnimation from "@/libs/textAnimation";
-import { useEffect } from "react";
 
 const Cta5 = () => {
-	useEffect(() => {
-		textAnimation();
-	}, []);
 	return (
 		<section id="contact">
-			<div className="container">
-				<div className=" bg-[url('/img/shapes/h4-cta.jpg')] bg-cover bg-no-repeat bg-center py-35px px-15px sm:py-10 lg:px-25px lg:py-70px rounded-25px relative z-0">
-					<div className="text-center relative -z-[2]">
-						<div className="mb-5  wow fadeInUp" data-wow-delay=".3s">
-							<span
-								className="text-sm  uppercase text-white-color  font-semibold tracking-0.02em   relative inline-block  wow fadeInRight"
-								data-wow-delay=".3s"
-							>
-								Contact me
+			<div className="container py-60px md:py-20">
+				<div className="bg-[#002200] border-2 border-[#00ff41]/30 py-50px px-15px sm:py-16 lg:px-25px lg:py-70px rounded-25px relative z-0 overflow-hidden">
+					{/* Matrix-style background effects */}
+					<div className="absolute inset-0 opacity-30">
+						<div className="absolute top-0 left-1/4 w-32 h-32 bg-[#00ff41] rounded-full blur-[80px]"></div>
+						<div className="absolute bottom-0 right-1/4 w-40 h-40 bg-[#00ff41] rounded-full blur-[100px]"></div>
+					</div>
+
+					<div className="text-center relative z-10">
+						<div className="mb-5 wow fadeInUp" data-wow-delay=".3s">
+							<span className="text-sm uppercase text-[#00ff41] font-bold tracking-0.2em relative inline-block font-mono">
+								&gt;_ Let&apos;s Connect
 							</span>
 						</div>
 						<div className="wow fadeInUp" data-wow-delay=".4s">
-							<h2 className="text-size-35 sm:text-size-50 md:text-6xl lg:text-size-70 xl:text-size-88 -tracking-0.02em  text-white-color leading-1 md:leading-1 2xl:leading-1 font-semibold  mb-15px  inline-block uppercase ">
-								<span id="anim" className=" inline">
-									Let’s talk to me
-								</span>
+							<h2 className="text-size-35 sm:text-size-50 md:text-6xl lg:text-size-70 xl:text-size-80 -tracking-0.02em text-[#00ff41] leading-1 md:leading-1 2xl:leading-1 font-bold mb-15px inline-block uppercase">
+								Ready to Scale Your Infrastructure?
 							</h2>
 						</div>
 						<div className="wow fadeInUp" data-wow-delay=".5s">
-							<p className="  text-body-color-3 font-medium transition-all duration-300">
-								Have a project in mind? Let’s work together to bring your vision
-								to life.
+							<p className="text-[#00cc33] font-medium transition-all duration-300 text-lg max-w-3xl mx-auto font-mono">
+								With 7+ years of DevOps experience, I can help automate your cloud infrastructure,
+								build robust CI/CD pipelines, and ensure 99.9% uptime for your critical systems.
 							</p>
 						</div>
 						<div
-							className="flex flex-col items-center mt-10 wow fadeInUp"
+							className="flex flex-col sm:flex-row items-center justify-center gap-4 mt-10 wow fadeInUp"
 							data-wow-delay=".6s"
 						>
-							<div className=" w-[105px] h-[105px] sm:w-30 sm:h-[120px] md:w-[150px] md:h-[150px]  bg-gradient-14 backdrop-blur-[32px]  border border-border-color-4 rounded-50% relative">
-								<div className="circle-wrap absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2">
-									<svg
-										className="animate-animate-spin fill-white-color font-normal w-[95px] h-[95px] sm:w-[100px] sm:h-[105px] md:w-[125px] md:h-[125px]"
-										viewBox="0 0 140 100"
-										width="125"
-										height="125"
-									>
-										<defs>
-											<path
-												id="circle3"
-												d=" M 50, 50 m -37, 0 a 37,37 0 1,1 110,0 a 37,37 0 1,1 -110,0"
-											></path>
-										</defs>
-										<text fontSize="14">
-											<textPath xlinkHref="#circle3" className="shape-1">
-												CONTACT ME CONTACT ME CONTACT ME CONTACT ME
-											</textPath>
-										</text>
-									</svg>
-									<div className="circle-button">
-										<a
-											href="./index.html#contact"
-											className=" flex-shrink-0  w-60px h-60px text-white-color hover:text-white-color  bg-primary-color    rounded-100% leading-1 transition-all duration-300  inline-flex justify-center items-center absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2  group"
-										>
-											<span className="relative overflow-hidden -rotate-45">
-												<i className="fa-regular fa-arrow-right  text-lg group-hover:translate-x-150% transition-all duration-500 inline-block"></i>
-												<i className="fa-regular fa-arrow-right absolute left-0 top-0 -translate-x-150% text-lg group-hover:-translate-x-0 transition-all duration-500"></i>
-											</span>
-										</a>
-									</div>
-								</div>
-							</div>
+							<a
+								href="mailto:ashvanikumar109@gmail.com"
+								className="px-8 py-4 bg-[#00ff41] text-[#001100] font-bold rounded-lg hover:bg-[#00ff88] hover:shadow-[0_0_30px_rgba(0,255,65,0.5)] transition-all duration-300 flex items-center gap-2 font-mono"
+							>
+								<i className="fa-solid fa-envelope"></i>
+								Get In Touch
+							</a>
+							<a
+								href="https://www.linkedin.com/in/ashiwanikumar/"
+								target="_blank"
+								rel="noopener noreferrer"
+								className="px-8 py-4 bg-transparent border-2 border-[#00ff41] text-[#00ff41] font-bold rounded-lg hover:bg-[#00ff41]/10 hover:shadow-[0_0_20px_rgba(0,255,65,0.3)] transition-all duration-300 flex items-center gap-2 font-mono"
+							>
+								<i className="fa-brands fa-linkedin"></i>
+								LinkedIn
+							</a>
 						</div>
-					</div>
-					<div className="absolute w-full max-w-50px right-[14%] top-[18%] md:right-[8%] md:top-[8%] lg:top-[14%] 2xl:top-[18%] z-1 animate-move-var hidden md:block">
-						<img
-							src="/img/shapes/ab-8-shapes.png"
-							className="w-full"
-							alt="Shapes"
-						/>
-					</div>
-					<div className=" absolute w-full max-w-10 bottom-[30%] left-[12%] z-1  animate-move-var">
-						<img
-							src="/img/icons/hero-h8-3.png"
-							className="w-full"
-							alt="Shapes"
-						/>
+
+						{/* Contact Info */}
+						<div className="mt-12 flex flex-col sm:flex-row items-center justify-center gap-8 text-[#00cc33] font-mono text-sm">
+							<span className="flex items-center gap-2">
+								<i className="fa-solid fa-location-dot text-[#00ff41]"></i>
+								Abu Dhabi, UAE
+							</span>
+							<span className="flex items-center gap-2">
+								<i className="fa-solid fa-phone text-[#00ff41]"></i>
+								+971-566182303
+							</span>
+							<span className="flex items-center gap-2">
+								<i className="fa-solid fa-envelope text-[#00ff41]"></i>
+								ashvanikumar109@gmail.com
+							</span>
+						</div>
 					</div>
 				</div>
 			</div>
