@@ -24,7 +24,7 @@ const Footer = () => {
 							<ul className="flex flex-wrap justify-center items-center gap-x-8 gap-y-2">
 								<li>
 									<Link
-										href="#about"
+										href="/about"
 										className="text-[#00ff41] hover:text-[#00ff88] text-sm font-medium uppercase tracking-wider transition-all duration-300 hover:text-shadow-glow"
 									>
 										About
@@ -32,7 +32,7 @@ const Footer = () => {
 								</li>
 								<li>
 									<Link
-										href="#services"
+										href="/services"
 										className="text-[#00ff41] hover:text-[#00ff88] text-sm font-medium uppercase tracking-wider transition-all duration-300"
 									>
 										Services
@@ -40,7 +40,7 @@ const Footer = () => {
 								</li>
 								<li>
 									<Link
-										href="#portfolio"
+										href="/portfolio"
 										className="text-[#00ff41] hover:text-[#00ff88] text-sm font-medium uppercase tracking-wider transition-all duration-300"
 									>
 										Portfolio
@@ -48,7 +48,7 @@ const Footer = () => {
 								</li>
 								<li>
 									<Link
-										href="#cv"
+										href="/cv"
 										className="text-[#00ff41] hover:text-[#00ff88] text-sm font-medium uppercase tracking-wider transition-all duration-300"
 									>
 										CV
@@ -56,7 +56,7 @@ const Footer = () => {
 								</li>
 								<li>
 									<Link
-										href="#contact"
+										href="/contact"
 										className="text-[#00ff41] hover:text-[#00ff88] text-sm font-medium uppercase tracking-wider transition-all duration-300"
 									>
 										Contact
