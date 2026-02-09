@@ -40,7 +40,7 @@ const Resume7 = () => {
 
 	return (
 		<section id="resume">
-			<div className="pb-60px md:pb-20 lg:pb-30 relative">
+			<div className="py-60px md:py-20 lg:py-30 relative">
 				<div className="container">
 					<div className="flex flex-wrap lg:flex-nowrap justify-between gap-30px lg:gap-50px xl:gap-60px">
 						{/* Left Column - Sticky */}

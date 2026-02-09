@@ -1,6 +1,16 @@
 "use client";
 
+import TypeWriterLoop from "@/components/shared/others/TypeWriterLoop";
+
 const Cta5 = () => {
+	const phrases = [
+		"Ready to Scale Your Infrastructure?",
+		"Need 99.9% Uptime for Your Systems?",
+		"Want to Automate Your Cloud?",
+		"Looking for DevOps Excellence?",
+		"Ready to Build CI/CD Pipelines?",
+	];
+
 	return (
 		<section id="contact">
 			<div className="container py-60px md:py-20">
@@ -17,9 +27,14 @@ const Cta5 = () => {
 								&gt;_ Let&apos;s Connect
 							</span>
 						</div>
-						<div className="wow fadeInUp" data-wow-delay=".4s">
-							<h2 className="text-size-35 sm:text-size-50 md:text-6xl lg:text-size-70 xl:text-size-80 -tracking-0.02em text-[#00ff41] leading-1 md:leading-1 2xl:leading-1 font-bold mb-15px inline-block uppercase">
-								Ready to Scale Your Infrastructure?
+						<div className="wow fadeInUp min-h-[120px] md:min-h-[150px] lg:min-h-[180px] flex items-center justify-center" data-wow-delay=".4s">
+							<h2 className="text-size-30 sm:text-size-40 md:text-5xl lg:text-size-60 xl:text-size-70 -tracking-0.02em text-[#00ff41] leading-1.2 md:leading-1.2 2xl:leading-1.2 font-bold inline-block uppercase">
+								<TypeWriterLoop
+									phrases={phrases}
+									typeSpeed={60}
+									deleteSpeed={30}
+									pauseTime={2500}
+								/>
 							</h2>
 						</div>
 						<div className="wow fadeInUp" data-wow-delay=".5s">

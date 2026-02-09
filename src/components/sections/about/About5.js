@@ -1,15 +1,60 @@
 "use client";
 
+import { useState } from "react";
 import ButtonPrimary from "@/components/shared/buttons/ButtonPrimary";
+
+const SkillCard = ({ skill }) => {
+	const [isHovered, setIsHovered] = useState(false);
+
+	return (
+		<div
+			className="bg-[#002200] border border-[#00ff41]/30 rounded-[20px] p-5 text-center hover:border-[#00ff41] transition-all duration-300 cursor-pointer"
+			onMouseEnter={() => setIsHovered(true)}
+			onMouseLeave={() => setIsHovered(false)}
+			style={{
+				borderColor: isHovered ? skill.color : undefined,
+				boxShadow: isHovered ? `0 0 25px ${skill.color}40` : undefined,
+			}}
+		>
+			<div
+				className="w-12 h-12 mx-auto mb-3 rounded-full flex items-center justify-center transition-all duration-300"
+				style={{
+					backgroundColor: isHovered ? `${skill.color}20` : 'rgba(0,255,65,0.1)',
+					transform: isHovered ? 'scale(1.15)' : 'scale(1)',
+					boxShadow: isHovered ? `0 0 20px ${skill.color}50` : 'none',
+				}}
+			>
+				<i
+					className={`${skill.icon} text-xl transition-all duration-300`}
+					style={{
+						color: isHovered ? skill.color : '#00ff41',
+					}}
+				></i>
+			</div>
+			<div
+				className="font-mono font-bold text-sm mb-1 transition-all duration-300"
+				style={{
+					color: isHovered ? skill.color : '#00ff41',
+				}}
+			>
+				{skill.name}
+			</div>
+			<div className="text-[#00cc33]/60 font-mono text-xs transition-all duration-300">
+				{skill.desc}
+			</div>
+		</div>
+	);
+};
 
 const About5 = () => {
 	const skills = [
-		{ icon: "fa-brands fa-aws", name: "AWS", desc: "Cloud Platform" },
-		{ icon: "fa-brands fa-docker", name: "Docker", desc: "Containerization" },
-		{ icon: "fa-solid fa-dharmachakra", name: "Kubernetes", desc: "Orchestration" },
-		{ icon: "fa-brands fa-redhat", name: "OpenShift", desc: "Enterprise K8s" },
-		{ icon: "fa-solid fa-code-branch", name: "Terraform", desc: "IaC" },
-		{ icon: "fa-solid fa-gears", name: "Ansible", desc: "Automation" },
+		{ icon: "fa-brands fa-aws", name: "AWS", desc: "Cloud Platform", color: "#FF9900" },
+		{ icon: "fa-brands fa-docker", name: "Docker", desc: "Containerization", color: "#2496ED" },
+		{ icon: "fa-solid fa-dharmachakra", name: "Kubernetes", desc: "Orchestration", color: "#326CE5" },
+		{ icon: "fa-brands fa-redhat", name: "OpenShift", desc: "Enterprise K8s", color: "#EE0000" },
+		{ icon: "fa-solid fa-code-branch", name: "Terraform", desc: "IaC", color: "#7B42BC" },
+		{ icon: "fa-solid fa-gears", name: "Ansible", desc: "Automation", color: "#EE0000" },
+		{ icon: "fa-brands fa-microsoft", name: "Azure DevOps", desc: "CI/CD Platform", color: "#0078D4" },
 	];
 
 	const stats = [
@@ -60,22 +105,9 @@ const About5 = () => {
 						<h3 className="text-center text-lg font-bold text-[#00ff41] font-mono mb-6 uppercase tracking-wider">
 							Tech Stack
 						</h3>
-						<div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-4 max-w-5xl mx-auto">
+						<div className="grid grid-cols-2 md:grid-cols-4 lg:grid-cols-7 gap-4 max-w-6xl mx-auto">
 							{skills.map((skill, idx) => (
-								<div
-									key={idx}
-									className="bg-[#002200] border border-[#00ff41]/30 rounded-[20px] p-5 text-center hover:border-[#00ff41] hover:shadow-[0_0_20px_rgba(0,255,65,0.15)] transition-all duration-300 group"
-								>
-									<div className="w-12 h-12 mx-auto mb-3 bg-[#00ff41]/10 rounded-full flex items-center justify-center group-hover:bg-[#00ff41]/20 transition-all duration-300">
-										<i className={`${skill.icon} text-xl text-[#00ff41]`}></i>
-									</div>
-									<div className="text-[#00ff41] font-mono font-bold text-sm mb-1">
-										{skill.name}
-									</div>
-									<div className="text-[#00cc33]/60 font-mono text-xs">
-										{skill.desc}
-									</div>
-								</div>
+								<SkillCard key={idx} skill={skill} />
 							))}
 						</div>
 					</div>
