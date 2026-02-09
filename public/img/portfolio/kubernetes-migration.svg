@@ -1,0 +1,114 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 600">
+  <defs>
+    <linearGradient id="bgGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#001100"/>
+      <stop offset="100%" style="stop-color:#002200"/>
+    </linearGradient>
+    <filter id="glow">
+      <feGaussianBlur stdDeviation="3" result="coloredBlur"/>
+      <feMerge>
+        <feMergeNode in="coloredBlur"/>
+        <feMergeNode in="SourceGraphic"/>
+      </feMerge>
+    </filter>
+  </defs>
+
+  <!-- Background -->
+  <rect width="800" height="600" fill="url(#bgGrad)"/>
+
+  <!-- Grid pattern -->
+  <g stroke="#00ff41" stroke-opacity="0.1" stroke-width="1">
+    <line x1="0" y1="100" x2="800" y2="100"/>
+    <line x1="0" y1="200" x2="800" y2="200"/>
+    <line x1="0" y1="300" x2="800" y2="300"/>
+    <line x1="0" y1="400" x2="800" y2="400"/>
+    <line x1="0" y1="500" x2="800" y2="500"/>
+    <line x1="100" y1="0" x2="100" y2="600"/>
+    <line x1="200" y1="0" x2="200" y2="600"/>
+    <line x1="300" y1="0" x2="300" y2="600"/>
+    <line x1="400" y1="0" x2="400" y2="600"/>
+    <line x1="500" y1="0" x2="500" y2="600"/>
+    <line x1="600" y1="0" x2="600" y2="600"/>
+    <line x1="700" y1="0" x2="700" y2="600"/>
+  </g>
+
+  <!-- Kubernetes Logo (Helm wheel style) -->
+  <g transform="translate(400, 280)" filter="url(#glow)">
+    <!-- Outer hexagon -->
+    <polygon points="0,-120 104,-60 104,60 0,120 -104,60 -104,-60"
+             fill="none" stroke="#00ff41" stroke-width="3"/>
+
+    <!-- Inner circle -->
+    <circle cx="0" cy="0" r="50" fill="none" stroke="#00ff41" stroke-width="2"/>
+
+    <!-- Spokes -->
+    <g stroke="#00ff41" stroke-width="2">
+      <line x1="0" y1="-50" x2="0" y2="-90"/>
+      <line x1="43" y1="-25" x2="78" y2="-45"/>
+      <line x1="43" y1="25" x2="78" y2="45"/>
+      <line x1="0" y1="50" x2="0" y2="90"/>
+      <line x1="-43" y1="25" x2="-78" y2="45"/>
+      <line x1="-43" y1="-25" x2="-78" y2="-45"/>
+    </g>
+
+    <!-- Nodes at spoke ends -->
+    <g fill="#00ff41">
+      <circle cx="0" cy="-100" r="8"/>
+      <circle cx="87" cy="-50" r="8"/>
+      <circle cx="87" cy="50" r="8"/>
+      <circle cx="0" cy="100" r="8"/>
+      <circle cx="-87" cy="50" r="8"/>
+      <circle cx="-87" cy="-50" r="8"/>
+    </g>
+
+    <!-- Center -->
+    <circle cx="0" cy="0" r="15" fill="#00ff41" fill-opacity="0.3" stroke="#00ff41" stroke-width="2"/>
+  </g>
+
+  <!-- Pods representations -->
+  <g filter="url(#glow)">
+    <!-- Pod 1 -->
+    <rect x="80" y="150" width="80" height="60" rx="8" fill="none" stroke="#00ff41" stroke-width="2"/>
+    <circle cx="100" cy="180" r="10" fill="#00ff41" fill-opacity="0.5"/>
+    <text x="120" y="185" fill="#00ff41" font-family="monospace" font-size="12">POD</text>
+
+    <!-- Pod 2 -->
+    <rect x="80" y="380" width="80" height="60" rx="8" fill="none" stroke="#00ff41" stroke-width="2"/>
+    <circle cx="100" cy="410" r="10" fill="#00ff41" fill-opacity="0.5"/>
+    <text x="120" y="415" fill="#00ff41" font-family="monospace" font-size="12">POD</text>
+
+    <!-- Pod 3 -->
+    <rect x="620" y="150" width="80" height="60" rx="8" fill="none" stroke="#00ff41" stroke-width="2"/>
+    <circle cx="640" cy="180" r="10" fill="#00ff41" fill-opacity="0.5"/>
+    <text x="660" y="185" fill="#00ff41" font-family="monospace" font-size="12">POD</text>
+
+    <!-- Pod 4 -->
+    <rect x="620" y="380" width="80" height="60" rx="8" fill="none" stroke="#00ff41" stroke-width="2"/>
+    <circle cx="640" cy="410" r="10" fill="#00ff41" fill-opacity="0.5"/>
+    <text x="660" y="415" fill="#00ff41" font-family="monospace" font-size="12">POD</text>
+  </g>
+
+  <!-- Connection lines -->
+  <g stroke="#00ff41" stroke-width="1" stroke-opacity="0.5" stroke-dasharray="5,5">
+    <line x1="160" y1="180" x2="296" y2="250"/>
+    <line x1="160" y1="410" x2="296" y2="330"/>
+    <line x1="620" y1="180" x2="504" y2="250"/>
+    <line x1="620" y1="410" x2="504" y2="330"/>
+  </g>
+
+  <!-- Title -->
+  <text x="400" y="520" fill="#00ff41" font-family="monospace" font-size="24" text-anchor="middle" filter="url(#glow)">
+    KUBERNETES MIGRATION
+  </text>
+  <text x="400" y="550" fill="#00cc33" font-family="monospace" font-size="14" text-anchor="middle">
+    Cloud Native Transformation
+  </text>
+
+  <!-- Decorative corners -->
+  <g stroke="#00ff41" stroke-width="2" fill="none">
+    <path d="M20,50 L20,20 L50,20"/>
+    <path d="M750,20 L780,20 L780,50"/>
+    <path d="M780,550 L780,580 L750,580"/>
+    <path d="M50,580 L20,580 L20,550"/>
+  </g>
+</svg>

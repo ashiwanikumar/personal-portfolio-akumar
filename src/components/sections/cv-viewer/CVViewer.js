@@ -18,7 +18,7 @@ const CVViewer = () => {
 
 	return (
 		<>
-			<section id="cv" className="py-60px md:py-20 lg:py-30 bg-[#002200]">
+			<section id="cv" className="py-60px md:py-20 lg:py-30 bg-[#001100]">
 				<div className="container">
 					<div className="text-center mb-50px">
 						<span className="text-xs uppercase text-[#00ff41] font-semibold tracking-0.2em mb-4 block font-mono">
@@ -35,18 +35,18 @@ const CVViewer = () => {
 
 					<div className="max-w-4xl mx-auto">
 						{/* CV Preview Card */}
-						<div className="bg-[#001100] border border-[#00ff41]/30 rounded-[30px] p-8 hover:border-[#00ff41] transition-all duration-300">
+						<div className="bg-[#001100] border border-[#00ff41]/30 rounded-[30px] p-6 md:p-10">
 							{/* Header */}
-							<div className="flex flex-col md:flex-row items-center justify-between gap-6 mb-8">
-								<div className="flex items-center gap-4">
-									<div className="w-16 h-16 bg-[#00ff41]/10 border border-[#00ff41]/30 rounded-[15px] flex items-center justify-center">
-										<i className="fa-solid fa-file-pdf text-3xl text-[#00ff41]"></i>
+							<div className="flex flex-col lg:flex-row items-start lg:items-center justify-between gap-6 mb-10 pb-8 border-b border-[#00ff41]/20">
+								<div className="flex items-center gap-5">
+									<div className="w-20 h-20 bg-[#00ff41]/10 border border-[#00ff41]/30 rounded-[20px] flex items-center justify-center flex-shrink-0">
+										<i className="fa-solid fa-file-pdf text-4xl text-[#00ff41]"></i>
 									</div>
 									<div>
-										<h3 className="text-xl font-bold text-[#00ff41] font-mono">
+										<h3 className="text-2xl font-bold text-[#00ff41] font-mono mb-2">
 											Ashiwani_Kumar_CV.pdf
 										</h3>
-										<p className="text-[#00cc33]/70 text-sm font-mono">
+										<p className="text-[#00cc33] text-base font-mono">
 											Site Reliability Engineer | Open Source Enthusiast
 										</p>
 									</div>
@@ -55,7 +55,7 @@ const CVViewer = () => {
 								<div className="flex gap-4">
 									<button
 										onClick={openModal}
-										className="inline-flex items-center gap-2 px-6 py-3 bg-transparent border-2 border-[#00ff41] text-[#00ff41] font-bold rounded-full hover:bg-[#00ff41]/10 hover:shadow-[0_0_20px_rgba(0,255,65,0.3)] transition-all duration-300 font-mono"
+										className="inline-flex items-center justify-center gap-2 px-6 py-3 bg-transparent border-2 border-[#00ff41] text-[#00ff41] font-bold rounded-full hover:bg-[#00ff41]/10 hover:shadow-[0_0_20px_rgba(0,255,65,0.3)] transition-all duration-300 font-mono text-sm whitespace-nowrap"
 									>
 										<i className="fa-solid fa-eye"></i>
 										View CV
@@ -63,7 +63,7 @@ const CVViewer = () => {
 									<a
 										href={cvPath}
 										download="Ashiwani_Kumar_CV.pdf"
-										className="inline-flex items-center gap-2 px-6 py-3 bg-[#00ff41] text-[#001100] font-bold rounded-full hover:bg-[#00ff88] hover:shadow-[0_0_20px_rgba(0,255,65,0.5)] transition-all duration-300 font-mono"
+										className="inline-flex items-center justify-center gap-2 px-6 py-3 bg-[#00ff41] text-[#001100] font-bold rounded-full hover:bg-[#00ff88] hover:shadow-[0_0_20px_rgba(0,255,65,0.5)] transition-all duration-300 font-mono text-sm whitespace-nowrap"
 									>
 										<i className="fa-solid fa-download"></i>
 										Download
@@ -72,22 +72,22 @@ const CVViewer = () => {
 							</div>
 
 							{/* Quick Stats */}
-							<div className="grid grid-cols-2 md:grid-cols-4 gap-4">
-								<div className="bg-[#002200] border border-[#00ff41]/20 rounded-[15px] p-4 text-center">
-									<div className="text-2xl font-bold text-[#00ff41] font-mono">7+</div>
-									<div className="text-[#00cc33]/70 text-sm font-mono">Years Experience</div>
+							<div className="grid grid-cols-2 md:grid-cols-4 gap-5">
+								<div className="bg-[#002200] border border-[#00ff41]/20 rounded-[20px] p-6 text-center">
+									<div className="text-3xl md:text-4xl font-bold text-[#00ff41] font-mono mb-2">7+</div>
+									<div className="text-[#00cc33] text-sm font-mono">Years Experience</div>
 								</div>
-								<div className="bg-[#002200] border border-[#00ff41]/20 rounded-[15px] p-4 text-center">
-									<div className="text-2xl font-bold text-[#00ff41] font-mono">99.9%</div>
-									<div className="text-[#00cc33]/70 text-sm font-mono">Uptime Achieved</div>
+								<div className="bg-[#002200] border border-[#00ff41]/20 rounded-[20px] p-6 text-center">
+									<div className="text-3xl md:text-4xl font-bold text-[#00ff41] font-mono mb-2">99.9%</div>
+									<div className="text-[#00cc33] text-sm font-mono">Uptime Achieved</div>
 								</div>
-								<div className="bg-[#002200] border border-[#00ff41]/20 rounded-[15px] p-4 text-center">
-									<div className="text-2xl font-bold text-[#00ff41] font-mono">5</div>
-									<div className="text-[#00cc33]/70 text-sm font-mono">UAE Airports</div>
+								<div className="bg-[#002200] border border-[#00ff41]/20 rounded-[20px] p-6 text-center">
+									<div className="text-3xl md:text-4xl font-bold text-[#00ff41] font-mono mb-2">5</div>
+									<div className="text-[#00cc33] text-sm font-mono">UAE Airports</div>
 								</div>
-								<div className="bg-[#002200] border border-[#00ff41]/20 rounded-[15px] p-4 text-center">
-									<div className="text-2xl font-bold text-[#00ff41] font-mono">6+</div>
-									<div className="text-[#00cc33]/70 text-sm font-mono">Certifications</div>
+								<div className="bg-[#002200] border border-[#00ff41]/20 rounded-[20px] p-6 text-center">
+									<div className="text-3xl md:text-4xl font-bold text-[#00ff41] font-mono mb-2">6+</div>
+									<div className="text-[#00cc33] text-sm font-mono">Certifications</div>
 								</div>
 							</div>
 						</div>
