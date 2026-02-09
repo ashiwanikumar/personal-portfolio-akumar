@@ -15,11 +15,11 @@ import "./globals.css";
 export const metadata = {
 	metadataBase: new URL('https://ashiwanikumar.com'),
 	title: {
-		default: "Ashiwani Kumar | Site Reliability Engineer & DevOps Expert",
+		default: "Ashiwani Kumar | Site Reliability Engineer & DevOps Practitioner",
 		template: "%s | Ashiwani Kumar"
 	},
-	description: "Site Reliability Engineer with 6+ years of experience managing mission-critical infrastructure across UAE. Expert in Kubernetes, AWS, Terraform, CI/CD, and DevSecOps practices with 99.9% uptime achievement.",
-	keywords: ["DevOps Engineer", "Site Reliability Engineer", "SRE", "Kubernetes", "AWS", "Terraform", "CI/CD", "Cloud Infrastructure", "Abu Dhabi", "UAE", "Infrastructure Automation", "DevSecOps"],
+	description: "Site Reliability Engineer with 7+ years of experience managing mission-critical infrastructure across UAE. Skilled in Kubernetes, OpenShift, AWS, Terraform, Ansible, CI/CD, and DevSecOps practices with 99.9% uptime achievement. Open source enthusiast.",
+	keywords: ["DevOps Engineer", "Site Reliability Engineer", "SRE", "Kubernetes", "OpenShift", "AWS", "Terraform", "Ansible", "CI/CD", "Cloud Infrastructure", "Abu Dhabi", "UAE", "Infrastructure Automation", "DevSecOps", "Open Source"],
 	authors: [{ name: "Ashiwani Kumar", url: "https://ashiwanikumar.com" }],
 	creator: "Ashiwani Kumar",
 	openGraph: {
@@ -27,8 +27,8 @@ export const metadata = {
 		locale: "en_US",
 		url: "https://ashiwanikumar.com",
 		siteName: "Ashiwani Kumar - SRE & DevOps Engineer",
-		title: "Ashiwani Kumar | Site Reliability Engineer & DevOps Expert",
-		description: "Site Reliability Engineer with 6+ years experience. Expert in Kubernetes, AWS, Terraform, and building reliable infrastructure at scale.",
+		title: "Ashiwani Kumar | Site Reliability Engineer & DevOps Practitioner",
+		description: "Site Reliability Engineer with 7+ years experience. Skilled in Kubernetes, OpenShift, AWS, Terraform, Ansible, and building reliable infrastructure at scale. Open source advocate.",
 		images: [
 			{
 				url: "/img/og-image.png",
@@ -40,8 +40,8 @@ export const metadata = {
 	},
 	twitter: {
 		card: "summary_large_image",
-		title: "Ashiwani Kumar | SRE & DevOps Expert",
-		description: "Site Reliability Engineer with 6+ years experience managing mission-critical infrastructure across UAE.",
+		title: "Ashiwani Kumar | SRE & DevOps Practitioner",
+		description: "Site Reliability Engineer with 7+ years experience managing mission-critical infrastructure across UAE.",
 		creator: "@theashvanikumar",
 		images: ["/img/og-image.png"]
 	},

@@ -24,7 +24,7 @@ const Cta5 = () => {
 						</div>
 						<div className="wow fadeInUp" data-wow-delay=".5s">
 							<p className="text-[#00cc33] font-medium transition-all duration-300 text-lg max-w-3xl mx-auto font-mono">
-								With 6+ years of DevOps expertise, I can help automate your cloud infrastructure,
+								With 7+ years of DevOps experience, I can help automate your cloud infrastructure,
 								build robust CI/CD pipelines, and ensure 99.9% uptime for your critical systems.
 							</p>
 						</div>

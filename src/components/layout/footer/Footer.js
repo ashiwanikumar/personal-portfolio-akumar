@@ -64,7 +64,44 @@ const Footer = () => {
 								</li>
 							</ul>
 						</div>
-						<div className="text-[#00cc33] text-sm mt-8">
+
+						{/* Legal Links */}
+						<div className="mt-6">
+							<ul className="flex flex-wrap justify-center items-center gap-x-6 gap-y-2">
+								<li>
+									<Link
+										href="/privacy-notice"
+										className="text-[#00cc33]/70 hover:text-[#00ff41] text-xs font-mono transition-all duration-300"
+									>
+										Privacy Notice
+									</Link>
+								</li>
+								<li>
+									<span className="text-[#00cc33]/30">|</span>
+								</li>
+								<li>
+									<Link
+										href="/terms-and-conditions"
+										className="text-[#00cc33]/70 hover:text-[#00ff41] text-xs font-mono transition-all duration-300"
+									>
+										Terms & Conditions
+									</Link>
+								</li>
+								<li>
+									<span className="text-[#00cc33]/30">|</span>
+								</li>
+								<li>
+									<Link
+										href="/cookies-policy"
+										className="text-[#00cc33]/70 hover:text-[#00ff41] text-xs font-mono transition-all duration-300"
+									>
+										Cookies Policy
+									</Link>
+								</li>
+							</ul>
+						</div>
+
+						<div className="text-[#00cc33] text-sm mt-6 font-mono">
 							© {new Date().getFullYear()} Ashiwani Kumar. All rights reserved.
 						</div>
 					</div>

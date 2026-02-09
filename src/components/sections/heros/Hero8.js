@@ -30,7 +30,7 @@ const Hero8 = () => {
 						<h1 className="text-size-38 sm:text-size-45 md:text-size-50 xl:text-size-65 2xl:text-size-80 text-primary-color  dark:text-white-color leading-1.1 lg:leading-1.1  mb-5  tracking-[-0.02em] font-semibold uppercase ">
 							DevOps & SRE<br />
 							Engineer<br />
-							Expert.
+							Practitioner.
 						</h1>
 
 						<p className="text-lg md:text-xl leading-1.5 text-gray-color-2 dark:text-gray-color-2 max-w-420px mx-auto lg:mx-0">

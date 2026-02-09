@@ -1,145 +1,129 @@
 import ButtonPrimary from "@/components/shared/buttons/ButtonPrimary";
 
 const About5 = () => {
+	const skills = [
+		{ icon: "fa-brands fa-aws", name: "AWS", desc: "Cloud Platform" },
+		{ icon: "fa-brands fa-docker", name: "Docker", desc: "Containerization" },
+		{ icon: "fa-solid fa-dharmachakra", name: "Kubernetes", desc: "Orchestration" },
+		{ icon: "fa-brands fa-redhat", name: "OpenShift", desc: "Enterprise K8s" },
+		{ icon: "fa-solid fa-code-branch", name: "Terraform", desc: "IaC" },
+		{ icon: "fa-solid fa-gears", name: "Ansible", desc: "Automation" },
+	];
+
+	const stats = [
+		{ value: "7+", label: "Years Experience" },
+		{ value: "99.9%", label: "Uptime" },
+		{ value: "500+", label: "Servers" },
+		{ value: "5", label: "UAE Airports" },
+	];
+
 	return (
 		<section id="about">
-			<div className="py-60px md:py-20 lg:py-30 bg-[#001100] overflow-x-hidden">
+			<div className="py-60px md:py-20 lg:py-30 bg-[#001100]">
 				<div className="container">
-					<div className="grid lg:grid-cols-2 gap-10 items-center">
-						{/* DevOps Animation Column - Left Side on Desktop */}
-						<div className="flex items-center justify-center order-2 lg:order-1">
-							<div className="relative w-full max-w-[600px]">
-								{/* Central DevOps Symbol */}
-								<div className="relative w-80 h-80 mx-auto">
-									{/* Outer static ring */}
-									<div className="absolute inset-0 rounded-full border-4 border-dashed border-[#00ff41]/40"></div>
+					{/* Section Header */}
+					<div className="text-center mb-50px">
+						<span className="text-xs uppercase text-[#00ff41] font-semibold tracking-0.2em mb-4 block font-mono">
+							&gt;_ About Me
+						</span>
+						<h2 className="text-3xl md:text-size-35 lg:text-size-40 xl:text-size-45 uppercase font-bold leading-1.2 -tracking-0.02em text-[#00ff41] mb-6">
+							Building Reliable Infrastructure
+						</h2>
+						<p className="text-[#00cc33] max-w-3xl mx-auto text-lg font-mono leading-relaxed">
+							Site Reliability Engineer with 7+ years of experience managing mission-critical
+							infrastructure. Currently ensuring 99.9% uptime for 5 UAE airports serving 50M+
+							annual passengers. Passionate about open source and automation.
+						</p>
+					</div>
 
-									{/* Inner static circle */}
-									<div className="absolute inset-6 rounded-full bg-[#00ff41] opacity-10 blur-xl"></div>
+					{/* Stats Row */}
+					<div className="grid grid-cols-2 md:grid-cols-4 gap-4 mb-50px max-w-4xl mx-auto">
+						{stats.map((stat, idx) => (
+							<div
+								key={idx}
+								className="bg-[#002200] border border-[#00ff41]/30 rounded-[20px] p-6 text-center hover:border-[#00ff41] hover:shadow-[0_0_20px_rgba(0,255,65,0.15)] transition-all duration-300"
+							>
+								<div className="text-3xl md:text-4xl font-bold text-[#00ff41] font-mono mb-2">
+									{stat.value}
+								</div>
+								<div className="text-[#00cc33]/70 text-sm font-mono">
+									{stat.label}
+								</div>
+							</div>
+						))}
+					</div>
 
-									{/* Core DevOps text */}
-									<div className="absolute inset-0 flex items-center justify-center">
-										<div className="text-center">
-											<h3 className="text-5xl font-bold text-[#00ff41] mb-3 font-mono">DevOps</h3>
-											<p className="text-xl text-[#00ff41]/60">∞</p>
-										</div>
+					{/* Skills Grid */}
+					<div className="mb-50px">
+						<h3 className="text-center text-lg font-bold text-[#00ff41] font-mono mb-6 uppercase tracking-wider">
+							Tech Stack
+						</h3>
+						<div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-4 max-w-5xl mx-auto">
+							{skills.map((skill, idx) => (
+								<div
+									key={idx}
+									className="bg-[#002200] border border-[#00ff41]/30 rounded-[20px] p-5 text-center hover:border-[#00ff41] hover:shadow-[0_0_20px_rgba(0,255,65,0.15)] transition-all duration-300 group"
+								>
+									<div className="w-12 h-12 mx-auto mb-3 bg-[#00ff41]/10 rounded-full flex items-center justify-center group-hover:bg-[#00ff41]/20 transition-all duration-300">
+										<i className={`${skill.icon} text-xl text-[#00ff41]`}></i>
 									</div>
-
-									{/* Static orbiting elements */}
-									<div className="absolute top-0 left-1/2 -translate-x-1/2 -translate-y-6">
-										<div className="w-20 h-20 bg-[#002200] border border-[#00ff41]/50 rounded-lg flex items-center justify-center text-[#00ff41] font-bold shadow-[0_0_15px_rgba(0,255,65,0.3)] text-sm font-mono">
-											CI/CD
-										</div>
+									<div className="text-[#00ff41] font-mono font-bold text-sm mb-1">
+										{skill.name}
 									</div>
-									<div className="absolute bottom-0 left-1/2 -translate-x-1/2 translate-y-6">
-										<div className="w-20 h-20 bg-[#002200] border border-[#00ff41]/50 rounded-lg flex items-center justify-center text-[#00ff41] font-bold shadow-[0_0_15px_rgba(0,255,65,0.3)] text-sm font-mono">
-											K8s
-										</div>
-									</div>
-									<div className="absolute left-0 top-1/2 -translate-y-1/2 -translate-x-6">
-										<div className="w-20 h-20 bg-[#002200] border border-[#00ff41]/50 rounded-lg flex items-center justify-center text-[#00ff41] font-bold shadow-[0_0_15px_rgba(0,255,65,0.3)] text-sm font-mono">
-											AWS
-										</div>
-									</div>
-									<div className="absolute right-0 top-1/2 -translate-y-1/2 translate-x-6">
-										<div className="w-20 h-20 bg-[#002200] border border-[#00ff41]/50 rounded-lg flex items-center justify-center text-[#00ff41] font-bold shadow-[0_0_15px_rgba(0,255,65,0.3)] text-sm font-mono">
-											SRE
-										</div>
-									</div>
-
-									{/* Additional corner elements */}
-									<div className="absolute top-1/4 right-1/4 translate-x-4 -translate-y-4">
-										<div className="w-16 h-16 bg-[#002200] border border-[#00ff41]/50 rounded-lg flex items-center justify-center text-[#00ff41] font-bold shadow-[0_0_15px_rgba(0,255,65,0.3)] text-xs font-mono">
-											Docker
-										</div>
-									</div>
-									<div className="absolute bottom-1/4 left-1/4 -translate-x-4 translate-y-4">
-										<div className="w-16 h-16 bg-[#002200] border border-[#00ff41]/50 rounded-lg flex items-center justify-center text-[#00ff41] font-bold shadow-[0_0_15px_rgba(0,255,65,0.3)] text-xs font-mono">
-											Terraform
-										</div>
+									<div className="text-[#00cc33]/60 font-mono text-xs">
+										{skill.desc}
 									</div>
 								</div>
-
-								{/* Static particles around the symbol */}
-								<div className="absolute -top-12 -left-12 w-24 h-24 bg-[#00ff41] rounded-full blur-[60px] opacity-20"></div>
-								<div className="absolute -bottom-12 -right-12 w-28 h-28 bg-[#00ff41] rounded-full blur-[80px] opacity-20"></div>
-								<div className="absolute top-1/2 -left-20 w-20 h-20 bg-[#00ff41] rounded-full blur-[60px] opacity-20"></div>
-							</div>
+							))}
 						</div>
+					</div>
 
-						{/* Content Column - Right Side on Desktop */}
-						<div className="w-full text-center lg:text-left order-1 lg:order-2">
-							<div className="mb-25px">
-								<span
-									className="text-xs uppercase text-[#00ff41] font-semibold relative inline-block tracking-0.2em wow fadeInRight font-mono"
-									data-wow-delay=".3s"
-								>
-									&gt;_ About Me
-								</span>
-							</div>
-							<h2 className="text-3xl md:text-size-35 lg:text-size-40 xl:text-size-45 uppercase font-bold leading-1.2 -tracking-0.02em text-[#00ff41] mb-35px">
-								Experienced DevOps Engineer Building Scalable Solutions.
-							</h2>
-							<div className="w-full max-w-[800px] mx-auto">
-								<p
-									className="text-[#00cc33] leading-1.5 mb-30px text-lg wow fadeInUp font-mono"
-									data-wow-delay=".3s"
-								>
-									With 6+ years of experience in DevOps and Linux administration, currently managing
-									critical infrastructure for 5 UAE airports with 400+ servers. Specialized in
-									cloud platforms (AWS, Azure), container orchestration (Kubernetes, Docker),
-									CI/CD automation, and maintaining 99.9% uptime for mission-critical systems.
-								</p>
-								<div
-									className="grid grid-cols-2 md:grid-cols-3 gap-y-4 max-w-600px mx-auto wow fadeInUp"
-									data-wow-delay=".3s"
-								>
-									<span className="text-base font-semibold text-[#00ff41] flex items-center gap-2 font-mono">
-										<span className="w-2 h-2 bg-[#00ff41] rounded-full"></span>
-										Cloud Architecture
-									</span>
-									<span className="text-base font-semibold text-[#00ff41] flex items-center gap-2 font-mono">
-										<span className="w-2 h-2 bg-[#00ff41] rounded-full"></span>
-										CI/CD Pipelines
-									</span>
-									<span className="text-base font-semibold text-[#00ff41] flex items-center gap-2 font-mono">
-										<span className="w-2 h-2 bg-[#00ff41] rounded-full"></span>
-										Infrastructure as Code
-									</span>
-									<span className="text-base font-semibold text-[#00ff41] flex items-center gap-2 font-mono">
-										<span className="w-2 h-2 bg-[#00ff41] rounded-full"></span>
-										Container Orchestration
-									</span>
-									<span className="text-base font-semibold text-[#00ff41] flex items-center gap-2 font-mono">
-										<span className="w-2 h-2 bg-[#00ff41] rounded-full"></span>
-										Monitoring & Observability
-									</span>
-									<span className="text-base font-semibold text-[#00ff41] flex items-center gap-2 font-mono">
-										<span className="w-2 h-2 bg-[#00ff41] rounded-full"></span>
-										Automation & Scripting
-									</span>
+					{/* Additional Info Cards */}
+					<div className="grid md:grid-cols-2 gap-6 max-w-4xl mx-auto mb-50px">
+						<div className="bg-[#002200] border border-[#00ff41]/30 rounded-[20px] p-6 hover:border-[#00ff41] transition-all duration-300">
+							<div className="flex items-start gap-4">
+								<div className="w-12 h-12 bg-[#00ff41]/10 rounded-full flex items-center justify-center flex-shrink-0">
+									<i className="fa-solid fa-heart text-[#00ff41]"></i>
 								</div>
-								<div
-									className="mt-35px wow fadeInUp"
-									data-wow-delay=".3s"
-								>
-									<div className="flex flex-col sm:flex-row gap-4 items-center justify-center lg:justify-start">
-										<ButtonPrimary isIcon={true} href="/#contact">
-											Learn More
-										</ButtonPrimary>
-										<a
-											className="inline-flex items-center justify-center px-6 py-3 text-[#00ff41] bg-transparent border-2 border-[#00ff41] hover:bg-[#00ff41]/10 hover:shadow-[0_0_20px_rgba(0,255,65,0.3)] rounded-full transition-all duration-300 text-sm font-bold min-w-[180px] h-[50px] font-mono"
-											href="https://www.linkedin.com/comm/mynetwork/discovery-see-all?usecase=PEOPLE_FOLLOWS&followMember=ashiwanikumar"
-											target="_blank"
-											rel="noopener noreferrer"
-										>
-											<i className="fa-brands fa-linkedin mr-2"></i>
-											Follow on LinkedIn
-										</a>
-									</div>
+								<div>
+									<h4 className="text-[#00ff41] font-mono font-bold mb-2">Open Source Advocate</h4>
+									<p className="text-[#00cc33]/80 font-mono text-sm leading-relaxed">
+										Passionate about open source tools and contributing to the community.
+										Building solutions with Linux, Kubernetes, Terraform, and other FOSS technologies.
+									</p>
 								</div>
 							</div>
 						</div>
+						<div className="bg-[#002200] border border-[#00ff41]/30 rounded-[20px] p-6 hover:border-[#00ff41] transition-all duration-300">
+							<div className="flex items-start gap-4">
+								<div className="w-12 h-12 bg-[#00ff41]/10 rounded-full flex items-center justify-center flex-shrink-0">
+									<i className="fa-solid fa-plane text-[#00ff41]"></i>
+								</div>
+								<div>
+									<h4 className="text-[#00ff41] font-mono font-bold mb-2">Aviation Infrastructure</h4>
+									<p className="text-[#00cc33]/80 font-mono text-sm leading-relaxed">
+										Managing critical systems for Abu Dhabi, Dubai, Sharjah, and other UAE airports.
+										DevSecOps implementation with 70% faster incident response.
+									</p>
+								</div>
+							</div>
+						</div>
+					</div>
+
+					{/* CTA Buttons */}
+					<div className="flex flex-col sm:flex-row gap-4 items-center justify-center">
+						<ButtonPrimary isIcon={true} href="/#contact">
+							Get In Touch
+						</ButtonPrimary>
+						<a
+							className="inline-flex items-center justify-center px-6 py-3 text-[#00ff41] bg-transparent border-2 border-[#00ff41] hover:bg-[#00ff41]/10 hover:shadow-[0_0_20px_rgba(0,255,65,0.3)] rounded-full transition-all duration-300 text-sm font-bold min-w-[180px] h-[50px] font-mono"
+							href="https://www.linkedin.com/in/ashiwanikumar/"
+							target="_blank"
+							rel="noopener noreferrer"
+						>
+							<i className="fa-brands fa-linkedin mr-2"></i>
+							Connect on LinkedIn
+						</a>
 					</div>
 				</div>
 			</div>

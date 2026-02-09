@@ -47,7 +47,7 @@ const CVViewer = () => {
 											Ashiwani_Kumar_CV.pdf
 										</h3>
 										<p className="text-[#00cc33]/70 text-sm font-mono">
-											Site Reliability Engineer | DevOps Expert
+											Site Reliability Engineer | Open Source Enthusiast
 										</p>
 									</div>
 								</div>
@@ -74,7 +74,7 @@ const CVViewer = () => {
 							{/* Quick Stats */}
 							<div className="grid grid-cols-2 md:grid-cols-4 gap-4">
 								<div className="bg-[#002200] border border-[#00ff41]/20 rounded-[15px] p-4 text-center">
-									<div className="text-2xl font-bold text-[#00ff41] font-mono">6+</div>
+									<div className="text-2xl font-bold text-[#00ff41] font-mono">7+</div>
 									<div className="text-[#00cc33]/70 text-sm font-mono">Years Experience</div>
 								</div>
 								<div className="bg-[#002200] border border-[#00ff41]/20 rounded-[15px] p-4 text-center">

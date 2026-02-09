@@ -5,22 +5,34 @@
     "resumeItems": [
       {
         "date": "Jan 2024 - Present",
-        "title": "Site Reliability Engineer - Astek Middle East",
+        "title": "Site Reliability Engineer",
+        "company": "Astek Middle East",
+        "country": "UAE",
+        "flag": "🇦🇪",
         "desc": "Managing critical infrastructure for 5 UAE airports with 99.9% uptime, serving 50M+ annual passengers. DevSecOps implementation with 70% faster incident response."
       },
       {
         "date": "Aug 2022 - Jan 2024",
-        "title": "System Engineer - NMC Healthcare",
+        "title": "System Engineer",
+        "company": "NMC Healthcare",
+        "country": "UAE",
+        "flag": "🇦🇪",
         "desc": "Managed 400+ servers supporting EMR systems with 99.8% availability. Reduced cloud costs by 35% through AWS/Azure optimization."
       },
       {
         "date": "Jun 2021 - Jul 2022",
-        "title": "Linux System Administrator - CoreHive Computing",
+        "title": "Linux System Administrator",
+        "company": "CoreHive Computing",
+        "country": "India",
+        "flag": "🇮🇳",
         "desc": "Administered 400+ SUSE Linux servers for telecom clients. Automated provisioning with Ansible, reducing setup time by 60%."
       },
       {
         "date": "Aug 2018 - Jun 2021",
-        "title": "SUSE Linux & VMware Admin - Dilip Buildcon",
+        "title": "SUSE Linux & VMware Admin",
+        "company": "Dilip Buildcon",
+        "country": "India",
+        "flag": "🇮🇳",
         "desc": "Managed enterprise Linux and VMware environments. Improved operational efficiency by 40% through automation scripts."
       }
     ]
@@ -32,21 +44,33 @@
       {
         "date": "2024",
         "title": "AWS Solutions Architect - Associate",
-        "desc": "Amazon Web Services"
+        "company": "Amazon Web Services",
+        "country": "Global",
+        "flag": "🌐",
+        "desc": "Cloud architecture and design certification"
       },
       {
         "date": "Certified",
         "title": "RHCSA & CCNA",
+        "company": "Red Hat & Cisco",
+        "country": "Global",
+        "flag": "🌐",
         "desc": "Red Hat Certified System Administrator & Cisco Certified Network Associate"
       },
       {
         "date": "Certified",
         "title": "JNCIA-Cloud, JNCIA-SEC, JNCIA-Junos",
+        "company": "Juniper Networks",
+        "country": "Global",
+        "flag": "🌐",
         "desc": "Juniper Networks Certified Associate - Cloud, Security & Junos"
       },
       {
         "date": "2015 - 2018",
         "title": "B.E. Computer Science Engineering",
+        "company": "RGPV University",
+        "country": "India",
+        "flag": "🇮🇳",
         "desc": "Rajiv Gandhi Prodyogiki Vishwavidyalaya - First Class Graduate"
       }
     ]
