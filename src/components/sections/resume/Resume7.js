@@ -39,9 +39,9 @@ const Resume7 = () => {
 	];
 
 	return (
-		<section id="resume">
+		<section id="resume" className="overflow-hidden">
 			<div className="py-60px md:py-20 lg:py-30 relative">
-				<div className="container">
+				<div className="container px-4 sm:px-6 lg:px-8">
 					<div className="flex flex-wrap lg:flex-nowrap justify-between gap-30px lg:gap-50px xl:gap-60px">
 						{/* Left Column - Sticky */}
 						<div className="w-full lg:w-[400px] xl:w-[450px] lg:flex-shrink-0">
@@ -98,12 +98,12 @@ const Resume7 = () => {
 							</div>
 						</div>
 
-						<div className="w-full lg:flex-1 flex flex-col gap-30px">
+						<div className="w-full lg:flex-1 flex flex-col gap-30px min-w-0">
 							{Object.entries(groupedByCountry).map(([country, { flag, items }]) => (
-								<div key={country} className="mb-4">
+								<div key={country} className="mb-4 min-w-0">
 									{/* Country Header */}
 									<div className="flex items-center gap-3 mb-4 pb-2 border-b border-[#00ff41]/30">
-										<span className="text-2xl" role="img" aria-label={country}>{flag}</span>
+										<span className="text-2xl flex-shrink-0" role="img" aria-label={country}>{flag}</span>
 										<h3 className="text-lg font-bold text-[#00ff41] font-mono uppercase tracking-wider">
 											{country}
 										</h3>
@@ -114,25 +114,25 @@ const Resume7 = () => {
 										{items.map((item, idx) => (
 											<div
 												key={idx}
-												className="py-25px px-20px xl:px-30px bg-[#002200] border border-[#00ff41]/30 hover:border-[#00ff41] rounded-[30px] transition-all duration-300 group hover:shadow-[0_0_20px_rgba(0,255,65,0.15)]"
+												className="py-5 px-4 sm:px-5 xl:px-30px bg-[#002200] border border-[#00ff41]/30 hover:border-[#00ff41] rounded-[20px] sm:rounded-[30px] transition-all duration-300 group hover:shadow-[0_0_20px_rgba(0,255,65,0.15)]"
 											>
-												<div className="flex flex-col md:flex-row md:items-start gap-4">
-													{/* Left: Title & Company */}
-													<div className="flex-1">
-														<h4 className="text-lg lg:text-xl leading-1.2 text-[#00ff41] mb-2 font-mono font-bold">
+												<div className="flex flex-col gap-3">
+													{/* Title & Company */}
+													<div>
+														<h4 className="text-base sm:text-lg lg:text-xl leading-tight text-[#00ff41] mb-2 font-mono font-bold">
 															{item.title}
 														</h4>
 														<p className="text-[#00ff88] text-sm font-mono mb-3 flex items-center gap-2">
-															<i className="fa-solid fa-building text-xs"></i>
-															{item.company}
+															<i className="fa-solid fa-building text-xs flex-shrink-0"></i>
+															<span>{item.company}</span>
 														</p>
 														<p className="text-[#00cc33]/80 text-sm leading-relaxed font-mono">
 															{item.desc}
 														</p>
 													</div>
 
-													{/* Right: Date */}
-													<div className="md:flex-shrink-0 md:text-right">
+													{/* Date */}
+													<div>
 														<div className="inline-flex items-center gap-2 px-3 py-1.5 bg-[#00ff41]/10 border border-[#00ff41]/30 rounded-full">
 															<i className="fa-regular fa-calendar text-xs text-[#00ff41]"></i>
 															<span className="text-[#00ff41] text-xs font-mono font-medium whitespace-nowrap">

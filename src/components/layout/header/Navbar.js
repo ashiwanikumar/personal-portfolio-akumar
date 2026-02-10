@@ -75,7 +75,7 @@ const Navbar = ({ isActiveMobileMenu, setIsActiveMobileMenu, isSticky }) => {
 				{headerType === 9 || headerType === 10 ? (
 					""
 				) : headerType === 5 ? (
-					<li className="menu-bar lg:hidden">
+					<li className="mobile-menu-toggle lg:hidden">
 						<ButtonHeader />
 					</li>
 				) : headerType === 3 || headerType === 4 ? (
@@ -100,7 +100,7 @@ const Navbar = ({ isActiveMobileMenu, setIsActiveMobileMenu, isSticky }) => {
 				{headerType === 9 || headerType === 10 ? (
 					""
 				) : (
-					<li className="menu-bar lg:hidden">
+					<li className="mobile-menu-toggle lg:hidden">
 						<MobileMenuController
 							setIsActiveMobileMenu={setIsActiveMobileMenu}
 							isActiveMobileMenu={isActiveMobileMenu}

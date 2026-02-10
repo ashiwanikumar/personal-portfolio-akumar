@@ -46,21 +46,21 @@ const Newsletter = () => {
 						Site Reliability Engineering. No spam, just valuable content.
 					</p>
 
-					<form onSubmit={handleSubmit} className="flex flex-col sm:flex-row gap-4 max-w-lg mx-auto">
+					<form onSubmit={handleSubmit} className="flex flex-col sm:flex-row gap-4 max-w-lg mx-auto px-4 sm:px-0">
 						<div className="flex-1 relative">
 							<input
 								type="email"
 								value={email}
 								onChange={(e) => setEmail(e.target.value)}
 								placeholder="root@your-email.com"
-								className="w-full px-6 py-4 rounded-lg bg-[#002200] border-2 border-[#00ff41]/40 text-[#00ff41] placeholder-[#00ff41]/50 focus:outline-none focus:border-[#00ff41] transition-all duration-300 font-mono"
+								className="w-full px-5 py-3 rounded-lg bg-[#002200] border-2 border-[#00ff41]/40 text-[#00ff41] placeholder-[#00ff41]/50 focus:outline-none focus:border-[#00ff41] transition-all duration-300 font-mono text-sm sm:text-base"
 								disabled={status === "loading" || status === "success"}
 							/>
 						</div>
 						<button
 							type="submit"
 							disabled={status === "loading" || status === "success"}
-							className="px-8 py-4 bg-[#00ff41] text-[#001100] font-bold rounded-lg hover:bg-[#00ff88] hover:shadow-[0_0_20px_rgba(0,255,65,0.5)] transition-all duration-300 flex items-center justify-center gap-2 disabled:opacity-70 font-mono"
+							className="px-6 py-3 bg-[#00ff41] text-[#001100] font-bold rounded-lg hover:bg-[#00ff88] hover:shadow-[0_0_20px_rgba(0,255,65,0.5)] transition-all duration-300 flex items-center justify-center gap-2 disabled:opacity-70 font-mono sm:w-auto"
 						>
 							{status === "loading" ? (
 								<>
@@ -86,14 +86,14 @@ const Newsletter = () => {
 					</p>
 
 					{/* Social proof */}
-					<div className="mt-12 flex items-center justify-center gap-8 flex-wrap">
-						<div className="flex items-center gap-3">
+					<div className="mt-12 flex items-center justify-center">
+						<div className="flex flex-col sm:flex-row items-center gap-3">
 							<div className="flex -space-x-2">
 								<div className="w-10 h-10 rounded-full bg-[#00ff41]/20 border border-[#00ff41]/40 flex items-center justify-center text-[#00ff41] text-sm font-mono">AK</div>
 								<div className="w-10 h-10 rounded-full bg-[#00ff41]/30 border border-[#00ff41]/40 flex items-center justify-center text-[#00ff41] text-sm font-mono">JD</div>
 								<div className="w-10 h-10 rounded-full bg-[#00ff41]/20 border border-[#00ff41]/40 flex items-center justify-center text-[#00ff41] text-sm font-mono">SR</div>
 							</div>
-							<span className="text-[#00cc33] text-sm font-mono">Trusted by SREs worldwide</span>
+							<span className="text-[#00cc33] text-sm font-mono text-center">Trusted by SREs worldwide</span>
 						</div>
 					</div>
 				</div>

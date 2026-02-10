@@ -137,7 +137,7 @@ const Header = ({ isSticky }) => {
 												Lets Talk
 											</ButtonPrimary>
 										</div>
-										<div className="menu-bar block lg:hidden ">
+										<div className="mobile-menu-toggle block lg:hidden ">
 											<MobileMenuController
 												setIsActiveMobileMenu={setIsActiveMobileMenu}
 												isActiveMobileMenu={isActiveMobileMenu}

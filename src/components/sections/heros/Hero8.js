@@ -52,10 +52,10 @@ const Hero8 = () => {
 								src="/img/hero/ashiwani_devops.png"
 								alt="DevOps Symbol"
 							/>
-							{/* Animated particles around the image */}
-							<div className="absolute -top-10 -left-10 w-20 h-20 bg-gradient-to-r from-blue-500 to-purple-500 rounded-full blur-xl opacity-60 animate-pulse"></div>
-							<div className="absolute -bottom-10 -right-10 w-24 h-24 bg-gradient-to-r from-green-500 to-blue-500 rounded-full blur-xl opacity-60 animate-pulse animation-delay-2000"></div>
-							<div className="absolute top-1/2 -left-16 w-16 h-16 bg-gradient-to-r from-purple-500 to-pink-500 rounded-full blur-xl opacity-60 animate-pulse animation-delay-4000"></div>
+							{/* Animated particles around the image - hidden on mobile */}
+							<div className="hidden md:block absolute -top-10 -left-10 w-20 h-20 bg-gradient-to-r from-blue-500 to-purple-500 rounded-full blur-xl opacity-60 animate-pulse"></div>
+							<div className="hidden md:block absolute -bottom-10 -right-10 w-24 h-24 bg-gradient-to-r from-green-500 to-blue-500 rounded-full blur-xl opacity-60 animate-pulse animation-delay-2000"></div>
+							<div className="hidden md:block absolute top-1/2 -left-16 w-16 h-16 bg-gradient-to-r from-purple-500 to-pink-500 rounded-full blur-xl opacity-60 animate-pulse animation-delay-4000"></div>
 						</div>
 					</div>
 				</div>
