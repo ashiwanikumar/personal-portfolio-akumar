@@ -2,7 +2,35 @@ import Link from "next/link";
 
 export const metadata = {
 	title: "Privacy Notice",
-	description: "Privacy notice explaining how Ashiwani Kumar collects, uses, and protects your personal information.",
+	description: "Privacy notice explaining how Ashiwani Kumar collects, uses, and protects your personal information on ashiwanikumar.com. Your privacy matters.",
+	keywords: ["Privacy Policy", "Privacy Notice", "Data Protection", "GDPR", "Ashiwani Kumar Privacy"],
+	openGraph: {
+		title: "Privacy Notice | Ashiwani Kumar",
+		description: "Learn how your personal information is collected, used, and protected on ashiwanikumar.com.",
+		url: "https://ashiwanikumar.com/privacy-notice",
+		type: "website",
+		images: [
+			{
+				url: "https://ashiwanikumar.com/img/hero/ashiwani.png",
+				width: 1200,
+				height: 630,
+				alt: "Privacy Notice - Ashiwani Kumar"
+			}
+		]
+	},
+	twitter: {
+		card: "summary",
+		title: "Privacy Notice | Ashiwani Kumar",
+		description: "Privacy notice for ashiwanikumar.com",
+		images: ["https://ashiwanikumar.com/img/hero/ashiwani.png"]
+	},
+	alternates: {
+		canonical: "https://ashiwanikumar.com/privacy-notice",
+	},
+	robots: {
+		index: true,
+		follow: true,
+	},
 };
 
 export default function PrivacyNotice() {
