@@ -3,17 +3,27 @@ import PageWrapper from "@/components/shared/wrappers/PageWrapper";
 
 export const metadata = {
 	title: "Services - DevOps & SRE Solutions",
-	description: "Professional DevOps and Site Reliability Engineering services including cloud infrastructure automation, Kubernetes deployment, CI/CD pipelines, infrastructure as code, and 24/7 monitoring solutions.",
-	keywords: ["DevOps Services", "SRE Services", "Cloud Infrastructure", "Kubernetes Consulting", "CI/CD Pipeline", "Infrastructure Automation", "Terraform Services", "AWS Solutions"],
+	description: "Professional DevOps and Site Reliability Engineering services including cloud infrastructure automation, Kubernetes deployment, CI/CD pipelines, Terraform IaC, Ansible automation, and 24/7 monitoring solutions. Based in UAE.",
+	keywords: ["DevOps Services", "SRE Services", "Cloud Infrastructure Consulting", "Kubernetes Consulting UAE", "CI/CD Pipeline Services", "Infrastructure Automation", "Terraform Consulting", "AWS Solutions", "OpenShift Services", "DevSecOps Implementation", "Cloud Migration Services"],
 	openGraph: {
 		title: "DevOps & SRE Services | Ashiwani Kumar",
-		description: "Expert DevOps and Site Reliability Engineering services. Cloud automation, Kubernetes, CI/CD, and infrastructure management.",
+		description: "Expert DevOps and Site Reliability Engineering services. Cloud automation, Kubernetes deployment, CI/CD pipelines, and infrastructure management.",
 		url: "https://ashiwanikumar.com/services",
 		type: "website",
+		images: [
+			{
+				url: "https://ashiwanikumar.com/img/hero/ashiwani.png",
+				width: 1200,
+				height: 630,
+				alt: "DevOps & SRE Services - Ashiwani Kumar"
+			}
+		]
 	},
 	twitter: {
+		card: "summary_large_image",
 		title: "DevOps & SRE Services | Ashiwani Kumar",
-		description: "Professional DevOps services including cloud infrastructure, Kubernetes, and CI/CD solutions.",
+		description: "Professional DevOps services including cloud infrastructure, Kubernetes deployment, and CI/CD pipeline solutions.",
+		images: ["https://ashiwanikumar.com/img/hero/ashiwani.png"]
 	},
 	alternates: {
 		canonical: "https://ashiwanikumar.com/services",

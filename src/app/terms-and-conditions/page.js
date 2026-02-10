@@ -2,7 +2,35 @@ import Link from "next/link";
 
 export const metadata = {
 	title: "Terms and Conditions",
-	description: "Terms and conditions for using Ashiwani Kumar's website.",
+	description: "Terms and conditions for using Ashiwani Kumar's website ashiwanikumar.com. Read our terms of service, usage policy, and legal information.",
+	keywords: ["Terms of Service", "Terms and Conditions", "Website Terms", "Legal", "Ashiwani Kumar Terms"],
+	openGraph: {
+		title: "Terms and Conditions | Ashiwani Kumar",
+		description: "Terms and conditions for using ashiwanikumar.com. Read our terms of service and usage policy.",
+		url: "https://ashiwanikumar.com/terms-and-conditions",
+		type: "website",
+		images: [
+			{
+				url: "https://ashiwanikumar.com/img/hero/ashiwani.png",
+				width: 1200,
+				height: 630,
+				alt: "Terms and Conditions - Ashiwani Kumar"
+			}
+		]
+	},
+	twitter: {
+		card: "summary",
+		title: "Terms and Conditions | Ashiwani Kumar",
+		description: "Terms and conditions for ashiwanikumar.com",
+		images: ["https://ashiwanikumar.com/img/hero/ashiwani.png"]
+	},
+	alternates: {
+		canonical: "https://ashiwanikumar.com/terms-and-conditions",
+	},
+	robots: {
+		index: true,
+		follow: true,
+	},
 };
 
 export default function TermsAndConditions() {

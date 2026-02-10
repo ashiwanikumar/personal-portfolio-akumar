@@ -2,7 +2,35 @@ import Link from "next/link";
 
 export const metadata = {
 	title: "Cookies Policy",
-	description: "Learn about how Ashiwani Kumar's website uses cookies and similar technologies.",
+	description: "Learn how ashiwanikumar.com uses cookies and similar technologies. Understand your choices regarding cookies and tracking.",
+	keywords: ["Cookies Policy", "Cookie Notice", "Website Cookies", "Tracking Technologies", "Ashiwani Kumar Cookies"],
+	openGraph: {
+		title: "Cookies Policy | Ashiwani Kumar",
+		description: "Learn how ashiwanikumar.com uses cookies and similar technologies.",
+		url: "https://ashiwanikumar.com/cookies-policy",
+		type: "website",
+		images: [
+			{
+				url: "https://ashiwanikumar.com/img/hero/ashiwani.png",
+				width: 1200,
+				height: 630,
+				alt: "Cookies Policy - Ashiwani Kumar"
+			}
+		]
+	},
+	twitter: {
+		card: "summary",
+		title: "Cookies Policy | Ashiwani Kumar",
+		description: "Cookies policy for ashiwanikumar.com",
+		images: ["https://ashiwanikumar.com/img/hero/ashiwani.png"]
+	},
+	alternates: {
+		canonical: "https://ashiwanikumar.com/cookies-policy",
+	},
+	robots: {
+		index: true,
+		follow: true,
+	},
 };
 
 export default function CookiesPolicy() {
