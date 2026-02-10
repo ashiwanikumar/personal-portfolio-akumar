@@ -30,13 +30,7 @@ export default function sitemap() {
       url: `${baseUrl}/resume`,
       lastModified: new Date(),
       changeFrequency: 'monthly',
-      priority: 0.8,
-    },
-    {
-      url: `${baseUrl}/cv`,
-      lastModified: new Date(),
-      changeFrequency: 'monthly',
-      priority: 0.7,
+      priority: 0.9,
     },
     {
       url: `${baseUrl}/contact`,

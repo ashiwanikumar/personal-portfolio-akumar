@@ -20,11 +20,6 @@
       "path2":"/resume"
     },
     {
-      "name":"CV",
-      "path":"/cv",
-      "path2":"/cv"
-    },
-    {
       "name":"Contact",
       "path":"/contact",
       "path2":"/contact"
