@@ -2,6 +2,7 @@
 
 import ButtonPopupVideo from "@/components/shared/buttons/ButtonPopupVideo";
 import ButtonPrimary from "@/components/shared/buttons/ButtonPrimary";
+import ShareButton from "@/components/shared/buttons/ShareButton";
 import TypeWriter from "@/components/shared/others/TypeWriter";
 
 const Hero8 = () => {
@@ -120,6 +121,10 @@ const Hero8 = () => {
 								<i className="fa-regular fa-envelope"></i>
 							</span>
 						</a>
+					</li>
+					{/* Share Button */}
+					<li className="nav_item group relative">
+						<ShareButton isRound={true} />
 					</li>
 				</ul>
 			</div>
