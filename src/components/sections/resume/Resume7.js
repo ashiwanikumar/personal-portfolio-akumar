@@ -103,9 +103,9 @@ const Resume7 = () => {
 							{Object.entries(groupedByCountry).map(([country, { flag, items }]) => (
 								<div key={country} className="mb-4 min-w-0">
 									{/* Country Header */}
-									<div className="flex items-center gap-3 mb-4 pb-2 border-b border-[#00ff41]/30">
-										<div className="flex-shrink-0 rounded overflow-hidden shadow-[0_0_10px_rgba(0,255,65,0.3)]">
-											<CountryFlag country={country} className="w-10 h-7" />
+									<div className="flex items-center gap-2 mb-4 pb-2 border-b border-[#00ff41]/30">
+										<div className="flex-shrink-0 rounded overflow-hidden shadow-[0_0_8px_rgba(0,255,65,0.3)]">
+											<CountryFlag country={country} className="w-7 h-5" />
 										</div>
 										<h3 className="text-lg font-bold text-[#00ff41] font-mono uppercase tracking-wider">
 											{country}
