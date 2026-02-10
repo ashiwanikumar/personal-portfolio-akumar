@@ -1,6 +1,7 @@
 "use client";
 import Image from "next/image";
 import Link from "next/link";
+import ShareButton from "@/components/shared/buttons/ShareButton";
 
 const Footer = () => {
 	return (
@@ -99,6 +100,11 @@ const Footer = () => {
 									</Link>
 								</li>
 							</ul>
+						</div>
+
+						{/* Share Button */}
+						<div className="mt-6">
+							<ShareButton />
 						</div>
 
 						<div className="text-[#00cc33] text-sm mt-6 font-mono">
