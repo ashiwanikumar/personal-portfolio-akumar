@@ -1,41 +1,16 @@
 import Link from "next/link";
+import { generatePageMetadata } from "@/libs/seo";
 
-export const metadata = {
+export const metadata = generatePageMetadata({
 	title: "Privacy Notice",
 	description: "Privacy notice explaining how Ashiwani Kumar collects, uses, and protects your personal information on ashiwanikumar.com. Your privacy matters.",
 	keywords: ["Privacy Policy", "Privacy Notice", "Data Protection", "GDPR", "Ashiwani Kumar Privacy"],
-	openGraph: {
-		title: "Privacy Notice | Ashiwani Kumar",
-		description: "Learn how your personal information is collected, used, and protected on ashiwanikumar.com.",
-		url: "https://ashiwanikumar.com/privacy-notice",
-		type: "website",
-		images: [
-			{
-				url: "https://ashiwanikumar.com/img/hero/ashiwani.png",
-				width: 1200,
-				height: 630,
-				alt: "Privacy Notice - Ashiwani Kumar"
-			}
-		]
-	},
-	twitter: {
-		card: "summary",
-		title: "Privacy Notice | Ashiwani Kumar",
-		description: "Privacy notice for ashiwanikumar.com",
-		images: ["https://ashiwanikumar.com/img/hero/ashiwani.png"]
-	},
-	alternates: {
-		canonical: "https://ashiwanikumar.com/privacy-notice",
-	},
-	robots: {
-		index: true,
-		follow: true,
-	},
-};
+	path: "/privacy-notice",
+});
 
 export default function PrivacyNotice() {
 	return (
-		<main className="min-h-screen bg-[#001100] py-20">
+		<main className="min-h-screen bg-[#09090b] py-20">
 			<div className="container max-w-4xl mx-auto px-4">
 				<div className="mb-8">
 					<Link
@@ -47,7 +22,7 @@ export default function PrivacyNotice() {
 					</Link>
 				</div>
 
-				<div className="bg-[#002200] border border-[#00ff41]/30 rounded-[30px] p-8 md:p-12">
+				<div className="bg-[#111113] border border-[#00ff41]/30 rounded-[30px] p-8 md:p-12">
 					<h1 className="text-3xl md:text-4xl font-bold text-[#00ff41] mb-4 font-mono">
 						Privacy Notice
 					</h1>

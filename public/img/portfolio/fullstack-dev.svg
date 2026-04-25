@@ -1,0 +1,116 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="800" height="600" viewBox="0 0 800 600">
+  <rect width="800" height="600" fill="#0d0d0f"/>
+
+  <!-- Dot pattern -->
+  <g fill="white" opacity="0.06">
+    <circle cx="40" cy="40" r="1"/><circle cx="80" cy="40" r="1"/><circle cx="120" cy="40" r="1"/><circle cx="160" cy="40" r="1"/><circle cx="200" cy="40" r="1"/><circle cx="240" cy="40" r="1"/><circle cx="280" cy="40" r="1"/><circle cx="320" cy="40" r="1"/><circle cx="360" cy="40" r="1"/><circle cx="400" cy="40" r="1"/><circle cx="440" cy="40" r="1"/><circle cx="480" cy="40" r="1"/><circle cx="520" cy="40" r="1"/><circle cx="560" cy="40" r="1"/><circle cx="600" cy="40" r="1"/><circle cx="640" cy="40" r="1"/><circle cx="680" cy="40" r="1"/><circle cx="720" cy="40" r="1"/><circle cx="760" cy="40" r="1"/>
+    <circle cx="40" cy="80" r="1"/><circle cx="80" cy="80" r="1"/><circle cx="120" cy="80" r="1"/><circle cx="160" cy="80" r="1"/><circle cx="200" cy="80" r="1"/><circle cx="240" cy="80" r="1"/><circle cx="280" cy="80" r="1"/><circle cx="320" cy="80" r="1"/><circle cx="360" cy="80" r="1"/><circle cx="400" cy="80" r="1"/><circle cx="440" cy="80" r="1"/><circle cx="480" cy="80" r="1"/><circle cx="520" cy="80" r="1"/><circle cx="560" cy="80" r="1"/><circle cx="600" cy="80" r="1"/><circle cx="640" cy="80" r="1"/><circle cx="680" cy="80" r="1"/><circle cx="720" cy="80" r="1"/><circle cx="760" cy="80" r="1"/>
+  </g>
+
+  <!-- Background glow -->
+  <circle cx="400" cy="240" r="200" fill="#61DAFB" opacity="0.025"/>
+
+  <!-- Browser window frame -->
+  <rect x="150" y="55" width="500" height="320" rx="14" fill="#141416" stroke="white" stroke-opacity="0.06"/>
+
+  <!-- Title bar -->
+  <rect x="150" y="55" width="500" height="32" rx="14" fill="#1a1a1e"/>
+  <rect x="150" y="73" width="500" height="14" fill="#1a1a1e"/>
+  <circle cx="168" cy="71" r="4.5" fill="#ff5f57" opacity="0.8"/>
+  <circle cx="184" cy="71" r="4.5" fill="#febc2e" opacity="0.8"/>
+  <circle cx="200" cy="71" r="4.5" fill="#28c840" opacity="0.8"/>
+
+  <!-- URL bar -->
+  <rect x="230" y="64" width="340" height="14" rx="4" fill="white" opacity="0.04"/>
+  <text x="250" y="74" fill="white" opacity="0.2" font-family="Arial, sans-serif" font-size="8">https://myapp.dev</text>
+
+  <!-- Sidebar -->
+  <rect x="162" y="97" width="80" height="265" rx="8" fill="#111115"/>
+  <rect x="172" y="110" width="60" height="6" rx="3" fill="white" opacity="0.08"/>
+  <rect x="172" y="125" width="45" height="5" rx="2" fill="white" opacity="0.05"/>
+  <rect x="172" y="137" width="52" height="5" rx="2" fill="white" opacity="0.05"/>
+  <rect x="172" y="149" width="40" height="5" rx="2" fill="#61DAFB" opacity="0.2"/>
+  <rect x="172" y="161" width="48" height="5" rx="2" fill="white" opacity="0.05"/>
+
+  <!-- Main content -->
+  <rect x="252" y="97" width="386" height="265" rx="8" fill="#0d0d0f"/>
+
+  <!-- Header -->
+  <rect x="262" y="107" width="366" height="30" rx="6" fill="white" opacity="0.02"/>
+  <rect x="272" y="117" width="80" height="8" rx="4" fill="white" opacity="0.08"/>
+
+  <!-- Stats cards -->
+  <rect x="262" y="147" width="85" height="55" rx="8" fill="#141416"/>
+  <text x="275" y="165" fill="white" opacity="0.2" font-family="Arial, sans-serif" font-size="7">Users</text>
+  <text x="275" y="185" fill="white" opacity="0.5" font-family="Arial, sans-serif" font-size="16" font-weight="bold">2.4k</text>
+
+  <rect x="357" y="147" width="85" height="55" rx="8" fill="#141416"/>
+  <text x="370" y="165" fill="white" opacity="0.2" font-family="Arial, sans-serif" font-size="7">Revenue</text>
+  <text x="370" y="185" fill="#00ff41" opacity="0.5" font-family="Arial, sans-serif" font-size="16" font-weight="bold">$18k</text>
+
+  <rect x="452" y="147" width="85" height="55" rx="8" fill="#141416"/>
+  <text x="465" y="165" fill="white" opacity="0.2" font-family="Arial, sans-serif" font-size="7">Orders</text>
+  <text x="465" y="185" fill="white" opacity="0.5" font-family="Arial, sans-serif" font-size="16" font-weight="bold">847</text>
+
+  <rect x="547" y="147" width="81" height="55" rx="8" fill="#141416"/>
+  <text x="560" y="165" fill="white" opacity="0.2" font-family="Arial, sans-serif" font-size="7">Uptime</text>
+  <text x="560" y="185" fill="#00ff41" opacity="0.5" font-family="Arial, sans-serif" font-size="16" font-weight="bold">99.9</text>
+
+  <!-- Chart area -->
+  <rect x="262" y="212" width="180" height="140" rx="8" fill="#141416"/>
+  <text x="275" y="232" fill="white" opacity="0.2" font-family="Arial, sans-serif" font-size="8" font-weight="bold">Analytics</text>
+  <!-- Bar chart -->
+  <rect x="282" y="295" width="14" height="40" rx="2" fill="#61DAFB" opacity="0.2"/>
+  <rect x="304" y="275" width="14" height="60" rx="2" fill="#61DAFB" opacity="0.25"/>
+  <rect x="326" y="285" width="14" height="50" rx="2" fill="#61DAFB" opacity="0.2"/>
+  <rect x="348" y="265" width="14" height="70" rx="2" fill="#00ff41" opacity="0.3"/>
+  <rect x="370" y="280" width="14" height="55" rx="2" fill="#61DAFB" opacity="0.2"/>
+  <rect x="392" y="290" width="14" height="45" rx="2" fill="#61DAFB" opacity="0.15"/>
+  <rect x="414" y="270" width="14" height="65" rx="2" fill="#61DAFB" opacity="0.25"/>
+
+  <!-- Table area -->
+  <rect x="452" y="212" width="176" height="140" rx="8" fill="#141416"/>
+  <text x="465" y="232" fill="white" opacity="0.2" font-family="Arial, sans-serif" font-size="8" font-weight="bold">Recent Activity</text>
+  <rect x="462" y="245" width="156" height="6" rx="3" fill="white" opacity="0.04"/>
+  <rect x="462" y="259" width="130" height="6" rx="3" fill="white" opacity="0.03"/>
+  <rect x="462" y="273" width="145" height="6" rx="3" fill="white" opacity="0.04"/>
+  <rect x="462" y="287" width="110" height="6" rx="3" fill="white" opacity="0.03"/>
+  <rect x="462" y="301" width="140" height="6" rx="3" fill="white" opacity="0.04"/>
+  <rect x="462" y="315" width="125" height="6" rx="3" fill="white" opacity="0.03"/>
+  <rect x="462" y="329" width="150" height="6" rx="3" fill="white" opacity="0.04"/>
+
+  <!-- Tech stack icons -->
+  <!-- Next.js -->
+  <rect x="132" y="402" width="56" height="36" rx="10" fill="#141416" stroke="white" stroke-opacity="0.07"/>
+  <text x="160" y="425" fill="white" opacity="0.6" font-family="Arial, sans-serif" font-size="12" text-anchor="middle" font-weight="bold">N</text>
+  <text x="160" y="458" fill="white" opacity="0.25" font-family="Arial, sans-serif" font-size="9" text-anchor="middle">Next.js</text>
+
+  <!-- React -->
+  <rect x="242" y="402" width="56" height="36" rx="10" fill="#141416" stroke="white" stroke-opacity="0.07"/>
+  <circle cx="270" cy="420" r="4" fill="#61DAFB" opacity="0.5"/>
+  <ellipse cx="270" cy="420" rx="13" ry="5" fill="none" stroke="#61DAFB" stroke-width="1" opacity="0.35"/>
+  <ellipse cx="270" cy="420" rx="13" ry="5" fill="none" stroke="#61DAFB" stroke-width="1" opacity="0.35" transform="rotate(60, 270, 420)"/>
+  <ellipse cx="270" cy="420" rx="13" ry="5" fill="none" stroke="#61DAFB" stroke-width="1" opacity="0.35" transform="rotate(-60, 270, 420)"/>
+  <text x="270" y="458" fill="white" opacity="0.25" font-family="Arial, sans-serif" font-size="9" text-anchor="middle">React</text>
+
+  <!-- Node.js -->
+  <rect x="352" y="402" width="56" height="36" rx="10" fill="#141416" stroke="white" stroke-opacity="0.07"/>
+  <polygon points="380,410 389,415 389,425 380,430 371,425 371,415" fill="none" stroke="#68A063" stroke-width="1.5" opacity="0.5"/>
+  <text x="380" y="458" fill="white" opacity="0.25" font-family="Arial, sans-serif" font-size="9" text-anchor="middle">Node.js</text>
+
+  <!-- TypeScript -->
+  <rect x="462" y="402" width="56" height="36" rx="10" fill="#141416" stroke="white" stroke-opacity="0.07"/>
+  <rect x="482" y="412" width="16" height="16" rx="2" fill="none" stroke="#3178C6" stroke-width="1.5" opacity="0.5"/>
+  <text x="490" y="424" fill="#3178C6" opacity="0.6" font-family="Arial, sans-serif" font-size="10" text-anchor="middle" font-weight="bold">TS</text>
+  <text x="490" y="458" fill="white" opacity="0.25" font-family="Arial, sans-serif" font-size="9" text-anchor="middle">TypeScript</text>
+
+  <!-- Tailwind -->
+  <rect x="572" y="402" width="56" height="36" rx="10" fill="#141416" stroke="white" stroke-opacity="0.07"/>
+  <path d="M592,416 C595,410 600,410 603,416 C606,422 611,422 614,416" fill="none" stroke="#06B6D4" stroke-width="1.5" opacity="0.5"/>
+  <path d="M592,423 C595,417 600,417 603,423 C606,429 611,429 614,423" fill="none" stroke="#06B6D4" stroke-width="1.5" opacity="0.3"/>
+  <text x="600" y="458" fill="white" opacity="0.25" font-family="Arial, sans-serif" font-size="9" text-anchor="middle">Tailwind</text>
+
+  <!-- Title -->
+  <text x="400" y="510" fill="white" font-family="Arial, sans-serif" font-size="20" font-weight="bold" text-anchor="middle" letter-spacing="3">FULL STACK DEVELOPMENT</text>
+  <text x="400" y="538" fill="white" opacity="0.3" font-family="Arial, sans-serif" font-size="13" text-anchor="middle" letter-spacing="1">Next.js - React - Node.js - TypeScript</text>
+</svg>

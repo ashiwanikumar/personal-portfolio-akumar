@@ -13,7 +13,7 @@ import tjTitleAnim from "@/libs/tjTitleAnim";
 import { useEffect } from "react";
 import BackToTop from "../others/BackToTop";
 import MagicCusror1 from "../others/MagicCusror1";
-import Preloader from "../others/Preloader";
+
 import LinkedInFollowModal from "../modals/LinkedInFollowModal";
 
 const PageWrapper = ({
@@ -37,7 +37,6 @@ const PageWrapper = ({
 	}, []);
 	return (
 		<div>
-			<Preloader />
 			<LinkedInFollowModal />
 
 			<BackToTop />

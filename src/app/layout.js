@@ -1,4 +1,9 @@
 import { Suspense } from "react";
+import {
+	generatePersonSchema,
+	generateWebSiteSchema,
+	generateProfilePageSchema,
+} from "@/libs/seo";
 
 import "swiper/css";
 import "swiper/css/navigation";
@@ -15,11 +20,11 @@ import "./globals.css";
 export const metadata = {
 	metadataBase: new URL('https://ashiwanikumar.com'),
 	title: {
-		default: "Ashiwani Kumar | Site Reliability Engineer & DevOps Practitioner",
+		default: "Ashiwani Kumar | Linux DevOps Engineer & DevOps Practitioner",
 		template: "%s | Ashiwani Kumar"
 	},
-	description: "Site Reliability Engineer with 7+ years of experience managing mission-critical infrastructure across UAE. Expert in Kubernetes, OpenShift, AWS, Terraform, Ansible, CI/CD, and DevSecOps practices with 99.9% uptime achievement.",
-	keywords: ["DevOps Engineer", "Site Reliability Engineer", "SRE", "Kubernetes", "OpenShift", "AWS", "Terraform", "Ansible", "CI/CD", "Cloud Infrastructure", "Abu Dhabi", "UAE", "Infrastructure Automation", "DevSecOps", "Open Source", "Linux Administrator"],
+	description: "Linux DevOps Engineer with 7+ years of experience managing mission-critical infrastructure across UAE. Expert in Kubernetes, OpenShift, AWS, Terraform, Ansible, CI/CD, and DevSecOps practices with 99.9% uptime achievement.",
+	keywords: ["DevOps Engineer", "Linux DevOps Engineer", "SRE", "Kubernetes", "OpenShift", "AWS", "Terraform", "Ansible", "CI/CD", "Cloud Infrastructure", "Abu Dhabi", "UAE", "Infrastructure Automation", "DevSecOps", "Open Source", "Linux Administrator"],
 	authors: [{ name: "Ashiwani Kumar", url: "https://ashiwanikumar.com" }],
 	creator: "Ashiwani Kumar",
 	publisher: "Ashiwani Kumar",
@@ -33,14 +38,14 @@ export const metadata = {
 		locale: "en_US",
 		url: "https://ashiwanikumar.com",
 		siteName: "Ashiwani Kumar - SRE & DevOps Engineer",
-		title: "Ashiwani Kumar | Site Reliability Engineer & DevOps Practitioner",
-		description: "Site Reliability Engineer with 7+ years experience. Expert in Kubernetes, OpenShift, AWS, Terraform, Ansible, and building reliable infrastructure at scale.",
+		title: "Ashiwani Kumar | Linux DevOps Engineer & DevOps Practitioner",
+		description: "Linux DevOps Engineer with 7+ years experience. Expert in Kubernetes, OpenShift, AWS, Terraform, Ansible, and building reliable infrastructure at scale.",
 		images: [
 			{
 				url: "https://ashiwanikumar.com/img/hero/ashiwani.png",
 				width: 1200,
 				height: 630,
-				alt: "Ashiwani Kumar - Site Reliability Engineer & DevOps Practitioner"
+				alt: "Ashiwani Kumar - Linux DevOps Engineer & DevOps Practitioner"
 			}
 		]
 	},
@@ -49,12 +54,15 @@ export const metadata = {
 		site: "@theashvanikumar",
 		creator: "@theashvanikumar",
 		title: "Ashiwani Kumar | SRE & DevOps Practitioner",
-		description: "Site Reliability Engineer with 7+ years experience managing mission-critical infrastructure across UAE.",
+		description: "Linux DevOps Engineer with 7+ years experience managing mission-critical infrastructure across UAE.",
 		images: ["https://ashiwanikumar.com/img/hero/ashiwani.png"]
 	},
 	robots: {
 		index: true,
 		follow: true,
+		"max-snippet": -1,
+		"max-image-preview": "large",
+		"max-video-preview": -1,
 		googleBot: {
 			index: true,
 			follow: true,
@@ -66,9 +74,6 @@ export const metadata = {
 	alternates: {
 		canonical: "https://ashiwanikumar.com",
 	},
-	verification: {
-		google: "your-google-verification-code"
-	},
 	category: "technology",
 	other: {
 		"contact:email": "ashvanikumar109@gmail.com",
@@ -77,61 +82,30 @@ export const metadata = {
 	}
 };
 
-// JSON-LD Structured Data
-const jsonLd = {
-	"@context": "https://schema.org",
-	"@type": "Person",
-	"name": "Ashiwani Kumar",
-	"url": "https://ashiwanikumar.com",
-	"image": "https://ashiwanikumar.com/img/hero/ashiwani.png",
-	"jobTitle": "Site Reliability Engineer",
-	"worksFor": {
-		"@type": "Organization",
-		"name": "Astek Middle East"
-	},
-	"description": "Site Reliability Engineer with 7+ years of experience managing mission-critical infrastructure across UAE airports.",
-	"email": "ashvanikumar109@gmail.com",
-	"telephone": "+971 566182303",
-	"address": {
-		"@type": "PostalAddress",
-		"addressLocality": "Abu Dhabi",
-		"addressCountry": "UAE"
-	},
-	"sameAs": [
-		"https://www.linkedin.com/in/ashiwanikumar/",
-		"https://github.com/ashiwanikumar",
-		"https://x.com/theashvanikumar",
-		"https://www.facebook.com/ashiwani0",
-		"https://www.instagram.com/ashiwani0/"
-	],
-	"knowsAbout": [
-		"Site Reliability Engineering",
-		"DevOps",
-		"Kubernetes",
-		"OpenShift",
-		"AWS",
-		"Terraform",
-		"Ansible",
-		"CI/CD",
-		"Cloud Infrastructure",
-		"Linux Administration",
-		"Docker",
-		"Azure DevOps"
-	]
-};
+const jsonLdSchemas = [
+	generatePersonSchema(),
+	generateWebSiteSchema(),
+	generateProfilePageSchema(),
+];
 
 export default function RootLayout({ children }) {
 	return (
 		<html lang="en">
 			<head>
-				<script
-					type="application/ld+json"
-					dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
-				/>
+				{jsonLdSchemas.map((schema, i) => (
+					<script
+						key={i}
+						type="application/ld+json"
+						dangerouslySetInnerHTML={{ __html: JSON.stringify(schema) }}
+					/>
+				))}
 			</head>
 			<body
 				className="font-sora hacker-theme overflow-x-hidden relative"
 			>
+				<a href="#main-content" className="skip-to-content">
+					Skip to main content
+				</a>
 				<Suspense fallback={<></>}>{children}</Suspense>
 			</body>
 		</html>

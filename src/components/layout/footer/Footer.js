@@ -5,110 +5,66 @@ import ShareButton from "@/components/shared/buttons/ShareButton";
 
 const Footer = () => {
 	return (
-		<footer>
-			<div className="footer-inner bg-[#001100]">
+		<footer role="contentinfo">
+			<div className="footer-inner bg-[#09090b] border-t border-white/5">
 				<div className="container">
-					<div className="flex flex-col items-center pt-50px pb-5 md:pt-60px">
-						{/* logo */}
-						<div className="footer-logo w-75px h-75px mb-6">
-							<Link href="/">
+					<div className="flex flex-col items-center pt-14 pb-8">
+						{/* Logo */}
+						<div className="footer-logo w-[70px] h-[70px] mb-8">
+							<Link href="/" aria-label="Go to homepage">
 								<Image
 									src="/img/logo/logo.png"
-									alt="Ashiwani Kumar"
+									alt="Ashiwani Kumar - Linux DevOps Engineer"
 									width={400}
 									height={400}
 								/>
 							</Link>
 						</div>
-						{/* <!-- nav --> */}
-						<div>
-							<ul className="flex flex-wrap justify-center items-center gap-x-8 gap-y-2">
-								<li>
-									<Link
-										href="/about"
-										className="text-[#00ff41] hover:text-[#00ff88] text-sm font-medium uppercase tracking-wider transition-all duration-300 hover:text-shadow-glow"
-									>
-										About
-									</Link>
-								</li>
-								<li>
-									<Link
-										href="/services"
-										className="text-[#00ff41] hover:text-[#00ff88] text-sm font-medium uppercase tracking-wider transition-all duration-300"
-									>
-										Services
-									</Link>
-								</li>
-								<li>
-									<Link
-										href="/portfolio"
-										className="text-[#00ff41] hover:text-[#00ff88] text-sm font-medium uppercase tracking-wider transition-all duration-300"
-									>
-										Portfolio
-									</Link>
-								</li>
-								<li>
-									<Link
-										href="/resume"
-										className="text-[#00ff41] hover:text-[#00ff88] text-sm font-medium uppercase tracking-wider transition-all duration-300"
-									>
-										Resume
-									</Link>
-								</li>
-								<li>
-									<Link
-										href="/contact"
-										className="text-[#00ff41] hover:text-[#00ff88] text-sm font-medium uppercase tracking-wider transition-all duration-300"
-									>
-										Contact
-									</Link>
-								</li>
+
+						{/* Navigation */}
+						<nav aria-label="Footer navigation">
+							<ul className="flex flex-wrap justify-center items-center gap-x-8 gap-y-3">
+								{["About", "Services", "Portfolio", "Resume", "Contact"].map((item) => (
+									<li key={item}>
+										<Link
+											href={`/${item.toLowerCase()}`}
+											className="text-[#00ff41]/70 hover:text-[#00ff41] text-sm font-medium uppercase tracking-[0.15em] transition-all duration-300 font-mono"
+										>
+											{item}
+										</Link>
+									</li>
+								))}
 							</ul>
-						</div>
+						</nav>
 
 						{/* Legal Links */}
 						<div className="mt-6">
-							<ul className="flex flex-wrap justify-center items-center gap-x-6 gap-y-2">
-								<li>
-									<Link
-										href="/privacy-notice"
-										className="text-[#00cc33]/70 hover:text-[#00ff41] text-xs font-mono transition-all duration-300"
-									>
-										Privacy Notice
-									</Link>
-								</li>
-								<li>
-									<span className="text-[#00cc33]/30">|</span>
-								</li>
-								<li>
-									<Link
-										href="/terms-and-conditions"
-										className="text-[#00cc33]/70 hover:text-[#00ff41] text-xs font-mono transition-all duration-300"
-									>
-										Terms & Conditions
-									</Link>
-								</li>
-								<li>
-									<span className="text-[#00cc33]/30">|</span>
-								</li>
-								<li>
-									<Link
-										href="/cookies-policy"
-										className="text-[#00cc33]/70 hover:text-[#00ff41] text-xs font-mono transition-all duration-300"
-									>
-										Cookies Policy
-									</Link>
-								</li>
+							<ul className="flex flex-wrap justify-center items-center gap-x-2 gap-y-2">
+								{[
+									{ label: "Privacy Notice", href: "/privacy-notice" },
+									{ label: "Terms & Conditions", href: "/terms-and-conditions" },
+									{ label: "Cookies Policy", href: "/cookies-policy" },
+								].map((link, idx) => (
+									<li key={link.href} className="flex items-center gap-2">
+										{idx > 0 && <span className="text-[#00ff41]/20" aria-hidden="true">|</span>}
+										<Link
+											href={link.href}
+											className="text-white/30 hover:text-[#00ff41] text-xs font-mono transition-all duration-300"
+										>
+											{link.label}
+										</Link>
+									</li>
+								))}
 							</ul>
 						</div>
 
-						{/* Share Button */}
+						{/* Share */}
 						<div className="mt-6">
 							<ShareButton />
 						</div>
 
-						<div className="text-[#00cc33] text-sm mt-6 font-mono">
-							© {new Date().getFullYear()} Ashiwani Kumar. All rights reserved.
+						<div className="text-white/25 text-xs mt-6 font-mono">
+							&copy; {new Date().getFullYear()} Ashiwani Kumar. All rights reserved.
 						</div>
 					</div>
 				</div>

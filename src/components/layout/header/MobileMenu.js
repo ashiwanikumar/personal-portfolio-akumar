@@ -8,7 +8,7 @@ const MobileMenu = ({ isActiveMobileMenu }) => {
   const navItems = getNavItems();
   return (
     <div
-      className={`mobile-menu absolute left-0 top-full min-h-screen-90 w-full bg-[#001100] block origin-top-left lg:hidden ${
+      className={`mobile-menu absolute left-0 top-full min-h-screen-90 w-full bg-[#09090b] block origin-top-left lg:hidden ${
         isActiveMobileMenu ? "active" : ""
       }`}
     >
