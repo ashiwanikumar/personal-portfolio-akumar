@@ -6,7 +6,7 @@ Theme Name: Ashiwani Kumar - SRE & DevOps Portfolio
 Theme URI: https://ashiwanikumar.com
 Author: Ashiwani Kumar
 Author URI: https://ashiwanikumar.com
-Description: Personal Portfolio - Site Reliability Engineer & DevOps Expert
+Description: Personal Portfolio - Linux DevOps Engineer & DevOps Expert
 
 -----------------------------------------------------------------------------------
 
@@ -36,39 +36,174 @@ Description: Personal Portfolio - Site Reliability Engineer & DevOps Expert
 @tailwind components;
 @tailwind utilities;
 
+/* ==============================================
+   PREMIUM DESIGN SYSTEM
+   ============================================== */
+
+/* Skip to content - Accessibility */
+.skip-to-content {
+  position: absolute;
+  top: -100%;
+  left: 50%;
+  transform: translateX(-50%);
+  z-index: 10000;
+  padding: 12px 24px;
+  background: #00ff41;
+  color: #001100;
+  font-weight: 700;
+  border-radius: 0 0 8px 8px;
+  transition: top 0.3s ease;
+}
+.skip-to-content:focus {
+  top: 0;
+}
+
+/* Focus states for accessibility */
+*:focus-visible {
+  outline: 2px solid #00ff41;
+  outline-offset: 2px;
+}
+
+/* Reduced motion */
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}
+
 /* Custom Animations */
 @keyframes float {
-  0%, 100% {
-    transform: translateY(0px);
-  }
-  50% {
-    transform: translateY(-20px);
-  }
+  0%, 100% { transform: translateY(0px); }
+  50% { transform: translateY(-20px); }
 }
 
 .animate-float {
-  animation: float 4s ease-in-out infinite;
+  animation: float 6s ease-in-out infinite;
 }
 
-.animation-delay-2000 {
-  animation-delay: 2s;
-}
-
-.animation-delay-4000 {
-  animation-delay: 4s;
-}
+.animation-delay-2000 { animation-delay: 2s; }
+.animation-delay-4000 { animation-delay: 4s; }
 
 @keyframes spin-slow {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+  from { transform: rotate(0deg); }
+  to { transform: rotate(360deg); }
 }
 
 .animate-spin-slow {
   animation: spin-slow 20s linear infinite;
+}
+
+/* Gradient border animation */
+@keyframes gradient-shift {
+  0% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+  100% { background-position: 0% 50%; }
+}
+
+/* Glow pulse */
+@keyframes glow-pulse {
+  0%, 100% { box-shadow: 0 0 20px rgba(0, 255, 65, 0.1); }
+  50% { box-shadow: 0 0 40px rgba(0, 255, 65, 0.2), 0 0 60px rgba(0, 255, 65, 0.1); }
+}
+
+/* Slide up reveal */
+@keyframes slide-up {
+  from { opacity: 0; transform: translateY(30px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+/* Glass-morphism card */
+.glass-card {
+  background: rgba(255, 255, 255, 0.03);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  border: 1px solid rgba(255, 255, 255, 0.06);
+  transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.glass-card:hover {
+  border-color: rgba(255, 255, 255, 0.12);
+  box-shadow: 0 8px 40px rgba(0, 0, 0, 0.4);
+  transform: translateY(-3px);
+}
+
+/* Gradient text */
+.gradient-text {
+  background: linear-gradient(135deg, #00ff41 0%, #00e5a0 40%, #00aaff 100%) !important;
+  -webkit-background-clip: text !important;
+  -webkit-text-fill-color: transparent !important;
+  background-clip: text !important;
+  color: transparent !important;
+}
+
+/* Gradient border */
+.gradient-border {
+  position: relative;
+  border: none !important;
+}
+.gradient-border::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  padding: 1px;
+  border-radius: inherit;
+  background: linear-gradient(135deg, rgba(0,255,65,0.3), rgba(0,170,255,0.2), rgba(0,255,65,0.1));
+  -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+  -webkit-mask-composite: xor;
+  mask-composite: exclude;
+  pointer-events: none;
+}
+
+/* Section label badge */
+.section-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 8px 20px;
+  background: rgba(0, 255, 65, 0.06);
+  border: 1px solid rgba(0, 255, 65, 0.12);
+  border-radius: 100px;
+  font-size: 11px;
+  font-weight: 600;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: #00ff41;
+  font-family: "Sora", sans-serif;
+}
+
+/* Animated mesh gradient background */
+.mesh-gradient {
+  position: absolute;
+  inset: 0;
+  overflow: hidden;
+  z-index: -1;
+}
+.mesh-gradient::before,
+.mesh-gradient::after {
+  content: '';
+  position: absolute;
+  border-radius: 50%;
+  filter: blur(120px);
+  opacity: 0.4;
+  animation: float 8s ease-in-out infinite;
+}
+.mesh-gradient::before {
+  width: 600px;
+  height: 600px;
+  background: radial-gradient(circle, rgba(0,255,65,0.15) 0%, transparent 70%);
+  top: -200px;
+  right: -100px;
+}
+.mesh-gradient::after {
+  width: 500px;
+  height: 500px;
+  background: radial-gradient(circle, rgba(0,170,255,0.1) 0%, transparent 70%);
+  bottom: -200px;
+  left: -100px;
+  animation-delay: -4s;
 }
 
 /* Nav link glow effect */
@@ -113,7 +248,12 @@ Description: Personal Portfolio - Site Reliability Engineer & DevOps Expert
 
 .nav-glow-hover:hover {
   color: #00ff88;
-  text-shadow: 0 0 10px rgba(0, 255, 65, 0.8), 0 0 20px rgba(0, 255, 65, 0.5), 0 0 40px rgba(0, 255, 65, 0.3);
+  text-shadow: 0 0 10px rgba(0, 255, 65, 0.6), 0 0 20px rgba(0, 255, 65, 0.3);
+}
+
+/* Smooth scroll */
+html {
+  scroll-behavior: smooth;
 }
 
 /* variable */
@@ -172,26 +312,25 @@ body {
 
 /* Hacker Theme for Light Mode */
 body.hacker-theme {
-	background-color: #001100;
-	color: #00ff41;
-	font-family: 'Courier New', monospace;
+	background-color: #09090b;
+	color: #e4e4e7;
 }
 
 body.hacker-theme .bg-white-color {
-	background-color: #001100 !important;
+	background-color: #09090b !important;
 }
 
 body.hacker-theme .bg-cream-light-color {
-	background-color: #002200 !important;
+	background-color: #111113 !important;
 }
 
 body.hacker-theme .text-seondary-color,
 body.hacker-theme .text-primary-color-light {
-	color: #00ff41 !important;
+	color: rgba(255, 255, 255, 0.6) !important;
 }
 
 body.hacker-theme .text-gray-color-2 {
-	color: #00cc33 !important;
+	color: rgba(255, 255, 255, 0.4) !important;
 }
 
 body.hacker-theme .text-primary-color {
@@ -200,31 +339,29 @@ body.hacker-theme .text-primary-color {
 
 body.hacker-theme .border-body-color,
 body.hacker-theme .border-border-color {
-	border-color: rgba(0, 255, 65, 0.3) !important;
+	border-color: rgba(255, 255, 255, 0.06) !important;
 }
 
 body.hacker-theme .bg-gradient-primary-8 {
-	background: linear-gradient(-10deg, #003300 0%, #00ff41 100%) !important;
+	background: linear-gradient(-10deg, #09090b 0%, #00ff41 100%) !important;
 }
 
 /* Social Media Icons Visibility */
 body.hacker-theme .nav_item a span {
-	border-color: #00ff41 !important;
-	color: #00ff41 !important;
+	border-color: rgba(255, 255, 255, 0.1) !important;
+	color: rgba(255, 255, 255, 0.4) !important;
 }
 
 body.hacker-theme .nav_item a span i {
-	color: #00ff41 !important;
+	color: inherit !important;
 }
 
 body.hacker-theme .nav_item a:hover span {
-	background: #00ff41 !important;
-	color: #001100 !important;
-	border-color: #00ff41 !important;
+	color: #09090b !important;
 }
 
 body.hacker-theme .nav_item a:hover span i {
-	color: #001100 !important;
+	color: #09090b !important;
 }
 
 /* Footer Social Icons */
@@ -241,26 +378,16 @@ body.hacker-theme .socials a:hover {
 /* Additional Hacker Theme Styles */
 body.hacker-theme .text-dark-color,
 body.hacker-theme .text-black-color {
-	color: #00ff41 !important;
+	color: rgba(255, 255, 255, 0.9) !important;
 }
 
 body.hacker-theme .border-border-color-3,
 body.hacker-theme .border-border-color-4,
 body.hacker-theme .border-border-color-5 {
-	border-color: rgba(0, 255, 65, 0.2) !important;
+	border-color: rgba(255, 255, 255, 0.06) !important;
 }
 
-body.hacker-theme button,
-body.hacker-theme .btn {
-	color: #00ff41 !important;
-	border-color: #00ff41 !important;
-}
-
-body.hacker-theme button:hover,
-body.hacker-theme .btn:hover {
-	background-color: #00ff41 !important;
-	color: #001100 !important;
-}
+/* Keep button styles from component classes, don't override */
 
 /* Hero scroll indicator */
 body.hacker-theme .hero_scroll a {
@@ -269,53 +396,32 @@ body.hacker-theme .hero_scroll a {
 
 /* Navigation and Header Improvements */
 body.hacker-theme .navbar a,
-body.hacker-theme .header a,
-body.hacker-theme .nav_item a {
-	color: #00ff41 !important;
+body.hacker-theme .header a {
+	color: rgba(255, 255, 255, 0.7) !important;
 	font-weight: 500 !important;
-	text-shadow: 0 0 2px rgba(0, 255, 65, 0.3) !important;
 }
 
-body.hacker-theme .nav_item a:hover {
-	color: #00ff88 !important;
-	text-shadow: 0 0 5px rgba(0, 255, 65, 0.6) !important;
+body.hacker-theme .header a:hover {
+	color: #00ff41 !important;
 }
 
 /* Header background for better contrast */
 body.hacker-theme .header-sticky,
 body.hacker-theme .header {
-	background-color: rgba(0, 17, 0, 0.95) !important;
-	backdrop-filter: blur(10px) !important;
-	border-bottom: 1px solid rgba(0, 255, 65, 0.2) !important;
+	background-color: rgba(9, 9, 11, 0.85) !important;
+	backdrop-filter: blur(20px) saturate(180%) !important;
+	border-bottom: 1px solid rgba(255, 255, 255, 0.06) !important;
 }
 
 /* Navigation container */
 body.hacker-theme .nav {
-	background-color: rgba(0, 17, 0, 0.8) !important;
-	border: 1px solid rgba(0, 255, 65, 0.3) !important;
-	backdrop-filter: blur(5px) !important;
+	background-color: rgba(9, 9, 11, 0.85) !important;
+	border: 1px solid rgba(255, 255, 255, 0.06) !important;
+	backdrop-filter: blur(20px) !important;
 }
 
 /* "Let's Talk" button improvements */
-body.hacker-theme .btn,
-body.hacker-theme button[type="submit"],
-body.hacker-theme .button {
-	background: linear-gradient(135deg, #003300 0%, #00ff41 100%) !important;
-	color: #001100 !important;
-	border: 2px solid #00ff41 !important;
-	font-weight: 600 !important;
-	text-shadow: none !important;
-	box-shadow: 0 0 10px rgba(0, 255, 65, 0.3) !important;
-}
-
-body.hacker-theme .btn:hover,
-body.hacker-theme button[type="submit"]:hover,
-body.hacker-theme .button:hover {
-	background: #00ff41 !important;
-	color: #001100 !important;
-	box-shadow: 0 0 20px rgba(0, 255, 65, 0.6) !important;
-	transform: translateY(-2px) !important;
-}
+/* Button styles handled by component classes */
 
 .dark body {
 	background-color: var(--black-color);
@@ -521,7 +627,7 @@ img {
 	z-index: 100;
 	opacity: 0;
 	transition: 0.3s;
-	box-shadow: 0 0 30px rgba(135, 80, 247, 0.2);
+	box-shadow: 0 4px 30px rgba(0, 0, 0, 0.3);
 }
 .header-area.header-2.sticky {
 	top: 0;
@@ -1449,16 +1555,20 @@ img {
 }
 
 .swiper-pagination .swiper-pagination-bullet {
-	background: var(--gray-color);
-
-	opacity: 0.9;
-}
-.dark .swiper-pagination .swiper-pagination-bullet {
-	opacity: 0.2;
+	background: rgba(0, 255, 65, 0.3);
+	opacity: 1;
+	width: 8px;
+	height: 8px;
+	transition: all 0.3s ease;
 }
 .swiper-pagination .swiper-pagination-bullet-active {
-	background: var(--primary-color);
+	background: #00ff41;
 	opacity: 1;
+	width: 24px;
+	border-radius: 4px;
+}
+.dark .swiper-pagination .swiper-pagination-bullet {
+	opacity: 0.3;
 }
 .dark .swiper-pagination .swiper-pagination-bullet-active {
 	background: var(--primary-color);
@@ -1622,7 +1732,7 @@ body.loaded {
 	top: 0;
 	width: 100vw;
 	height: 110vh;
-	fill: #001100;
+	fill: #09090b;
 }
 
 .preloader .preloader-heading {

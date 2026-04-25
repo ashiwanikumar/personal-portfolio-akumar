@@ -4,15 +4,13 @@ import { useState } from "react";
 
 const Newsletter = () => {
 	const [email, setEmail] = useState("");
-	const [status, setStatus] = useState("idle"); // idle, loading, success, error
+	const [status, setStatus] = useState("idle");
 
 	const handleSubmit = async (e) => {
 		e.preventDefault();
 		if (!email) return;
 
 		setStatus("loading");
-
-		// Simulate subscription - replace with actual API endpoint
 		setTimeout(() => {
 			setStatus("success");
 			setEmail("");
@@ -21,79 +19,88 @@ const Newsletter = () => {
 	};
 
 	return (
-		<section id="newsletter" className="py-60px md:py-20 lg:py-30 bg-[#001100] relative overflow-hidden">
-			{/* Background decoration - matrix style */}
-			<div className="absolute inset-0 opacity-20">
-				<div className="absolute top-10 left-10 w-40 h-40 bg-[#00ff41] rounded-full blur-[100px]"></div>
-				<div className="absolute bottom-10 right-10 w-60 h-60 bg-[#00ff41] rounded-full blur-[120px]"></div>
+		<section id="newsletter" className="py-60px md:py-20 lg:py-30 bg-[#09090b] relative overflow-hidden" aria-labelledby="newsletter-heading">
+			{/* Background decoration */}
+			<div className="absolute inset-0 opacity-15" aria-hidden="true">
+				<div className="absolute top-10 left-10 w-[300px] h-[300px] bg-[#00ff41] rounded-full blur-[150px]"></div>
+				<div className="absolute bottom-10 right-10 w-[400px] h-[400px] bg-[#00aaff] rounded-full blur-[180px]"></div>
 			</div>
 
 			<div className="container relative z-10">
 				<div className="max-w-3xl mx-auto text-center">
-					<div className="mb-6">
-						<span className="inline-flex items-center gap-2 px-4 py-2 bg-[#00ff41]/10 border border-[#00ff41]/30 rounded-full text-[#00ff41] text-sm font-medium font-mono">
-							<i className="fa-solid fa-terminal"></i>
-							~/newsletter
-						</span>
-					</div>
+					<span className="section-badge mb-6 inline-flex">
+						<i className="fa-solid fa-terminal text-xs" aria-hidden="true"></i>
+						newsletter
+					</span>
 
-					<h2 className="text-3xl md:text-size-40 lg:text-size-50 font-bold leading-1.2 text-[#00ff41] mb-6 font-mono">
-						Stay Updated on DevOps & AI
+					<h2 id="newsletter-heading" className="text-[26px] md:text-[32px] lg:text-[40px] font-bold leading-[1.1] mb-6 tracking-[-0.03em]">
+						<span className="gradient-text">Stay Updated</span>{" "}
+						<span className="text-white">on DevOps & AI</span>
 					</h2>
 
-					<p className="text-[#00cc33] text-lg leading-1.5 mb-10 max-w-xl mx-auto font-mono">
+					<p className="text-white/40 text-base leading-1.7 mb-10 max-w-xl mx-auto">
 						Get insights on cloud infrastructure, Kubernetes, AI/ML ops, and the future of
-						Site Reliability Engineering. No spam, just valuable content.
+						Linux DevOps Engineering. No spam, just valuable content.
 					</p>
 
-					<form onSubmit={handleSubmit} className="flex flex-col sm:flex-row gap-4 max-w-lg mx-auto px-4 sm:px-0">
+					<form onSubmit={handleSubmit} className="flex flex-col sm:flex-row gap-3 max-w-lg mx-auto px-4 sm:px-0" aria-label="Newsletter subscription">
 						<div className="flex-1 relative">
+							<label htmlFor="newsletter-email" className="sr-only">Email address</label>
 							<input
+								id="newsletter-email"
 								type="email"
 								value={email}
 								onChange={(e) => setEmail(e.target.value)}
 								placeholder="root@your-email.com"
-								className="w-full px-5 py-3 rounded-lg bg-[#002200] border-2 border-[#00ff41]/40 text-[#00ff41] placeholder-[#00ff41]/50 focus:outline-none focus:border-[#00ff41] transition-all duration-300 font-mono text-sm sm:text-base"
+								className="w-full px-5 py-3.5 rounded-xl bg-[#111113]/80 backdrop-blur-sm border border-[#00ff41]/20 text-[#00ff41] placeholder-[#00ff41]/40 focus:outline-none focus:border-[#00ff41]/60 focus:shadow-[0_0_20px_rgba(0,255,65,0.1)] transition-all duration-300 font-mono text-sm"
 								disabled={status === "loading" || status === "success"}
+								required
+								aria-describedby="newsletter-hint"
 							/>
 						</div>
 						<button
 							type="submit"
 							disabled={status === "loading" || status === "success"}
-							className="px-6 py-3 bg-[#00ff41] text-[#001100] font-bold rounded-lg hover:bg-[#00ff88] hover:shadow-[0_0_20px_rgba(0,255,65,0.5)] transition-all duration-300 flex items-center justify-center gap-2 disabled:opacity-70 font-mono sm:w-auto"
+							className="px-6 py-3.5 bg-gradient-to-r from-[#00ff41] to-[#00cc88] text-[#09090b] font-bold rounded-xl hover:shadow-[0_0_30px_rgba(0,255,65,0.4)] transition-all duration-300 flex items-center justify-center gap-2 disabled:opacity-60 font-mono sm:w-auto text-sm"
 						>
 							{status === "loading" ? (
 								<>
-									<i className="fa-solid fa-spinner animate-spin"></i>
-									Processing...
+									<i className="fa-solid fa-spinner animate-spin" aria-hidden="true"></i>
+									<span>Processing...</span>
 								</>
 							) : status === "success" ? (
 								<>
-									<i className="fa-solid fa-check"></i>
-									Subscribed!
+									<i className="fa-solid fa-check" aria-hidden="true"></i>
+									<span>Subscribed!</span>
 								</>
 							) : (
 								<>
-									Subscribe
-									<i className="fa-solid fa-arrow-right"></i>
+									<span>Subscribe</span>
+									<i className="fa-solid fa-arrow-right" aria-hidden="true"></i>
 								</>
 							)}
 						</button>
 					</form>
 
-					<p className="text-[#00ff41]/50 text-sm mt-6 font-mono">
-						// Join 500+ DevOps professionals. Unsubscribe anytime.
+					<p id="newsletter-hint" className="text-[#00ff41]/40 text-xs mt-6 font-mono">
+						Join 500+ DevOps professionals. Unsubscribe anytime.
 					</p>
+
+					{/* Status announcement for screen readers */}
+					<div aria-live="polite" className="sr-only">
+						{status === "success" && "Successfully subscribed to the newsletter."}
+						{status === "loading" && "Processing your subscription..."}
+					</div>
 
 					{/* Social proof */}
 					<div className="mt-12 flex items-center justify-center">
 						<div className="flex flex-col sm:flex-row items-center gap-3">
-							<div className="flex -space-x-2">
-								<div className="w-10 h-10 rounded-full bg-[#00ff41]/20 border border-[#00ff41]/40 flex items-center justify-center text-[#00ff41] text-sm font-mono">AK</div>
-								<div className="w-10 h-10 rounded-full bg-[#00ff41]/30 border border-[#00ff41]/40 flex items-center justify-center text-[#00ff41] text-sm font-mono">JD</div>
-								<div className="w-10 h-10 rounded-full bg-[#00ff41]/20 border border-[#00ff41]/40 flex items-center justify-center text-[#00ff41] text-sm font-mono">SR</div>
+							<div className="flex -space-x-2" aria-hidden="true">
+								<div className="w-9 h-9 rounded-full bg-gradient-to-br from-[#00ff41]/20 to-[#00aaff]/10 border border-[#00ff41]/30 flex items-center justify-center text-[#00ff41] text-xs font-mono">AK</div>
+								<div className="w-9 h-9 rounded-full bg-gradient-to-br from-[#00aaff]/20 to-[#00ff41]/10 border border-[#00ff41]/30 flex items-center justify-center text-[#00ff41] text-xs font-mono">JD</div>
+								<div className="w-9 h-9 rounded-full bg-gradient-to-br from-[#00cc88]/20 to-[#00ff41]/10 border border-[#00ff41]/30 flex items-center justify-center text-[#00ff41] text-xs font-mono">SR</div>
 							</div>
-							<span className="text-[#00cc33] text-sm font-mono text-center">Trusted by SREs worldwide</span>
+							<span className="text-white/35 text-xs font-mono text-center">Trusted by SREs worldwide</span>
 						</div>
 					</div>
 				</div>

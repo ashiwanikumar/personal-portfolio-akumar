@@ -156,7 +156,7 @@
 		"imgLarge": "/img/project/project-4.png",
 		"detailsImg": "/img/portfolio/portfolio-details-4.jpg",
 		"desc": "Established SRE practices achieving 99.99% uptime through proactive monitoring and automated incident response.",
-		"shortDesc": "Site Reliability Engineering transformation",
+		"shortDesc": "Linux DevOps Engineering transformation",
 		"desc1": "Implemented comprehensive SRE practices including SLI/SLO definition, error budgets, and automated incident response. Built custom monitoring dashboards and intelligent alerting systems.",
 		"desc2": "Established chaos engineering practices, automated remediation for common issues, and comprehensive runbooks. Reduced MTTR by 70% through improved observability and automation.",
 		"category": "SRE",

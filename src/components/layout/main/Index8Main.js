@@ -10,7 +10,7 @@ import Testimonials8 from "@/components/sections/testimonials/Testimonials8";
 
 const Index8Main = () => {
 	return (
-		<main className="overflow-hidden">
+		<main id="main-content" className="overflow-hidden">
 			<Hero8 />
 			<About5 />
 			<Services8 />

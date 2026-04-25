@@ -1,41 +1,16 @@
 import Link from "next/link";
+import { generatePageMetadata } from "@/libs/seo";
 
-export const metadata = {
+export const metadata = generatePageMetadata({
 	title: "Terms and Conditions",
 	description: "Terms and conditions for using Ashiwani Kumar's website ashiwanikumar.com. Read our terms of service, usage policy, and legal information.",
 	keywords: ["Terms of Service", "Terms and Conditions", "Website Terms", "Legal", "Ashiwani Kumar Terms"],
-	openGraph: {
-		title: "Terms and Conditions | Ashiwani Kumar",
-		description: "Terms and conditions for using ashiwanikumar.com. Read our terms of service and usage policy.",
-		url: "https://ashiwanikumar.com/terms-and-conditions",
-		type: "website",
-		images: [
-			{
-				url: "https://ashiwanikumar.com/img/hero/ashiwani.png",
-				width: 1200,
-				height: 630,
-				alt: "Terms and Conditions - Ashiwani Kumar"
-			}
-		]
-	},
-	twitter: {
-		card: "summary",
-		title: "Terms and Conditions | Ashiwani Kumar",
-		description: "Terms and conditions for ashiwanikumar.com",
-		images: ["https://ashiwanikumar.com/img/hero/ashiwani.png"]
-	},
-	alternates: {
-		canonical: "https://ashiwanikumar.com/terms-and-conditions",
-	},
-	robots: {
-		index: true,
-		follow: true,
-	},
-};
+	path: "/terms-and-conditions",
+});
 
 export default function TermsAndConditions() {
 	return (
-		<main className="min-h-screen bg-[#001100] py-20">
+		<main className="min-h-screen bg-[#09090b] py-20">
 			<div className="container max-w-4xl mx-auto px-4">
 				<div className="mb-8">
 					<Link
@@ -47,7 +22,7 @@ export default function TermsAndConditions() {
 					</Link>
 				</div>
 
-				<div className="bg-[#002200] border border-[#00ff41]/30 rounded-[30px] p-8 md:p-12">
+				<div className="bg-[#111113] border border-[#00ff41]/30 rounded-[30px] p-8 md:p-12">
 					<h1 className="text-3xl md:text-4xl font-bold text-[#00ff41] mb-4 font-mono">
 						Terms and Conditions
 					</h1>

@@ -58,7 +58,7 @@ const LinkedInFollowModal = () => {
 
 			{/* Modal Content */}
 			<div
-				className={`relative bg-[#001100] border border-[#00ff41]/50 rounded-[20px] shadow-[0_0_50px_rgba(0,255,65,0.2)] max-w-sm w-full transform transition-all duration-300 ${
+				className={`relative bg-[#09090b] border border-[#00ff41]/50 rounded-[20px] shadow-[0_0_50px_rgba(0,255,65,0.2)] max-w-sm w-full transform transition-all duration-300 ${
 					isClosing ? "scale-95 opacity-0" : "scale-100 opacity-100"
 				}`}
 			>
@@ -107,7 +107,7 @@ const LinkedInFollowModal = () => {
 						target="_blank"
 						rel="noopener noreferrer"
 						onClick={handleClose}
-						className="inline-flex items-center justify-center gap-2 px-6 py-3 bg-[#00ff41] text-[#001100] font-mono font-bold text-sm rounded-full hover:bg-[#00ff88] hover:shadow-[0_0_20px_rgba(0,255,65,0.5)] transition-all duration-300"
+						className="inline-flex items-center justify-center gap-2 px-6 py-3 bg-[#00ff41] text-[#09090b] font-mono font-bold text-sm rounded-full hover:bg-[#00ff88] hover:shadow-[0_0_20px_rgba(0,255,65,0.5)] transition-all duration-300"
 					>
 						<i className="fa-brands fa-linkedin"></i>
 						Follow on LinkedIn

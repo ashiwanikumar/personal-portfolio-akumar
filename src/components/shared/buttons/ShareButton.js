@@ -26,8 +26,8 @@ const ShareButton = ({ title, text, className = "", isRound = false }) => {
 		};
 	}, [isOpen]);
 
-	const shareTitle = title || "Ashiwani Kumar - Site Reliability Engineer";
-	const shareText = text || "Check out Ashiwani Kumar's portfolio - Site Reliability Engineer & DevOps Practitioner";
+	const shareTitle = title || "Ashiwani Kumar - Linux DevOps Engineer";
+	const shareText = text || "Check out Ashiwani Kumar's portfolio - Linux DevOps Engineer & DevOps Practitioner";
 
 	const socialLinks = [
 		{
@@ -102,7 +102,7 @@ const ShareButton = ({ title, text, className = "", isRound = false }) => {
 			) : (
 				<button
 					onClick={toggleShareMenu}
-					className={`inline-flex items-center justify-center gap-2 px-5 py-2.5 bg-[#002200] border border-[#00ff41]/30 text-[#00ff41] font-mono text-sm rounded-full hover:border-[#00ff41] hover:shadow-[0_0_15px_rgba(0,255,65,0.3)] transition-all duration-300 ${className}`}
+					className={`inline-flex items-center justify-center gap-2 px-5 py-2.5 bg-[#111113] border border-[#00ff41]/30 text-[#00ff41] font-mono text-sm rounded-full hover:border-[#00ff41] hover:shadow-[0_0_15px_rgba(0,255,65,0.3)] transition-all duration-300 ${className}`}
 					aria-label="Share"
 				>
 					<i className="fa-solid fa-share-nodes"></i>
@@ -147,7 +147,7 @@ const ShareButton = ({ title, text, className = "", isRound = false }) => {
 							position: 'relative',
 							width: '100%',
 							maxWidth: '320px',
-							backgroundColor: '#001100',
+							backgroundColor: '#09090b',
 							border: '2px solid rgba(0, 255, 65, 0.5)',
 							borderRadius: '16px',
 							padding: '16px',
@@ -243,7 +243,7 @@ const ShareButton = ({ title, text, className = "", isRound = false }) => {
 							alignItems: 'center',
 							gap: '8px',
 							padding: '10px',
-							backgroundColor: '#002200',
+							backgroundColor: '#111113',
 							borderRadius: '12px',
 							border: '1px solid rgba(0, 255, 65, 0.3)',
 						}}>
@@ -278,7 +278,7 @@ const ShareButton = ({ title, text, className = "", isRound = false }) => {
 									cursor: 'pointer',
 									whiteSpace: 'nowrap',
 									backgroundColor: copied ? '#00ff41' : 'rgba(0, 255, 65, 0.2)',
-									color: copied ? '#001100' : '#00ff41',
+									color: copied ? '#09090b' : '#00ff41',
 									transition: 'all 0.3s',
 								}}
 							>

@@ -6,30 +6,21 @@ const Portfolio8 = () => {
 	const portfolio = getPortfolio()?.slice(0, 4);
 
 	return (
-		<section
-			id="portfolio"
-			className=" relative z-0 after:absolute after:top-1/2 after:-translate-y-1/2 after:left-1/2 after:-translate-x-1/2 after:w-650px after:h-550px  after:max-w-2/3 after:max-h-2/3 after:blur-[150px] after:rounded-50% after:bg-gradient-circle-2 after:-z-1   after:opacity-60  "
-		>
-			<div className="py-60px md:py-20 lg:py-30">
-				<div className="container">
-					{/* <!-- section heading --> */}
-					<div className="mb-10 md:mb-50px xl:mb-60px text-center ">
-						<div>
-							<div className="mb-25px  ">
-								<span
-									className="text-xs  uppercase text-primary-color  font-semibold relative inline-block tracking-0.2em wow fadeInRight"
-									data-wow-delay=".3s"
-								>
-									&gt;_ My Work
-								</span>
-							</div>
-							<h2 className="text-3xl md:text-size-35 lg:text-size-40 xl:text-size-45 uppercase font-semibold  leading-1.2 -tracking-0.02em inline-block text-seondary-color dark:text-white-color  max-w-580px w-full tj-text-invert">
-								Featured Projects
-							</h2>
-						</div>
+		<section id="portfolio" className="relative overflow-hidden" aria-labelledby="portfolio-heading">
+			<div className="py-60px md:py-20 lg:py-30 relative">
+				<div className="mesh-gradient" aria-hidden="true" />
+				<div className="container relative z-10">
+					<div className="mb-10 md:mb-50px xl:mb-60px text-center">
+						<span className="section-badge mb-6 inline-flex">
+							<i className="fa-solid fa-terminal text-xs" aria-hidden="true"></i>
+							My Work
+						</span>
+						<h2 id="portfolio-heading" className="text-[26px] md:text-[32px] lg:text-[38px] xl:text-[44px] uppercase font-bold leading-1.2 -tracking-0.02em inline-block max-w-580px w-full">
+							<span className="gradient-text">Featured</span>{" "}
+							<span className="text-white">Projects</span>
+						</h2>
 					</div>
-					{/* <!-- portfolios --> */}
-					<div className="flex flex-col gap-50px md:gap-0  ">
+					<div className="flex flex-col gap-50px md:gap-0">
 						{portfolio?.length
 							? portfolio?.map((portfolioSingle, idx) => (
 									<PortfolioCard10
@@ -38,7 +29,7 @@ const Portfolio8 = () => {
 										idx={idx}
 									/>
 							  ))
-							: ""}
+							: null}
 					</div>
 				</div>
 			</div>

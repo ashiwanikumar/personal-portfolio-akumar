@@ -86,7 +86,7 @@
 		"img": "/img/services/4.png",
 		"imgSm": "/img/icons/services-10-icons-1.svg",
 		"iconName": "flaticon-3d-movie",
-		"desc": "Implement Site Reliability Engineering practices with comprehensive monitoring, alerting, and incident response.",
+		"desc": "Implement Linux DevOps Engineering practices with comprehensive monitoring, alerting, and incident response.",
 		"shortDesc": "Ensure system reliability with proactive monitoring and automated incident response.",
 		"desc1": "Establish SRE practices including SLI/SLO definition, error budgets, and automated incident response. I implement comprehensive monitoring solutions using Prometheus, Grafana, ELK stack, and APM tools for complete observability.",
 		"desc2": "Focus on reducing MTTR through automated remediation, chaos engineering practices, and thorough post-mortem processes. I build custom dashboards, implement intelligent alerting, and create runbooks for efficient incident management.",
@@ -96,7 +96,7 @@
 			"img": "/img/services/service-details.jpg",
 			"imgSm": "/img/icons/services-10-icons-1.svg",
 			"iconName": "flaticon-design",
-			"desc": "Systematic approach to implementing Site Reliability Engineering practices.",
+			"desc": "Systematic approach to implementing Linux DevOps Engineering practices.",
 			"processItems": [
 				"SLI/SLO Definition & Tracking",
 				"Monitoring Stack Implementation",

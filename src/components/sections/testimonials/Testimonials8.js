@@ -8,52 +8,33 @@ import { Swiper, SwiperSlide } from "swiper/react";
 const Testimonials8 = () => {
 	const testimonials = getTestimonials()?.slice(0, 4);
 	return (
-		<section id="testimonials">
-			<div className="py-20 md:py-100px xl:py-30 bg-[#001100]">
-				<div className="container">
+		<section id="testimonials" aria-labelledby="testimonials-heading">
+			<div className="py-20 md:py-100px xl:py-30 bg-[#09090b] relative overflow-hidden">
+				<div className="mesh-gradient" aria-hidden="true" />
+				<div className="container relative z-10">
 					<div className="testimonials">
-						{/* <!-- section heading --> */}
 						<div className="mb-10 md:mb-50px xl:mb-60px text-center">
-							<div>
-								<div className="mb-25px">
-									<span
-										className="text-xs uppercase text-[#00ff41] font-semibold relative inline-block tracking-0.2em wow fadeInRight font-mono"
-										data-wow-delay=".3s"
-									>
-										&gt;_ Client Feedback
-									</span>
-								</div>
-								<h2 className="text-3xl md:text-size-35 lg:text-size-40 xl:text-size-45 uppercase font-bold leading-1.2 -tracking-0.02em inline-block text-[#00ff41] max-w-580px w-full">
-									Hear From My Clients
-								</h2>
-							</div>
+							<span className="section-badge mb-6 inline-flex">
+								<i className="fa-solid fa-terminal text-xs" aria-hidden="true"></i>
+								Client Feedback
+							</span>
+							<h2 id="testimonials-heading" className="text-[26px] md:text-[32px] lg:text-[38px] xl:text-[44px] uppercase font-bold leading-1.2 -tracking-0.02em inline-block max-w-580px w-full">
+								<span className="gradient-text">Hear From</span>{" "}
+								<span className="text-white">My Clients</span>
+							</h2>
 						</div>
-						{/* <!-- testimonial single --> */}
-						<div
-							className="wow fadeInRight overflow-hidden"
-							data-wow-delay=".5s"
-						>
+						<div className="overflow-hidden">
 							<Swiper
-								spaceBetween={30}
+								spaceBetween={24}
 								slidesPerView={1}
 								loop={true}
-								pagination={{
-									clickable: true,
-								}}
+								pagination={{ clickable: true }}
 								speed={3000}
-								autoplay={{
-									delay: 6000,
-								}}
+								autoplay={{ delay: 6000 }}
 								breakpoints={{
-									576: {
-										slidesPerView: 1.5,
-									},
-									768: {
-										slidesPerView: 2,
-									},
-									1024: {
-										slidesPerView: 3,
-									},
+									576: { slidesPerView: 1.5 },
+									768: { slidesPerView: 2 },
+									1024: { slidesPerView: 3 },
 								}}
 								modules={[Pagination, Autoplay]}
 								className="tj-testimonial-slider testimonial-slider-8"
@@ -64,7 +45,7 @@ const Testimonials8 = () => {
 												<TestimonialsCard8 testimonial={testimonial} />
 											</SwiperSlide>
 									  ))
-									: ""}
+									: null}
 							</Swiper>
 						</div>
 					</div>

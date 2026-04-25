@@ -4,7 +4,7 @@ Theme Name: Ashiwani Kumar - SRE & DevOps Portfolio
 Theme URI: https://ashiwanikumar.com
 Author: Ashiwani Kumar
 Author URI: https://ashiwanikumar.com
-Description: Personal Portfolio - Site Reliability Engineer & DevOps Expert
+Description: Personal Portfolio - Linux DevOps Engineer & DevOps Expert
 
 -----------------------------------------------------------------------------------
 

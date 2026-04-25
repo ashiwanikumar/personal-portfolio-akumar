@@ -29,7 +29,7 @@ export const IndiaFlag = ({ className = "w-8 h-6" }) => (
 
 export const GlobalFlag = ({ className = "w-8 h-6" }) => (
 	<svg className={className} viewBox="0 0 640 480" xmlns="http://www.w3.org/2000/svg">
-		<rect fill="#001100" width="640" height="480"/>
+		<rect fill="#09090b" width="640" height="480"/>
 		<circle cx="320" cy="240" r="150" fill="none" stroke="#00ff41" strokeWidth="4"/>
 		<ellipse cx="320" cy="240" rx="60" ry="150" fill="none" stroke="#00ff41" strokeWidth="2"/>
 		<line x1="170" y1="240" x2="470" y2="240" stroke="#00ff41" strokeWidth="2"/>
