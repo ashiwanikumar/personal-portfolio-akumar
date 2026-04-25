@@ -193,5 +193,61 @@
 				"desc": "Established on-call procedures, automated incident creation, and post-mortem processes. Implemented automated remediation for 60% of common issues."
 			}
 		]
+	},
+	{
+		"id": 5,
+		"title": "Full Stack Web Applications",
+		"title2": "End-to-End Development",
+		"img": "/img/portfolio/fullstack-dev.svg",
+		"img2": "/img/portfolio/portfolio-6-1.jpg",
+		"imgLarge": "/img/project/project-5.png",
+		"detailsImg": "/img/portfolio/portfolio-details-1.jpg",
+		"desc": "Designed and developed production-ready full stack applications using Next.js, React, Node.js, and modern databases with complete CI/CD integration.",
+		"shortDesc": "Modern full stack web development",
+		"desc1": "Built multiple production web applications from scratch including SaaS platforms, landing pages, and internal dashboards. Leveraged Next.js App Router, React 19, Tailwind CSS, and TypeScript for performant, SEO-optimized frontends.",
+		"desc2": "Implemented backend APIs with Node.js, integrated with PostgreSQL and MongoDB databases, set up authentication with OAuth/JWT, and deployed with Docker on AWS. Every project includes automated CI/CD pipelines, monitoring, and infrastructure as code.",
+		"category": "Full Stack",
+		"featured": true,
+		"featuredDesc": "End-to-end web application development with modern frameworks, cloud deployment, and DevOps best practices",
+		"featuredImg": "/img/project/project-5.png",
+		"employee": {
+			"name": "Ashiwani Kumar",
+			"desig": "Full Stack & DevOps Engineer",
+			"img": "/img/project/project-1.png"
+		},
+		"tags": ["Next.js", "React", "Node.js", "TypeScript", "Tailwind CSS"],
+		"dataFilter": "fullstack",
+		"statusItem": [
+			{
+				"title": "Category",
+				"desc": "Full Stack Development"
+			},
+			{
+				"title": "Frontend",
+				"desc": "Next.js, React, Tailwind"
+			},
+			{
+				"title": "Backend",
+				"desc": "Node.js, PostgreSQL"
+			},
+			{
+				"title": "Projects",
+				"desc": "10+ Applications"
+			}
+		],
+		"descItems": [
+			{
+				"title": "Tech Stack",
+				"desc": "Next.js 16 with App Router, React 19, TypeScript, Tailwind CSS for frontend. Node.js, Express, PostgreSQL, MongoDB, Redis for backend. Docker, AWS, and Terraform for deployment infrastructure."
+			},
+			{
+				"title": "DevOps Integration",
+				"desc": "Every application ships with automated CI/CD pipelines, containerized deployments, comprehensive monitoring, and infrastructure as code. Bridging the gap between development and operations for truly production-ready applications."
+			}
+		],
+		"challenge": {
+			"title": "The challenge of Project",
+			"desc": "Building performant, SEO-optimized, and scalable web applications while maintaining DevOps best practices across the entire stack."
+		}
 	}
 ]
