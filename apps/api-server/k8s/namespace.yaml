@@ -1,7 +1,7 @@
 apiVersion: v1
 kind: Namespace
 metadata:
-  name: corevault-labs
+  name: ashiwani-perfosnal-protfolia
   labels:
-    app.kubernetes.io/name: corevault-labs
-    app.kubernetes.io/part-of: corevault-labs
+    app.kubernetes.io/name: ashiwani-perfosnal-protfolia
+    app.kubernetes.io/part-of: ashiwani-perfosnal-protfolia

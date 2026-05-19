@@ -30,13 +30,13 @@ pipeline {
     environment {
         API_DIR          = 'apps/api-server'
         NEXUS_REGISTRY  = '172.16.100.33:8083'
-        IMAGE_NAME      = 'corevault-landing-api'
-        NAMESPACE       = 'corevault-labs'
-        DEPLOYMENT_NAME = 'corevault-landing-api'
-        SONAR_PROJECT   = 'corevault-landing-api'
+        IMAGE_NAME      = 'ashiwani-perfosnal-protfolia-api'
+        NAMESPACE       = 'ashiwani-perfosnal-protfolia'
+        DEPLOYMENT_NAME = 'ashiwani-perfosnal-protfolia-api'
+        SONAR_PROJECT   = 'ashiwani-perfosnal-protfolia-api'
         K8S_HEALTH_URL  = 'https://api.ashiwanikumar.com/api/v1/healthCheck'
         PROD_APP_URL    = 'https://api.ashiwanikumar.com'
-        GITHUB_REPO     = 'ashiwani-personal-data/landing-page'
+        GITHUB_REPO     = 'corevault-labs/landing-page'
     }
 
     triggers {
@@ -293,10 +293,10 @@ pipeline {
             """
         }
         success {
-            echo "CoreVault Landing API ${params.ACTION} completed successfully."
+            echo "Ashiwani Personal Portfolio API ${params.ACTION} completed successfully."
         }
         failure {
-            echo "CoreVault Landing API ${params.ACTION} failed."
+            echo "Ashiwani Personal Portfolio API ${params.ACTION} failed."
         }
     }
 }

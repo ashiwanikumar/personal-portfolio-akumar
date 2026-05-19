@@ -1,17 +1,17 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: corevault-landing-api
-  namespace: corevault-labs
+  name: ashiwani-perfosnal-protfolia-api
+  namespace: ashiwani-perfosnal-protfolia
   labels:
-    app: corevault-landing-api
-    app.kubernetes.io/name: corevault-landing-api
-    app.kubernetes.io/part-of: corevault-labs
+    app: ashiwani-perfosnal-protfolia-api
+    app.kubernetes.io/name: ashiwani-perfosnal-protfolia-api
+    app.kubernetes.io/part-of: ashiwani-perfosnal-protfolia
 spec:
   replicas: 1
   selector:
     matchLabels:
-      app: corevault-landing-api
+      app: ashiwani-perfosnal-protfolia-api
   strategy:
     type: RollingUpdate
     rollingUpdate:
@@ -20,13 +20,13 @@ spec:
   template:
     metadata:
       labels:
-        app: corevault-landing-api
-        app.kubernetes.io/name: corevault-landing-api
-        app.kubernetes.io/part-of: corevault-labs
+        app: ashiwani-perfosnal-protfolia-api
+        app.kubernetes.io/name: ashiwani-perfosnal-protfolia-api
+        app.kubernetes.io/part-of: ashiwani-perfosnal-protfolia
     spec:
       containers:
-      - name: corevault-landing-api
-        image: 172.16.100.33:8083/corevault-landing-api:latest
+      - name: ashiwani-perfosnal-protfolia-api
+        image: 172.16.100.33:8083/ashiwani-perfosnal-protfolia-api:latest
         imagePullPolicy: Always
         ports:
         - name: http
@@ -49,7 +49,7 @@ spec:
           value: "true"
         envFrom:
         - secretRef:
-            name: corevault-landing-api-secret
+            name: ashiwani-perfosnal-protfolia
         livenessProbe:
           httpGet:
             path: /api/v1/healthCheck
