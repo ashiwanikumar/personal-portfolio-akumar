@@ -10,7 +10,7 @@ export function getBackendApiBase() {
 		throw new Error("BACKEND_API or NEXT_PUBLIC_BACKEND_API must be configured.");
 	}
 
-	return baseUrl.replace(/\/$/, "");
+	return baseUrl.replace(/^['"]|['"]$/g, "").replace(/\/$/, "");
 }
 
 export function isSuperAdminUser(user) {

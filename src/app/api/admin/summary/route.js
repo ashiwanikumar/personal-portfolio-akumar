@@ -23,6 +23,14 @@ export async function GET() {
 		settle("roles", () => apiFetch("/roles/stats", { headers })),
 		settle("team", () => apiFetch("/super-admin/team/members", { headers })),
 		settle("analytics", () => apiFetch("/super-admin/analytics", { headers })),
+		settle("contactStats", () => apiFetch("/contact-us/contacts/statistics", { headers })),
+		settle("recentContacts", () =>
+			apiFetch("/contact-us/contacts/paginated?page=1&perPage=5", { headers })
+		),
+		settle("newsletterStats", () => apiFetch("/newsletter/stats", { headers })),
+		settle("recentSubscribers", () =>
+			apiFetch("/newsletter/subscribers/paginated?page=1&perPage=5", { headers })
+		),
 	]);
 
 	return NextResponse.json({

@@ -14,6 +14,12 @@ function getCheck(checks, name) {
 	return checks.find((check) => check.name === name);
 }
 
+function getTotalSubscribers(newsletterStats, recentSubscribers) {
+	const verificationTotal = newsletterStats?.stats?.verification?.total;
+	const paginatedTotal = recentSubscribers?.data?.paginationData?.totalSubscribers;
+	return verificationTotal || paginatedTotal || 0;
+}
+
 export default function ClientDashboardApp() {
 	const [session, setSession] = useState(null);
 	const [summary, setSummary] = useState(null);
@@ -28,8 +34,11 @@ export default function ClientDashboardApp() {
 	const cards = useMemo(() => {
 		const health = getCheck(checks, "health");
 		const roles = getCheck(checks, "roles");
-		const team = getCheck(checks, "team");
-		const analytics = getCheck(checks, "analytics");
+		const contactStats = getCheck(checks, "contactStats");
+		const newsletterStats = getCheck(checks, "newsletterStats");
+		const recentSubscribers = getCheck(checks, "recentSubscribers");
+		const contactsTotal = contactStats?.data?.statistics?.totalContacts || 0;
+		const subscribersTotal = getTotalSubscribers(newsletterStats?.data, recentSubscribers);
 
 		return [
 			{
@@ -45,16 +54,16 @@ export default function ClientDashboardApp() {
 				ok: !!session?.authenticated,
 			},
 			{
-				label: "Roles API",
-				value: roles?.ok ? "Connected" : "Protected",
-				detail: roles?.ok ? "Stats loaded" : roles?.error || "Requires token",
-				ok: !!roles?.ok,
+				label: "Contact Requests",
+				value: String(contactsTotal),
+				detail: contactStats?.ok ? "Stored in backend" : contactStats?.error || "Protected endpoint",
+				ok: !!contactStats?.ok,
 			},
 			{
-				label: "Team API",
-				value: team?.ok || analytics?.ok ? "Connected" : "Protected",
-				detail: team?.ok ? "Members loaded" : analytics?.ok ? "Analytics loaded" : team?.error || "Requires token",
-				ok: !!(team?.ok || analytics?.ok),
+				label: "Newsletter",
+				value: String(subscribersTotal),
+				detail: newsletterStats?.ok ? "Subscribers tracked" : roles?.ok ? "Waiting for subscribers" : "Protected endpoint",
+				ok: !!newsletterStats?.ok,
 			},
 		];
 	}, [checks, session]);
@@ -251,7 +260,77 @@ export default function ClientDashboardApp() {
 						))}
 					</div>
 				</div>
+
+				<div className="mt-8 grid gap-5 lg:grid-cols-2">
+					<DashboardDataPanel
+						title="Recent Contact Requests"
+						check={getCheck(checks, "recentContacts")}
+						emptyText="No contact submissions yet."
+						renderItem={(contact) => (
+							<div key={contact._id || contact.email} className="rounded-md border border-white/10 px-4 py-3">
+								<div className="flex items-start justify-between gap-4">
+									<div>
+										<p className="font-medium text-white">{contact.name || "Unknown"}</p>
+										<p className="mt-1 text-sm text-zinc-500">{contact.email}</p>
+									</div>
+									<span className="rounded-full bg-emerald-400/10 px-2 py-1 text-xs text-emerald-300">
+										{contact.category?.name || contact.category?.id || "General"}
+									</span>
+								</div>
+								<p className="mt-3 line-clamp-2 text-sm text-zinc-400">{contact.message}</p>
+							</div>
+						)}
+						getItems={(data) => data?.contacts || []}
+					/>
+
+					<DashboardDataPanel
+						title="Recent Newsletter Subscribers"
+						check={getCheck(checks, "recentSubscribers")}
+						emptyText="No newsletter subscribers yet."
+						renderItem={(subscriber) => (
+							<div key={subscriber._id || subscriber.email} className="rounded-md border border-white/10 px-4 py-3">
+								<div className="flex items-start justify-between gap-4">
+									<div>
+										<p className="font-medium text-white">
+											{subscriber.name?.firstName || subscriber.name || "Subscriber"}
+										</p>
+										<p className="mt-1 text-sm text-zinc-500">{subscriber.email}</p>
+									</div>
+									<span className="rounded-full bg-sky-400/10 px-2 py-1 text-xs text-sky-300">
+										{subscriber.status || "active"}
+									</span>
+								</div>
+								<p className="mt-3 text-sm text-zinc-400">
+									{subscriber.communicationPrefs?.emailFrequency || "weekly"} updates
+								</p>
+							</div>
+						)}
+						getItems={(data) => data?.subscribers || []}
+					/>
+				</div>
 			</section>
 		</main>
+	);
+}
+
+function DashboardDataPanel({ title, check, emptyText, getItems, renderItem }) {
+	const items = check?.ok ? getItems(check.data) : [];
+
+	return (
+		<section className="rounded-lg border border-white/10 bg-[#0f1115] p-6">
+			<div className="flex items-center justify-between gap-4">
+				<h2 className="text-lg font-semibold text-white">{title}</h2>
+				<span className={`rounded-full px-3 py-1 text-xs font-semibold ${check?.ok ? "bg-emerald-400/10 text-emerald-300" : "bg-amber-400/10 text-amber-300"}`}>
+					{check?.ok ? `${items.length} shown` : "Protected"}
+				</span>
+			</div>
+			<div className="mt-5 grid gap-3">
+				{check?.ok ? (
+					items.length ? items.map(renderItem) : <p className="text-sm text-zinc-500">{emptyText}</p>
+				) : (
+					<p className="text-sm text-zinc-500">{check?.error || "Sign in to load this data."}</p>
+				)}
+			</div>
+		</section>
 	);
 }
