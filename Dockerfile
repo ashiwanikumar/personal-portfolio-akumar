@@ -1,11 +1,11 @@
-# Stage 1 — Dependencies
+# Stage 1 — Dependencies (all deps needed for build)
 FROM node:20-alpine AS deps
 WORKDIR /app
 
 RUN apk add --no-cache libc6-compat
 
 COPY package.json package-lock.json* ./
-RUN npm ci --omit=dev
+RUN npm ci
 
 # Stage 2 — Builder
 FROM node:20-alpine AS builder
