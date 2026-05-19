@@ -212,17 +212,32 @@ pipeline {
                                 echo "Building Frontend Docker image..."
                                 echo "============================================"
 
-                                BACKEND_API=\$(kubectl get secret ${NAMESPACE} \
+                                BACKEND_API="\$(kubectl get secret ${NAMESPACE} \
                                     -n ${NAMESPACE} \
-                                    -o jsonpath='{.data.BACKEND_API}' 2>/dev/null | base64 -d 2>/dev/null || echo "https://api.ashiwanikumar.com/api/v1")
+                                    -o jsonpath='{.data.BACKEND_API}' 2>/dev/null | base64 -d 2>/dev/null || true)"
+
+                                if [ -z "\$BACKEND_API" ]; then
+                                    BACKEND_API="${API_PROD_URL}/api/v1"
+                                fi
+
+                                NEXT_PUBLIC_BACKEND_API="\$(kubectl get secret ${NAMESPACE} \
+                                    -n ${NAMESPACE} \
+                                    -o jsonpath='{.data.NEXT_PUBLIC_BACKEND_API}' 2>/dev/null | base64 -d 2>/dev/null || true)"
+
+                                if [ -z "\$NEXT_PUBLIC_BACKEND_API" ]; then
+                                    NEXT_PUBLIC_BACKEND_API="\$BACKEND_API"
+                                fi
+
+                                echo "Using BACKEND_API=\$BACKEND_API"
+                                echo "Using NEXT_PUBLIC_BACKEND_API=\$NEXT_PUBLIC_BACKEND_API"
 
                                 echo "\$NEXUS_PASS" | docker login ${NEXUS_REGISTRY} -u "\$NEXUS_USER" --password-stdin
 
                                 docker pull node:20-alpine
 
                                 docker build \
-                                  --build-arg BACKEND_API=\${BACKEND_API} \
-                                  --build-arg NEXT_PUBLIC_BACKEND_API=\${BACKEND_API} \
+                                  --build-arg BACKEND_API="\$BACKEND_API" \
+                                  --build-arg NEXT_PUBLIC_BACKEND_API="\$NEXT_PUBLIC_BACKEND_API" \
                                   -t ${NEXUS_REGISTRY}/${FRONTEND_IMAGE_NAME}:${IMAGE_TAG} \
                                   -t ${NEXUS_REGISTRY}/${FRONTEND_IMAGE_NAME}:latest \
                                   -f Dockerfile .

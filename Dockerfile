@@ -16,8 +16,8 @@ COPY . .
 
 RUN rm -rf apps/api-server/node_modules
 
-ARG BACKEND_API
-ARG NEXT_PUBLIC_BACKEND_API
+ARG BACKEND_API=https://api.ashiwanikumar.com/api/v1
+ARG NEXT_PUBLIC_BACKEND_API=https://api.ashiwanikumar.com/api/v1
 ARG PORT=3302
 
 ENV BACKEND_API=$BACKEND_API
