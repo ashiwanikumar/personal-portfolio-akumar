@@ -8,6 +8,15 @@ loadEnvConfig(path.resolve(process.cwd(), ".."));
 
 const nextConfig = {
   poweredByHeader: false,
+  async redirects() {
+    return [
+      {
+        source: "/client-dashbaord",
+        destination: "/client-dashboard",
+        permanent: true,
+      },
+    ];
+  },
   async headers() {
     return [
       {
