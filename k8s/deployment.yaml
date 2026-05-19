@@ -1,17 +1,17 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: ashiwani-perfosnal-protfolia-frontend
-  namespace: ashiwani-perfosnal-protfolia
+  name: ashiwani-personal-portfolio-frontend
+  namespace: ashiwani-personal-portfolio
   labels:
-    app: ashiwani-perfosnal-protfolia-frontend
-    app.kubernetes.io/name: ashiwani-perfosnal-protfolia-frontend
-    app.kubernetes.io/part-of: ashiwani-perfosnal-protfolia
+    app: ashiwani-personal-portfolio-frontend
+    app.kubernetes.io/name: ashiwani-personal-portfolio-frontend
+    app.kubernetes.io/part-of: ashiwani-personal-portfolio
 spec:
   replicas: 1
   selector:
     matchLabels:
-      app: ashiwani-perfosnal-protfolia-frontend
+      app: ashiwani-personal-portfolio-frontend
   strategy:
     type: RollingUpdate
     rollingUpdate:
@@ -20,9 +20,9 @@ spec:
   template:
     metadata:
       labels:
-        app: ashiwani-perfosnal-protfolia-frontend
-        app.kubernetes.io/name: ashiwani-perfosnal-protfolia-frontend
-        app.kubernetes.io/part-of: ashiwani-perfosnal-protfolia
+        app: ashiwani-personal-portfolio-frontend
+        app.kubernetes.io/name: ashiwani-personal-portfolio-frontend
+        app.kubernetes.io/part-of: ashiwani-personal-portfolio
     spec:
       affinity:
         nodeAffinity:
@@ -44,11 +44,11 @@ spec:
                 - key: app
                   operator: In
                   values:
-                  - ashiwani-perfosnal-protfolia-frontend
+                  - ashiwani-personal-portfolio-frontend
               topologyKey: kubernetes.io/hostname
       containers:
-      - name: ashiwani-perfosnal-protfolia-frontend
-        image: 172.16.100.33:8083/ashiwani-perfosnal-protfolia-frontend:latest
+      - name: ashiwani-personal-portfolio-frontend
+        image: 172.16.100.33:8083/ashiwani-personal-portfolio-frontend:latest
         imagePullPolicy: Always
         ports:
         - name: http
@@ -66,7 +66,7 @@ spec:
         - name: PORT
           value: "3302"
         - name: BACKEND_API
-          value: "http://ashiwani-perfosnal-protfolia-api-service/api/v1"
+          value: "http://ashiwani-personal-portfolio-api-service/api/v1"
         livenessProbe:
           httpGet:
             path: /

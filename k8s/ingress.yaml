@@ -1,8 +1,8 @@
 apiVersion: networking.k8s.io/v1
 kind: Ingress
 metadata:
-  name: ashiwani-perfosnal-protfolia-frontend-ingress
-  namespace: ashiwani-perfosnal-protfolia
+  name: ashiwani-personal-portfolio-frontend-ingress
+  namespace: ashiwani-personal-portfolio
   annotations:
     nginx.ingress.kubernetes.io/ssl-redirect: "true"
     nginx.ingress.kubernetes.io/force-ssl-redirect: "true"
@@ -16,7 +16,7 @@ spec:
   tls:
   - hosts:
     - ashiwanikumar.com
-    secretName: ashiwanikumar-frontend-tls
+    secretName: ashiwanikumar-tls
   rules:
   - host: ashiwanikumar.com
     http:
@@ -25,6 +25,6 @@ spec:
         pathType: Prefix
         backend:
           service:
-            name: ashiwani-perfosnal-protfolia-frontend-service
+            name: ashiwani-personal-portfolio-frontend-service
             port:
               number: 80

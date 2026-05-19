@@ -34,21 +34,21 @@ pipeline {
 
     environment {
         NEXUS_REGISTRY   = '172.16.100.33:8083'
-        NAMESPACE        = 'ashiwani-perfosnal-protfolia'
+        NAMESPACE        = 'ashiwani-personal-portfolio'
         GITHUB_REPO      = 'corevault-labs/landing-page'
 
         // API
         API_DIR             = 'apps/api-server'
-        API_IMAGE_NAME      = 'ashiwani-perfosnal-protfolia-api'
-        API_DEPLOYMENT_NAME = 'ashiwani-perfosnal-protfolia-api'
-        API_SONAR_PROJECT   = 'ashiwani-perfosnal-protfolia-api'
+        API_IMAGE_NAME      = 'ashiwani-personal-portfolio-api'
+        API_DEPLOYMENT_NAME = 'ashiwani-personal-portfolio-api'
+        API_SONAR_PROJECT   = 'ashiwani-personal-portfolio-api'
         API_HEALTH_URL      = 'https://api.ashiwanikumar.com/api/v1/healthCheck'
         API_PROD_URL        = 'https://api.ashiwanikumar.com'
 
         // Frontend
-        FRONTEND_IMAGE_NAME      = 'ashiwani-perfosnal-protfolia-frontend'
-        FRONTEND_DEPLOYMENT_NAME = 'ashiwani-perfosnal-protfolia-frontend'
-        FRONTEND_SONAR_PROJECT   = 'ashiwani-perfosnal-protfolia-frontend'
+        FRONTEND_IMAGE_NAME      = 'ashiwani-personal-portfolio-frontend'
+        FRONTEND_DEPLOYMENT_NAME = 'ashiwani-personal-portfolio-frontend'
+        FRONTEND_SONAR_PROJECT   = 'ashiwani-personal-portfolio-frontend'
         FRONTEND_HEALTH_URL      = 'https://ashiwanikumar.com'
         FRONTEND_PROD_URL        = 'https://ashiwanikumar.com'
     }

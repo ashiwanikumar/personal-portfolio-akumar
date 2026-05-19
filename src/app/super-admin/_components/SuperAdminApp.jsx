@@ -87,7 +87,7 @@ export default function SuperAdminApp() {
 	const auditRows = [
 		["Role", session.user?.roleInfo?.name || session.user?.role || "super-admin"],
 		["Scope", "Full management"],
-		["Namespace", "ashiwani-perfosnal-protfolia"],
+		["Namespace", "ashiwani-personal-portfolio"],
 		["Repository", "corevault-labs/landing-page"],
 		["Last API check", summary?.checkedAt || "Not loaded"],
 	];

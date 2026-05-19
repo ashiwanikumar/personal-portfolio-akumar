@@ -1,14 +1,14 @@
 apiVersion: v1
 kind: Service
 metadata:
-  name: ashiwani-perfosnal-protfolia-frontend-service
-  namespace: ashiwani-perfosnal-protfolia
+  name: ashiwani-personal-portfolio-frontend-service
+  namespace: ashiwani-personal-portfolio
   labels:
-    app: ashiwani-perfosnal-protfolia-frontend
+    app: ashiwani-personal-portfolio-frontend
 spec:
   type: ClusterIP
   selector:
-    app: ashiwani-perfosnal-protfolia-frontend
+    app: ashiwani-personal-portfolio-frontend
   ports:
   - name: http
     port: 80

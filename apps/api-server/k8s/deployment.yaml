@@ -1,17 +1,17 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: ashiwani-perfosnal-protfolia-api
-  namespace: ashiwani-perfosnal-protfolia
+  name: ashiwani-personal-portfolio-api
+  namespace: ashiwani-personal-portfolio
   labels:
-    app: ashiwani-perfosnal-protfolia-api
-    app.kubernetes.io/name: ashiwani-perfosnal-protfolia-api
-    app.kubernetes.io/part-of: ashiwani-perfosnal-protfolia
+    app: ashiwani-personal-portfolio-api
+    app.kubernetes.io/name: ashiwani-personal-portfolio-api
+    app.kubernetes.io/part-of: ashiwani-personal-portfolio
 spec:
   replicas: 1
   selector:
     matchLabels:
-      app: ashiwani-perfosnal-protfolia-api
+      app: ashiwani-personal-portfolio-api
   strategy:
     type: RollingUpdate
     rollingUpdate:
@@ -20,13 +20,13 @@ spec:
   template:
     metadata:
       labels:
-        app: ashiwani-perfosnal-protfolia-api
-        app.kubernetes.io/name: ashiwani-perfosnal-protfolia-api
-        app.kubernetes.io/part-of: ashiwani-perfosnal-protfolia
+        app: ashiwani-personal-portfolio-api
+        app.kubernetes.io/name: ashiwani-personal-portfolio-api
+        app.kubernetes.io/part-of: ashiwani-personal-portfolio
     spec:
       containers:
-      - name: ashiwani-perfosnal-protfolia-api
-        image: 172.16.100.33:8083/ashiwani-perfosnal-protfolia-api:latest
+      - name: ashiwani-personal-portfolio-api
+        image: 172.16.100.33:8083/ashiwani-personal-portfolio-api:latest
         imagePullPolicy: Always
         ports:
         - name: http
@@ -49,7 +49,7 @@ spec:
           value: "true"
         envFrom:
         - secretRef:
-            name: ashiwani-perfosnal-protfolia
+            name: ashiwani-personal-portfolio
         livenessProbe:
           httpGet:
             path: /api/v1/healthCheck
