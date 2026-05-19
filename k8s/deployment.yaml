@@ -1,0 +1,96 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: ashiwani-perfosnal-protfolia-frontend
+  namespace: ashiwani-perfosnal-protfolia
+  labels:
+    app: ashiwani-perfosnal-protfolia-frontend
+    app.kubernetes.io/name: ashiwani-perfosnal-protfolia-frontend
+    app.kubernetes.io/part-of: ashiwani-perfosnal-protfolia
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: ashiwani-perfosnal-protfolia-frontend
+  strategy:
+    type: RollingUpdate
+    rollingUpdate:
+      maxSurge: 1
+      maxUnavailable: 0
+  template:
+    metadata:
+      labels:
+        app: ashiwani-perfosnal-protfolia-frontend
+        app.kubernetes.io/name: ashiwani-perfosnal-protfolia-frontend
+        app.kubernetes.io/part-of: ashiwani-perfosnal-protfolia
+    spec:
+      affinity:
+        nodeAffinity:
+          preferredDuringSchedulingIgnoredDuringExecution:
+          - weight: 100
+            preference:
+              matchExpressions:
+              - key: kubernetes.io/hostname
+                operator: In
+                values:
+                - workernode01
+                - workernode02
+        podAntiAffinity:
+          preferredDuringSchedulingIgnoredDuringExecution:
+          - weight: 100
+            podAffinityTerm:
+              labelSelector:
+                matchExpressions:
+                - key: app
+                  operator: In
+                  values:
+                  - ashiwani-perfosnal-protfolia-frontend
+              topologyKey: kubernetes.io/hostname
+      containers:
+      - name: ashiwani-perfosnal-protfolia-frontend
+        image: 172.16.100.33:8083/ashiwani-perfosnal-protfolia-frontend:latest
+        imagePullPolicy: Always
+        ports:
+        - name: http
+          containerPort: 3302
+        resources:
+          requests:
+            memory: "256Mi"
+            cpu: "100m"
+          limits:
+            memory: "512Mi"
+            cpu: "300m"
+        env:
+        - name: NODE_ENV
+          value: "production"
+        - name: PORT
+          value: "3302"
+        - name: BACKEND_API
+          value: "http://ashiwani-perfosnal-protfolia-api-service/api/v1"
+        livenessProbe:
+          httpGet:
+            path: /
+            port: 3302
+          initialDelaySeconds: 40
+          periodSeconds: 30
+          failureThreshold: 3
+          timeoutSeconds: 10
+        readinessProbe:
+          httpGet:
+            path: /
+            port: 3302
+          initialDelaySeconds: 30
+          periodSeconds: 10
+          failureThreshold: 3
+          timeoutSeconds: 5
+        volumeMounts:
+        - name: timezone
+          mountPath: /etc/timezone
+          readOnly: true
+      volumes:
+      - name: timezone
+        hostPath:
+          path: /etc/timezone
+          type: File
+      imagePullSecrets:
+      - name: nexus-registry-secret

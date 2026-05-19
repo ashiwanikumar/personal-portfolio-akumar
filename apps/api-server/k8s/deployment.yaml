@@ -30,7 +30,7 @@ spec:
         imagePullPolicy: Always
         ports:
         - name: http
-          containerPort: 3001
+          containerPort: 3301
         resources:
           requests:
             memory: "256Mi"
@@ -42,7 +42,7 @@ spec:
         - name: NODE_ENV
           value: "production"
         - name: API_PORT
-          value: "3001"
+          value: "3301"
         - name: ENABLE_CLUSTER
           value: "false"
         - name: SCHEDULER_ENABLED
@@ -53,7 +53,7 @@ spec:
         livenessProbe:
           httpGet:
             path: /api/v1/healthCheck
-            port: 3001
+            port: 3301
           initialDelaySeconds: 45
           periodSeconds: 20
           failureThreshold: 3
@@ -61,7 +61,7 @@ spec:
         readinessProbe:
           httpGet:
             path: /api/v1/healthCheck
-            port: 3001
+            port: 3301
           initialDelaySeconds: 30
           periodSeconds: 10
           failureThreshold: 3

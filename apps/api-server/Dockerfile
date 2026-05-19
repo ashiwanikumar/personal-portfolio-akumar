@@ -22,6 +22,6 @@ RUN chown -R nodeuser:nodejs /app
 USER nodeuser
 
 ENV NODE_ENV=production
-EXPOSE 3001
+EXPOSE 3301
 
 CMD ["node", "server.js"]

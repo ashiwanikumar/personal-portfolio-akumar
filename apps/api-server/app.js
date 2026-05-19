@@ -109,9 +109,9 @@ app.use(
       // Add localhost origins only for development/staging AND if ALLOW_LOCALHOST is set
       if (process.env.ALLOW_LOCALHOST === "true") {
         allowedOrigins.push(
-          "http://localhost:3002",
-          "http://localhost:3000",
-          "http://localhost:3001"
+          "http://localhost:3302",
+          "http://localhost:3301",
+          "http://localhost:3000"
         );
       }
 
