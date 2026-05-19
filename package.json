@@ -6,8 +6,13 @@
 	"author": "Ashiwani Kumar <ashvanikumar109@gmail.com>",
 	"scripts": {
 		"dev": "next dev --turbopack",
+		"api:dev": "npm --prefix apps/api-server run dev",
+		"dev:all": "sh -c 'trap \"kill 0\" INT TERM EXIT; npm run api:dev & npm run dev'",
 		"build": "next build",
 		"start": "next start",
+		"api:start": "npm --prefix apps/api-server start",
+		"start:all": "sh -c 'trap \"kill 0\" INT TERM EXIT; npm run api:start & npm run start'",
+		"install:api": "npm --prefix apps/api-server install",
 		"lint": "next lint"
 	},
 	"dependencies": {

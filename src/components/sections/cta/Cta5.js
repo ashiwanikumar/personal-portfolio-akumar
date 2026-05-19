@@ -1,8 +1,18 @@
 "use client";
 
+import { useState } from "react";
 import TypeWriterLoop from "@/components/shared/others/TypeWriterLoop";
 
 const Cta5 = () => {
+	const [form, setForm] = useState({
+		name: "",
+		email: "",
+		category: "devops-consulting",
+		message: "",
+	});
+	const [status, setStatus] = useState("idle");
+	const [feedback, setFeedback] = useState("");
+
 	const phrases = [
 		"Ready to Scale Your Infrastructure?",
 		"Need 99.9% Uptime for Your Systems?",
@@ -10,6 +20,57 @@ const Cta5 = () => {
 		"Looking for DevOps Excellence?",
 		"Ready to Build CI/CD Pipelines?",
 	];
+
+	const categories = [
+		{ id: "devops-consulting", name: "DevOps Consulting" },
+		{ id: "cloud-infrastructure", name: "Cloud Infrastructure" },
+		{ id: "kubernetes", name: "Kubernetes / OpenShift" },
+		{ id: "ci-cd", name: "CI/CD Automation" },
+		{ id: "other", name: "Other" },
+	];
+
+	const handleChange = (event) => {
+		const { name, value } = event.target;
+		setForm((current) => ({ ...current, [name]: value }));
+	};
+
+	const handleSubmit = async (event) => {
+		event.preventDefault();
+		setStatus("loading");
+		setFeedback("");
+
+		const selectedCategory = categories.find((category) => category.id === form.category);
+
+		try {
+			const response = await fetch("/api/public/contact", {
+				method: "POST",
+				headers: { "Content-Type": "application/json" },
+				body: JSON.stringify({
+					name: form.name,
+					email: form.email,
+					message: form.message,
+					category: selectedCategory,
+					deviceInfo: {
+						screenWidth: typeof window !== "undefined" ? window.innerWidth : undefined,
+						screenHeight: typeof window !== "undefined" ? window.innerHeight : undefined,
+						timezone:
+							typeof Intl !== "undefined"
+								? Intl.DateTimeFormat().resolvedOptions().timeZone
+								: undefined,
+					},
+				}),
+			});
+			const data = await response.json();
+			if (!response.ok) throw new Error(data.message || "Contact submission failed");
+
+			setStatus("success");
+			setFeedback(data.message || "Message submitted successfully.");
+			setForm({ name: "", email: "", category: "devops-consulting", message: "" });
+		} catch (error) {
+			setStatus("error");
+			setFeedback(error.message || "Unable to submit the contact form.");
+		}
+	};
 
 	return (
 		<section id="contact" aria-labelledby="cta-heading">
@@ -42,26 +103,105 @@ const Cta5 = () => {
 							build robust CI/CD pipelines, and ensure 99.9% uptime for your critical systems.
 						</p>
 
-						<div className="flex flex-col sm:flex-row items-center justify-center gap-4 mb-14">
-							<a
-								href="mailto:ashvanikumar109@gmail.com"
-								className="px-8 py-4 bg-gradient-to-r from-[#00ff41] to-[#00cc88] text-[#09090b] font-bold rounded-xl hover:shadow-[0_0_40px_rgba(0,255,65,0.3)] transition-all duration-300 flex items-center gap-2 text-sm"
-								aria-label="Send email to Ashiwani Kumar"
-							>
-								<i className="fa-solid fa-envelope" aria-hidden="true"></i>
-								Get In Touch
-							</a>
-							<a
-								href="https://www.linkedin.com/in/ashiwanikumar/"
-								target="_blank"
-								rel="noopener noreferrer"
-								className="px-8 py-4 bg-transparent border border-white/10 hover:border-[#00ff41]/30 text-white/60 hover:text-[#00ff41] font-bold rounded-xl transition-all duration-300 flex items-center gap-2 text-sm"
-								aria-label="Connect on LinkedIn"
-							>
-								<i className="fa-brands fa-linkedin" aria-hidden="true"></i>
-								LinkedIn
-							</a>
-						</div>
+						<form
+							onSubmit={handleSubmit}
+							className="mx-auto mb-14 grid max-w-3xl gap-4 text-left"
+							aria-label="Contact form"
+						>
+							<div className="grid gap-4 md:grid-cols-2">
+								<label className="text-sm font-semibold text-white/60">
+									Name
+									<input
+										name="name"
+										value={form.name}
+										onChange={handleChange}
+										className="mt-2 w-full rounded-xl border border-[#00ff41]/20 bg-[#111113]/80 px-4 py-3 text-sm text-[#00ff41] outline-none transition-all duration-300 placeholder:text-[#00ff41]/35 focus:border-[#00ff41]/60"
+										placeholder="Your name"
+										required
+									/>
+								</label>
+								<label className="text-sm font-semibold text-white/60">
+									Email
+									<input
+										name="email"
+										type="email"
+										value={form.email}
+										onChange={handleChange}
+										className="mt-2 w-full rounded-xl border border-[#00ff41]/20 bg-[#111113]/80 px-4 py-3 text-sm text-[#00ff41] outline-none transition-all duration-300 placeholder:text-[#00ff41]/35 focus:border-[#00ff41]/60"
+										placeholder="you@example.com"
+										required
+									/>
+								</label>
+							</div>
+
+							<label className="text-sm font-semibold text-white/60">
+								Category
+								<select
+									name="category"
+									value={form.category}
+									onChange={handleChange}
+									className="mt-2 w-full rounded-xl border border-[#00ff41]/20 bg-[#111113]/80 px-4 py-3 text-sm text-[#00ff41] outline-none transition-all duration-300 focus:border-[#00ff41]/60"
+								>
+									{categories.map((category) => (
+										<option key={category.id} value={category.id}>
+											{category.name}
+										</option>
+									))}
+								</select>
+							</label>
+
+							<label className="text-sm font-semibold text-white/60">
+								Message
+								<textarea
+									name="message"
+									value={form.message}
+									onChange={handleChange}
+									rows={5}
+									className="mt-2 w-full resize-none rounded-xl border border-[#00ff41]/20 bg-[#111113]/80 px-4 py-3 text-sm text-[#00ff41] outline-none transition-all duration-300 placeholder:text-[#00ff41]/35 focus:border-[#00ff41]/60"
+									placeholder="Tell me what you need help with..."
+									required
+								/>
+							</label>
+
+							<div className="flex flex-col gap-3 sm:flex-row sm:items-center sm:justify-between">
+								<button
+									type="submit"
+									disabled={status === "loading"}
+									className="inline-flex items-center justify-center gap-2 rounded-xl bg-gradient-to-r from-[#00ff41] to-[#00cc88] px-8 py-4 text-sm font-bold text-[#09090b] transition-all duration-300 hover:shadow-[0_0_40px_rgba(0,255,65,0.3)] disabled:cursor-not-allowed disabled:opacity-60"
+								>
+									<i
+										className={`fa-solid ${
+											status === "loading" ? "fa-spinner animate-spin" : "fa-paper-plane"
+										}`}
+										aria-hidden="true"
+									></i>
+									{status === "loading" ? "Submitting..." : "Submit Request"}
+								</button>
+								<a
+									href="https://www.linkedin.com/in/ashiwanikumar/"
+									target="_blank"
+									rel="noopener noreferrer"
+									className="inline-flex items-center justify-center gap-2 rounded-xl border border-white/10 bg-transparent px-8 py-4 text-sm font-bold text-white/60 transition-all duration-300 hover:border-[#00ff41]/30 hover:text-[#00ff41]"
+									aria-label="Connect on LinkedIn"
+								>
+									<i className="fa-brands fa-linkedin" aria-hidden="true"></i>
+									LinkedIn
+								</a>
+							</div>
+
+							{feedback ? (
+								<p
+									className={`rounded-xl border px-4 py-3 text-sm ${
+										status === "success"
+											? "border-[#00ff41]/25 bg-[#00ff41]/10 text-[#00ff41]"
+											: "border-red-400/25 bg-red-400/10 text-red-200"
+									}`}
+									aria-live="polite"
+								>
+									{feedback}
+								</p>
+							) : null}
+						</form>
 
 						<div className="flex flex-col sm:flex-row items-center justify-center gap-6 sm:gap-8 text-white/30 text-sm">
 							<span className="flex items-center gap-2">

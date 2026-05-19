@@ -1,0 +1,7 @@
+apiVersion: v1
+kind: Namespace
+metadata:
+  name: ashiwani-personal-portfolio
+  labels:
+    app.kubernetes.io/name: ashiwani-personal-portfolio
+    app.kubernetes.io/part-of: ashiwani-personal-portfolio

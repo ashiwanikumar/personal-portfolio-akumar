@@ -1,0 +1,70 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: ashiwani-personal-portfolio-api
+  namespace: ashiwani-personal-portfolio
+  labels:
+    app: ashiwani-personal-portfolio-api
+    app.kubernetes.io/name: ashiwani-personal-portfolio-api
+    app.kubernetes.io/part-of: ashiwani-personal-portfolio
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: ashiwani-personal-portfolio-api
+  strategy:
+    type: RollingUpdate
+    rollingUpdate:
+      maxSurge: 1
+      maxUnavailable: 0
+  template:
+    metadata:
+      labels:
+        app: ashiwani-personal-portfolio-api
+        app.kubernetes.io/name: ashiwani-personal-portfolio-api
+        app.kubernetes.io/part-of: ashiwani-personal-portfolio
+    spec:
+      containers:
+      - name: ashiwani-personal-portfolio-api
+        image: 172.16.100.33:8083/ashiwani-personal-portfolio-api:latest
+        imagePullPolicy: Always
+        ports:
+        - name: http
+          containerPort: 3301
+        resources:
+          requests:
+            memory: "256Mi"
+            cpu: "100m"
+          limits:
+            memory: "768Mi"
+            cpu: "500m"
+        env:
+        - name: NODE_ENV
+          value: "production"
+        - name: API_PORT
+          value: "3301"
+        - name: ENABLE_CLUSTER
+          value: "false"
+        - name: SCHEDULER_ENABLED
+          value: "true"
+        envFrom:
+        - secretRef:
+            name: ashiwani-personal-portfolio
+        livenessProbe:
+          httpGet:
+            path: /api/v1/healthCheck
+            port: 3301
+          initialDelaySeconds: 45
+          periodSeconds: 20
+          failureThreshold: 3
+          timeoutSeconds: 10
+        readinessProbe:
+          httpGet:
+            path: /api/v1/healthCheck
+            port: 3301
+          initialDelaySeconds: 30
+          periodSeconds: 10
+          failureThreshold: 3
+          timeoutSeconds: 10
+      imagePullSecrets:
+      - name: nexus-registry-secret

@@ -1,7 +1,23 @@
 /** @type {import('next').NextConfig} */
+import nextEnv from "@next/env";
+import path from "node:path";
+
+const { loadEnvConfig } = nextEnv;
+
+loadEnvConfig(path.resolve(process.cwd(), ".."));
 
 const nextConfig = {
+  output: "standalone",
   poweredByHeader: false,
+  async redirects() {
+    return [
+      {
+        source: "/client-dashbaord",
+        destination: "/client-dashboard",
+        permanent: true,
+      },
+    ];
+  },
   async headers() {
     return [
       {

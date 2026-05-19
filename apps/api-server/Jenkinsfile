@@ -1,0 +1,302 @@
+pipeline {
+    agent {
+        label 'docker-agent-1'
+    }
+
+    options {
+        disableConcurrentBuilds(abortPrevious: true)
+        timestamps()
+    }
+
+    parameters {
+        choice(
+            name: 'ACTION',
+            choices: [
+                'Deploy',
+                'Rollback',
+                'Restart',
+                'Stop',
+                'Start',
+                'Status',
+                'Logs',
+                'HealthCheck'
+            ],
+            description: 'Choose action to perform on Kubernetes'
+        )
+        string(name: 'ROLLBACK_BUILD', defaultValue: '', description: '[Rollback] Image build number to rollback to. Leave empty to use kubectl rollout undo.')
+        choice(name: 'LOG_LINES', choices: ['100', '500', '1000', 'all'], description: '[Logs] Number of log lines to retrieve')
+    }
+
+    environment {
+        API_DIR          = 'apps/api-server'
+        NEXUS_REGISTRY  = '172.16.100.33:8083'
+        IMAGE_NAME      = 'ashiwani-personal-portfolio-api'
+        NAMESPACE       = 'ashiwani-personal-portfolio'
+        DEPLOYMENT_NAME = 'ashiwani-personal-portfolio-api'
+        SONAR_PROJECT   = 'ashiwani-personal-portfolio-api'
+        K8S_HEALTH_URL  = 'https://api.ashiwanikumar.com/api/v1/healthCheck'
+        PROD_APP_URL    = 'https://api.ashiwanikumar.com'
+        GITHUB_REPO     = 'corevault-labs/landing-page'
+    }
+
+    triggers {
+        githubPush()
+    }
+
+    stages {
+        stage('Branch Filter') {
+            steps {
+                script {
+                    def branchName = env.BRANCH_NAME ?: 'unknown'
+                    echo "Current branch: ${branchName}"
+
+                    if (!(branchName in ['main', 'staging'])) {
+                        currentBuild.result = 'NOT_BUILT'
+                        error("Only main and staging branches are deployable.")
+                    }
+                }
+            }
+        }
+
+        stage('Set Environment Variables') {
+            steps {
+                script {
+                    def dateStr = new Date().format('yyyyMMdd-HHmmss')
+                    env.DEPLOYMENT_ID = "${env.BUILD_NUMBER}-${dateStr}"
+                    env.IMAGE_TAG = "${env.BUILD_NUMBER}"
+
+                    echo "============================================"
+                    echo "Deployment Configuration"
+                    echo "============================================"
+                    echo "Action:        ${params.ACTION}"
+                    echo "Deployment ID: ${env.DEPLOYMENT_ID}"
+                    echo "Image:         ${env.NEXUS_REGISTRY}/${env.IMAGE_NAME}:${env.IMAGE_TAG}"
+                    echo "Namespace:     ${env.NAMESPACE}"
+                    echo "Health URL:    ${env.K8S_HEALTH_URL}"
+                    echo "API directory: ${env.API_DIR}"
+                    echo "============================================"
+                }
+            }
+        }
+
+        stage('Checkout') {
+            when {
+                expression { params.ACTION in ['Deploy', 'Rollback'] }
+            }
+            steps {
+                cleanWs()
+                checkout scm
+                script {
+                    env.CURRENT_COMMIT = sh(script: 'git rev-parse HEAD', returnStdout: true).trim()
+                    env.COMMIT_MSG = sh(script: 'git log -1 --pretty=%B', returnStdout: true).trim()
+                    env.COMMIT_AUTHOR = sh(script: 'git log -1 --pretty=%an', returnStdout: true).trim()
+                    echo "Commit: ${env.CURRENT_COMMIT}"
+                }
+            }
+        }
+
+        stage('SonarQube Analysis') {
+            when {
+                expression { params.ACTION == 'Deploy' }
+            }
+            steps {
+                withSonarQubeEnv('sonarqube-172.16.100.34') {
+                    sh """
+                        sonar-scanner \
+                          -Dsonar.projectKey=${SONAR_PROJECT} \
+                          -Dsonar.projectName=${SONAR_PROJECT} \
+                          -Dsonar.sources=${API_DIR} \
+                          -Dsonar.exclusions=${API_DIR}/node_modules/**,${API_DIR}/k8s/**,${API_DIR}/tests/**,${API_DIR}/docs/**
+                    """
+                }
+            }
+        }
+
+        stage('Quality Gate') {
+            when {
+                expression { params.ACTION == 'Deploy' }
+            }
+            steps {
+                timeout(time: 15, unit: 'MINUTES') {
+                    waitForQualityGate abortPipeline: false
+                }
+            }
+        }
+
+        stage('Build & Push Docker Image') {
+            when {
+                expression { params.ACTION == 'Deploy' }
+            }
+            steps {
+                withCredentials([usernamePassword(
+                    credentialsId: 'nexus-creds-172.16.100.33',
+                    usernameVariable: 'NEXUS_USER',
+                    passwordVariable: 'NEXUS_PASS'
+                )]) {
+                    sh """
+                        echo "\$NEXUS_PASS" | docker login ${NEXUS_REGISTRY} -u "\$NEXUS_USER" --password-stdin
+
+                        docker pull node:20-alpine
+
+                        docker build \
+                          -t ${NEXUS_REGISTRY}/${IMAGE_NAME}:${IMAGE_TAG} \
+                          -t ${NEXUS_REGISTRY}/${IMAGE_NAME}:latest \
+                          -f ${API_DIR}/Dockerfile ${API_DIR}
+
+                        docker push ${NEXUS_REGISTRY}/${IMAGE_NAME}:${IMAGE_TAG}
+                        docker push ${NEXUS_REGISTRY}/${IMAGE_NAME}:latest
+                    """
+                }
+            }
+        }
+
+        stage('Deploy to K8s') {
+            when {
+                expression { params.ACTION == 'Deploy' }
+            }
+            steps {
+                withKubeConfig([credentialsId: 'k8s-kubeconfig-172.16.100.30']) {
+                    sh """
+                        kubectl apply -f ${API_DIR}/k8s/namespace.yaml
+                        kubectl apply -f ${API_DIR}/k8s/deployment.yaml
+                        kubectl apply -f ${API_DIR}/k8s/service.yaml
+                        kubectl apply -f ${API_DIR}/k8s/ingress.yaml
+
+                        kubectl set image deployment/${DEPLOYMENT_NAME} \
+                          ${DEPLOYMENT_NAME}=${NEXUS_REGISTRY}/${IMAGE_NAME}:${IMAGE_TAG} \
+                          -n ${NAMESPACE}
+
+                        kubectl rollout status deployment/${DEPLOYMENT_NAME} \
+                          -n ${NAMESPACE} --timeout=180s
+                    """
+                }
+            }
+        }
+
+        stage('K8s Health Check') {
+            when {
+                expression { params.ACTION in ['Deploy', 'HealthCheck'] }
+            }
+            steps {
+                sh """
+                    sleep 15
+                    for i in \$(seq 1 8); do
+                        STATUS=\$(curl -sk -o /dev/null -w "%{http_code}" ${K8S_HEALTH_URL} || echo 000)
+                        echo "K8s health check attempt \$i/8 - HTTP \$STATUS"
+                        [ "\$STATUS" = "200" ] && exit 0
+                        sleep 10
+                    done
+                    exit 1
+                """
+            }
+        }
+
+        stage('Rollback K8s') {
+            when {
+                expression { params.ACTION == 'Rollback' }
+            }
+            steps {
+                withKubeConfig([credentialsId: 'k8s-kubeconfig-172.16.100.30']) {
+                    script {
+                        if (params.ROLLBACK_BUILD?.trim()) {
+                            sh "kubectl set image deployment/${DEPLOYMENT_NAME} ${DEPLOYMENT_NAME}=${NEXUS_REGISTRY}/${IMAGE_NAME}:${params.ROLLBACK_BUILD} -n ${NAMESPACE}"
+                        } else {
+                            sh "kubectl rollout undo deployment/${DEPLOYMENT_NAME} -n ${NAMESPACE}"
+                        }
+                        sh "kubectl rollout status deployment/${DEPLOYMENT_NAME} -n ${NAMESPACE} --timeout=180s"
+                    }
+                }
+            }
+        }
+
+        stage('Restart K8s') {
+            when {
+                expression { params.ACTION == 'Restart' }
+            }
+            steps {
+                withKubeConfig([credentialsId: 'k8s-kubeconfig-172.16.100.30']) {
+                    sh """
+                        kubectl rollout restart deployment/${DEPLOYMENT_NAME} -n ${NAMESPACE}
+                        kubectl rollout status deployment/${DEPLOYMENT_NAME} -n ${NAMESPACE} --timeout=120s
+                    """
+                }
+            }
+        }
+
+        stage('Stop K8s') {
+            when {
+                expression { params.ACTION == 'Stop' }
+            }
+            steps {
+                withKubeConfig([credentialsId: 'k8s-kubeconfig-172.16.100.30']) {
+                    sh "kubectl scale deployment/${DEPLOYMENT_NAME} --replicas=0 -n ${NAMESPACE}"
+                }
+            }
+        }
+
+        stage('Start K8s') {
+            when {
+                expression { params.ACTION == 'Start' }
+            }
+            steps {
+                withKubeConfig([credentialsId: 'k8s-kubeconfig-172.16.100.30']) {
+                    sh """
+                        kubectl scale deployment/${DEPLOYMENT_NAME} --replicas=1 -n ${NAMESPACE}
+                        kubectl rollout status deployment/${DEPLOYMENT_NAME} -n ${NAMESPACE} --timeout=120s
+                    """
+                }
+            }
+        }
+
+        stage('K8s Status') {
+            when {
+                expression { params.ACTION == 'Status' }
+            }
+            steps {
+                withKubeConfig([credentialsId: 'k8s-kubeconfig-172.16.100.30']) {
+                    sh """
+                        kubectl get pods -n ${NAMESPACE} -l app=${DEPLOYMENT_NAME} -o wide
+                        kubectl describe deployment/${DEPLOYMENT_NAME} -n ${NAMESPACE}
+                        kubectl get svc -n ${NAMESPACE}
+                        kubectl get ingress -n ${NAMESPACE}
+                    """
+                }
+            }
+        }
+
+        stage('K8s Logs') {
+            when {
+                expression { params.ACTION == 'Logs' }
+            }
+            steps {
+                withKubeConfig([credentialsId: 'k8s-kubeconfig-172.16.100.30']) {
+                    sh """
+                        kubectl logs -l app=${DEPLOYMENT_NAME} \
+                          -n ${NAMESPACE} \
+                          --tail=${params.LOG_LINES == 'all' ? '1000000' : params.LOG_LINES} \
+                          --prefix=true \
+                          --all-containers
+                    """
+                }
+            }
+        }
+    }
+
+    post {
+        always {
+            sh """
+                docker rmi ${NEXUS_REGISTRY}/${IMAGE_NAME}:${IMAGE_TAG} || true
+                docker rmi ${NEXUS_REGISTRY}/${IMAGE_NAME}:latest || true
+                docker image prune -f || true
+                docker container prune -f || true
+                docker builder prune -f --keep-storage=2GB || true
+            """
+        }
+        success {
+            echo "Ashiwani Personal Portfolio API ${params.ACTION} completed successfully."
+        }
+        failure {
+            echo "Ashiwani Personal Portfolio API ${params.ACTION} failed."
+        }
+    }
+}

@@ -12,6 +12,8 @@
 .tm_properties
 .bak
 .env
+*.pem
+apps/api-server/node_modules/
 
 npm-debug.log*
 yarn-debug.log*

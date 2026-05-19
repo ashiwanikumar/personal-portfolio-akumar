@@ -11,11 +11,27 @@ const Newsletter = () => {
 		if (!email) return;
 
 		setStatus("loading");
-		setTimeout(() => {
+		try {
+			const response = await fetch("/api/public/newsletter", {
+				method: "POST",
+				headers: { "Content-Type": "application/json" },
+				body: JSON.stringify({
+					email,
+					name: "",
+					interests: ["devops", "cloud-infrastructure", "kubernetes"],
+					screenWidth: typeof window !== "undefined" ? window.innerWidth : undefined,
+					screenHeight: typeof window !== "undefined" ? window.innerHeight : undefined,
+				}),
+			});
+			const data = await response.json();
+			if (!response.ok) throw new Error(data.message || "Subscription failed");
 			setStatus("success");
 			setEmail("");
 			setTimeout(() => setStatus("idle"), 3000);
-		}, 1000);
+		} catch (error) {
+			setStatus("error");
+			setTimeout(() => setStatus("idle"), 4000);
+		}
 	};
 
 	return (
@@ -83,13 +99,16 @@ const Newsletter = () => {
 					</form>
 
 					<p id="newsletter-hint" className="text-[#00ff41]/40 text-xs mt-6 font-mono">
-						Join 500+ DevOps professionals. Unsubscribe anytime.
+						{status === "error"
+							? "Subscription failed. Please try again or use the contact form."
+							: "Join 500+ DevOps professionals. Unsubscribe anytime."}
 					</p>
 
 					{/* Status announcement for screen readers */}
 					<div aria-live="polite" className="sr-only">
 						{status === "success" && "Successfully subscribed to the newsletter."}
 						{status === "loading" && "Processing your subscription..."}
+						{status === "error" && "Subscription failed."}
 					</div>
 
 					{/* Social proof */}
