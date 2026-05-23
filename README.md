@@ -138,5 +138,4 @@ This project is for personal use. The template design and components are part of
 
 **Built with ❤️ using Next.js and Tailwind CSS**
 
-*Last updated: December 2024*
-..
+*Last updated: May 2026*
