@@ -67,7 +67,7 @@ class ContactEmailService {
       // Get admin emails from environment or use defaults
       const adminEmails = process.env.CONTACT_ADMIN_EMAILS 
         ? process.env.CONTACT_ADMIN_EMAILS.split(',').map(email => email.trim())
-        : ['admin@shivrajsinghchouhan.co.in', 'info@shivrajsinghchouhan.co.in'];
+        : ['admin@ashiwanikumar.in', 'info@ashiwanikumar.in'];
 
       // Generate email template
       const emailTemplate = contactAdminNotificationTemplate(contactData);

@@ -57,16 +57,16 @@ const sendMFAEmail = async (options) => {
       encoding: "8bit",
       textEncoding: "base64",
       headers: {
-        "Reply-To": "security@shivrajsinghchouhan.co.in",
+        "Reply-To": "security@ashiwanikumar.in",
         "X-Auto-Response-Suppress": "OOF, AutoReply",
         "X-Report-Abuse":
-          "Please report abuse to security@shivrajsinghchouhan.co.in",
+          "Please report abuse to security@ashiwanikumar.in",
         Date: new Date().toUTCString(),
         "MIME-Version": "1.0",
         "X-Priority": options.priority || "2", // High priority for security emails
         "X-Mailer": "SSC Dashboard Security System",
-        "Return-Path": `<security@shivrajsinghchouhan.co.in>`,
-        "List-Unsubscribe": "<mailto:unsubscribe@shivrajsinghchouhan.co.in>",
+        "Return-Path": `<security@ashiwanikumar.in>`,
+        "List-Unsubscribe": "<mailto:unsubscribe@ashiwanikumar.in>",
         "X-MFA-Operation": options.mfaOperation || "General",
         "X-Security-Alert": "true",
         ...(options.headers || {}),

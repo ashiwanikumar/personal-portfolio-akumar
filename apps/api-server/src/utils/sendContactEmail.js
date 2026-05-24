@@ -48,16 +48,16 @@ const sendContactEmail = async (options) => {
       encoding: "8bit",
       textEncoding: "base64",
       headers: {
-        "Reply-To": "info@shivrajsinghchouhan.co.in",
+        "Reply-To": "info@ashiwanikumar.in",
         "X-Auto-Response-Suppress": "OOF, AutoReply",
         "X-Report-Abuse":
-          "Please report abuse to abuse@shivrajsinghchouhan.co.in",
+          "Please report abuse to abuse@ashiwanikumar.in",
         Date: new Date().toUTCString(),
         "MIME-Version": "1.0",
         "X-Priority": options.priority || "3", // Normal priority by default
         "X-Mailer": "Ministry Contact System",
-        "Return-Path": `<info@shivrajsinghchouhan.co.in>`,
-        "List-Unsubscribe": "<mailto:unsubscribe@shivrajsinghchouhan.co.in>",
+        "Return-Path": `<info@ashiwanikumar.in>`,
+        "List-Unsubscribe": "<mailto:unsubscribe@ashiwanikumar.in>",
         "X-Contact-Type": options.contactType || "General",
         "X-Contact-ID": options.contactId || "N/A",
         ...(options.headers || {}),

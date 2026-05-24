@@ -212,9 +212,9 @@ exports.signup = async (req, res) => {
 
       // Configure the message
       let mailOptions = {
-        from: `Hello from Netraga <${process.env.ZOHO_NODEMAILER_EMAIL_HELLO}>`,
+        from: `Ashiwani Kumar <${process.env.ZOHO_NODEMAILER_EMAIL_HELLO}>`,
         to: email,
-        subject: "Verify your email address for Netraga",
+        subject: "Verify your email address",
         html: verifyAccountEmailTemplate(newUser, verificationToken),
       };
 
@@ -393,9 +393,9 @@ exports.resendAccountActivation = async (req, res, next) => {
 
     // Configure the message
     let mailOptions = {
-      from: `Hello from Netraga <${process.env.ZOHO_NODEMAILER_EMAIL_HELLO}>`,
+      from: `Ashiwani Kumar <${process.env.ZOHO_NODEMAILER_EMAIL_HELLO}>`,
       to: email,
-      subject: "Verify your email address for Netraga",
+      subject: "Verify your email address",
       html: verifyAccountEmailTemplate(user, verificationToken),
     };
 
@@ -488,9 +488,9 @@ exports.forgotPassword = async (req, res, next) => {
     });
 
     let mailOptions = {
-      from: `Netraga Support <${process.env.ZOHO_NODEMAILER_EMAIL_HELLO}>`,
+      from: `Ashiwani Kumar <${process.env.ZOHO_NODEMAILER_EMAIL_HELLO}>`,
       to: email,
-      subject: "Reset your password for Netraga",
+      subject: "Reset your password",
       html: resetPasswordEmailTemplate(user, resetPasswordToken),
     };
 

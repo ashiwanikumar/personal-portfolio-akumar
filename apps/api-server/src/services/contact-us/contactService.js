@@ -777,7 +777,18 @@ class ContactService {
         technicalInfo: {
           ip: technicalInfo.ip || {},
           location: technicalInfo.location || {},
-          network: technicalInfo.network || {},
+          network: {
+            isp: typeof technicalInfo.network?.isp === "object"
+              ? technicalInfo.network.isp.name || ""
+              : technicalInfo.network?.isp || "",
+            organization: typeof technicalInfo.network?.organization === "object"
+              ? technicalInfo.network.organization.name || ""
+              : technicalInfo.network?.organization || "",
+            asn: typeof technicalInfo.network?.asn === "object"
+              ? String(technicalInfo.network.asn.number || "")
+              : technicalInfo.network?.asn || "",
+            domain: technicalInfo.network?.domain || "",
+          },
           browser: technicalInfo.browser || {},
           metadata: {
             collectedAt: new Date(),

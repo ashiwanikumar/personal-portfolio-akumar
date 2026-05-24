@@ -203,9 +203,9 @@ exports.deleteHeroImageById = async (req, res) => {
       const mediaUrl = heroToDelete.image || heroToDelete.video;
       if (mediaUrl) {
         // Extract key from CloudFront URL
-        // Example: https://media.cdn.shivrajsinghchouhan.co.in/hero-images/filename.jpg -> hero-images/filename.jpg
+        // Example: https://media.cdn.ashiwanikumar.in/hero-images/filename.jpg -> hero-images/filename.jpg
         const urlParts = mediaUrl.split('/');
-        const domainIndex = urlParts.findIndex(part => part.includes('shivrajsinghchouhan.co.in'));
+        const domainIndex = urlParts.findIndex(part => part.includes('ashiwanikumar.in'));
         if (domainIndex !== -1 && domainIndex + 1 < urlParts.length) {
           // Get everything after the domain
           s3KeyToDelete = urlParts.slice(domainIndex + 1).join('/');

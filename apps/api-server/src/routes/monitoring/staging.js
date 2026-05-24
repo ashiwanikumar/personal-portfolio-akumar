@@ -5,7 +5,7 @@ const { URL } = require("url");
 
 // Staging API configuration
 const STAGING_API_BASE =
-  "https://v1-api-staging.shivrajsinghchouhan.co.in/api/v1";
+  "https://v1-api-staging.ashiwanikumar.in/api/v1";
 
 /**
  * Make HTTP request with timing

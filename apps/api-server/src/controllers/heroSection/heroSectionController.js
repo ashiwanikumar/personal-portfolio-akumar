@@ -206,10 +206,10 @@ exports.deleteHeroById = async (req, res) => {
       const mediaUrl = heroToDelete.image || heroToDelete.video;
       if (mediaUrl) {
         // Extract key from CloudFront URL
-        // Example: https://media.cdn.shivrajsinghchouhan.co.in/hero-section/filename.jpg -> hero-section/filename.jpg
+        // Example: https://media.cdn.ashiwanikumar.in/hero-section/filename.jpg -> hero-section/filename.jpg
         const urlParts = mediaUrl.split("/");
         const domainIndex = urlParts.findIndex((part) =>
-          part.includes("shivrajsinghchouhan.co.in")
+          part.includes("ashiwanikumar.in")
         );
         if (domainIndex !== -1 && domainIndex + 1 < urlParts.length) {
           // Get everything after the domain

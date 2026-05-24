@@ -96,7 +96,7 @@ const structuredFormat = format.combine(
       const entry = {
         timestamp,
         level,
-        service: service || "netraga-api",
+        service: service || "ashiwanikumar-api",
         message: typeof message === "object" ? JSON.stringify(message) : message,
       };
       if (requestId) entry.requestId = requestId;
@@ -242,7 +242,7 @@ class Logger {
     this.logger = createLogger({
       levels: logLevels.levels,
       level: process.env.LOG_LEVEL || (isProduction ? "info" : "debug"),
-      defaultMeta: { service: "netraga-api" },
+      defaultMeta: { service: "ashiwanikumar-api" },
       transports: [...fileTransports, consoleTransport],
       exitOnError: false,
       silent: process.env.NODE_ENV === "test",

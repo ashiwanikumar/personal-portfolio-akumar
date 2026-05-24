@@ -90,16 +90,16 @@ const sendBlogApprovalEmail = async (options) => {
       encoding: "8bit",
       textEncoding: "base64",
       headers: {
-        "Reply-To": "blog-admin@shivrajsinghchouhan.co.in",
+        "Reply-To": "blog-admin@ashiwanikumar.in",
         "X-Auto-Response-Suppress": "OOF, AutoReply",
         "X-Report-Abuse":
-          "Please report abuse to abuse@shivrajsinghchouhan.co.in",
+          "Please report abuse to abuse@ashiwanikumar.in",
         Date: new Date().toUTCString(),
         "MIME-Version": "1.0",
         "X-Priority": options.priority || "2", // High priority for approvals
         "X-Mailer": "Blog Approval System",
-        "Return-Path": `<blog-admin@shivrajsinghchouhan.co.in>`,
-        "List-Unsubscribe": "<mailto:unsubscribe@shivrajsinghchouhan.co.in>",
+        "Return-Path": `<blog-admin@ashiwanikumar.in>`,
+        "List-Unsubscribe": "<mailto:unsubscribe@ashiwanikumar.in>",
         "X-Blog-ID": options.blogId || "N/A",
         "X-Blog-Title": options.blogTitle || "N/A",
         "X-Blog-Author": options.blogAuthor || "N/A",

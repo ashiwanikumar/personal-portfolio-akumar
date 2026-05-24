@@ -56,7 +56,11 @@ const contactSchema = new mongoose.Schema(
       id: {
         type: String,
         required: true,
-        enum: ["services", "feedback", "analyst"],
+        enum: [
+          "services", "feedback", "analyst",
+          "devops-consulting", "cloud-infrastructure", "kubernetes",
+          "ci-cd", "other",
+        ],
       },
       name: {
         type: String,

@@ -689,7 +689,7 @@ class BlogReportEmailService {
             <div class="footer">
                 <p>© ${new Date().getFullYear()} SSChouhan Blog Management System. All rights reserved.</p>
                 <p>
-                    <a href="mailto:info@shivrajsinghchouhan.co.in">Contact Support</a> | 
+                    <a href="mailto:info@ashiwanikumar.in">Contact Support</a> | 
                     <a href="${process.env.NEXT_PUBLIC_FRONTEND_URL}">Visit Website</a>
                 </p>
             </div>

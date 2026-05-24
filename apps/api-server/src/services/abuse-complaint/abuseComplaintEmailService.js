@@ -52,11 +52,11 @@ class AbuseComplaintEmailService {
           "X-Ministry": "Agriculture-Farmers-Welfare",
           "X-Email-Type": "abuse-complaint-confirmation",
           "X-Priority": "high",
-          "Reply-To": "security@shivrajsinghchouhan.co.in",
+          "Reply-To": "security@ashiwanikumar.in",
           "List-Unsubscribe":
-            "<mailto:abuse@shivrajsinghchouhan.co.in?subject=Unsubscribe>",
+            "<mailto:abuse@ashiwanikumar.in?subject=Unsubscribe>",
           "List-Id":
-            "Ministry Agriculture Security Notifications <security.shivrajsinghchouhan.co.in>",
+            "Ministry Agriculture Security Notifications <security.ashiwanikumar.in>",
           "X-Auto-Response-Suppress": "OOF, AutoReply",
           Precedence: "bulk",
           "X-Mailer": "Ministry-Agriculture-Email-Service-v1.0",
@@ -182,11 +182,11 @@ class AbuseComplaintEmailService {
           "X-Ministry": "Agriculture-Farmers-Welfare",
           "X-Email-Type": "abuse-complaint-status-update",
           "X-Priority": "normal",
-          "Reply-To": "security@shivrajsinghchouhan.co.in",
+          "Reply-To": "security@ashiwanikumar.in",
           "List-Unsubscribe":
-            "<mailto:abuse@shivrajsinghchouhan.co.in?subject=Unsubscribe>",
+            "<mailto:abuse@ashiwanikumar.in?subject=Unsubscribe>",
           "List-Id":
-            "Ministry Agriculture Security Notifications <security.shivrajsinghchouhan.co.in>",
+            "Ministry Agriculture Security Notifications <security.ashiwanikumar.in>",
           "X-Auto-Response-Suppress": "OOF, AutoReply",
           Precedence: "bulk",
           "X-Mailer": "Ministry-Agriculture-Email-Service-v1.0",
@@ -266,8 +266,8 @@ class AbuseComplaintEmailService {
       }
 
       const adminEmails = [
-        "security@shivrajsinghchouhan.co.in",
-        "info@shivrajsinghchouhan.co.in",
+        "security@ashiwanikumar.in",
+        "info@ashiwanikumar.in",
       ];
 
       const reporterName = complaintData.reporter?.firstName

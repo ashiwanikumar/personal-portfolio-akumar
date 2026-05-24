@@ -40,10 +40,10 @@ class NewsletterEmailService {
         encoding: "8bit",
         textEncoding: "base64",
         headers: {
-          "Reply-To": "info@shivrajsinghchouhan.co.in",
+          "Reply-To": "info@ashiwanikumar.in",
           "X-Auto-Response-Suppress": "OOF, AutoReply",
           "X-Report-Abuse":
-            "Please report abuse to info@shivrajsinghchouhan.co.in",
+            "Please report abuse to info@ashiwanikumar.in",
           Date: new Date().toUTCString(),
           "MIME-Version": "1.0",
           "X-Priority": "1",
@@ -51,7 +51,7 @@ class NewsletterEmailService {
           "X-Newsletter-Type": "confirmation",
           "X-Subscriber-ID": subscriberData._id?.toString() || "unknown",
           "X-Campaign-Type": "welcome",
-          "Return-Path": `<info@shivrajsinghchouhan.co.in>`,
+          "Return-Path": `<info@ashiwanikumar.in>`,
         },
       };
 
@@ -109,10 +109,10 @@ class NewsletterEmailService {
         encoding: "8bit",
         textEncoding: "base64",
         headers: {
-          "Reply-To": "info@shivrajsinghchouhan.co.in",
+          "Reply-To": "info@ashiwanikumar.in",
           "X-Auto-Response-Suppress": "OOF, AutoReply",
           "X-Report-Abuse":
-            "Please report abuse to info@shivrajsinghchouhan.co.in",
+            "Please report abuse to info@ashiwanikumar.in",
           Date: new Date().toUTCString(),
           "MIME-Version": "1.0",
           "X-Priority": "1",
@@ -120,7 +120,7 @@ class NewsletterEmailService {
           "X-Newsletter-Type": "welcome-series",
           "X-Series-Number": emailNumber.toString(),
           "X-Subscriber-ID": subscriberData._id?.toString() || "unknown",
-          "Return-Path": `<info@shivrajsinghchouhan.co.in>`,
+          "Return-Path": `<info@ashiwanikumar.in>`,
         },
       };
 
@@ -167,17 +167,17 @@ class NewsletterEmailService {
         encoding: "8bit",
         textEncoding: "base64",
         headers: {
-          "Reply-To": "info@shivrajsinghchouhan.co.in",
+          "Reply-To": "info@ashiwanikumar.in",
           "X-Auto-Response-Suppress": "OOF, AutoReply",
           "X-Report-Abuse":
-            "Please report abuse to info@shivrajsinghchouhan.co.in",
+            "Please report abuse to info@ashiwanikumar.in",
           Date: new Date().toUTCString(),
           "MIME-Version": "1.0",
           "X-Priority": "1",
           "X-Mailer": "Nodemailer",
           "X-Newsletter-Type": "unsubscribe-confirmation",
           "X-Subscriber-ID": subscriberData._id?.toString() || "unknown",
-          "Return-Path": `<info@shivrajsinghchouhan.co.in>`,
+          "Return-Path": `<info@ashiwanikumar.in>`,
         },
       };
 
@@ -252,10 +252,10 @@ class NewsletterEmailService {
               encoding: "8bit",
               textEncoding: "base64",
               headers: {
-                "Reply-To": "info@shivrajsinghchouhan.co.in",
+                "Reply-To": "info@ashiwanikumar.in",
                 "X-Auto-Response-Suppress": "OOF, AutoReply",
                 "X-Report-Abuse":
-                  "Please report abuse to info@shivrajsinghchouhan.co.in",
+                  "Please report abuse to info@ashiwanikumar.in",
                 Date: new Date().toUTCString(),
                 "MIME-Version": "1.0",
                 "X-Priority": "1",
@@ -263,7 +263,7 @@ class NewsletterEmailService {
                 "X-Newsletter-Type": "campaign",
                 "X-Campaign-ID": campaignData.campaignId || "unknown",
                 "X-Subscriber-ID": subscriber._id?.toString() || "unknown",
-                "Return-Path": `<info@shivrajsinghchouhan.co.in>`,
+                "Return-Path": `<info@ashiwanikumar.in>`,
               },
             };
 
