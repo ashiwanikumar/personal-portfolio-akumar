@@ -1,6 +1,6 @@
 import About5 from "@/components/sections/about/About5";
 import PageWrapper from "@/components/shared/wrappers/PageWrapper";
-import { generatePageMetadata } from "@/libs/seo";
+import { generatePageMetadata, generateBreadcrumbSchema } from "@/libs/seo";
 
 export const metadata = generatePageMetadata({
 	title: "About Me - Linux DevOps Engineer & DevOps Expert",
@@ -11,8 +11,14 @@ export const metadata = generatePageMetadata({
 });
 
 export default function AboutPage() {
+	const jsonLd = generateBreadcrumbSchema([{ name: "About", url: "/about" }]);
+
 	return (
 		<PageWrapper headerType={6} footerType={8}>
+			<script
+				type="application/ld+json"
+				dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
+			/>
 			<main className="overflow-hidden pt-[140px]">
 				<About5 />
 			</main>

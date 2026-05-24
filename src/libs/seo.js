@@ -168,3 +168,86 @@ export function generateFAQSchema(faqs) {
     })),
   };
 }
+
+export function generateServicesSchema(services) {
+  return {
+    "@context": "https://schema.org",
+    "@type": "ItemList",
+    name: "DevOps & SRE Services by Ashiwani Kumar",
+    description: "Professional DevOps and infrastructure engineering services",
+    numberOfItems: services.length,
+    itemListElement: services.map((service, i) => ({
+      "@type": "ListItem",
+      position: i + 1,
+      item: {
+        "@type": "Service",
+        name: service.title,
+        description: service.desc,
+        provider: {
+          "@type": "Person",
+          name: SITE_NAME,
+          url: SITE_URL,
+        },
+        areaServed: {
+          "@type": "Place",
+          name: "UAE, India, Worldwide (Remote)",
+        },
+        serviceType: service.title,
+      },
+    })),
+  };
+}
+
+export function generatePortfolioSchema(projects) {
+  return {
+    "@context": "https://schema.org",
+    "@type": "CollectionPage",
+    name: "DevOps & Infrastructure Portfolio",
+    description: "Featured DevOps, cloud infrastructure, and SRE projects by Ashiwani Kumar",
+    url: `${SITE_URL}/portfolio`,
+    author: {
+      "@type": "Person",
+      name: SITE_NAME,
+      url: SITE_URL,
+    },
+    mainEntity: {
+      "@type": "ItemList",
+      numberOfItems: projects.length,
+      itemListElement: projects.map((project, i) => ({
+        "@type": "ListItem",
+        position: i + 1,
+        item: {
+          "@type": "CreativeWork",
+          name: project.title,
+          description: project.desc,
+          author: { "@type": "Person", name: SITE_NAME },
+          keywords: project.tags?.join(", "),
+        },
+      })),
+    },
+  };
+}
+
+export function generateResumeSchema(experience, education) {
+  return {
+    "@context": "https://schema.org",
+    "@type": "Person",
+    name: SITE_NAME,
+    url: `${SITE_URL}/resume`,
+    jobTitle: "Linux DevOps Engineer",
+    hasOccupation: experience?.map((exp) => ({
+      "@type": "Occupation",
+      name: exp.designation || exp.title,
+      description: exp.desc,
+      occupationLocation: {
+        "@type": "Place",
+        name: exp.location || "UAE",
+      },
+    })),
+    hasCredential: education?.map((edu) => ({
+      "@type": "EducationalOccupationalCredential",
+      name: edu.title || edu.designation,
+      description: edu.desc,
+    })),
+  };
+}

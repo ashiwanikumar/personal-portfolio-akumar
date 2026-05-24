@@ -1,6 +1,7 @@
 import Portfolio8 from "@/components/sections/portfolio/Portfolio8";
 import PageWrapper from "@/components/shared/wrappers/PageWrapper";
-import { generatePageMetadata } from "@/libs/seo";
+import { generatePageMetadata, generatePortfolioSchema, generateBreadcrumbSchema } from "@/libs/seo";
+import portfolioData from "../../../public/fakedata/portfolio.json";
 
 export const metadata = generatePageMetadata({
 	title: "Portfolio - Featured DevOps & Infrastructure Projects",
@@ -10,8 +11,20 @@ export const metadata = generatePageMetadata({
 });
 
 export default function PortfolioPage() {
+	const jsonLd = [
+		generatePortfolioSchema(portfolioData),
+		generateBreadcrumbSchema([{ name: "Portfolio", url: "/portfolio" }]),
+	];
+
 	return (
 		<PageWrapper headerType={6} footerType={8}>
+			{jsonLd.map((schema, i) => (
+				<script
+					key={i}
+					type="application/ld+json"
+					dangerouslySetInnerHTML={{ __html: JSON.stringify(schema) }}
+				/>
+			))}
 			<main className="overflow-hidden pt-[140px]">
 				<Portfolio8 />
 			</main>

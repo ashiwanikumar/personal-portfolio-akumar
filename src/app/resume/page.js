@@ -1,7 +1,8 @@
 import Resume7 from "@/components/sections/resume/Resume7";
 import CVViewer from "@/components/sections/cv-viewer/CVViewer";
 import PageWrapper from "@/components/shared/wrappers/PageWrapper";
-import { generatePageMetadata } from "@/libs/seo";
+import { generatePageMetadata, generateResumeSchema, generateBreadcrumbSchema } from "@/libs/seo";
+import resumeData from "../../../public/fakedata/resume.json";
 
 export const metadata = generatePageMetadata({
 	title: "Resume & CV - Professional Experience",
@@ -12,8 +13,22 @@ export const metadata = generatePageMetadata({
 });
 
 export default function ResumePage() {
+	const experience = resumeData[0]?.resumeItems || [];
+	const education = resumeData[1]?.resumeItems || [];
+	const jsonLd = [
+		generateResumeSchema(experience, education),
+		generateBreadcrumbSchema([{ name: "Resume", url: "/resume" }]),
+	];
+
 	return (
 		<PageWrapper headerType={6} footerType={8}>
+			{jsonLd.map((schema, i) => (
+				<script
+					key={i}
+					type="application/ld+json"
+					dangerouslySetInnerHTML={{ __html: JSON.stringify(schema) }}
+				/>
+			))}
 			<main className="overflow-hidden pt-[140px]">
 				<Resume7 />
 				<CVViewer />

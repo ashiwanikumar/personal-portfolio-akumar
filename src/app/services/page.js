@@ -1,6 +1,7 @@
 import Services8 from "@/components/sections/services/Services8";
 import PageWrapper from "@/components/shared/wrappers/PageWrapper";
-import { generatePageMetadata } from "@/libs/seo";
+import { generatePageMetadata, generateServicesSchema, generateBreadcrumbSchema } from "@/libs/seo";
+import servicesData from "../../../public/fakedata/services.json";
 
 export const metadata = generatePageMetadata({
 	title: "Services - DevOps & SRE Solutions",
@@ -10,8 +11,20 @@ export const metadata = generatePageMetadata({
 });
 
 export default function ServicesPage() {
+	const jsonLd = [
+		generateServicesSchema(servicesData),
+		generateBreadcrumbSchema([{ name: "Services", url: "/services" }]),
+	];
+
 	return (
 		<PageWrapper headerType={6} footerType={8}>
+			{jsonLd.map((schema, i) => (
+				<script
+					key={i}
+					type="application/ld+json"
+					dangerouslySetInnerHTML={{ __html: JSON.stringify(schema) }}
+				/>
+			))}
 			<main className="overflow-hidden pt-[140px]">
 				<Services8 />
 			</main>
