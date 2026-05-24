@@ -46,7 +46,7 @@ spec:
         - name: ENABLE_CLUSTER
           value: "false"
         - name: SCHEDULER_ENABLED
-          value: "true"
+          value: "false"
         envFrom:
         - secretRef:
             name: ashiwani-personal-portfolio
