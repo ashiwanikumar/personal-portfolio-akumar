@@ -1,20 +1,57 @@
 "use client";
 
-import { useState } from "react";
+import { useState, useCallback } from "react";
+
+function trackCvEvent(action) {
+	try {
+		const data = {
+			action,
+			referrer: document.referrer || "",
+			source: document.referrer ? new URL(document.referrer).hostname : "direct",
+			pageUrl: window.location.href,
+			screenResolution: `${window.screen.width}x${window.screen.height}`,
+			language: navigator.language || "",
+		};
+
+		// Extract UTM params from URL
+		const params = new URLSearchParams(window.location.search);
+		if (params.get("utm_source")) data.utmSource = params.get("utm_source");
+		if (params.get("utm_medium")) data.utmMedium = params.get("utm_medium");
+		if (params.get("utm_campaign")) data.utmCampaign = params.get("utm_campaign");
+
+		// Fire and forget - don't block the user action
+		fetch("/api/public/cv", {
+			method: "POST",
+			headers: { "Content-Type": "application/json" },
+			body: JSON.stringify(data),
+		}).catch(() => {});
+	} catch {
+		// Silently fail - tracking should never break UX
+	}
+}
 
 const CVViewer = () => {
 	const [isModalOpen, setIsModalOpen] = useState(false);
 	const cvPath = "/cv/Ashiwani_Kumar_CV.pdf";
 
-	const openModal = () => {
+	const openModal = useCallback(() => {
 		setIsModalOpen(true);
 		document.body.style.overflow = "hidden";
-	};
+		trackCvEvent("view");
+	}, []);
 
-	const closeModal = () => {
+	const closeModal = useCallback(() => {
 		setIsModalOpen(false);
 		document.body.style.overflow = "auto";
-	};
+	}, []);
+
+	const handleDownload = useCallback(() => {
+		trackCvEvent("download");
+	}, []);
+
+	const handleOpenTab = useCallback(() => {
+		trackCvEvent("open_tab");
+	}, []);
 
 	return (
 		<>
@@ -63,6 +100,7 @@ const CVViewer = () => {
 									<a
 										href={cvPath}
 										download="Ashiwani_Kumar_CV.pdf"
+										onClick={handleDownload}
 										className="flex-1 sm:flex-none inline-flex items-center justify-center gap-2 px-4 sm:px-6 py-3 bg-[#00ff41] text-[#09090b] font-bold rounded-full hover:bg-[#00ff88] hover:shadow-[0_0_20px_rgba(0,255,65,0.5)] transition-all duration-300 font-mono text-sm whitespace-nowrap"
 									>
 										<i className="fa-solid fa-download"></i>
@@ -127,6 +165,7 @@ const CVViewer = () => {
 								<a
 									href={cvPath}
 									download="Ashiwani_Kumar_CV.pdf"
+									onClick={handleDownload}
 									className="inline-flex items-center gap-1 sm:gap-2 px-3 sm:px-4 py-2 bg-[#00ff41] text-[#09090b] font-bold rounded-lg hover:bg-[#00ff88] transition-all duration-300 font-mono text-xs sm:text-sm"
 								>
 									<i className="fa-solid fa-download"></i>
@@ -136,6 +175,7 @@ const CVViewer = () => {
 									href={cvPath}
 									target="_blank"
 									rel="noopener noreferrer"
+									onClick={handleOpenTab}
 									className="hidden sm:inline-flex items-center gap-2 px-4 py-2 bg-transparent border border-[#00ff41] text-[#00ff41] font-bold rounded-lg hover:bg-[#00ff41]/10 transition-all duration-300 font-mono text-sm"
 								>
 									<i className="fa-solid fa-external-link"></i>
