@@ -408,7 +408,7 @@ export default function DashboardApp() {
 			</aside>
 
 			{/* Main content area */}
-			<div className={`flex-1 transition-all duration-300 ${sidebarCollapsed ? "lg:ml-[68px]" : "lg:ml-60"}`}>
+			<div className={`flex min-h-screen flex-1 flex-col transition-all duration-300 ${sidebarCollapsed ? "lg:ml-[68px]" : "lg:ml-60"}`}>
 				{/* Top header */}
 				<header className="sticky top-0 z-30 flex h-16 items-center justify-between border-b border-white/[0.06] bg-[#0b0d10]/80 px-4 backdrop-blur-xl sm:px-6">
 					<div className="flex items-center gap-3">
@@ -436,20 +436,11 @@ export default function DashboardApp() {
 						>
 							Visit Site {Icons.externalLink}
 						</Link>
-						<div className="hidden items-center gap-2 sm:flex">
-							<div className="flex h-8 w-8 items-center justify-center rounded-full bg-gradient-to-br from-emerald-500/20 to-emerald-600/20 text-xs font-semibold text-emerald-400 ring-1 ring-emerald-500/20">
-								{userInitial}
-							</div>
-							<div>
-								<p className="text-xs font-medium text-zinc-200">{userName}</p>
-								<p className="text-[10px] text-zinc-500">{userEmail}</p>
-							</div>
-						</div>
 					</div>
 				</header>
 
 				{/* Page content */}
-				<main className="p-4 sm:p-6">
+				<main className="flex-1 p-4 sm:p-6">
 					{activeNav === "dashboard" && (
 						<DashboardView cards={cards} checks={checks} summary={summary} loadDashboard={loadDashboard} session={session} />
 					)}
@@ -468,7 +459,7 @@ export default function DashboardApp() {
 				</main>
 
 				{/* Footer */}
-				<footer className="border-t border-white/[0.06] px-4 py-4 sm:px-6">
+				<footer className="mt-auto shrink-0 border-t border-white/[0.06] px-4 py-4 sm:px-6">
 					<div className="flex flex-col items-center justify-between gap-2 sm:flex-row">
 						<p className="text-[11px] text-zinc-600">
 							&copy; {new Date().getFullYear()} Ashiwani Kumar. All rights reserved.
