@@ -42,7 +42,7 @@ exports.contactConfirmationEmailTemplate = (contactData) => {
             <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
             <meta name="color-scheme" content="light dark">
             <meta name="supported-color-schemes" content="light dark">
-            <title>Thank You for Contacting Us - Ministry of Agriculture & Farmers Welfare</title>
+            <title>Thank You for Contacting Us - Ashiwani Kumar</title>
             <style type="text/css" rel="stylesheet" media="all">
                 @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap');
                 
@@ -230,12 +230,6 @@ exports.contactConfirmationEmailTemplate = (contactData) => {
                 <div style="max-width: 600px; margin: 0 auto;" class="email-container">
                     <table align="center" role="presentation" cellspacing="0" cellpadding="0" border="0" width="100%" style="margin: auto;">
                         <tr>
-                            <td class="header-logo">
-                                <img src="https://ashiwanikumar.in/logo.png" width="180" alt="Ministry of Agriculture & Farmers Welfare" border="0" style="height: auto; display: block; margin: auto;">
-                            </td>
-                        </tr>
-                        
-                        <tr>
                             <td>
                                 <table role="presentation" cellspacing="0" cellpadding="0" border="0" width="100%">
                                     <tr>
@@ -256,18 +250,9 @@ exports.contactConfirmationEmailTemplate = (contactData) => {
                                                 <p class="content-text primary-text" style="font-size: 18px; text-align: center;">Dear ${userName},</p>
                                                 
                                                 <p class="content-text secondary-text">
-                                                    We have successfully received your message and appreciate you taking the time to reach out to the Ministry of Agriculture & Farmers Welfare. Your inquiry is important to us, and we will review it carefully.
+                                                    We have successfully received your message and appreciate you taking the time to reach out. Your inquiry is important to us, and we will review it carefully.
                                                 </p>
                                                 
-                                                <div class="highlight-box">
-                                                    <h3 style="margin: 0 0 16px 0; color: #ea580c;">What Happens Next?</h3>
-                                                    <ul style="margin: 0; padding-left: 20px; color: #374151;">
-                                                        <li style="margin-bottom: 8px;">Your inquiry has been logged in our system</li>
-                                                        <li style="margin-bottom: 8px;">Our team will review your message within 24-48 hours</li>
-                                                        <li style="margin-bottom: 8px;">You will receive a response at the email address you provided</li>
-                                                        <li>For urgent matters, please call us at +91-11-23382651</li>
-                                                    </ul>
-                                                </div>
                                                 
                                                 <div class="details-box">
                                                     <h3 style="margin: 0 0 16px 0; color: #374151;">Your Submission Details</h3>
@@ -307,15 +292,8 @@ exports.contactConfirmationEmailTemplate = (contactData) => {
                                                     <a href="https://ashiwanikumar.in" class="primary-button">Visit Our Website</a>
                                                 </div>
                                                 
-                                                <div style="background: linear-gradient(135deg, #fff7ed, #ffedd5); border-radius: 12px; padding: 24px; text-align: center; margin: 32px 0;">
-                                                    <p style="margin: 0 0 16px 0; font-weight: 600; color: #ea580c;">Need Immediate Assistance?</p>
-                                                    <p style="margin: 0 0 8px 0; font-size: 14px; color: #374151;">Call us: +91-11-23382651</p>
-                                                    <p style="margin: 0; font-size: 14px; color: #374151;">Email: info@ashiwanikumar.in</p>
-                                                </div>
-                                                
                                                 <p class="content-text primary-text" style="margin: 32px 0 8px 0;">Warm regards,</p>
-                                                <p class="content-text primary-text" style="margin: 0; font-weight: 600;">Customer Service Team</p>
-                                                <p class="content-text secondary-text" style="margin: 0; font-size: 14px;">Ministry of Agriculture & Farmers Welfare</p>
+                                                <p class="content-text primary-text" style="margin: 0; font-weight: 600;">Ashiwani Kumar</p>
                                             </div>
                                         </td>
                                     </tr>
@@ -329,16 +307,16 @@ exports.contactConfirmationEmailTemplate = (contactData) => {
                                     <tr>
                                         <td style="text-align: center; padding: 0 0 16px 0;">
                                             <div class="social-links">
-                                                <a href="https://x.com/ChouhanShivraj" class="social-link">
+                                                <a href="https://x.com/theashvanikumar" class="social-link">
                                                     <img src="https://cdn-icons-png.flaticon.com/128/5969/5969020.png" width="32" height="32" alt="Twitter">
                                                 </a>
-                                                <a href="https://www.facebook.com/ChouhanShivraj" class="social-link">
+                                                <a href="https://www.facebook.com/ashiwani0" class="social-link">
                                                     <img src="https://cdn-icons-png.flaticon.com/128/5968/5968764.png" width="32" height="32" alt="Facebook">
                                                 </a>
-                                                <a href="https://www.linkedin.com/in/chouhanshivrajsingh/" class="social-link">
+                                                <a href="https://www.linkedin.com/in/ashiwanikumar/" class="social-link">
                                                     <img src="https://cdn-icons-png.flaticon.com/128/3536/3536505.png" width="32" height="32" alt="LinkedIn">
                                                 </a>
-                                                <a href="https://www.instagram.com/chouhanshivrajsingh" class="social-link">
+                                                <a href="https://www.instagram.com/ashiwani0" class="social-link">
                                                     <img src="https://cdn-icons-png.flaticon.com/128/2111/2111463.png" width="32" height="32" alt="Instagram">
                                                 </a>
                                             </div>
@@ -346,8 +324,8 @@ exports.contactConfirmationEmailTemplate = (contactData) => {
                                     </tr>
                                     <tr>
                                         <td style="text-align: center; padding: 0;">
-                                            <p class="footer-text" style="margin: 0 0 8px 0;">© ${new Date().getFullYear()} Government of India. All rights reserved.</p>
-                                            <p class="footer-text" style="margin: 0 0 8px 0;">Ministry of Agriculture & Farmers Welfare</p>
+                                            <p class="footer-text" style="margin: 0 0 8px 0;">© ${new Date().getFullYear()} Ashiwani Kumar. All rights reserved.</p>
+                                            <p class="footer-text" style="margin: 0 0 8px 0;">ashiwanikumar.in</p>
                                             <p class="footer-text" style="margin: 0;">
                                                 <a href="https://ashiwanikumar.in/privacy-policy" style="color: #ea580c; text-decoration: none;">Privacy Policy</a> | 
                                                 <a href="https://ashiwanikumar.in/terms-service" style="color: #ea580c; text-decoration: none;">Terms of Service</a> | 
@@ -500,7 +478,7 @@ exports.contactAdminNotificationTemplate = (contactData) => {
             <div class="container">
                 <div class="header">
                     <h1 style="margin: 0; font-size: 24px;">New Contact Form Submission</h1>
-                    <p style="margin: 8px 0 0 0; opacity: 0.9;">Ministry of Agriculture & Farmers Welfare</p>
+                    <p style="margin: 8px 0 0 0; opacity: 0.9;">Ashiwani Kumar</p>
                 </div>
                 <div class="content">
                     <p style="font-size: 18px; color: #1f2937;"><strong>New ${categoryName} received</strong></p>
@@ -573,7 +551,7 @@ exports.contactAdminNotificationTemplate = (contactData) => {
                 </div>
                 <div class="footer">
                     <p style="margin: 0;">This email was sent to administrators of the Contact Management System</p>
-                    <p style="margin: 8px 0 0 0;">Ministry of Agriculture & Farmers Welfare | Government of India</p>
+                    <p style="margin: 8px 0 0 0;">Ashiwani Kumar | ashiwanikumar.in</p>
                 </div>
             </div>
         </body>

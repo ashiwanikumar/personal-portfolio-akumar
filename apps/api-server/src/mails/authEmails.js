@@ -429,9 +429,9 @@ exports.verifyAccountEmailTemplate = (newUser, verificationToken) => {
                                       <tr>
                                           <td style="text-align: center; padding: 0 0 16px 0;">
                                               <div class="social-links">
-                                                  <a href="https://twitter.com/ashiwanikumar" class="social-link"><img src="https://cdn-icons-png.flaticon.com/128/5969/5969020.png" width="32" height="32" alt="Twitter"></a>
+                                                  <a href="https://x.com/theashvanikumar" class="social-link"><img src="https://cdn-icons-png.flaticon.com/128/5969/5969020.png" width="32" height="32" alt="Twitter"></a>
                                                   <a href="https://linkedin.com/in/ashiwanikumar" class="social-link"><img src="https://cdn-icons-png.flaticon.com/128/3536/3536505.png" width="32" height="32" alt="LinkedIn"></a>
-                                                  <a href="https://facebook.com/ashiwanikumar" class="social-link"><img src="https://cdn-icons-png.flaticon.com/128/5968/5968764.png" width="32" height="32" alt="Facebook"></a>
+                                                  <a href="https://facebook.com/ashiwani0" class="social-link"><img src="https://cdn-icons-png.flaticon.com/128/5968/5968764.png" width="32" height="32" alt="Facebook"></a>
                                               </div>
                                           </td>
                                       </tr>
@@ -582,19 +582,19 @@ exports.resetPasswordEmailTemplate = (user, resetPasswordToken) => {
                   <td style="background: #f9fafb; padding: 30px 0 20px 0; text-align: center; border-top: 1px solid #e5e7eb;">
                     <!-- Social Icons -->
                     <div style="margin-bottom: 20px;">
-                      <a href="https://www.facebook.com/ChouhanShivraj" style="display: inline-block; margin: 0 10px;">
+                      <a href="https://www.facebook.com/ashiwani0" style="display: inline-block; margin: 0 10px;">
                         <img class="social-icon" src="https://media.cdn.ashiwanikumar.in/social-media-logo/facebok.png" alt="Facebook" style="width: 28px; height: 28px; border: 0;">
                       </a>
-                      <a href="https://x.com/ChouhanShivraj" style="display: inline-block; margin: 0 10px;">
+                      <a href="https://x.com/theashvanikumar" style="display: inline-block; margin: 0 10px;">
                         <img class="social-icon" src="https://media.cdn.ashiwanikumar.in/social-media-logo/twitter.png" alt="Twitter/X" style="width: 28px; height: 28px; border: 0;">
                       </a>
-                      <a href="https://www.instagram.com/chouhanshivrajsingh" style="display: inline-block; margin: 0 10px;">
+                      <a href="https://www.instagram.com/ashiwani0" style="display: inline-block; margin: 0 10px;">
                         <img class="social-icon" src="https://media.cdn.ashiwanikumar.in/social-media-logo/instagram.png" alt="Instagram" style="width: 28px; height: 28px; border: 0;">
                       </a>
-                      <a href="https://www.youtube.com/@ChouhanShivraj" style="display: inline-block; margin: 0 10px;">
+                      <a href="https://www.youtube.com/@ashiwanikumar" style="display: inline-block; margin: 0 10px;">
                         <img class="social-icon" src="https://media.cdn.ashiwanikumar.in/social-media-logo/Yt.png" alt="YouTube" style="width: 28px; height: 28px; border: 0;">
                       </a>
-                      <a href="https://www.linkedin.com/in/chouhanshivrajsingh/" style="display: inline-block; margin: 0 10px;">
+                      <a href="https://www.linkedin.com/in/ashiwanikumar/" style="display: inline-block; margin: 0 10px;">
                         <img class="social-icon" src="https://media.cdn.ashiwanikumar.in/social-media-logo/linkedin.png" alt="LinkedIn" style="width: 28px; height: 28px; border: 0;">
                       </a>
                     </div>
@@ -795,19 +795,19 @@ exports.passwordResetSuccessEmailTemplate = (user, resetInfo) => {
                   <td style="background: #f9fafb; padding: 30px 0 20px 0; text-align: center; border-top: 1px solid #e5e7eb;">
                     <!-- Social Icons -->
                     <div style="margin-bottom: 20px;">
-                      <a href="https://www.facebook.com/ChouhanShivraj" style="display: inline-block; margin: 0 10px;">
+                      <a href="https://www.facebook.com/ashiwani0" style="display: inline-block; margin: 0 10px;">
                         <img class="social-icon" src="https://media.cdn.ashiwanikumar.in/social-media-logo/facebok.png" alt="Facebook" style="width: 28px; height: 28px; border: 0;">
                       </a>
-                      <a href="https://x.com/ChouhanShivraj" style="display: inline-block; margin: 0 10px;">
+                      <a href="https://x.com/theashvanikumar" style="display: inline-block; margin: 0 10px;">
                         <img class="social-icon" src="https://media.cdn.ashiwanikumar.in/social-media-logo/twitter.png" alt="Twitter/X" style="width: 28px; height: 28px; border: 0;">
                       </a>
-                      <a href="https://www.instagram.com/chouhanshivrajsingh" style="display: inline-block; margin: 0 10px;">
+                      <a href="https://www.instagram.com/ashiwani0" style="display: inline-block; margin: 0 10px;">
                         <img class="social-icon" src="https://media.cdn.ashiwanikumar.in/social-media-logo/instagram.png" alt="Instagram" style="width: 28px; height: 28px; border: 0;">
                       </a>
-                      <a href="https://www.youtube.com/@ChouhanShivraj" style="display: inline-block; margin: 0 10px;">
+                      <a href="https://www.youtube.com/@ashiwanikumar" style="display: inline-block; margin: 0 10px;">
                         <img class="social-icon" src="https://media.cdn.ashiwanikumar.in/social-media-logo/Yt.png" alt="YouTube" style="width: 28px; height: 28px; border: 0;">
                       </a>
-                      <a href="https://www.linkedin.com/in/chouhanshivrajsingh/" style="display: inline-block; margin: 0 10px;">
+                      <a href="https://www.linkedin.com/in/ashiwanikumar/" style="display: inline-block; margin: 0 10px;">
                         <img class="social-icon" src="https://media.cdn.ashiwanikumar.in/social-media-logo/linkedin.png" alt="LinkedIn" style="width: 28px; height: 28px; border: 0;">
                       </a>
                     </div>
@@ -1008,19 +1008,19 @@ exports.passwordChangeSuccessEmailTemplate = (user, changeInfo) => {
                   <td style="background: #f9fafb; padding: 30px 0 20px 0; text-align: center; border-top: 1px solid #e5e7eb;">
                     <!-- Social Icons -->
                     <div style="margin-bottom: 20px;">
-                      <a href="https://www.facebook.com/ChouhanShivraj" style="display: inline-block; margin: 0 10px;">
+                      <a href="https://www.facebook.com/ashiwani0" style="display: inline-block; margin: 0 10px;">
                         <img class="social-icon" src="https://media.cdn.ashiwanikumar.in/social-media-logo/facebok.png" alt="Facebook" style="width: 28px; height: 28px; border: 0;">
                       </a>
-                      <a href="https://x.com/ChouhanShivraj" style="display: inline-block; margin: 0 10px;">
+                      <a href="https://x.com/theashvanikumar" style="display: inline-block; margin: 0 10px;">
                         <img class="social-icon" src="https://media.cdn.ashiwanikumar.in/social-media-logo/twitter.png" alt="Twitter/X" style="width: 28px; height: 28px; border: 0;">
                       </a>
-                      <a href="https://www.instagram.com/chouhanshivrajsingh" style="display: inline-block; margin: 0 10px;">
+                      <a href="https://www.instagram.com/ashiwani0" style="display: inline-block; margin: 0 10px;">
                         <img class="social-icon" src="https://media.cdn.ashiwanikumar.in/social-media-logo/instagram.png" alt="Instagram" style="width: 28px; height: 28px; border: 0;">
                       </a>
-                      <a href="https://www.youtube.com/@ChouhanShivraj" style="display: inline-block; margin: 0 10px;">
+                      <a href="https://www.youtube.com/@ashiwanikumar" style="display: inline-block; margin: 0 10px;">
                         <img class="social-icon" src="https://media.cdn.ashiwanikumar.in/social-media-logo/Yt.png" alt="YouTube" style="width: 28px; height: 28px; border: 0;">
                       </a>
-                      <a href="https://www.linkedin.com/in/chouhanshivrajsingh/" style="display: inline-block; margin: 0 10px;">
+                      <a href="https://www.linkedin.com/in/ashiwanikumar/" style="display: inline-block; margin: 0 10px;">
                         <img class="social-icon" src="https://media.cdn.ashiwanikumar.in/social-media-logo/linkedin.png" alt="LinkedIn" style="width: 28px; height: 28px; border: 0;">
                       </a>
                     </div>
@@ -1454,9 +1454,9 @@ exports.teamInviteEmailTemplate = (invitedBy, teamName, inviteToken) => {
                                       <tr>
                                           <td style="text-align: center; padding: 0 0 16px 0;">
                                               <div class="social-links">
-                                                  <a href="https://twitter.com/ashiwanikumar" class="social-link"><img src="https://cdn-icons-png.flaticon.com/128/5969/5969020.png" width="32" height="32" alt="Twitter"></a>
+                                                  <a href="https://x.com/theashvanikumar" class="social-link"><img src="https://cdn-icons-png.flaticon.com/128/5969/5969020.png" width="32" height="32" alt="Twitter"></a>
                                                   <a href="https://linkedin.com/in/ashiwanikumar" class="social-link"><img src="https://cdn-icons-png.flaticon.com/128/3536/3536505.png" width="32" height="32" alt="LinkedIn"></a>
-                                                  <a href="https://facebook.com/ashiwanikumar" class="social-link"><img src="https://cdn-icons-png.flaticon.com/128/5968/5968764.png" width="32" height="32" alt="Facebook"></a>
+                                                  <a href="https://facebook.com/ashiwani0" class="social-link"><img src="https://cdn-icons-png.flaticon.com/128/5968/5968764.png" width="32" height="32" alt="Facebook"></a>
                                               </div>
                                           </td>
                                       </tr>

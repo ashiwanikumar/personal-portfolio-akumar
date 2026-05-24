@@ -4,7 +4,7 @@
 exports.newsletterConfirmationEmailTemplate = (subscriberData) => {
   // Extract subscriber data safely
   const firstName =
-    subscriberData?.name?.firstName || subscriberData?.name || "Farmer";
+    subscriberData?.name?.firstName || subscriberData?.name || "Subscriber";
   const email = subscriberData?.email || "";
   const interests = subscriberData?.interests || [];
   const location = subscriberData?.location || {};
@@ -15,7 +15,7 @@ exports.newsletterConfirmationEmailTemplate = (subscriberData) => {
       case "agricultural-policies":
         return "Agricultural Policies";
       case "farmer-welfare":
-        return "Farmer Welfare Schemes";
+        return "Welfare & Updates";
       case "rural-development":
         return "Rural Development";
       case "government-initiatives":
@@ -456,7 +456,7 @@ exports.newsletterConfirmationEmailTemplate = (subscriberData) => {
                                                               <rect x="85" y="88" width="8" height="7" rx="1" fill="#3b82f6"/>
                                                           </g>
                                                           
-                                                          <!-- Government Building/Ministry -->
+                                                          <!-- Building Illustration -->
                                                           <g>
                                                               <rect x="150" y="60" width="30" height="20" fill="#dc2626"/>
                                                               <polygon points="150,60 165,45 180,60" fill="#991b1b"/>
@@ -489,15 +489,15 @@ exports.newsletterConfirmationEmailTemplate = (subscriberData) => {
                                                   <p class="content-text primary-text animate-fade-in animation-delay-300" style="font-size: 18px;">नमस्ते ${firstName} जी,</p>
                                                   
                                                   <p class="content-text secondary-text animate-fade-in animation-delay-300">
-                                                    धन्यवाद! आपने कृषि मंत्रालय की न्यूज़लेटर सदस्यता ली है। अब आपको नवीनतम सरकारी योजनाओं, किसान कल्याण, तकनीकी नवाचार, और अन्य कृषि संबंधित जानकारी सीधे आपके ईमेल पर मिलेगी।
+                                                    Thank you for subscribing to our newsletter! You will now receive the latest updates, insights, innovations, and other relevant information directly to your email.
                                                   </p>
 
                                                   <div class="government-seal animate-fade-in animation-delay-400">
                                                       <div style="display: flex; align-items: center; justify-content: center; margin-bottom: 16px;">
-                                                          <img src="https://ashiwanikumar.in/logo.png" width="50" height="50" alt="Government of India" style="margin-right: 12px;">
+                                                          <img src="https://ashiwanikumar.in/logo.png" width="50" height="50" alt="Ashiwani Kumar" style="margin-right: 12px;">
                                                           <div style="text-align: left;">
-                                                              <p style="margin: 0; font-weight: 700; color: #ea580c; font-size: 16px;">भारत सरकार</p>
-                                                              <p style="margin: 0; font-size: 14px; color: #374151;">कृषि मंत्रालय</p>
+                                                              <p style="margin: 0; font-weight: 700; color: #ea580c; font-size: 16px;">Ashiwani Kumar</p>
+                                                              <p style="margin: 0; font-size: 14px; color: #374151;">Personal Website</p>
                                                           </div>
                                                       </div>
                                                       <p style="margin: 0; font-size: 14px; color: #6b7280; font-style: italic;">
@@ -530,8 +530,8 @@ exports.newsletterConfirmationEmailTemplate = (subscriberData) => {
                                                           <p class="feature-text">नई सरकारी योजनाओं और लाभों की जानकारी सीधे आपके इनबॉक्स में।</p>
                                                       </div>
                                                       <div class="feature-item">
-                                                          <h3 class="feature-title">किसान कल्याण और सहायता</h3>
-                                                          <p class="feature-text">किसानों के लिए कल्याणकारी योजनाएँ और सहायता की पूरी जानकारी।</p>
+                                                          <h3 class="feature-title">Updates & Resources</h3>
+                                                          <p class="feature-text">Stay up to date with the latest news, insights, and resources.</p>
                                                       </div>
                                                       <div class="feature-item">
                                                           <h3 class="feature-title">बाज़ार भाव और तकनीकी अपडेट</h3>
@@ -561,13 +561,13 @@ exports.newsletterConfirmationEmailTemplate = (subscriberData) => {
                                                   
                                                   <div style="text-align: center; margin: 32px 0; padding: 20px; background: linear-gradient(135deg, #fff7ed, #ffedd5); border-radius: 12px;" class="animate-fade-in animation-delay-900">
                                                       <p style="margin: 0 0 8px 0; font-weight: 600; color: #ea580c;">संपर्क जानकारी | Contact Information</p>
-                                                      <p style="margin: 0; font-size: 14px; color: #374151;">कृषि मंत्रालय, भारत सरकार - 110001</p>
-                                                      <p style="margin: 4px 0 0 0; font-size: 14px; color: #374151;">फोन: +91-11-23382651 | ईमेल: info@ashiwanikumar.in</p>
+                                                      <p style="margin: 0; font-size: 14px; color: #374151;">Ashiwani Kumar - ashiwanikumar.in</p>
+                                                      <p style="margin: 4px 0 0 0; font-size: 14px; color: #374151;">Email: hello@ashiwanikumar.in</p>
                                                   </div>
                                                   
                                                   <p class="content-text primary-text animate-fade-in animation-delay-1000" style="margin: 32px 0 8px 0;">शुभकामनाएँ,</p>
-                                                  <p class="content-text primary-text animate-fade-in animation-delay-1000" style="margin: 0; font-weight: 600;">शिवराज सिंह चौहान</p>
-                                                  <p class="content-text secondary-text animate-fade-in animation-delay-1000" style="margin: 0; font-size: 14px;">केंद्रीय मंत्री, कृषि मंत्रालय</p>
+                                                  <p class="content-text primary-text animate-fade-in animation-delay-1000" style="margin: 0; font-weight: 600;">Ashiwani Kumar</p>
+                                                  <p class="content-text secondary-text animate-fade-in animation-delay-1000" style="margin: 0; font-size: 14px;">Founder & Developer</p>
                                               </div>
                                           </td>
                                       </tr>
@@ -581,16 +581,16 @@ exports.newsletterConfirmationEmailTemplate = (subscriberData) => {
                                       <tr>
                                           <td style="text-align: center; padding: 0 0 16px 0;">
                                               <div class="social-links">
-                                                  <a href="https://x.com/ChouhanShivraj" class="social-link">
+                                                  <a href="https://x.com/theashvanikumar" class="social-link">
                                                       <img src="https://cdn-icons-png.flaticon.com/128/5969/5969020.png" width="32" height="32" alt="Twitter">
                                                   </a>
-                                                  <a href="https://www.facebook.com/ChouhanShivraj" class="social-link">
+                                                  <a href="https://www.facebook.com/ashiwani0" class="social-link">
                                                       <img src="https://cdn-icons-png.flaticon.com/128/5968/5968764.png" width="32" height="32" alt="Facebook">
                                                   </a>
-                                                  <a href="https://www.linkedin.com/in/chouhanshivrajsingh/" class="social-link">
+                                                  <a href="https://www.linkedin.com/in/ashiwanikumar/" class="social-link">
                                                       <img src="https://cdn-icons-png.flaticon.com/128/3536/3536505.png" width="32" height="32" alt="LinkedIn">
                                                   </a>
-                                                  <a href="https://www.instagram.com/chouhanshivrajsingh" class="social-link">
+                                                  <a href="https://www.instagram.com/ashiwani0" class="social-link">
                                                       <img src="https://cdn-icons-png.flaticon.com/128/2111/2111463.png" width="32" height="32" alt="Instagram">
                                                   </a>
                                               </div>
@@ -598,8 +598,8 @@ exports.newsletterConfirmationEmailTemplate = (subscriberData) => {
                                       </tr>
                                       <tr>
                                           <td style="text-align: center; padding: 0;">
-                                              <p class="footer-text" style="margin: 0 0 8px 0;">© ${new Date().getFullYear()} भारत सरकार | Government of India. सर्वाधिकार सुरक्षित।</p>
-                                              <p class="footer-text" style="margin: 0 0 8px 0;">कृषि मंत्रालय | Ministry of Agriculture & Farmers Welfare</p>
+                                              <p class="footer-text" style="margin: 0 0 8px 0;">© ${new Date().getFullYear()} Ashiwani Kumar. All rights reserved.</p>
+                                              <p class="footer-text" style="margin: 0 0 8px 0;">ashiwanikumar.in</p>
                                               <p class="footer-text" style="margin: 0;">
                                                   <a href="https://ashiwanikumar.in/privacy-policy" style="color: #ea580c; text-decoration: none;">प्राइवेसी पॉलिसी</a> " 
                                                   <a href="https://ashiwanikumar.in/terms-service" style="color: #ea580c; text-decoration: none;">नियम एवं शर्तें</a> " 
@@ -627,19 +627,19 @@ exports.newsletterWelcomeSeriesEmailTemplate = (
   emailNumber = 1
 ) => {
   const firstName =
-    subscriberData?.name?.firstName || subscriberData?.name || "Farmer";
+    subscriberData?.name?.firstName || subscriberData?.name || "Subscriber";
 
   // Example content for each email in the welcome series
   const seriesContent = {
     1: {
       subject: "कृषि न्यूज़लेटर में आपका स्वागत है!",
       greeting: `नमस्ते ${firstName} जी,`,
-      body: `हम आपका स्वागत करते हैं! अब आपको कृषि मंत्रालय की ओर से नवीनतम योजनाएँ, किसान कल्याण, तकनीकी नवाचार, और अन्य महत्वपूर्ण जानकारी सीधे आपके ईमेल पर मिलेगी।`,
+      body: `Welcome! You will now receive the latest updates, news, and insights directly to your email.`,
     },
     2: {
-      subject: "सरकारी योजनाएँ और किसान सहायता",
-      greeting: `नमस्ते ${firstName} जी,`,
-      body: `हमारे न्यूज़लेटर के माध्यम से आपको सरकारी योजनाओं, किसान सहायता और बाज़ार भाव की ताज़ा जानकारी मिलती रहेगी।`,
+      subject: "Latest Updates & Resources",
+      greeting: `Hello ${firstName},`,
+      body: `Through our newsletter, you will receive the latest updates, resources, and insights regularly.`,
     },
     3: {
       subject: "तकनीकी नवाचार और सतत कृषि",
@@ -674,7 +674,7 @@ exports.newsletterWelcomeSeriesEmailTemplate = (
             <p>${content.body}</p>
             <p>यदि आपको कोई प्रश्न या सहायता चाहिए, तो कृपया हमसे संपर्क करें।</p>
             <div class="signature">
-              <p>शुभकामनाएँ,<br>शिवराज सिंह चौहान<br>केंद्रीय मंत्री, कृषि मंत्रालय</p>
+              <p>शुभकामनाएँ,<br>Ashiwani Kumar<br>Founder & Developer</p>
             </div>
           </div>
         </div>
@@ -688,7 +688,7 @@ exports.newsletterWelcomeSeriesEmailTemplate = (
 ***********************************/
 exports.newsletterUnsubscribeEmailTemplate = (subscriberData) => {
   const firstName =
-    subscriberData?.name?.firstName || subscriberData?.name || "Farmer";
+    subscriberData?.name?.firstName || subscriberData?.name || "Subscriber";
 
   const template = `<!DOCTYPE html>
       <html lang="en">
@@ -715,7 +715,7 @@ exports.newsletterUnsubscribeEmailTemplate = (subscriberData) => {
                       <p>आपकी न्यूज़लेटर सदस्यता सफलतापूर्वक रद्द कर दी गई है। यदि यह गलती से हुआ है, तो आप कभी भी पुनः सदस्यता ले सकते हैं।</p>
                       <p>हमारी सेवाओं का उपयोग करने के लिए धन्यवाद। यदि आपको भविष्य में कोई जानकारी या सहायता चाहिए, तो कृपया हमसे संपर्क करें।</p>
                       <div class="signature">
-                          <p>शुभकामनाएँ,<br>शिवराज सिंह चौहान<br>केंद्रीय मंत्री, कृषि मंत्रालय</p>
+                          <p>शुभकामनाएँ,<br>Ashiwani Kumar<br>Founder & Developer</p>
                       </div>
                   </div>
               </div>

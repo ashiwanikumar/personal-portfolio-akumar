@@ -65,7 +65,7 @@ exports.abuseComplaintConfirmationEmailTemplate = (complaintData) => {
             <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
             <meta name="color-scheme" content="light dark">
             <meta name="supported-color-schemes" content="light dark">
-            <title>Abuse Complaint Confirmation - Ministry of Agriculture & Farmers Welfare</title>
+            <title>Abuse Complaint Confirmation - Ashiwani Kumar</title>
             <style type="text/css" rel="stylesheet" media="all">
                 @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap');
                 
@@ -418,7 +418,7 @@ exports.abuseComplaintConfirmationEmailTemplate = (complaintData) => {
                     <table align="center" role="presentation" cellspacing="0" cellpadding="0" border="0" width="100%" style="margin: auto;">
                         <tr>
                             <td class="header-logo animate-fade-in">
-                                <img src="https://ashiwanikumar.in/logo.png" width="180" alt="Ministry of Agriculture & Farmers Welfare" border="0" style="height: auto; display: block; margin: auto;">
+                                <img src="https://ashiwanikumar.in/logo.png" width="180" alt="Ashiwani Kumar" border="0" style="height: auto; display: block; margin: auto;">
                             </td>
                         </tr>
                         
@@ -443,7 +443,7 @@ exports.abuseComplaintConfirmationEmailTemplate = (complaintData) => {
                                                 <p class="content-text primary-text animate-fade-in animation-delay-300" style="font-size: 18px; text-align: center;">Dear ${reporterName},</p>
                                                 
                                                 <p class="content-text secondary-text animate-fade-in animation-delay-300">
-                                                    Thank you for reporting this security concern. Your complaint has been successfully submitted to the Ministry of Agriculture & Farmers Welfare. We take all security reports seriously and will investigate this matter promptly.
+                                                    Thank you for reporting this security concern. Your complaint has been successfully submitted. We take all security reports seriously and will investigate this matter promptly.
                                                 </p>
                                                 
                                                 <div class="reference-box animate-fade-in animation-delay-400">
@@ -501,7 +501,7 @@ exports.abuseComplaintConfirmationEmailTemplate = (complaintData) => {
                                                     <ul style="margin: 0; padding-left: 20px; color: #374151;">
                                                         <li style="margin-bottom: 8px;">We will review your complaint within 24-48 hours</li>
                                                         <li style="margin-bottom: 8px;">You will receive email updates on status changes</li>
-                                                        <li style="margin-bottom: 8px;">For urgent security issues, call +91-11-23382651</li>
+                                                        <li style="margin-bottom: 8px;">For urgent security issues, call hello@ashiwanikumar.in</li>
                                                         <li>Your personal information will be kept confidential</li>
                                                     </ul>
                                                 </div>
@@ -512,10 +512,10 @@ exports.abuseComplaintConfirmationEmailTemplate = (complaintData) => {
                                                 
                                                 <div class="government-seal animate-fade-in animation-delay-900">
                                                     <div style="display: flex; align-items: center; justify-content: center; margin-bottom: 16px;">
-                                                        <img src="https://ashiwanikumar.in/logo.png" width="50" height="50" alt="Government of India" style="margin-right: 12px;">
+                                                        <img src="https://ashiwanikumar.in/logo.png" width="50" height="50" alt="Ashiwani Kumar" style="margin-right: 12px;">
                                                         <div style="text-align: left;">
-                                                            <p style="margin: 0; font-weight: 700; color: #ea580c; font-size: 16px;">Government of India</p>
-                                                            <p style="margin: 0; font-size: 14px; color: #374151;">Ministry of Agriculture & Farmers Welfare</p>
+                                                            <p style="margin: 0; font-weight: 700; color: #ea580c; font-size: 16px;">Ashiwani Kumar</p>
+                                                            <p style="margin: 0; font-size: 14px; color: #374151;">Security Team</p>
                                                         </div>
                                                     </div>
                                                     <p style="margin: 0; font-size: 14px; color: #6b7280; font-style: italic;">
@@ -527,13 +527,12 @@ exports.abuseComplaintConfirmationEmailTemplate = (complaintData) => {
                                                 
                                                 <div style="text-align: center; margin: 32px 0; padding: 20px; background: linear-gradient(135deg, #fff7ed, #ffedd5); border-radius: 12px;" class="animate-fade-in animation-delay-1000">
                                                     <p style="margin: 0 0 8px 0; font-weight: 600; color: #ea580c;">Contact Information</p>
-                                                    <p style="margin: 0; font-size: 14px; color: #374151;">Security Team: security@ashiwanikumar.in</p>
-                                                    <p style="margin: 4px 0 0 0; font-size: 14px; color: #374151;">Phone: +91-11-23382651 | General: info@ashiwanikumar.in</p>
+                                                    <p style="margin: 0; font-size: 14px; color: #374151;">Email: hello@ashiwanikumar.in</p>
                                                 </div>
                                                 
                                                 <p class="content-text primary-text animate-fade-in animation-delay-1100" style="margin: 32px 0 8px 0;">Best regards,</p>
                                                 <p class="content-text primary-text animate-fade-in animation-delay-1100" style="margin: 0; font-weight: 600;">Security Team</p>
-                                                <p class="content-text secondary-text animate-fade-in animation-delay-1100" style="margin: 0; font-size: 14px;">Ministry of Agriculture & Farmers Welfare</p>
+                                                <p class="content-text secondary-text animate-fade-in animation-delay-1100" style="margin: 0; font-size: 14px;">Ashiwani Kumar</p>
                                             </div>
                                         </td>
                                     </tr>
@@ -547,16 +546,16 @@ exports.abuseComplaintConfirmationEmailTemplate = (complaintData) => {
                                     <tr>
                                         <td style="text-align: center; padding: 0 0 16px 0;">
                                             <div class="social-links">
-                                                <a href="https://x.com/ChouhanShivraj" class="social-link">
+                                                <a href="https://x.com/theashvanikumar" class="social-link">
                                                     <img src="https://cdn-icons-png.flaticon.com/128/5969/5969020.png" width="32" height="32" alt="Twitter">
                                                 </a>
-                                                <a href="https://www.facebook.com/ChouhanShivraj" class="social-link">
+                                                <a href="https://www.facebook.com/ashiwani0" class="social-link">
                                                     <img src="https://cdn-icons-png.flaticon.com/128/5968/5968764.png" width="32" height="32" alt="Facebook">
                                                 </a>
-                                                <a href="https://www.linkedin.com/in/chouhanshivrajsingh/" class="social-link">
+                                                <a href="https://www.linkedin.com/in/ashiwanikumar/" class="social-link">
                                                     <img src="https://cdn-icons-png.flaticon.com/128/3536/3536505.png" width="32" height="32" alt="LinkedIn">
                                                 </a>
-                                                <a href="https://www.instagram.com/chouhanshivrajsingh" class="social-link">
+                                                <a href="https://www.instagram.com/ashiwani0" class="social-link">
                                                     <img src="https://cdn-icons-png.flaticon.com/128/2111/2111463.png" width="32" height="32" alt="Instagram">
                                                 </a>
                                             </div>
@@ -564,8 +563,8 @@ exports.abuseComplaintConfirmationEmailTemplate = (complaintData) => {
                                     </tr>
                                     <tr>
                                         <td style="text-align: center; padding: 0;">
-                                            <p class="footer-text" style="margin: 0 0 8px 0;">© ${new Date().getFullYear()} Government of India. All rights reserved.</p>
-                                            <p class="footer-text" style="margin: 0 0 8px 0;">Ministry of Agriculture & Farmers Welfare</p>
+                                            <p class="footer-text" style="margin: 0 0 8px 0;">© ${new Date().getFullYear()} Ashiwani Kumar. All rights reserved.</p>
+                                            <p class="footer-text" style="margin: 0 0 8px 0;">ashiwanikumar.in</p>
                                             <p class="footer-text" style="margin: 0;">
                                                 <a href="https://ashiwanikumar.in/privacy-policy" style="color: #ea580c; text-decoration: none;">Privacy Policy</a> | 
                                                 <a href="https://ashiwanikumar.in/terms-service" style="color: #ea580c; text-decoration: none;">Terms of Service</a> | 
@@ -573,7 +572,7 @@ exports.abuseComplaintConfirmationEmailTemplate = (complaintData) => {
                                             </p>
                                             <p class="footer-text" style="margin: 8px 0 0 0; font-size: 12px; color: #9ca3af;">
                                                 If you believe you received this email in error, please report it to 
-                                                <a href="mailto:abuse@ashiwanikumar.in" style="color: #ea580c;">abuse@ashiwanikumar.in</a>
+                                                <a href="mailto:hello@ashiwanikumar.in" style="color: #ea580c;">hello@ashiwanikumar.in</a>
                                             </p>
                                         </td>
                                     </tr>
@@ -711,8 +710,8 @@ exports.abuseComplaintStatusUpdateEmailTemplate = (
                     <p>Thank you for helping us maintain a secure environment. If you have any questions, please contact our security team.</p>
                 </div>
                 <div class="footer">
-                    <p style="margin: 0;">Ministry of Agriculture & Farmers Welfare | Security Team</p>
-                    <p style="margin: 8px 0 0 0;">security@ashiwanikumar.in | +91-11-23382651</p>
+                    <p style="margin: 0;">Ashiwani Kumar | Security Team</p>
+                    <p style="margin: 8px 0 0 0;">hello@ashiwanikumar.in</p>
                 </div>
             </div>
         </body>

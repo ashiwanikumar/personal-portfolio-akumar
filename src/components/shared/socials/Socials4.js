@@ -7,7 +7,7 @@ const Socials4 = ({ type }) => {
 		>
 			<li>
 				<a
-					href="https://www.facebook.com/terminalrootuser"
+					href="https://www.facebook.com/ashiwani0"
 					className={`text-primary-color hover:text-body-color border ${
 						type == 2
 							? "border-primary-color dark:border-seondary-color"

@@ -41,23 +41,23 @@ const sendContactEmail = async (options) => {
     // Configure mail options with contact-specific headers
     const mailOptions = {
       from:
-        options.from || `Ministry of Agriculture <${process.env.ZOHO_NODEMAILER_EMAIL_HELLO}>`,
+        options.from || `Ashiwani Kumar <${process.env.ZOHO_NODEMAILER_EMAIL_HELLO}>`,
       to: recipientEmail,
       subject: options.subject,
       html: options.html,
       encoding: "8bit",
       textEncoding: "base64",
       headers: {
-        "Reply-To": "info@ashiwanikumar.in",
+        "Reply-To": "hello@ashiwanikumar.in",
         "X-Auto-Response-Suppress": "OOF, AutoReply",
         "X-Report-Abuse":
-          "Please report abuse to abuse@ashiwanikumar.in",
+          "Please report abuse to hello@ashiwanikumar.in",
         Date: new Date().toUTCString(),
         "MIME-Version": "1.0",
         "X-Priority": options.priority || "3", // Normal priority by default
-        "X-Mailer": "Ministry Contact System",
-        "Return-Path": `<info@ashiwanikumar.in>`,
-        "List-Unsubscribe": "<mailto:unsubscribe@ashiwanikumar.in>",
+        "X-Mailer": "Ashiwani Kumar Contact System",
+        "Return-Path": `<hello@ashiwanikumar.in>`,
+        "List-Unsubscribe": "<mailto:hello@ashiwanikumar.in>",
         "X-Contact-Type": options.contactType || "General",
         "X-Contact-ID": options.contactId || "N/A",
         ...(options.headers || {}),
@@ -127,7 +127,7 @@ const sendContactEmail = async (options) => {
 const sendContactConfirmation = async (contactData, template) => {
   return await sendContactEmail({
     to: contactData.email,
-    subject: "Thank you for contacting Ministry of Agriculture & Farmers Welfare",
+    subject: "Thank you for contacting Ashiwani Kumar",
     html: template,
     emailType: "ContactConfirmation",
     contactType: contactData.category?.id || "General",

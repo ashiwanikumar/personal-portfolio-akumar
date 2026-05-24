@@ -500,11 +500,11 @@ exports.teamInviteEmailTemplate = (admin, joiningToken) => {
                                                 
                                                 <div class="organization-seal animate-fade-in animation-delay-1000">
                                                     <div style="display: flex; align-items: center; justify-content: center; margin-bottom: 16px;">
-                                                        <img src="https://ashiwanikumar.in/logo.png" width="50" height="50" alt="Government of India" style="margin-right: 12px;">
+                                                        <img src="https://ashiwanikumar.in/logo.png" width="50" height="50" alt="Ashiwani Kumar" style="margin-right: 12px;">
                                                         <div style="text-align: left;">
                                                             <p style="margin: 0; font-weight: 700; color: #ea580c; font-size: 16px;">Ashiwani Kumar</p>
-                                                            <p style="margin: 0; font-size: 14px; color: #374151;">Minister of Agriculture & Farmers Welfare</p>
-                                                            <p style="margin: 0; font-size: 12px; color: #6b7280;">Government of India</p>
+                                                            <p style="margin: 0; font-size: 14px; color: #374151;">Founder & Developer</p>
+                                                            <p style="margin: 0; font-size: 12px; color: #6b7280;">Ashiwani Kumar</p>
                                                         </div>
                                                     </div>
                                                     <p style="margin: 0; font-size: 14px; color: #6b7280; font-style: italic;">
@@ -516,13 +516,13 @@ exports.teamInviteEmailTemplate = (admin, joiningToken) => {
                                                 
                                                 <div style="text-align: center; margin: 32px 0; padding: 20px; background: linear-gradient(135deg, #fff7ed, #ffedd5); border-radius: 12px;" class="animate-fade-in animation-delay-1100">
                                                     <p style="margin: 0 0 8px 0; font-weight: 600; color: #ea580c;">Contact Information</p>
-                                                    <p style="margin: 0; font-size: 14px; color: #374151;">Team Support: info@ashiwanikumar.in</p>
+                                                    <p style="margin: 0; font-size: 14px; color: #374151;">Team Support: hello@ashiwanikumar.in</p>
                                                     <p style="margin: 4px 0 0 0; font-size: 14px; color: #374151;">Website: www.ashiwanikumar.in</p>
                                                 </div>
                                                 
                                                 <p class="content-text primary-text animate-fade-in animation-delay-1200" style="margin: 32px 0 8px 0;">Best regards,</p>
                                                 <p class="content-text primary-text animate-fade-in animation-delay-1200" style="margin: 0; font-weight: 600;">Ashiwani Kumar</p>
-                                                <p class="content-text secondary-text animate-fade-in animation-delay-1200" style="margin: 0; font-size: 14px;">Minister of Agriculture & Farmers Welfare, Government of India</p>
+                                                <p class="content-text secondary-text animate-fade-in animation-delay-1200" style="margin: 0; font-size: 14px;">Founder & Developer</p>
                                             </div>
                                         </td>
                                     </tr>
@@ -536,16 +536,16 @@ exports.teamInviteEmailTemplate = (admin, joiningToken) => {
                                     <tr>
                                         <td style="text-align: center; padding: 0 0 16px 0;">
                                             <div class="social-links">
-                                                <a href="https://x.com/ChouhanShivraj" class="social-link">
+                                                <a href="https://x.com/theashvanikumar" class="social-link">
                                                     <img src="https://cdn-icons-png.flaticon.com/128/5969/5969020.png" width="32" height="32" alt="Twitter">
                                                 </a>
-                                                <a href="https://www.facebook.com/ChouhanShivraj" class="social-link">
+                                                <a href="https://www.facebook.com/ashiwani0" class="social-link">
                                                     <img src="https://cdn-icons-png.flaticon.com/128/5968/5968764.png" width="32" height="32" alt="Facebook">
                                                 </a>
-                                                <a href="https://www.linkedin.com/in/chouhanshivrajsingh/" class="social-link">
+                                                <a href="https://www.linkedin.com/in/ashiwanikumar/" class="social-link">
                                                     <img src="https://cdn-icons-png.flaticon.com/128/3536/3536505.png" width="32" height="32" alt="LinkedIn">
                                                 </a>
-                                                <a href="https://www.instagram.com/chouhanshivrajsingh" class="social-link">
+                                                <a href="https://www.instagram.com/ashiwani0" class="social-link">
                                                     <img src="https://cdn-icons-png.flaticon.com/128/2111/2111463.png" width="32" height="32" alt="Instagram">
                                                 </a>
                                             </div>
@@ -554,7 +554,7 @@ exports.teamInviteEmailTemplate = (admin, joiningToken) => {
                                     <tr>
                                         <td style="text-align: center; padding: 0;">
                                             <p class="footer-text" style="margin: 0 0 8px 0;">© ${new Date().getFullYear()} Ashiwani Kumar. All rights reserved.</p>
-                                            <p class="footer-text" style="margin: 0 0 8px 0;">Minister of Agriculture & Farmers Welfare, Government of India</p>
+                                            <p class="footer-text" style="margin: 0 0 8px 0;">Founder & Developer</p>
                                             <p class="footer-text" style="margin: 0;">
                                                 <a href="https://www.ashiwanikumar.in/privacy-policy" style="color: #ea580c; text-decoration: none;">Privacy Policy</a> | 
                                                 <a href="https://www.ashiwanikumar.in/terms-service" style="color: #ea580c; text-decoration: none;">Terms of Service</a> | 
@@ -562,7 +562,7 @@ exports.teamInviteEmailTemplate = (admin, joiningToken) => {
                                             </p>
                                             <p class="footer-text" style="margin: 8px 0 0 0; font-size: 12px; color: #9ca3af;">
                                                 If you didn't expect this invitation, please ignore this email or contact us at 
-                                                <a href="mailto:info@ashiwanikumar.in" style="color: #ea580c;">info@ashiwanikumar.in</a>
+                                                <a href="mailto:hello@ashiwanikumar.in" style="color: #ea580c;">hello@ashiwanikumar.in</a>
                                             </p>
                                         </td>
                                     </tr>
@@ -975,11 +975,11 @@ exports.teamInviteCancellationEmailTemplate = (inviteeEmail, cancelledBy) => {
                                                 
                                                 <div class="organization-seal animate-fade-in animation-delay-700">
                                                     <div style="display: flex; align-items: center; justify-content: center; margin-bottom: 16px;">
-                                                        <img src="https://ashiwanikumar.in/logo.png" width="50" height="50" alt="Government of India" style="margin-right: 12px;">
+                                                        <img src="https://ashiwanikumar.in/logo.png" width="50" height="50" alt="Ashiwani Kumar" style="margin-right: 12px;">
                                                         <div style="text-align: left;">
                                                             <p style="margin: 0; font-weight: 700; color: #ea580c; font-size: 16px;">Ashiwani Kumar</p>
-                                                            <p style="margin: 0; font-size: 14px; color: #374151;">Minister of Agriculture & Farmers Welfare</p>
-                                                            <p style="margin: 0; font-size: 12px; color: #6b7280;">Government of India</p>
+                                                            <p style="margin: 0; font-size: 14px; color: #374151;">Founder & Developer</p>
+                                                            <p style="margin: 0; font-size: 12px; color: #6b7280;">Ashiwani Kumar</p>
                                                         </div>
                                                     </div>
                                                     <p style="margin: 0; font-size: 14px; color: #6b7280; font-style: italic;">
@@ -991,13 +991,13 @@ exports.teamInviteCancellationEmailTemplate = (inviteeEmail, cancelledBy) => {
                                                 
                                                 <div style="text-align: center; margin: 32px 0; padding: 20px; background: linear-gradient(135deg, #fff7ed, #ffedd5); border-radius: 12px;" class="animate-fade-in animation-delay-800">
                                                     <p style="margin: 0 0 8px 0; font-weight: 600; color: #ea580c;">Contact Information</p>
-                                                    <p style="margin: 0; font-size: 14px; color: #374151;">Team Support: info@ashiwanikumar.in</p>
+                                                    <p style="margin: 0; font-size: 14px; color: #374151;">Team Support: hello@ashiwanikumar.in</p>
                                                     <p style="margin: 4px 0 0 0; font-size: 14px; color: #374151;">Website: www.ashiwanikumar.in</p>
                                                 </div>
                                                 
                                                 <p class="content-text primary-text animate-fade-in animation-delay-900" style="margin: 32px 0 8px 0;">Best regards,</p>
                                                 <p class="content-text primary-text animate-fade-in animation-delay-900" style="margin: 0; font-weight: 600;">Ashiwani Kumar</p>
-                                                <p class="content-text secondary-text animate-fade-in animation-delay-900" style="margin: 0; font-size: 14px;">Minister of Agriculture & Farmers Welfare, Government of India</p>
+                                                <p class="content-text secondary-text animate-fade-in animation-delay-900" style="margin: 0; font-size: 14px;">Founder & Developer</p>
                                             </div>
                                         </td>
                                     </tr>
@@ -1011,16 +1011,16 @@ exports.teamInviteCancellationEmailTemplate = (inviteeEmail, cancelledBy) => {
                                     <tr>
                                         <td style="text-align: center; padding: 0 0 16px 0;">
                                             <div class="social-links">
-                                                <a href="https://x.com/ChouhanShivraj" class="social-link">
+                                                <a href="https://x.com/theashvanikumar" class="social-link">
                                                     <img src="https://cdn-icons-png.flaticon.com/128/5969/5969020.png" width="32" height="32" alt="Twitter">
                                                 </a>
-                                                <a href="https://www.facebook.com/ChouhanShivraj" class="social-link">
+                                                <a href="https://www.facebook.com/ashiwani0" class="social-link">
                                                     <img src="https://cdn-icons-png.flaticon.com/128/5968/5968764.png" width="32" height="32" alt="Facebook">
                                                 </a>
-                                                <a href="https://www.linkedin.com/in/chouhanshivrajsingh/" class="social-link">
+                                                <a href="https://www.linkedin.com/in/ashiwanikumar/" class="social-link">
                                                     <img src="https://cdn-icons-png.flaticon.com/128/3536/3536505.png" width="32" height="32" alt="LinkedIn">
                                                 </a>
-                                                <a href="https://www.instagram.com/chouhanshivrajsingh" class="social-link">
+                                                <a href="https://www.instagram.com/ashiwani0" class="social-link">
                                                     <img src="https://cdn-icons-png.flaticon.com/128/2111/2111463.png" width="32" height="32" alt="Instagram">
                                                 </a>
                                             </div>
@@ -1029,7 +1029,7 @@ exports.teamInviteCancellationEmailTemplate = (inviteeEmail, cancelledBy) => {
                                     <tr>
                                         <td style="text-align: center; padding: 0;">
                                             <p class="footer-text" style="margin: 0 0 8px 0;">© ${new Date().getFullYear()} Ashiwani Kumar. All rights reserved.</p>
-                                            <p class="footer-text" style="margin: 0 0 8px 0;">Minister of Agriculture & Farmers Welfare, Government of India</p>
+                                            <p class="footer-text" style="margin: 0 0 8px 0;">Founder & Developer</p>
                                             <p class="footer-text" style="margin: 0;">
                                                 <a href="https://www.ashiwanikumar.in/privacy-policy" style="color: #ea580c; text-decoration: none;">Privacy Policy</a> | 
                                                 <a href="https://www.ashiwanikumar.in/terms-service" style="color: #ea580c; text-decoration: none;">Terms of Service</a> | 
@@ -1037,7 +1037,7 @@ exports.teamInviteCancellationEmailTemplate = (inviteeEmail, cancelledBy) => {
                                             </p>
                                             <p class="footer-text" style="margin: 8px 0 0 0; font-size: 12px; color: #9ca3af;">
                                                 This email was sent to inform you about the cancellation of your team invitation. 
-                                                For questions, contact us at <a href="mailto:info@ashiwanikumar.in" style="color: #ea580c;">info@ashiwanikumar.in</a>
+                                                For questions, contact us at <a href="mailto:hello@ashiwanikumar.in" style="color: #ea580c;">hello@ashiwanikumar.in</a>
                                             </p>
                                            
                                         </td>

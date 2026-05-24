@@ -177,8 +177,8 @@ exports.teamInvite = async (req, res) => {
     // Send email using centralized email utility
     const emailResult = await sendEmail({
       to: email,
-      from: `Shivraj Singh Chouhan Team <${process.env.ZOHO_NODEMAILER_EMAIL_HELLO}>`,
-      subject: "Administrative Team Invitation | Shivraj Singh Chouhan",
+      from: `Ashiwani Kumar <${process.env.ZOHO_NODEMAILER_EMAIL_HELLO}>`,
+      subject: "Administrative Team Invitation | Ashiwani Kumar",
       html: teamInviteEmailTemplate(superAdmin, joiningToken),
       emailType: "Team Invitation",
     });
@@ -598,8 +598,8 @@ exports.cancelTeamInvitation = async (req, res) => {
     // Send cancellation email
     const emailResult = await sendEmail({
       to: result.invitationEmail,
-      from: `Shivraj Singh Chouhan Team <${process.env.ZOHO_NODEMAILER_EMAIL_HELLO}>`,
-      subject: "Team Invitation Cancelled | Shivraj Singh Chouhan",
+      from: `Ashiwani Kumar <${process.env.ZOHO_NODEMAILER_EMAIL_HELLO}>`,
+      subject: "Team Invitation Cancelled | Ashiwani Kumar",
       html: teamInviteCancellationEmailTemplate(
         result.invitationEmail,
         cancelledByUser

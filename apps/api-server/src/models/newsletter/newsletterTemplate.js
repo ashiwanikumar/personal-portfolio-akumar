@@ -115,20 +115,20 @@ const newsletterTemplateSchema = new mongoose.Schema(
       governmentLogo: { type: String }, // URL to logo
       departmentName: {
         type: String,
-        default: "Ministry of Agriculture & Farmers Welfare"
+        default: "Ashiwani Kumar"
       },
       officialSeal: { type: String }, // URL to official seal
       footerText: {
         type: String,
-        default: "Government of India - Digital India Initiative"
+        default: "Ashiwani Kumar - Personal Website"
       },
       helplineNumber: {
         type: String,
-        default: "1551" // Kisan Call Centre
+        default: ""
       },
       websiteUrl: {
         type: String,
-        default: "https://agriculture.gov.in"
+        default: "https://ashiwanikumar.in"
       }
     },
     

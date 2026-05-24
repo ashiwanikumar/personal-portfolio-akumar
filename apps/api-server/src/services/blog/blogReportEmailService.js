@@ -66,7 +66,7 @@ class BlogReportEmailService {
     const workbook = new ExcelJS.Workbook();
     
     // Set workbook properties
-    workbook.creator = 'SSChouhan Blog Management System';
+    workbook.creator = 'Ashiwani Kumar Blog Management System';
     workbook.lastModifiedBy = user.name || user.firstName + ' ' + user.lastName;
     workbook.created = new Date();
     workbook.modified = new Date();
@@ -683,13 +683,13 @@ class BlogReportEmailService {
                 <p>If you have any questions about this report or need assistance, please don't hesitate to contact our support team.</p>
                 
                 <p>Best regards,<br>
-                <strong>SSChouhan Blog Management Team</strong></p>
+                <strong>Ashiwani Kumar Blog Management Team</strong></p>
             </div>
             
             <div class="footer">
-                <p>© ${new Date().getFullYear()} SSChouhan Blog Management System. All rights reserved.</p>
+                <p>© ${new Date().getFullYear()} Ashiwani Kumar. All rights reserved.</p>
                 <p>
-                    <a href="mailto:info@ashiwanikumar.in">Contact Support</a> | 
+                    <a href="mailto:hello@ashiwanikumar.in">Contact Support</a> |
                     <a href="${process.env.NEXT_PUBLIC_FRONTEND_URL}">Visit Website</a>
                 </p>
             </div>

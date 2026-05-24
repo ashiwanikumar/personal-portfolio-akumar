@@ -82,7 +82,7 @@ const sendBlogApprovalEmail = async (options) => {
     const mailOptions = {
       from:
         options.from ||
-        `Shivraj Singh Chouhan - Blog System <${process.env.ZOHO_NODEMAILER_EMAIL_HELLO}>`,
+        `Ashiwani Kumar - Blog System <${process.env.ZOHO_NODEMAILER_EMAIL_HELLO}>`,
       to: validEmails[0], // Primary recipient
       cc: validEmails.length > 1 ? validEmails.slice(1).join(", ") : undefined,
       subject: options.subject,
@@ -90,16 +90,16 @@ const sendBlogApprovalEmail = async (options) => {
       encoding: "8bit",
       textEncoding: "base64",
       headers: {
-        "Reply-To": "blog-admin@ashiwanikumar.in",
+        "Reply-To": "hello@ashiwanikumar.in",
         "X-Auto-Response-Suppress": "OOF, AutoReply",
         "X-Report-Abuse":
-          "Please report abuse to abuse@ashiwanikumar.in",
+          "Please report abuse to hello@ashiwanikumar.in",
         Date: new Date().toUTCString(),
         "MIME-Version": "1.0",
         "X-Priority": options.priority || "2", // High priority for approvals
         "X-Mailer": "Blog Approval System",
-        "Return-Path": `<blog-admin@ashiwanikumar.in>`,
-        "List-Unsubscribe": "<mailto:unsubscribe@ashiwanikumar.in>",
+        "Return-Path": `<hello@ashiwanikumar.in>`,
+        "List-Unsubscribe": "<mailto:hello@ashiwanikumar.in>",
         "X-Blog-ID": options.blogId || "N/A",
         "X-Blog-Title": options.blogTitle || "N/A",
         "X-Blog-Author": options.blogAuthor || "N/A",

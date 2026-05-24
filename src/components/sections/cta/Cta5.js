@@ -150,18 +150,24 @@ const Cta5 = () => {
 								</select>
 							</label>
 
-							<label className="text-sm font-semibold text-white/60">
-								Message
-								<textarea
-									name="message"
-									value={form.message}
-									onChange={handleChange}
-									rows={5}
-									className="mt-2 w-full resize-none rounded-xl border border-[#00ff41]/20 bg-[#111113]/80 px-4 py-3 text-sm text-[#00ff41] outline-none transition-all duration-300 placeholder:text-[#00ff41]/35 focus:border-[#00ff41]/60"
-									placeholder="Tell me what you need help with..."
-									required
-								/>
-							</label>
+							<div>
+								<label className="text-sm font-semibold text-white/60">
+									Message
+									<textarea
+										name="message"
+										value={form.message}
+										onChange={handleChange}
+										rows={5}
+										maxLength={5000}
+										className="mt-2 w-full resize-none rounded-xl border border-[#00ff41]/20 bg-[#111113]/80 px-4 py-3 text-sm text-[#00ff41] outline-none transition-all duration-300 placeholder:text-[#00ff41]/35 focus:border-[#00ff41]/60"
+										placeholder="Tell me what you need help with..."
+										required
+									/>
+								</label>
+								<span className="mt-1 block text-right text-xs text-white/30">
+									{form.message.length}/5000
+								</span>
+							</div>
 
 							<div className="flex flex-col gap-3 sm:flex-row sm:items-center sm:justify-between">
 								<button

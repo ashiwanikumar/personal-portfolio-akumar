@@ -217,7 +217,7 @@ const generateMFADisabledNotificationTemplate = (userData, disabledBy, adminData
             <div class="action-box">
                 <h3>🔒 Recommended Actions</h3>
                 <ul>
-                    <li><strong>If you didn't disable MFA:</strong> Contact support immediately at <a href="mailto:security@ashiwanikumar.in">security@ashiwanikumar.in</a></li>
+                    <li><strong>If you didn't disable MFA:</strong> Contact support immediately at <a href="mailto:hello@ashiwanikumar.in">hello@ashiwanikumar.in</a></li>
                     <li><strong>Re-enable MFA:</strong> We strongly recommend re-enabling MFA as soon as possible</li>
                     <li><strong>Change your password:</strong> If you suspect unauthorized access</li>
                     <li><strong>Review account activity:</strong> Check for any suspicious login attempts</li>
@@ -242,7 +242,7 @@ const generateMFADisabledNotificationTemplate = (userData, disabledBy, adminData
         <div class="footer">
             <p><strong>SSC Dashboard Security Team</strong></p>
             <p>This is an automated security notification sent to: ${userData.email}</p>
-            <p>If you didn't request this change, please contact <a href="mailto:security@ashiwanikumar.in">security@ashiwanikumar.in</a> immediately.</p>
+            <p>If you didn't request this change, please contact <a href="mailto:hello@ashiwanikumar.in">hello@ashiwanikumar.in</a> immediately.</p>
             <p class="timestamp">Notification sent: ${currentDate} (IST)</p>
         </div>
     </div>

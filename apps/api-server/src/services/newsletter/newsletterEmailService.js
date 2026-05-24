@@ -29,21 +29,21 @@ class NewsletterEmailService {
 
       // Extract subscriber name for subject line
       const firstName =
-        subscriberData?.name?.firstName || subscriberData?.name || "Farmer";
+        subscriberData?.name?.firstName || subscriberData?.name || "Subscriber";
 
       // Email configuration
       const emailConfig = {
-        from: `Shivraj Singh Chouhan - Agriculture Ministry <${process.env.MIB_NODEMAILER_EMAIL_1}>`,
+        from: `Ashiwani Kumar <${process.env.ZOHO_NODEMAILER_EMAIL_HELLO || "hello@ashiwanikumar.in"}>`,
         to: subscriberData.email,
-        subject: `स्वागत है ${firstName} जी! Newsletter Subscription Confirmed - Shivraj Singh Chouhan`,
+        subject: `Welcome ${firstName}! Newsletter Subscription Confirmed - Ashiwani Kumar`,
         html: emailTemplate,
         encoding: "8bit",
         textEncoding: "base64",
         headers: {
-          "Reply-To": "info@ashiwanikumar.in",
+          "Reply-To": "hello@ashiwanikumar.in",
           "X-Auto-Response-Suppress": "OOF, AutoReply",
           "X-Report-Abuse":
-            "Please report abuse to info@ashiwanikumar.in",
+            "Please report abuse to hello@ashiwanikumar.in",
           Date: new Date().toUTCString(),
           "MIME-Version": "1.0",
           "X-Priority": "1",
@@ -51,7 +51,7 @@ class NewsletterEmailService {
           "X-Newsletter-Type": "confirmation",
           "X-Subscriber-ID": subscriberData._id?.toString() || "unknown",
           "X-Campaign-Type": "welcome",
-          "Return-Path": `<info@ashiwanikumar.in>`,
+          "Return-Path": `<hello@ashiwanikumar.in>`,
         },
       };
 
@@ -93,26 +93,26 @@ class NewsletterEmailService {
         emailNumber
       );
       const firstName =
-        subscriberData?.name?.firstName || subscriberData?.name || "Farmer";
+        subscriberData?.name?.firstName || subscriberData?.name || "Subscriber";
 
       const welcomeSubjects = {
-        1: `${firstName} जी, कृषि न्यूज़लेटर में आपका स्वागत है!`,
-        2: `PM-KISAN योजना की जानकारी - ${firstName} जी के लिए`,
-        3: `कृषि लोन व सब्सिडी की पूरी जानकारी - ${firstName} जी`,
+        1: `Welcome to our Newsletter, ${firstName}!`,
+        2: `Latest Updates for ${firstName}`,
+        3: `Resources and Information for ${firstName}`,
       };
 
       const emailConfig = {
-        from: `Shivraj Singh Chouhan - Agriculture Ministry <${process.env.MIB_NODEMAILER_EMAIL_1}>`,
+        from: `Ashiwani Kumar <${process.env.ZOHO_NODEMAILER_EMAIL_HELLO || "hello@ashiwanikumar.in"}>`,
         to: subscriberData.email,
-        subject: welcomeSubjects[emailNumber] || `कृषि अपडेट - ${firstName} जी`,
+        subject: welcomeSubjects[emailNumber] || `Updates for ${firstName}`,
         html: emailTemplate,
         encoding: "8bit",
         textEncoding: "base64",
         headers: {
-          "Reply-To": "info@ashiwanikumar.in",
+          "Reply-To": "hello@ashiwanikumar.in",
           "X-Auto-Response-Suppress": "OOF, AutoReply",
           "X-Report-Abuse":
-            "Please report abuse to info@ashiwanikumar.in",
+            "Please report abuse to hello@ashiwanikumar.in",
           Date: new Date().toUTCString(),
           "MIME-Version": "1.0",
           "X-Priority": "1",
@@ -120,7 +120,7 @@ class NewsletterEmailService {
           "X-Newsletter-Type": "welcome-series",
           "X-Series-Number": emailNumber.toString(),
           "X-Subscriber-ID": subscriberData._id?.toString() || "unknown",
-          "Return-Path": `<info@ashiwanikumar.in>`,
+          "Return-Path": `<hello@ashiwanikumar.in>`,
         },
       };
 
@@ -157,27 +157,27 @@ class NewsletterEmailService {
 
       const emailTemplate = newsletterUnsubscribeEmailTemplate(subscriberData);
       const firstName =
-        subscriberData?.name?.firstName || subscriberData?.name || "Farmer";
+        subscriberData?.name?.firstName || subscriberData?.name || "Subscriber";
 
       const emailConfig = {
-        from: `Shivraj Singh Chouhan - Agriculture Ministry <${process.env.MIB_NODEMAILER_EMAIL_1}>`,
+        from: `Ashiwani Kumar <${process.env.ZOHO_NODEMAILER_EMAIL_HELLO || "hello@ashiwanikumar.in"}>`,
         to: subscriberData.email,
-        subject: `Newsletter Unsubscribed - ${firstName} जी`,
+        subject: `Newsletter Unsubscribed - ${firstName}`,
         html: emailTemplate,
         encoding: "8bit",
         textEncoding: "base64",
         headers: {
-          "Reply-To": "info@ashiwanikumar.in",
+          "Reply-To": "hello@ashiwanikumar.in",
           "X-Auto-Response-Suppress": "OOF, AutoReply",
           "X-Report-Abuse":
-            "Please report abuse to info@ashiwanikumar.in",
+            "Please report abuse to hello@ashiwanikumar.in",
           Date: new Date().toUTCString(),
           "MIME-Version": "1.0",
           "X-Priority": "1",
           "X-Mailer": "Nodemailer",
           "X-Newsletter-Type": "unsubscribe-confirmation",
           "X-Subscriber-ID": subscriberData._id?.toString() || "unknown",
-          "Return-Path": `<info@ashiwanikumar.in>`,
+          "Return-Path": `<hello@ashiwanikumar.in>`,
         },
       };
 
@@ -245,17 +245,17 @@ class NewsletterEmailService {
             );
 
             const emailConfig = {
-              from: `Shivraj Singh Chouhan - Agriculture Ministry <${process.env.MIB_NODEMAILER_EMAIL_1}>`,
+              from: `Ashiwani Kumar <${process.env.ZOHO_NODEMAILER_EMAIL_HELLO || "hello@ashiwanikumar.in"}>`,
               to: subscriber.email,
               subject: campaignData.subject,
               html: personalizedContent,
               encoding: "8bit",
               textEncoding: "base64",
               headers: {
-                "Reply-To": "info@ashiwanikumar.in",
+                "Reply-To": "hello@ashiwanikumar.in",
                 "X-Auto-Response-Suppress": "OOF, AutoReply",
                 "X-Report-Abuse":
-                  "Please report abuse to info@ashiwanikumar.in",
+                  "Please report abuse to hello@ashiwanikumar.in",
                 Date: new Date().toUTCString(),
                 "MIME-Version": "1.0",
                 "X-Priority": "1",
@@ -263,7 +263,7 @@ class NewsletterEmailService {
                 "X-Newsletter-Type": "campaign",
                 "X-Campaign-ID": campaignData.campaignId || "unknown",
                 "X-Subscriber-ID": subscriber._id?.toString() || "unknown",
-                "Return-Path": `<info@ashiwanikumar.in>`,
+                "Return-Path": `<hello@ashiwanikumar.in>`,
               },
             };
 
@@ -334,10 +334,10 @@ class NewsletterEmailService {
 
       // Replace common placeholders
       const firstName =
-        subscriber?.name?.firstName || subscriber?.name || "Farmer";
+        subscriber?.name?.firstName || subscriber?.name || "Subscriber";
       const fullName = subscriber?.fullName || firstName;
       const location = subscriber?.location;
-      const state = location?.state || "आपके क्षेत्र";
+      const state = location?.state || "your region";
       const district = location?.district || "";
 
       personalizedContent = personalizedContent
@@ -351,9 +351,7 @@ class NewsletterEmailService {
       if (location && location.state !== "Unknown") {
         personalizedContent = personalizedContent.replace(
           "{{locationSpecific}}",
-          `${state} ${
-            district ? "के " + district + " जिले" : ""
-          } के किसान भाइयों के लिए विशेष जानकारी:`
+          `Special information for subscribers in ${state}${district ? ", " + district : ""}:`
         );
       } else {
         personalizedContent = personalizedContent.replace(
@@ -379,7 +377,7 @@ class NewsletterEmailService {
       const testSubscriberData = {
         email: testEmail,
         name: { firstName: "Test" },
-        interests: ["agricultural-policies", "farmer-welfare"],
+        interests: ["technology-innovation", "events-announcements"],
         location: { state: "Test State", district: "Test District" },
       };
 

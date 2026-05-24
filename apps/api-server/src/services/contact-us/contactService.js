@@ -739,6 +739,11 @@ class ContactService {
         throw new ContactError("Invalid email format", 400);
       }
 
+      // Validate message length
+      if (contactData.message.length > 5000) {
+        throw new ContactError("Message must be 5000 characters or less", 400);
+      }
+
       // Validate category
       if (!contactData.category || !contactData.category.id) {
         throw new ContactError("Category is required", 400);

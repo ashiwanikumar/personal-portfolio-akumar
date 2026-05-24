@@ -49,17 +49,17 @@ class AbuseComplaintEmailService {
         headers: {
           "X-Entity-Ref-ID": complaintData._id?.toString() || "unknown",
           "X-Complaint-Reference": complaintData.referenceNumber || "unknown",
-          "X-Ministry": "Agriculture-Farmers-Welfare",
+          "X-Ministry": "Ashiwani-Kumar",
           "X-Email-Type": "abuse-complaint-confirmation",
           "X-Priority": "high",
-          "Reply-To": "security@ashiwanikumar.in",
+          "Reply-To": "hello@ashiwanikumar.in",
           "List-Unsubscribe":
-            "<mailto:abuse@ashiwanikumar.in?subject=Unsubscribe>",
+            "<mailto:hello@ashiwanikumar.in?subject=Unsubscribe>",
           "List-Id":
-            "Ministry Agriculture Security Notifications <security.ashiwanikumar.in>",
+            "Ashiwani Kumar Security Notifications <security.ashiwanikumar.in>",
           "X-Auto-Response-Suppress": "OOF, AutoReply",
           Precedence: "bulk",
-          "X-Mailer": "Ministry-Agriculture-Email-Service-v1.0",
+          "X-Mailer": "Ashiwani-Kumar-Email-Service-v1.0",
         },
       };
 
@@ -179,17 +179,17 @@ class AbuseComplaintEmailService {
           "X-Entity-Ref-ID": complaintData._id?.toString() || "unknown",
           "X-Complaint-Reference": complaintData.referenceNumber || "unknown",
           "X-Status-Update": statusUpdate.status,
-          "X-Ministry": "Agriculture-Farmers-Welfare",
+          "X-Ministry": "Ashiwani-Kumar",
           "X-Email-Type": "abuse-complaint-status-update",
           "X-Priority": "normal",
-          "Reply-To": "security@ashiwanikumar.in",
+          "Reply-To": "hello@ashiwanikumar.in",
           "List-Unsubscribe":
-            "<mailto:abuse@ashiwanikumar.in?subject=Unsubscribe>",
+            "<mailto:hello@ashiwanikumar.in?subject=Unsubscribe>",
           "List-Id":
-            "Ministry Agriculture Security Notifications <security.ashiwanikumar.in>",
+            "Ashiwani Kumar Security Notifications <security.ashiwanikumar.in>",
           "X-Auto-Response-Suppress": "OOF, AutoReply",
           Precedence: "bulk",
-          "X-Mailer": "Ministry-Agriculture-Email-Service-v1.0",
+          "X-Mailer": "Ashiwani-Kumar-Email-Service-v1.0",
         },
       };
 
@@ -266,8 +266,7 @@ class AbuseComplaintEmailService {
       }
 
       const adminEmails = [
-        "security@ashiwanikumar.in",
-        "info@ashiwanikumar.in",
+        process.env.SUPER_ADMIN_EMAIL || "ashvanikumar109@gmail.com",
       ];
 
       const reporterName = complaintData.reporter?.firstName
@@ -393,7 +392,7 @@ class AbuseComplaintEmailService {
           headers: {
             "X-Entity-Ref-ID": complaintData._id.toString(),
             "X-Complaint-Reference": complaintData.referenceNumber,
-            "X-Ministry": "Agriculture-Farmers-Welfare",
+            "X-Ministry": "Ashiwani-Kumar",
             "X-Email-Type": "abuse-complaint-admin-notification",
             "X-Priority": "high",
             "X-Auto-Response-Suppress": "OOF, AutoReply",
