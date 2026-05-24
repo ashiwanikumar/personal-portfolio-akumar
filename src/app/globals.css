@@ -41,8 +41,19 @@ Description: Personal Portfolio - Linux DevOps Engineer & DevOps Expert
    ============================================== */
 .dashboard-scope input,
 .dashboard-scope textarea,
-.dashboard-scope select,
-.dashboard-scope button {
+.dashboard-scope select {
+	background-color: transparent !important;
+	color: inherit !important;
+	border: none !important;
+	border-radius: 0 !important;
+	padding: 0 !important;
+	font-size: inherit !important;
+	line-height: inherit !important;
+	appearance: none !important;
+	-webkit-appearance: none !important;
+}
+
+.dashboard-scope .dash-card button {
 	background-color: transparent !important;
 	color: inherit !important;
 	border: none !important;

@@ -236,14 +236,6 @@ exports.contactConfirmationEmailTemplate = (contactData) => {
                                         <td class="content-container">
                                             <div class="header-background"></div>
                                             <div class="content-inner">
-                                                <!-- Success Icon -->
-                                                <div style="text-align: center; margin-bottom: 32px;">
-                                                    <div style="width: 80px; height: 80px; border-radius: 50%; background: linear-gradient(135deg, #ea580c, #f97316); display: inline-flex; align-items: center; justify-content: center;">
-                                                        <svg width="40" height="40" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-                                                            <path d="M20 2H4c-1.1 0-1.99.9-1.99 2L2 22l4-4h14c1.1 0 2-.9 2-2V4c0-1.1-.9-2-2-2zM6 9h12v2H6V9zm8 5H6v-2h8v2zm4-6H6V6h12v2z" fill="white"/>
-                                                        </svg>
-                                                    </div>
-                                                </div>
                                                 
                                                 <h1 class="content-header">Thank You for Contacting Us!</h1>
                                                 
@@ -289,7 +281,7 @@ exports.contactConfirmationEmailTemplate = (contactData) => {
                                                 </div>
                                                 
                                                 <div style="text-align: center; margin: 32px 0;">
-                                                    <a href="https://ashiwanikumar.in" class="primary-button">Visit Our Website</a>
+                                                    <a href="https://ashiwanikumar.com" class="primary-button">Visit Our Website</a>
                                                 </div>
                                                 
                                                 <p class="content-text primary-text" style="margin: 32px 0 8px 0;">Warm regards,</p>

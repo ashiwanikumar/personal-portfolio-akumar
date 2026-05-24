@@ -23,92 +23,30 @@ function getTotalSubscribers(newsletterStats, recentSubscribers) {
 	);
 }
 
-// ─── Animated grid background ───────────────────────────────────
-function GridBackground() {
-	const canvasRef = useRef(null);
-
-	useEffect(() => {
-		const canvas = canvasRef.current;
-		if (!canvas) return;
-		const ctx = canvas.getContext("2d");
-		let animId;
-		let particles = [];
-
-		function resize() {
-			canvas.width = window.innerWidth;
-			canvas.height = window.innerHeight;
-		}
-		resize();
-		window.addEventListener("resize", resize);
-
-		// Create floating particles
-		for (let i = 0; i < 50; i++) {
-			particles.push({
-				x: Math.random() * canvas.width,
-				y: Math.random() * canvas.height,
-				vx: (Math.random() - 0.5) * 0.3,
-				vy: (Math.random() - 0.5) * 0.3,
-				size: Math.random() * 2 + 0.5,
-				opacity: Math.random() * 0.5 + 0.1,
-			});
-		}
-
-		function draw() {
-			ctx.clearRect(0, 0, canvas.width, canvas.height);
-
-			// Draw grid
-			ctx.strokeStyle = "rgba(0, 255, 65, 0.03)";
-			ctx.lineWidth = 1;
-			const gridSize = 60;
-			for (let x = 0; x < canvas.width; x += gridSize) {
-				ctx.beginPath();
-				ctx.moveTo(x, 0);
-				ctx.lineTo(x, canvas.height);
-				ctx.stroke();
-			}
-			for (let y = 0; y < canvas.height; y += gridSize) {
-				ctx.beginPath();
-				ctx.moveTo(0, y);
-				ctx.lineTo(canvas.width, y);
-				ctx.stroke();
-			}
-
-			// Draw particles
-			particles.forEach((p) => {
-				p.x += p.vx;
-				p.y += p.vy;
-				if (p.x < 0) p.x = canvas.width;
-				if (p.x > canvas.width) p.x = 0;
-				if (p.y < 0) p.y = canvas.height;
-				if (p.y > canvas.height) p.y = 0;
-
-				ctx.beginPath();
-				ctx.arc(p.x, p.y, p.size, 0, Math.PI * 2);
-				ctx.fillStyle = `rgba(0, 255, 65, ${p.opacity})`;
-				ctx.fill();
-			});
-
-			animId = requestAnimationFrame(draw);
-		}
-		draw();
-
-		return () => {
-			window.removeEventListener("resize", resize);
-			cancelAnimationFrame(animId);
-		};
-	}, []);
-
-	return (
-		<canvas
-			ref={canvasRef}
-			className="pointer-events-none fixed inset-0 z-0"
-			aria-hidden="true"
-		/>
-	);
-}
-
-// ─── Stat card icon SVGs ────────────────────────────────────────
-const icons = {
+// ─── SVG Icons ─────────────────────────────────────────────────
+const Icons = {
+	dashboard: (
+		<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" className="h-5 w-5">
+			<rect x="3" y="3" width="7" height="7" rx="1" />
+			<rect x="14" y="3" width="7" height="7" rx="1" />
+			<rect x="3" y="14" width="7" height="7" rx="1" />
+			<rect x="14" y="14" width="7" height="7" rx="1" />
+		</svg>
+	),
+	contacts: (
+		<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" className="h-5 w-5">
+			<rect x="2" y="4" width="20" height="16" rx="2" />
+			<path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7" />
+		</svg>
+	),
+	newsletter: (
+		<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" className="h-5 w-5">
+			<path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2" />
+			<circle cx="9" cy="7" r="4" />
+			<path d="M22 21v-2a4 4 0 0 0-3-3.87" />
+			<path d="M16 3.13a4 4 0 0 1 0 7.75" />
+		</svg>
+	),
 	server: (
 		<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" className="h-5 w-5">
 			<rect x="2" y="2" width="20" height="8" rx="2" />
@@ -123,21 +61,70 @@ const icons = {
 			<path d="m9 12 2 2 4-4" />
 		</svg>
 	),
-	mail: (
+	settings: (
 		<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" className="h-5 w-5">
-			<rect x="2" y="4" width="20" height="16" rx="2" />
-			<path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7" />
+			<circle cx="12" cy="12" r="3" />
+			<path d="M19.4 15a1.65 1.65 0 0 0 .33 1.82l.06.06a2 2 0 0 1-2.83 2.83l-.06-.06a1.65 1.65 0 0 0-1.82-.33 1.65 1.65 0 0 0-1 1.51V21a2 2 0 0 1-4 0v-.09A1.65 1.65 0 0 0 9 19.4a1.65 1.65 0 0 0-1.82.33l-.06.06a2 2 0 0 1-2.83-2.83l.06-.06A1.65 1.65 0 0 0 4.68 15a1.65 1.65 0 0 0-1.51-1H3a2 2 0 0 1 0-4h.09A1.65 1.65 0 0 0 4.6 9a1.65 1.65 0 0 0-.33-1.82l-.06-.06a2 2 0 0 1 2.83-2.83l.06.06A1.65 1.65 0 0 0 9 4.68a1.65 1.65 0 0 0 1-1.51V3a2 2 0 0 1 4 0v.09a1.65 1.65 0 0 0 1 1.51 1.65 1.65 0 0 0 1.82-.33l.06-.06a2 2 0 0 1 2.83 2.83l-.06.06A1.65 1.65 0 0 0 19.4 9a1.65 1.65 0 0 0 1.51 1H21a2 2 0 0 1 0 4h-.09a1.65 1.65 0 0 0-1.51 1z" />
 		</svg>
 	),
-	users: (
+	health: (
 		<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" className="h-5 w-5">
-			<path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2" />
-			<circle cx="9" cy="7" r="4" />
-			<path d="M22 21v-2a4 4 0 0 0-3-3.87" />
-			<path d="M16 3.13a4 4 0 0 1 0 7.75" />
+			<path d="M22 12h-4l-3 9L9 3l-3 9H2" />
+		</svg>
+	),
+	menu: (
+		<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" className="h-5 w-5">
+			<line x1="3" y1="6" x2="21" y2="6" />
+			<line x1="3" y1="12" x2="21" y2="12" />
+			<line x1="3" y1="18" x2="21" y2="18" />
+		</svg>
+	),
+	close: (
+		<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" className="h-5 w-5">
+			<line x1="18" y1="6" x2="6" y2="18" />
+			<line x1="6" y1="6" x2="18" y2="18" />
+		</svg>
+	),
+	logout: (
+		<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" className="h-5 w-5">
+			<path d="M9 21H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h4" />
+			<polyline points="16,17 21,12 16,7" />
+			<line x1="21" y1="12" x2="9" y2="12" />
+		</svg>
+	),
+	refresh: (
+		<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="h-3.5 w-3.5">
+			<path d="M21 12a9 9 0 1 1-9-9c2.52 0 4.93 1 6.74 2.74L21 8" />
+			<path d="M21 3v5h-5" />
+		</svg>
+	),
+	chevronLeft: (
+		<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="h-4 w-4">
+			<polyline points="15,18 9,12 15,6" />
+		</svg>
+	),
+	chevronRight: (
+		<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="h-4 w-4">
+			<polyline points="9,18 15,12 9,6" />
+		</svg>
+	),
+	externalLink: (
+		<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" className="h-3.5 w-3.5">
+			<path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6" />
+			<polyline points="15,3 21,3 21,9" />
+			<line x1="10" y1="14" x2="21" y2="3" />
 		</svg>
 	),
 };
+
+// ─── Sidebar nav items ─────────────────────────────────────────
+const navItems = [
+	{ id: "dashboard", label: "Dashboard", icon: Icons.dashboard },
+	{ id: "contacts", label: "Contacts", icon: Icons.contacts },
+	{ id: "newsletter", label: "Subscribers", icon: Icons.newsletter },
+	{ id: "health", label: "System Health", icon: Icons.health },
+	{ id: "settings", label: "Settings", icon: Icons.settings },
+];
 
 // ─── Main component ─────────────────────────────────────────────
 export default function DashboardApp() {
@@ -150,10 +137,13 @@ export default function DashboardApp() {
 	const [submitting, setSubmitting] = useState(false);
 	const [error, setError] = useState("");
 	const [mounted, setMounted] = useState(false);
-	const [loginMethod, setLoginMethod] = useState("password"); // "password" | "otp"
-	const [otpStep, setOtpStep] = useState("email"); // "email" | "verify"
+	const [loginMethod, setLoginMethod] = useState("password");
+	const [otpStep, setOtpStep] = useState("email");
 	const [otpCode, setOtpCode] = useState("");
 	const [otpMessage, setOtpMessage] = useState("");
+	const [activeNav, setActiveNav] = useState("dashboard");
+	const [sidebarCollapsed, setSidebarCollapsed] = useState(false);
+	const [mobileSidebarOpen, setMobileSidebarOpen] = useState(false);
 
 	const checks = summary?.checks || defaultChecks;
 
@@ -174,30 +164,34 @@ export default function DashboardApp() {
 			{
 				label: "API Server",
 				value: health?.ok ? "Online" : "Offline",
-				detail: health?.ok ? health.data?.message || "Healthy" : health?.error || "No response",
+				detail: health?.ok ? "Server is up and running" : health?.error || "No response",
 				ok: !!health?.ok,
-				icon: icons.server,
+				icon: Icons.server,
+				color: "emerald",
 			},
 			{
 				label: "Access Role",
 				value: session?.user?.roleInfo?.name || session?.user?.role || "Super Admin",
 				detail: session?.user?.email || "Protected",
 				ok: !!session?.authenticated,
-				icon: icons.shield,
+				icon: Icons.shield,
+				color: "blue",
 			},
 			{
 				label: "Contact Requests",
 				value: String(contactsTotal),
 				detail: contactStats?.ok ? "Total submissions" : contactStats?.error || "Protected",
 				ok: !!contactStats?.ok,
-				icon: icons.mail,
+				icon: Icons.contacts,
+				color: "violet",
 			},
 			{
 				label: "Newsletter",
 				value: String(subscribersTotal),
 				detail: newsletterStats?.ok ? "Active subscribers" : "Protected",
 				ok: !!newsletterStats?.ok,
-				icon: icons.users,
+				icon: Icons.newsletter,
+				color: "amber",
 			},
 		];
 	}, [checks, session]);
@@ -324,568 +318,686 @@ export default function DashboardApp() {
 
 	// ─── Login page ───────────────────────────────────────────
 	if (!session?.authenticated) {
-		const tabStyle = (active) => ({
-			flex: 1,
-			padding: "10px 0",
-			fontSize: "13px",
-			fontWeight: 600,
-			textAlign: "center",
-			cursor: "pointer",
-			color: active ? "#10b981" : "#71717a",
-			background: active ? "rgba(16, 185, 129, 0.06)" : "transparent",
-			border: "none",
-			borderBottom: active ? "2px solid #10b981" : "2px solid transparent",
-			transition: "all 0.2s",
-			letterSpacing: "0.02em",
-		});
-
-		return (
-			<main
-				style={{
-					position: "relative",
-					display: "flex",
-					minHeight: "100vh",
-					alignItems: "center",
-					justifyContent: "center",
-					overflow: "hidden",
-					background: "#0a0a0b",
-					padding: "16px",
-				}}
-			>
-				<GridBackground />
-
-				{/* Ambient glow */}
-				<div style={{ position: "absolute", left: "50%", top: "50%", transform: "translate(-50%, -50%)", pointerEvents: "none" }}>
-					<div style={{ width: "600px", height: "600px", borderRadius: "50%", background: "rgba(16, 185, 129, 0.04)", filter: "blur(120px)" }} />
-				</div>
-
-				{/* Single centered card */}
-				<div className="dash-card" style={{ position: "relative", zIndex: 10 }}>
-					{/* Header */}
-					<div style={{ marginBottom: "24px", textAlign: "center" }}>
-						<div style={{
-							width: "56px",
-							height: "56px",
-							margin: "0 auto 20px",
-							display: "flex",
-							alignItems: "center",
-							justifyContent: "center",
-							borderRadius: "16px",
-							background: "rgba(16, 185, 129, 0.1)",
-							border: "1px solid rgba(16, 185, 129, 0.2)",
-						}}>
-							<svg viewBox="0 0 24 24" fill="none" style={{ width: "28px", height: "28px", color: "#34d399" }}>
-								<path d="M12 2L2 7l10 5 10-5-10-5z" stroke="currentColor" strokeWidth="1.5" strokeLinejoin="round" />
-								<path d="M2 17l10 5 10-5" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" />
-								<path d="M2 12l10 5 10-5" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" />
-							</svg>
-						</div>
-						<h1 style={{ fontSize: "24px", fontWeight: 700, color: "#ffffff", letterSpacing: "-0.025em" }}>
-							Welcome back
-						</h1>
-						<p style={{ marginTop: "8px", fontSize: "14px", color: "#71717a" }}>
-							Sign in to your portfolio dashboard
-						</p>
-					</div>
-
-					{/* Tabs */}
-					<div style={{ display: "flex", marginBottom: "24px", borderBottom: "1px solid rgba(255,255,255,0.06)", borderRadius: 0 }}>
-						<button type="button" onClick={() => switchLoginMethod("password")} style={tabStyle(loginMethod === "password")}>
-							Password
-						</button>
-						<button type="button" onClick={() => switchLoginMethod("otp")} style={tabStyle(loginMethod === "otp")}>
-							Email OTP
-						</button>
-					</div>
-
-					{/* Error */}
-					{error && (
-						<div style={{
-							marginBottom: "20px",
-							display: "flex",
-							alignItems: "flex-start",
-							gap: "12px",
-							borderRadius: "8px",
-							padding: "12px 16px",
-							background: "rgba(239, 68, 68, 0.07)",
-							border: "1px solid rgba(239, 68, 68, 0.2)",
-						}}>
-							<svg viewBox="0 0 24 24" fill="none" style={{ width: "16px", height: "16px", marginTop: "2px", flexShrink: 0, color: "#f87171" }}>
-								<circle cx="12" cy="12" r="10" stroke="currentColor" strokeWidth="1.5" />
-								<path d="M12 8v4m0 4h.01" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" />
-							</svg>
-							<p style={{ fontSize: "14px", color: "rgba(252, 165, 165, 0.9)" }}>{error}</p>
-						</div>
-					)}
-
-					{/* Success message for OTP */}
-					{otpMessage && !error && (
-						<div style={{
-							marginBottom: "20px",
-							display: "flex",
-							alignItems: "flex-start",
-							gap: "12px",
-							borderRadius: "8px",
-							padding: "12px 16px",
-							background: "rgba(16, 185, 129, 0.07)",
-							border: "1px solid rgba(16, 185, 129, 0.2)",
-						}}>
-							<svg viewBox="0 0 24 24" fill="none" style={{ width: "16px", height: "16px", marginTop: "2px", flexShrink: 0, color: "#34d399" }}>
-								<circle cx="12" cy="12" r="10" stroke="currentColor" strokeWidth="1.5" />
-								<path d="m9 12 2 2 4-4" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" />
-							</svg>
-							<p style={{ fontSize: "14px", color: "rgba(110, 231, 183, 0.9)" }}>{otpMessage}</p>
-						</div>
-					)}
-
-					{/* ── Password form ── */}
-					{loginMethod === "password" && (
-						<form onSubmit={handleLogin}>
-							<div style={{ marginBottom: "20px" }}>
-								<label style={{ display: "block", marginBottom: "8px", fontSize: "11px", fontWeight: 500, textTransform: "uppercase", letterSpacing: "0.1em", color: "#a1a1aa" }}>
-									Email
-								</label>
-								<div style={{ position: "relative" }}>
-									<div style={{ position: "absolute", top: 0, bottom: 0, left: "14px", display: "flex", alignItems: "center", pointerEvents: "none" }}>
-										<svg viewBox="0 0 24 24" fill="none" style={{ width: "16px", height: "16px", color: "#52525b" }}>
-											<rect x="2" y="4" width="20" height="16" rx="2" stroke="currentColor" strokeWidth="1.5" />
-											<path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7" stroke="currentColor" strokeWidth="1.5" />
-										</svg>
-									</div>
-									<input
-										type="email"
-										value={email}
-										onChange={(e) => setEmail(e.target.value)}
-										className="dash-input"
-										placeholder="you@example.com"
-										autoComplete="email"
-										required
-									/>
-								</div>
-							</div>
-
-							<div style={{ marginBottom: "24px" }}>
-								<label style={{ display: "block", marginBottom: "8px", fontSize: "11px", fontWeight: 500, textTransform: "uppercase", letterSpacing: "0.1em", color: "#a1a1aa" }}>
-									Password
-								</label>
-								<div style={{ position: "relative" }}>
-									<div style={{ position: "absolute", top: 0, bottom: 0, left: "14px", display: "flex", alignItems: "center", pointerEvents: "none" }}>
-										<svg viewBox="0 0 24 24" fill="none" style={{ width: "16px", height: "16px", color: "#52525b" }}>
-											<rect x="3" y="11" width="18" height="11" rx="2" stroke="currentColor" strokeWidth="1.5" />
-											<path d="M7 11V7a5 5 0 0 1 10 0v4" stroke="currentColor" strokeWidth="1.5" />
-										</svg>
-									</div>
-									<input
-										type={showPassword ? "text" : "password"}
-										value={password}
-										onChange={(e) => setPassword(e.target.value)}
-										className="dash-input dash-input-password"
-										placeholder="Enter your password"
-										autoComplete="current-password"
-										required
-									/>
-									<button
-										type="button"
-										onClick={() => setShowPassword(!showPassword)}
-										style={{
-											position: "absolute",
-											top: 0,
-											bottom: 0,
-											right: 0,
-											display: "flex",
-											alignItems: "center",
-											paddingRight: "14px",
-											color: "#52525b",
-											cursor: "pointer",
-										}}
-										tabIndex={-1}
-									>
-										{showPassword ? (
-											<svg viewBox="0 0 24 24" fill="none" style={{ width: "16px", height: "16px" }}>
-												<path d="M17.94 17.94A10.07 10.07 0 0 1 12 20c-7 0-11-8-11-8a18.45 18.45 0 0 1 5.06-5.94M9.9 4.24A9.12 9.12 0 0 1 12 4c7 0 11 8 11 8a18.5 18.5 0 0 1-2.16 3.19m-6.72-1.07a3 3 0 1 1-4.24-4.24" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" />
-												<line x1="1" y1="1" x2="23" y2="23" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" />
-											</svg>
-										) : (
-											<svg viewBox="0 0 24 24" fill="none" style={{ width: "16px", height: "16px" }}>
-												<path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z" stroke="currentColor" strokeWidth="1.5" />
-												<circle cx="12" cy="12" r="3" stroke="currentColor" strokeWidth="1.5" />
-											</svg>
-										)}
-									</button>
-								</div>
-							</div>
-
-							<button type="submit" disabled={submitting} className="dash-btn-primary">
-								{submitting ? (
-									<span style={{ display: "flex", alignItems: "center", justifyContent: "center", gap: "8px" }}>
-										<span className="dash-spinner" />
-										Signing in...
-									</span>
-								) : (
-									<span style={{ display: "flex", alignItems: "center", justifyContent: "center", gap: "8px" }}>
-										Sign in
-										<svg viewBox="0 0 24 24" fill="none" style={{ width: "16px", height: "16px" }}>
-											<path d="M5 12h14m-6-6 6 6-6 6" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
-										</svg>
-									</span>
-								)}
-							</button>
-						</form>
-					)}
-
-					{/* ── OTP form ── */}
-					{loginMethod === "otp" && otpStep === "email" && (
-						<form onSubmit={handleOtpRequest}>
-							<p style={{ marginBottom: "20px", fontSize: "13px", color: "#71717a", lineHeight: 1.6 }}>
-								We&apos;ll send a 6-digit code to your email. No password needed.
-							</p>
-							<div style={{ marginBottom: "24px" }}>
-								<label style={{ display: "block", marginBottom: "8px", fontSize: "11px", fontWeight: 500, textTransform: "uppercase", letterSpacing: "0.1em", color: "#a1a1aa" }}>
-									Email
-								</label>
-								<div style={{ position: "relative" }}>
-									<div style={{ position: "absolute", top: 0, bottom: 0, left: "14px", display: "flex", alignItems: "center", pointerEvents: "none" }}>
-										<svg viewBox="0 0 24 24" fill="none" style={{ width: "16px", height: "16px", color: "#52525b" }}>
-											<rect x="2" y="4" width="20" height="16" rx="2" stroke="currentColor" strokeWidth="1.5" />
-											<path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7" stroke="currentColor" strokeWidth="1.5" />
-										</svg>
-									</div>
-									<input
-										type="email"
-										value={email}
-										onChange={(e) => setEmail(e.target.value)}
-										className="dash-input"
-										placeholder="you@example.com"
-										autoComplete="email"
-										required
-									/>
-								</div>
-							</div>
-
-							<button type="submit" disabled={submitting} className="dash-btn-primary">
-								{submitting ? (
-									<span style={{ display: "flex", alignItems: "center", justifyContent: "center", gap: "8px" }}>
-										<span className="dash-spinner" />
-										Sending code...
-									</span>
-								) : (
-									<span style={{ display: "flex", alignItems: "center", justifyContent: "center", gap: "8px" }}>
-										Send OTP
-										<svg viewBox="0 0 24 24" fill="none" style={{ width: "16px", height: "16px" }}>
-											<path d="M22 2L11 13M22 2l-7 20-4-9-9-4 20-7z" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
-										</svg>
-									</span>
-								)}
-							</button>
-						</form>
-					)}
-
-					{/* ── OTP verify step ── */}
-					{loginMethod === "otp" && otpStep === "verify" && (
-						<form onSubmit={handleOtpVerify}>
-							<p style={{ marginBottom: "6px", fontSize: "13px", color: "#71717a" }}>
-								Enter the 6-digit code sent to
-							</p>
-							<p style={{ marginBottom: "20px", fontSize: "14px", fontWeight: 600, color: "#e4e4e7" }}>
-								{email}
-							</p>
-
-							<div style={{ marginBottom: "24px" }}>
-								<label style={{ display: "block", marginBottom: "8px", fontSize: "11px", fontWeight: 500, textTransform: "uppercase", letterSpacing: "0.1em", color: "#a1a1aa" }}>
-									Verification Code
-								</label>
-								<input
-									type="text"
-									inputMode="numeric"
-									maxLength={6}
-									value={otpCode}
-									onChange={(e) => {
-										const val = e.target.value.replace(/\D/g, "").slice(0, 6);
-										setOtpCode(val);
-									}}
-									className="dash-input dash-input-otp"
-									placeholder="000000"
-									autoFocus
-									autoComplete="one-time-code"
-									required
-								/>
-							</div>
-
-							<button type="submit" disabled={submitting || otpCode.length !== 6} className="dash-btn-primary">
-								{submitting ? (
-									<span style={{ display: "flex", alignItems: "center", justifyContent: "center", gap: "8px" }}>
-										<span className="dash-spinner" />
-										Verifying...
-									</span>
-								) : (
-									<span style={{ display: "flex", alignItems: "center", justifyContent: "center", gap: "8px" }}>
-										Verify &amp; Sign in
-										<svg viewBox="0 0 24 24" fill="none" style={{ width: "16px", height: "16px" }}>
-											<path d="M5 12h14m-6-6 6 6-6 6" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
-										</svg>
-									</span>
-								)}
-							</button>
-
-							<button
-								type="button"
-								onClick={(e) => { setOtpCode(""); setError(""); handleOtpRequest(e); }}
-								style={{
-									display: "block",
-									width: "100%",
-									marginTop: "12px",
-									padding: "8px",
-									fontSize: "13px",
-									color: "#71717a",
-									background: "none",
-									border: "none",
-									cursor: "pointer",
-									textAlign: "center",
-								}}
-							>
-								Didn&apos;t receive it? <span style={{ color: "#10b981", fontWeight: 500 }}>Send again</span>
-							</button>
-
-							<button
-								type="button"
-								onClick={() => { setOtpStep("email"); setOtpCode(""); setError(""); setOtpMessage(""); }}
-								style={{
-									display: "block",
-									width: "100%",
-									marginTop: "4px",
-									padding: "8px",
-									fontSize: "12px",
-									color: "#52525b",
-									background: "none",
-									border: "none",
-									cursor: "pointer",
-									textAlign: "center",
-								}}
-							>
-								Change email
-							</button>
-						</form>
-					)}
-
-				</div>
-			</main>
-		);
+		return <LoginPage {...{ loginMethod, switchLoginMethod, error, otpMessage, email, setEmail, password, setPassword, showPassword, setShowPassword, submitting, handleLogin, handleOtpRequest, handleOtpVerify, otpStep, setOtpStep, otpCode, setOtpCode, setError, setOtpMessage }} />;
 	}
 
 	// ─── Authenticated dashboard ──────────────────────────────
+	const userName = session.user?.name?.split(" ")[0] || "Admin";
+	const userEmail = session.user?.email || "";
+	const userInitial = (session.user?.name?.[0] || "A").toUpperCase();
+
 	return (
-		<main className="relative min-h-screen bg-[#0a0a0b] text-zinc-100">
-			<GridBackground />
+		<div className="flex min-h-screen bg-[#0b0d10]">
+			{/* Mobile sidebar overlay */}
+			{mobileSidebarOpen && (
+				<div className="fixed inset-0 z-40 bg-black/50 backdrop-blur-sm lg:hidden" onClick={() => setMobileSidebarOpen(false)} />
+			)}
 
-			{/* Header */}
-			<header className="relative z-10 border-b border-white/[0.06] bg-[#0a0a0b]/80 backdrop-blur-xl">
-				<div className="flex w-full items-center justify-between gap-4 px-4 py-4 sm:px-6 lg:px-8">
-					<div className="flex items-center gap-3">
-						<div className="flex h-9 w-9 items-center justify-center rounded-xl border border-emerald-500/20 bg-emerald-500/10">
-							<svg viewBox="0 0 24 24" fill="none" className="h-4.5 w-4.5 text-emerald-400">
-								<path d="M12 2L2 7l10 5 10-5-10-5z" stroke="currentColor" strokeWidth="1.5" strokeLinejoin="round" />
-								<path d="M2 17l10 5 10-5" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" />
-								<path d="M2 12l10 5 10-5" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" />
-							</svg>
-						</div>
-						<div>
-							<h1 className="text-base font-semibold text-white">Dashboard</h1>
-							<p className="hidden text-xs text-zinc-500 sm:block">{session.user?.email}</p>
-						</div>
+			{/* Sidebar */}
+			<aside className={`fixed top-0 left-0 z-50 flex h-full flex-col border-r border-white/[0.06] bg-[#0d0f13] transition-all duration-300 ${sidebarCollapsed ? "w-[68px]" : "w-60"} ${mobileSidebarOpen ? "translate-x-0" : "-translate-x-full"} lg:translate-x-0`}>
+				{/* Sidebar header */}
+				<div className={`flex h-16 shrink-0 items-center border-b border-white/[0.06] ${sidebarCollapsed ? "justify-center px-2" : "gap-3 px-5"}`}>
+					<div className="flex h-8 w-8 shrink-0 items-center justify-center rounded-lg bg-gradient-to-br from-emerald-500 to-emerald-600 text-sm font-bold text-white">
+						A
 					</div>
-					<div className="flex items-center gap-2">
-						<Link
-							href="/super-admin"
-							className="hidden rounded-lg bg-white/[0.06] px-3.5 py-2 text-xs font-medium text-zinc-300 transition-all hover:bg-white/[0.1] hover:text-white sm:inline-flex"
-						>
-							Admin Console
-						</Link>
-						<button
-							onClick={handleLogout}
-							className="rounded-lg border border-white/[0.08] px-3.5 py-2 text-xs font-medium text-zinc-400 transition-all hover:border-red-500/30 hover:text-red-400"
-						>
-							Sign out
-						</button>
-					</div>
-				</div>
-			</header>
-
-			{/* Welcome section */}
-			<section className="relative z-10 border-b border-white/[0.06] bg-gradient-to-b from-emerald-500/[0.03] to-transparent">
-				<div className="w-full px-4 py-6 sm:px-6 sm:py-8 lg:px-8">
-					<p className="text-xs font-semibold uppercase tracking-[0.2em] text-emerald-400">
-						Overview
-					</p>
-					<h2 className="mt-2 text-xl font-bold tracking-tight text-white sm:text-2xl md:text-3xl">
-						Welcome, {session.user?.name?.split(" ")[0] || "Admin"}
-					</h2>
-					<p className="mt-2 max-w-2xl text-sm leading-relaxed text-zinc-500">
-						Real-time operational data from your portfolio API. All endpoints are verified through protected admin routes.
-					</p>
-				</div>
-			</section>
-
-			{/* Stats cards */}
-			<section className="relative z-10 w-full px-4 py-6 sm:px-6 sm:py-8 lg:px-8">
-				<div className="grid gap-3 grid-cols-2 lg:grid-cols-4 sm:gap-4">
-					{cards.map((card) => (
-						<div
-							key={card.label}
-							className="group rounded-xl border border-white/[0.06] bg-white/[0.02] p-5 transition-all hover:border-white/[0.1] hover:bg-white/[0.04]"
-						>
-							<div className="flex items-center justify-between">
-								<span className="flex h-9 w-9 items-center justify-center rounded-lg bg-white/[0.05] text-zinc-400 transition-colors group-hover:text-emerald-400">
-									{card.icon}
-								</span>
-								<span className="relative flex h-2.5 w-2.5">
-									{card.ok && (
-										<span className="absolute inline-flex h-full w-full animate-ping rounded-full bg-emerald-400 opacity-40" />
-									)}
-									<span className={`relative inline-flex h-2.5 w-2.5 rounded-full ${card.ok ? "bg-emerald-400" : "bg-amber-400"}`} />
-								</span>
-							</div>
-							<p className="mt-3 text-lg font-bold text-white sm:mt-4 sm:text-2xl">{card.value}</p>
-							<p className="text-[10px] font-medium uppercase tracking-wider text-zinc-500 sm:text-xs">{card.label}</p>
-							<p className="mt-2 truncate text-[10px] text-zinc-600 sm:mt-3 sm:text-xs">{card.detail}</p>
+					{!sidebarCollapsed && (
+						<div className="min-w-0">
+							<p className="truncate text-sm font-semibold text-white">Ashiwani Kumar</p>
+							<p className="truncate text-[11px] text-zinc-500">Admin Panel</p>
 						</div>
-					))}
+					)}
+					{/* Mobile close */}
+					<button onClick={() => setMobileSidebarOpen(false)} className="ml-auto text-zinc-500 hover:text-white lg:hidden">
+						{Icons.close}
+					</button>
 				</div>
 
-				{/* Live API Checks */}
-				<div className="mt-6 rounded-xl border border-white/[0.06] bg-white/[0.02] p-4 sm:mt-8 sm:p-6">
-					<div className="flex flex-col gap-3 sm:flex-row sm:items-center sm:justify-between">
-						<div>
-							<h3 className="text-base font-semibold text-white">System Health</h3>
-							<p className="mt-1 text-xs text-zinc-500">
-								Last checked: {summary?.checkedAt || "N/A"}
-							</p>
-						</div>
-						<button
-							onClick={loadDashboard}
-							className="group inline-flex items-center gap-2 rounded-lg border border-white/[0.08] px-3.5 py-2 text-xs font-medium text-zinc-400 transition-all hover:border-emerald-500/30 hover:text-emerald-400"
-						>
-							<svg viewBox="0 0 24 24" fill="none" className="h-3.5 w-3.5 transition-transform group-hover:rotate-180" style={{ transitionDuration: "500ms" }}>
-								<path d="M21 12a9 9 0 1 1-9-9c2.52 0 4.93 1 6.74 2.74L21 8" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
-								<path d="M21 3v5h-5" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
-							</svg>
-							Refresh
-						</button>
-					</div>
-
-					<div className="mt-4 space-y-2 sm:mt-5">
-						{checks.map((check) => (
-							<div
-								key={check.name}
-								className="flex items-center justify-between rounded-lg border border-white/[0.04] bg-white/[0.02] px-3 py-2.5 sm:px-4 sm:py-3"
+				{/* Nav items */}
+				<nav className="flex-1 overflow-y-auto px-3 py-4">
+					<div className="space-y-1">
+						{navItems.map((item) => (
+							<button
+								key={item.id}
+								onClick={() => { setActiveNav(item.id); setMobileSidebarOpen(false); }}
+								className={`flex w-full items-center gap-3 rounded-lg px-3 py-2.5 text-sm font-medium transition-all ${
+									activeNav === item.id
+										? "bg-emerald-500/10 text-emerald-400"
+										: "text-zinc-400 hover:bg-white/[0.04] hover:text-zinc-200"
+								} ${sidebarCollapsed ? "justify-center" : ""}`}
+								title={sidebarCollapsed ? item.label : undefined}
 							>
-								<div className="flex items-center gap-2 sm:gap-3">
-									<span className={`h-1.5 w-1.5 shrink-0 rounded-full ${check.ok ? "bg-emerald-400" : "bg-amber-400"}`} />
-									<div className="min-w-0">
-										<p className="text-xs font-medium capitalize text-zinc-200 sm:text-sm">{check.label || check.name}</p>
-										<p className="truncate text-[10px] text-zinc-600 sm:text-xs">{check.ok ? "Connected" : check.error || check.fallback}</p>
-									</div>
-								</div>
-								<span
-									className={`shrink-0 rounded-full px-2 py-0.5 text-[9px] font-semibold uppercase tracking-wider sm:px-2.5 sm:py-1 sm:text-[10px] ${
-										check.ok
-											? "bg-emerald-500/10 text-emerald-400"
-											: "bg-amber-500/10 text-amber-400"
-									}`}
-								>
-									{check.ok ? "Healthy" : "Pending"}
-								</span>
-							</div>
+								<span className="shrink-0">{item.icon}</span>
+								{!sidebarCollapsed && <span>{item.label}</span>}
+							</button>
 						))}
 					</div>
-				</div>
+				</nav>
 
-				{/* Data panels */}
-				<div className="mt-6 grid gap-4 sm:mt-8 sm:gap-6 lg:grid-cols-2">
-					<DataPanel
-						title="Contact Requests"
-						icon={icons.mail}
-						check={getCheck(checks, "recentContacts")}
-						emptyText="No contact submissions yet."
-						getItems={(data) => data?.contacts || []}
-						renderItem={(contact) => (
-							<div key={contact._id || contact.email} className="rounded-lg border border-white/[0.04] bg-white/[0.02] p-4">
-								<div className="flex items-start justify-between gap-3">
-									<div className="min-w-0 flex-1">
-										<p className="text-sm font-medium text-white">{contact.name || "Unknown"}</p>
-										<p className="mt-0.5 truncate text-xs text-zinc-500">{contact.email}</p>
-									</div>
-									<span className="shrink-0 rounded-full bg-emerald-500/10 px-2.5 py-1 text-[10px] font-semibold text-emerald-400">
-										{contact.category?.name || contact.category?.id || "General"}
-									</span>
-								</div>
-								<p className="mt-3 line-clamp-2 text-xs leading-relaxed text-zinc-500">{contact.message}</p>
+				{/* Sidebar footer */}
+				<div className="shrink-0 border-t border-white/[0.06] p-3">
+					{/* Collapse toggle - desktop only */}
+					<button
+						onClick={() => setSidebarCollapsed(!sidebarCollapsed)}
+						className="hidden w-full items-center justify-center gap-2 rounded-lg px-3 py-2 text-xs text-zinc-500 transition-all hover:bg-white/[0.04] hover:text-zinc-300 lg:flex"
+					>
+						{sidebarCollapsed ? Icons.chevronRight : Icons.chevronLeft}
+						{!sidebarCollapsed && <span>Collapse</span>}
+					</button>
+
+					{/* User info + Logout */}
+					<div className={`mt-2 flex items-center gap-3 rounded-lg px-3 py-2 ${sidebarCollapsed ? "justify-center" : ""}`}>
+						<div className="flex h-8 w-8 shrink-0 items-center justify-center rounded-full bg-gradient-to-br from-emerald-500/20 to-emerald-600/20 text-xs font-semibold text-emerald-400 ring-1 ring-emerald-500/20">
+							{userInitial}
+						</div>
+						{!sidebarCollapsed && (
+							<div className="min-w-0 flex-1">
+								<p className="truncate text-xs font-medium text-zinc-200">{userName}</p>
+								<p className="truncate text-[10px] text-zinc-500">{userEmail}</p>
 							</div>
 						)}
-					/>
-
-					<DataPanel
-						title="Newsletter Subscribers"
-						icon={icons.users}
-						check={getCheck(checks, "recentSubscribers")}
-						emptyText="No subscribers yet."
-						getItems={(data) => data?.subscribers || []}
-						renderItem={(sub) => (
-							<div key={sub._id || sub.email} className="rounded-lg border border-white/[0.04] bg-white/[0.02] p-4">
-								<div className="flex items-start justify-between gap-3">
-									<div className="min-w-0 flex-1">
-										<p className="text-sm font-medium text-white">
-											{sub.name?.firstName || sub.name || "Subscriber"}
-										</p>
-										<p className="mt-0.5 truncate text-xs text-zinc-500">{sub.email}</p>
-									</div>
-									<span className="shrink-0 rounded-full bg-sky-500/10 px-2.5 py-1 text-[10px] font-semibold text-sky-400">
-										{sub.status || "active"}
-									</span>
-								</div>
-								<p className="mt-3 text-xs text-zinc-500">
-									{sub.communicationPrefs?.emailFrequency || "weekly"} updates
-								</p>
-							</div>
-						)}
-					/>
+					</div>
+					<button
+						onClick={handleLogout}
+						className={`mt-1 flex w-full items-center gap-2 rounded-lg px-3 py-2 text-xs font-medium text-zinc-500 transition-all hover:bg-red-500/10 hover:text-red-400 ${sidebarCollapsed ? "justify-center" : ""}`}
+						title="Sign out"
+					>
+						{Icons.logout}
+						{!sidebarCollapsed && <span>Sign Out</span>}
+					</button>
 				</div>
-			</section>
-		</main>
+			</aside>
+
+			{/* Main content area */}
+			<div className={`flex-1 transition-all duration-300 ${sidebarCollapsed ? "lg:ml-[68px]" : "lg:ml-60"}`}>
+				{/* Top header */}
+				<header className="sticky top-0 z-30 flex h-16 items-center justify-between border-b border-white/[0.06] bg-[#0b0d10]/80 px-4 backdrop-blur-xl sm:px-6">
+					<div className="flex items-center gap-3">
+						<button onClick={() => setMobileSidebarOpen(true)} className="rounded-lg p-1.5 text-zinc-400 hover:bg-white/[0.06] hover:text-white lg:hidden">
+							{Icons.menu}
+						</button>
+						<div>
+							<h1 className="text-base font-semibold text-white">
+								{navItems.find((n) => n.id === activeNav)?.label || "Dashboard"}
+							</h1>
+							<p className="hidden text-xs text-zinc-500 sm:block">
+								{activeNav === "dashboard" && "Overview of your portfolio and platform analytics"}
+								{activeNav === "contacts" && "Manage contact form submissions"}
+								{activeNav === "newsletter" && "Manage newsletter subscribers"}
+								{activeNav === "health" && "API and service health monitoring"}
+								{activeNav === "settings" && "Configuration and preferences"}
+							</p>
+						</div>
+					</div>
+					<div className="flex items-center gap-3">
+						<Link
+							href="https://ashiwanikumar.com"
+							target="_blank"
+							className="hidden items-center gap-1.5 rounded-lg border border-white/[0.08] px-3 py-1.5 text-xs font-medium text-zinc-400 transition-all hover:border-emerald-500/30 hover:text-emerald-400 sm:inline-flex"
+						>
+							Visit Site {Icons.externalLink}
+						</Link>
+						<div className="hidden items-center gap-2 sm:flex">
+							<div className="flex h-8 w-8 items-center justify-center rounded-full bg-gradient-to-br from-emerald-500/20 to-emerald-600/20 text-xs font-semibold text-emerald-400 ring-1 ring-emerald-500/20">
+								{userInitial}
+							</div>
+							<div>
+								<p className="text-xs font-medium text-zinc-200">{userName}</p>
+								<p className="text-[10px] text-zinc-500">{userEmail}</p>
+							</div>
+						</div>
+					</div>
+				</header>
+
+				{/* Page content */}
+				<main className="p-4 sm:p-6">
+					{activeNav === "dashboard" && (
+						<DashboardView cards={cards} checks={checks} summary={summary} loadDashboard={loadDashboard} session={session} />
+					)}
+					{activeNav === "contacts" && (
+						<ContactsView checks={checks} />
+					)}
+					{activeNav === "newsletter" && (
+						<SubscribersView checks={checks} />
+					)}
+					{activeNav === "health" && (
+						<HealthView checks={checks} summary={summary} loadDashboard={loadDashboard} />
+					)}
+					{activeNav === "settings" && (
+						<SettingsView session={session} />
+					)}
+				</main>
+
+				{/* Footer */}
+				<footer className="border-t border-white/[0.06] px-4 py-4 sm:px-6">
+					<div className="flex flex-col items-center justify-between gap-2 sm:flex-row">
+						<p className="text-[11px] text-zinc-600">
+							&copy; {new Date().getFullYear()} Ashiwani Kumar. All rights reserved.
+						</p>
+						<div className="flex items-center gap-4 text-[11px] text-zinc-600">
+							<a href="https://ashiwanikumar.com/privacy-policy" target="_blank" rel="noopener noreferrer" className="transition-colors hover:text-zinc-400">Privacy</a>
+							<a href="https://ashiwanikumar.com/terms-service" target="_blank" rel="noopener noreferrer" className="transition-colors hover:text-zinc-400">Terms</a>
+							<a href="https://ashiwanikumar.com/contact" target="_blank" rel="noopener noreferrer" className="transition-colors hover:text-zinc-400">Contact</a>
+						</div>
+					</div>
+				</footer>
+			</div>
+		</div>
 	);
 }
 
-// ─── Reusable data panel ────────────────────────────────────────
-function DataPanel({ title, icon, check, emptyText, getItems, renderItem }) {
-	const items = check?.ok ? getItems(check.data) : [];
+// ─── Dashboard overview view ───────────────────────────────────
+function DashboardView({ cards, checks, summary, loadDashboard, session }) {
+	const userName = session?.user?.name?.split(" ")[0] || "Admin";
 
 	return (
-		<section className="rounded-xl border border-white/[0.06] bg-white/[0.02] p-4 sm:p-6">
+		<div className="space-y-6">
+			{/* Welcome banner */}
+			<div className="rounded-xl border border-white/[0.06] bg-gradient-to-r from-emerald-500/[0.08] to-transparent p-6">
+				<h2 className="text-xl font-bold text-white sm:text-2xl">Welcome back, {userName}</h2>
+				<p className="mt-1 text-sm text-zinc-500">Here&apos;s an overview of your portfolio platform.</p>
+			</div>
+
+			{/* Stat cards */}
+			<div className="grid gap-4 grid-cols-1 sm:grid-cols-2 lg:grid-cols-4">
+				{cards.map((card) => (
+					<StatCard key={card.label} {...card} />
+				))}
+			</div>
+
+			{/* System health summary */}
+			<HealthSummary checks={checks} summary={summary} loadDashboard={loadDashboard} />
+
+			{/* Recent data */}
+			<div className="grid gap-4 lg:grid-cols-2">
+				<RecentContactsPanel checks={checks} />
+				<RecentSubscribersPanel checks={checks} />
+			</div>
+		</div>
+	);
+}
+
+// ─── Stat card ────────────────────────────────────────────────
+const colorMap = {
+	emerald: { bg: "from-emerald-500/10 to-emerald-600/5", text: "text-emerald-400", border: "border-emerald-500/20", badge: "bg-emerald-500/15 text-emerald-400" },
+	blue: { bg: "from-blue-500/10 to-blue-600/5", text: "text-blue-400", border: "border-blue-500/20", badge: "bg-blue-500/15 text-blue-400" },
+	violet: { bg: "from-violet-500/10 to-violet-600/5", text: "text-violet-400", border: "border-violet-500/20", badge: "bg-violet-500/15 text-violet-400" },
+	amber: { bg: "from-amber-500/10 to-amber-600/5", text: "text-amber-400", border: "border-amber-500/20", badge: "bg-amber-500/15 text-amber-400" },
+};
+
+function StatCard({ label, value, detail, ok, icon, color }) {
+	const c = colorMap[color] || colorMap.emerald;
+	return (
+		<div className={`rounded-xl border ${c.border} bg-gradient-to-br ${c.bg} p-5 transition-all hover:border-opacity-50`}>
+			<div className="flex items-center justify-between">
+				<span className={`text-xs font-medium uppercase tracking-wider text-zinc-500`}>{label}</span>
+				<span className={`flex h-9 w-9 items-center justify-center rounded-lg bg-white/[0.04] ${c.text}`}>
+					{icon}
+				</span>
+			</div>
+			<p className="mt-3 text-2xl font-bold text-white">{value}</p>
+			<p className="mt-1 truncate text-xs text-zinc-500">{detail}</p>
+		</div>
+	);
+}
+
+// ─── Health summary (compact) ─────────────────────────────────
+function HealthSummary({ checks, summary, loadDashboard }) {
+	const healthyCount = checks.filter((c) => c.ok).length;
+	const totalCount = checks.length;
+
+	return (
+		<div className="rounded-xl border border-white/[0.06] bg-white/[0.02] p-5">
 			<div className="flex items-center justify-between">
 				<div className="flex items-center gap-3">
-					<span className="flex h-8 w-8 items-center justify-center rounded-lg bg-white/[0.05] text-zinc-400">
-						{icon}
+					<h3 className="text-sm font-semibold text-white">System Health</h3>
+					<span className={`rounded-full px-2 py-0.5 text-[10px] font-semibold ${
+						healthyCount === totalCount
+							? "bg-emerald-500/15 text-emerald-400"
+							: "bg-amber-500/15 text-amber-400"
+					}`}>
+						{healthyCount}/{totalCount} Healthy
 					</span>
-					<h3 className="text-base font-semibold text-white">{title}</h3>
 				</div>
-				<span
-					className={`rounded-full px-2.5 py-1 text-[10px] font-semibold uppercase tracking-wider ${
-						check?.ok ? "bg-emerald-500/10 text-emerald-400" : "bg-zinc-500/10 text-zinc-500"
-					}`}
-				>
+				<button onClick={loadDashboard} className="group inline-flex items-center gap-1.5 rounded-lg border border-white/[0.08] px-3 py-1.5 text-xs font-medium text-zinc-400 transition-all hover:border-emerald-500/30 hover:text-emerald-400">
+					<span className="transition-transform group-hover:rotate-180" style={{ transitionDuration: "500ms" }}>{Icons.refresh}</span>
+					Refresh
+				</button>
+			</div>
+			<div className="mt-4 grid gap-2 sm:grid-cols-2 lg:grid-cols-4">
+				{checks.slice(0, 8).map((check) => (
+					<div key={check.name} className="flex items-center gap-2 rounded-lg border border-white/[0.04] bg-white/[0.02] px-3 py-2.5">
+						<span className={`h-2 w-2 shrink-0 rounded-full ${check.ok ? "bg-emerald-400" : "bg-amber-400"}`} />
+						<span className="truncate text-xs font-medium text-zinc-300">{check.label || check.name}</span>
+						<span className={`ml-auto shrink-0 text-[10px] font-semibold ${check.ok ? "text-emerald-400" : "text-amber-400"}`}>
+							{check.ok ? "OK" : "?"}
+						</span>
+					</div>
+				))}
+			</div>
+		</div>
+	);
+}
+
+// ─── Contacts view ────────────────────────────────────────────
+function ContactsView({ checks }) {
+	const check = getCheck(checks, "recentContacts");
+	const contacts = check?.ok ? (check.data?.contacts || []) : [];
+	const statsCheck = getCheck(checks, "contactStats");
+	const totalContacts = statsCheck?.data?.statistics?.totalContacts || 0;
+
+	return (
+		<div className="space-y-6">
+			<div className="flex items-center justify-between">
+				<h2 className="text-lg font-semibold text-white">Contact Requests</h2>
+				<span className="rounded-full bg-emerald-500/15 px-3 py-1 text-xs font-semibold text-emerald-400">{totalContacts} Total</span>
+			</div>
+			<DataTable
+				columns={["Name", "Email", "Category", "Message"]}
+				data={contacts}
+				emptyText="No contact submissions yet."
+				renderRow={(contact) => (
+					<tr key={contact._id || contact.email} className="border-b border-white/[0.04] transition-colors hover:bg-white/[0.02]">
+						<td className="px-4 py-3 text-sm font-medium text-white">{contact.name || "Unknown"}</td>
+						<td className="px-4 py-3 text-sm text-zinc-400">{contact.email}</td>
+						<td className="px-4 py-3">
+							<span className="rounded-full bg-emerald-500/10 px-2.5 py-1 text-[11px] font-semibold text-emerald-400">
+								{contact.category?.name || contact.category?.id || "General"}
+							</span>
+						</td>
+						<td className="max-w-xs px-4 py-3 text-sm text-zinc-500 truncate">{contact.message}</td>
+					</tr>
+				)}
+			/>
+		</div>
+	);
+}
+
+// ─── Subscribers view ─────────────────────────────────────────
+function SubscribersView({ checks }) {
+	const check = getCheck(checks, "recentSubscribers");
+	const subscribers = check?.ok ? (check.data?.subscribers || []) : [];
+	const statsCheck = getCheck(checks, "newsletterStats");
+	const recentSubCheck = getCheck(checks, "recentSubscribers");
+	const totalSubs = getTotalSubscribers(statsCheck?.data, recentSubCheck);
+
+	return (
+		<div className="space-y-6">
+			<div className="flex items-center justify-between">
+				<h2 className="text-lg font-semibold text-white">Newsletter Subscribers</h2>
+				<span className="rounded-full bg-blue-500/15 px-3 py-1 text-xs font-semibold text-blue-400">{totalSubs} Total</span>
+			</div>
+			<DataTable
+				columns={["Name", "Email", "Status", "Frequency"]}
+				data={subscribers}
+				emptyText="No subscribers yet."
+				renderRow={(sub) => (
+					<tr key={sub._id || sub.email} className="border-b border-white/[0.04] transition-colors hover:bg-white/[0.02]">
+						<td className="px-4 py-3 text-sm font-medium text-white">{sub.name?.firstName || sub.name || "Subscriber"}</td>
+						<td className="px-4 py-3 text-sm text-zinc-400">{sub.email}</td>
+						<td className="px-4 py-3">
+							<span className="rounded-full bg-sky-500/10 px-2.5 py-1 text-[11px] font-semibold text-sky-400">
+								{sub.status || "active"}
+							</span>
+						</td>
+						<td className="px-4 py-3 text-sm text-zinc-500">{sub.communicationPrefs?.emailFrequency || "weekly"}</td>
+					</tr>
+				)}
+			/>
+		</div>
+	);
+}
+
+// ─── Health view (full) ───────────────────────────────────────
+function HealthView({ checks, summary, loadDashboard }) {
+	return (
+		<div className="space-y-6">
+			<div className="flex items-center justify-between">
+				<div>
+					<h2 className="text-lg font-semibold text-white">System Health</h2>
+					<p className="mt-1 text-xs text-zinc-500">Last checked: {summary?.checkedAt || "N/A"}</p>
+				</div>
+				<button onClick={loadDashboard} className="group inline-flex items-center gap-1.5 rounded-lg border border-white/[0.08] px-3 py-1.5 text-xs font-medium text-zinc-400 transition-all hover:border-emerald-500/30 hover:text-emerald-400">
+					<span className="transition-transform group-hover:rotate-180" style={{ transitionDuration: "500ms" }}>{Icons.refresh}</span>
+					Refresh
+				</button>
+			</div>
+			<div className="space-y-2">
+				{checks.map((check) => (
+					<div key={check.name} className="flex items-center justify-between rounded-xl border border-white/[0.06] bg-white/[0.02] px-5 py-4">
+						<div className="flex items-center gap-3">
+							<span className={`h-2.5 w-2.5 shrink-0 rounded-full ${check.ok ? "bg-emerald-400" : "bg-amber-400"}`} />
+							<div>
+								<p className="text-sm font-medium text-zinc-200">{check.label || check.name}</p>
+								<p className="text-xs text-zinc-600">{check.ok ? "Connected" : check.error || check.fallback}</p>
+							</div>
+						</div>
+						<span className={`rounded-full px-3 py-1 text-[10px] font-bold uppercase tracking-wider ${
+							check.ok ? "bg-emerald-500/10 text-emerald-400" : "bg-amber-500/10 text-amber-400"
+						}`}>
+							{check.ok ? "Healthy" : "Pending"}
+						</span>
+					</div>
+				))}
+			</div>
+		</div>
+	);
+}
+
+// ─── Settings view ────────────────────────────────────────────
+function SettingsView({ session }) {
+	return (
+		<div className="space-y-6">
+			<h2 className="text-lg font-semibold text-white">Settings</h2>
+			<div className="rounded-xl border border-white/[0.06] bg-white/[0.02] p-6">
+				<h3 className="text-sm font-semibold text-white">Account Information</h3>
+				<div className="mt-4 space-y-3">
+					<div className="flex items-center justify-between border-b border-white/[0.04] pb-3">
+						<span className="text-sm text-zinc-500">Name</span>
+						<span className="text-sm font-medium text-white">{session?.user?.name || "N/A"}</span>
+					</div>
+					<div className="flex items-center justify-between border-b border-white/[0.04] pb-3">
+						<span className="text-sm text-zinc-500">Email</span>
+						<span className="text-sm font-medium text-white">{session?.user?.email || "N/A"}</span>
+					</div>
+					<div className="flex items-center justify-between border-b border-white/[0.04] pb-3">
+						<span className="text-sm text-zinc-500">Role</span>
+						<span className="text-sm font-medium text-white">{session?.user?.roleInfo?.name || session?.user?.role || "N/A"}</span>
+					</div>
+					<div className="flex items-center justify-between">
+						<span className="text-sm text-zinc-500">Website</span>
+						<a href="https://ashiwanikumar.com" target="_blank" rel="noopener noreferrer" className="text-sm font-medium text-emerald-400 hover:underline">ashiwanikumar.com</a>
+					</div>
+				</div>
+			</div>
+		</div>
+	);
+}
+
+// ─── Data table ───────────────────────────────────────────────
+function DataTable({ columns, data, emptyText, renderRow }) {
+	if (!data.length) {
+		return (
+			<div className="rounded-xl border border-white/[0.06] bg-white/[0.02] py-12 text-center">
+				<p className="text-sm text-zinc-600">{emptyText}</p>
+			</div>
+		);
+	}
+
+	return (
+		<div className="overflow-x-auto rounded-xl border border-white/[0.06] bg-white/[0.02]">
+			<table className="w-full text-left">
+				<thead>
+					<tr className="border-b border-white/[0.06]">
+						{columns.map((col) => (
+							<th key={col} className="px-4 py-3 text-[11px] font-semibold uppercase tracking-wider text-zinc-500">{col}</th>
+						))}
+					</tr>
+				</thead>
+				<tbody>{data.map(renderRow)}</tbody>
+			</table>
+		</div>
+	);
+}
+
+// ─── Recent contacts panel (dashboard) ────────────────────────
+function RecentContactsPanel({ checks }) {
+	const check = getCheck(checks, "recentContacts");
+	const items = check?.ok ? (check.data?.contacts || []) : [];
+
+	return (
+		<div className="rounded-xl border border-white/[0.06] bg-white/[0.02] p-5">
+			<div className="flex items-center justify-between">
+				<div className="flex items-center gap-2">
+					<span className="text-zinc-400">{Icons.contacts}</span>
+					<h3 className="text-sm font-semibold text-white">Recent Contacts</h3>
+				</div>
+				<span className="rounded-full bg-emerald-500/10 px-2 py-0.5 text-[10px] font-semibold text-emerald-400">
 					{check?.ok ? `${items.length} shown` : "Protected"}
 				</span>
 			</div>
-			<div className="mt-5 space-y-3">
+			<div className="mt-4 space-y-2">
 				{check?.ok ? (
-					items.length ? (
-						items.map(renderItem)
-					) : (
-						<p className="py-4 text-center text-xs text-zinc-600">{emptyText}</p>
+					items.length ? items.map((contact) => (
+						<div key={contact._id || contact.email} className="flex items-center justify-between rounded-lg border border-white/[0.04] bg-white/[0.02] px-4 py-3">
+							<div className="min-w-0 flex-1">
+								<p className="text-sm font-medium text-white">{contact.name || "Unknown"}</p>
+								<p className="truncate text-xs text-zinc-500">{contact.email}</p>
+							</div>
+							<span className="ml-3 shrink-0 rounded-full bg-emerald-500/10 px-2 py-0.5 text-[10px] font-semibold text-emerald-400">
+								{contact.category?.name || contact.category?.id || "General"}
+							</span>
+						</div>
+					)) : (
+						<p className="py-4 text-center text-xs text-zinc-600">No contact submissions yet.</p>
 					)
 				) : (
 					<p className="py-4 text-center text-xs text-zinc-600">{check?.error || "Sign in to access."}</p>
 				)}
 			</div>
-		</section>
+		</div>
+	);
+}
+
+// ─── Recent subscribers panel (dashboard) ─────────────────────
+function RecentSubscribersPanel({ checks }) {
+	const check = getCheck(checks, "recentSubscribers");
+	const items = check?.ok ? (check.data?.subscribers || []) : [];
+
+	return (
+		<div className="rounded-xl border border-white/[0.06] bg-white/[0.02] p-5">
+			<div className="flex items-center justify-between">
+				<div className="flex items-center gap-2">
+					<span className="text-zinc-400">{Icons.newsletter}</span>
+					<h3 className="text-sm font-semibold text-white">Recent Subscribers</h3>
+				</div>
+				<span className="rounded-full bg-blue-500/10 px-2 py-0.5 text-[10px] font-semibold text-blue-400">
+					{check?.ok ? `${items.length} shown` : "Protected"}
+				</span>
+			</div>
+			<div className="mt-4 space-y-2">
+				{check?.ok ? (
+					items.length ? items.map((sub) => (
+						<div key={sub._id || sub.email} className="flex items-center justify-between rounded-lg border border-white/[0.04] bg-white/[0.02] px-4 py-3">
+							<div className="min-w-0 flex-1">
+								<p className="text-sm font-medium text-white">{sub.name?.firstName || sub.name || "Subscriber"}</p>
+								<p className="truncate text-xs text-zinc-500">{sub.email}</p>
+							</div>
+							<span className="ml-3 shrink-0 rounded-full bg-sky-500/10 px-2 py-0.5 text-[10px] font-semibold text-sky-400">
+								{sub.status || "active"}
+							</span>
+						</div>
+					)) : (
+						<p className="py-4 text-center text-xs text-zinc-600">No subscribers yet.</p>
+					)
+				) : (
+					<p className="py-4 text-center text-xs text-zinc-600">{check?.error || "Sign in to access."}</p>
+				)}
+			</div>
+		</div>
+	);
+}
+
+// ─── Login page component ─────────────────────────────────────
+function LoginPage({ loginMethod, switchLoginMethod, error, otpMessage, email, setEmail, password, setPassword, showPassword, setShowPassword, submitting, handleLogin, handleOtpRequest, handleOtpVerify, otpStep, setOtpStep, otpCode, setOtpCode, setError, setOtpMessage }) {
+	const tabStyle = (active) => ({
+		flex: 1,
+		padding: "10px 0",
+		fontSize: "13px",
+		fontWeight: 600,
+		textAlign: "center",
+		cursor: "pointer",
+		color: active ? "#10b981" : "#71717a",
+		background: active ? "rgba(16, 185, 129, 0.06)" : "transparent",
+		border: "none",
+		borderBottom: active ? "2px solid #10b981" : "2px solid transparent",
+		transition: "all 0.2s",
+		letterSpacing: "0.02em",
+	});
+
+	return (
+		<main style={{ position: "relative", display: "flex", minHeight: "100vh", alignItems: "center", justifyContent: "center", overflow: "hidden", background: "#0a0a0b", padding: "16px" }}>
+			{/* Ambient glow */}
+			<div style={{ position: "absolute", left: "50%", top: "50%", transform: "translate(-50%, -50%)", pointerEvents: "none" }}>
+				<div style={{ width: "600px", height: "600px", borderRadius: "50%", background: "rgba(16, 185, 129, 0.04)", filter: "blur(120px)" }} />
+			</div>
+
+			<div className="dash-card" style={{ position: "relative", zIndex: 10 }}>
+				<div style={{ marginBottom: "24px", textAlign: "center" }}>
+					<div style={{ width: "56px", height: "56px", margin: "0 auto 20px", display: "flex", alignItems: "center", justifyContent: "center", borderRadius: "16px", background: "rgba(16, 185, 129, 0.1)", border: "1px solid rgba(16, 185, 129, 0.2)" }}>
+						<svg viewBox="0 0 24 24" fill="none" style={{ width: "28px", height: "28px", color: "#34d399" }}>
+							<path d="M12 2L2 7l10 5 10-5-10-5z" stroke="currentColor" strokeWidth="1.5" strokeLinejoin="round" />
+							<path d="M2 17l10 5 10-5" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" />
+							<path d="M2 12l10 5 10-5" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" />
+						</svg>
+					</div>
+					<h1 style={{ fontSize: "24px", fontWeight: 700, color: "#ffffff", letterSpacing: "-0.025em" }}>Welcome back</h1>
+					<p style={{ marginTop: "8px", fontSize: "14px", color: "#71717a" }}>Sign in to your portfolio dashboard</p>
+				</div>
+
+				<div style={{ display: "flex", marginBottom: "24px", borderBottom: "1px solid rgba(255,255,255,0.06)" }}>
+					<button type="button" onClick={() => switchLoginMethod("password")} style={tabStyle(loginMethod === "password")}>Password</button>
+					<button type="button" onClick={() => switchLoginMethod("otp")} style={tabStyle(loginMethod === "otp")}>Email OTP</button>
+				</div>
+
+				{error && (
+					<div style={{ marginBottom: "20px", display: "flex", alignItems: "flex-start", gap: "12px", borderRadius: "8px", padding: "12px 16px", background: "rgba(239, 68, 68, 0.07)", border: "1px solid rgba(239, 68, 68, 0.2)" }}>
+						<svg viewBox="0 0 24 24" fill="none" style={{ width: "16px", height: "16px", marginTop: "2px", flexShrink: 0, color: "#f87171" }}>
+							<circle cx="12" cy="12" r="10" stroke="currentColor" strokeWidth="1.5" />
+							<path d="M12 8v4m0 4h.01" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" />
+						</svg>
+						<p style={{ fontSize: "14px", color: "rgba(252, 165, 165, 0.9)" }}>{error}</p>
+					</div>
+				)}
+
+				{otpMessage && !error && (
+					<div style={{ marginBottom: "20px", display: "flex", alignItems: "flex-start", gap: "12px", borderRadius: "8px", padding: "12px 16px", background: "rgba(16, 185, 129, 0.07)", border: "1px solid rgba(16, 185, 129, 0.2)" }}>
+						<svg viewBox="0 0 24 24" fill="none" style={{ width: "16px", height: "16px", marginTop: "2px", flexShrink: 0, color: "#34d399" }}>
+							<circle cx="12" cy="12" r="10" stroke="currentColor" strokeWidth="1.5" />
+							<path d="m9 12 2 2 4-4" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" />
+						</svg>
+						<p style={{ fontSize: "14px", color: "rgba(110, 231, 183, 0.9)" }}>{otpMessage}</p>
+					</div>
+				)}
+
+				{loginMethod === "password" && (
+					<form onSubmit={handleLogin}>
+						<div style={{ marginBottom: "20px" }}>
+							<label style={{ display: "block", marginBottom: "8px", fontSize: "11px", fontWeight: 500, textTransform: "uppercase", letterSpacing: "0.1em", color: "#a1a1aa" }}>Email</label>
+							<div style={{ position: "relative" }}>
+								<div style={{ position: "absolute", top: 0, bottom: 0, left: "14px", display: "flex", alignItems: "center", pointerEvents: "none" }}>
+									<svg viewBox="0 0 24 24" fill="none" style={{ width: "16px", height: "16px", color: "#52525b" }}>
+										<rect x="2" y="4" width="20" height="16" rx="2" stroke="currentColor" strokeWidth="1.5" />
+										<path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7" stroke="currentColor" strokeWidth="1.5" />
+									</svg>
+								</div>
+								<input type="email" value={email} onChange={(e) => setEmail(e.target.value)} className="dash-input" placeholder="you@example.com" autoComplete="email" required />
+							</div>
+						</div>
+						<div style={{ marginBottom: "24px" }}>
+							<label style={{ display: "block", marginBottom: "8px", fontSize: "11px", fontWeight: 500, textTransform: "uppercase", letterSpacing: "0.1em", color: "#a1a1aa" }}>Password</label>
+							<div style={{ position: "relative" }}>
+								<div style={{ position: "absolute", top: 0, bottom: 0, left: "14px", display: "flex", alignItems: "center", pointerEvents: "none" }}>
+									<svg viewBox="0 0 24 24" fill="none" style={{ width: "16px", height: "16px", color: "#52525b" }}>
+										<rect x="3" y="11" width="18" height="11" rx="2" stroke="currentColor" strokeWidth="1.5" />
+										<path d="M7 11V7a5 5 0 0 1 10 0v4" stroke="currentColor" strokeWidth="1.5" />
+									</svg>
+								</div>
+								<input type={showPassword ? "text" : "password"} value={password} onChange={(e) => setPassword(e.target.value)} className="dash-input dash-input-password" placeholder="Enter your password" autoComplete="current-password" required />
+								<button type="button" onClick={() => setShowPassword(!showPassword)} style={{ position: "absolute", top: 0, bottom: 0, right: 0, display: "flex", alignItems: "center", paddingRight: "14px", color: "#52525b", cursor: "pointer" }} tabIndex={-1}>
+									{showPassword ? (
+										<svg viewBox="0 0 24 24" fill="none" style={{ width: "16px", height: "16px" }}>
+											<path d="M17.94 17.94A10.07 10.07 0 0 1 12 20c-7 0-11-8-11-8a18.45 18.45 0 0 1 5.06-5.94M9.9 4.24A9.12 9.12 0 0 1 12 4c7 0 11 8 11 8a18.5 18.5 0 0 1-2.16 3.19m-6.72-1.07a3 3 0 1 1-4.24-4.24" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" />
+											<line x1="1" y1="1" x2="23" y2="23" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" />
+										</svg>
+									) : (
+										<svg viewBox="0 0 24 24" fill="none" style={{ width: "16px", height: "16px" }}>
+											<path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z" stroke="currentColor" strokeWidth="1.5" />
+											<circle cx="12" cy="12" r="3" stroke="currentColor" strokeWidth="1.5" />
+										</svg>
+									)}
+								</button>
+							</div>
+						</div>
+						<button type="submit" disabled={submitting} className="dash-btn-primary">
+							{submitting ? (
+								<span style={{ display: "flex", alignItems: "center", justifyContent: "center", gap: "8px" }}>
+									<span className="dash-spinner" />Signing in...
+								</span>
+							) : (
+								<span style={{ display: "flex", alignItems: "center", justifyContent: "center", gap: "8px" }}>
+									Sign in
+									<svg viewBox="0 0 24 24" fill="none" style={{ width: "16px", height: "16px" }}>
+										<path d="M5 12h14m-6-6 6 6-6 6" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
+									</svg>
+								</span>
+							)}
+						</button>
+					</form>
+				)}
+
+				{loginMethod === "otp" && otpStep === "email" && (
+					<form onSubmit={handleOtpRequest}>
+						<p style={{ marginBottom: "20px", fontSize: "13px", color: "#71717a", lineHeight: 1.6 }}>We&apos;ll send a 6-digit code to your email. No password needed.</p>
+						<div style={{ marginBottom: "24px" }}>
+							<label style={{ display: "block", marginBottom: "8px", fontSize: "11px", fontWeight: 500, textTransform: "uppercase", letterSpacing: "0.1em", color: "#a1a1aa" }}>Email</label>
+							<div style={{ position: "relative" }}>
+								<div style={{ position: "absolute", top: 0, bottom: 0, left: "14px", display: "flex", alignItems: "center", pointerEvents: "none" }}>
+									<svg viewBox="0 0 24 24" fill="none" style={{ width: "16px", height: "16px", color: "#52525b" }}>
+										<rect x="2" y="4" width="20" height="16" rx="2" stroke="currentColor" strokeWidth="1.5" />
+										<path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7" stroke="currentColor" strokeWidth="1.5" />
+									</svg>
+								</div>
+								<input type="email" value={email} onChange={(e) => setEmail(e.target.value)} className="dash-input" placeholder="you@example.com" autoComplete="email" required />
+							</div>
+						</div>
+						<button type="submit" disabled={submitting} className="dash-btn-primary">
+							{submitting ? (
+								<span style={{ display: "flex", alignItems: "center", justifyContent: "center", gap: "8px" }}>
+									<span className="dash-spinner" />Sending code...
+								</span>
+							) : (
+								<span style={{ display: "flex", alignItems: "center", justifyContent: "center", gap: "8px" }}>
+									Send OTP
+									<svg viewBox="0 0 24 24" fill="none" style={{ width: "16px", height: "16px" }}>
+										<path d="M22 2L11 13M22 2l-7 20-4-9-9-4 20-7z" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
+									</svg>
+								</span>
+							)}
+						</button>
+					</form>
+				)}
+
+				{loginMethod === "otp" && otpStep === "verify" && (
+					<form onSubmit={handleOtpVerify}>
+						<p style={{ marginBottom: "6px", fontSize: "13px", color: "#71717a" }}>Enter the 6-digit code sent to</p>
+						<p style={{ marginBottom: "20px", fontSize: "14px", fontWeight: 600, color: "#e4e4e7" }}>{email}</p>
+						<div style={{ marginBottom: "24px" }}>
+							<label style={{ display: "block", marginBottom: "8px", fontSize: "11px", fontWeight: 500, textTransform: "uppercase", letterSpacing: "0.1em", color: "#a1a1aa" }}>Verification Code</label>
+							<input type="text" inputMode="numeric" maxLength={6} value={otpCode} onChange={(e) => { setOtpCode(e.target.value.replace(/\D/g, "").slice(0, 6)); }} className="dash-input dash-input-otp" placeholder="000000" autoFocus autoComplete="one-time-code" required />
+						</div>
+						<button type="submit" disabled={submitting || otpCode.length !== 6} className="dash-btn-primary">
+							{submitting ? (
+								<span style={{ display: "flex", alignItems: "center", justifyContent: "center", gap: "8px" }}>
+									<span className="dash-spinner" />Verifying...
+								</span>
+							) : (
+								<span style={{ display: "flex", alignItems: "center", justifyContent: "center", gap: "8px" }}>
+									Verify &amp; Sign in
+									<svg viewBox="0 0 24 24" fill="none" style={{ width: "16px", height: "16px" }}>
+										<path d="M5 12h14m-6-6 6 6-6 6" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
+									</svg>
+								</span>
+							)}
+						</button>
+						<button type="button" onClick={(e) => { setOtpCode(""); setError(""); handleOtpRequest(e); }} style={{ display: "block", width: "100%", marginTop: "12px", padding: "8px", fontSize: "13px", color: "#71717a", background: "none", border: "none", cursor: "pointer", textAlign: "center" }}>
+							Didn&apos;t receive it? <span style={{ color: "#10b981", fontWeight: 500 }}>Send again</span>
+						</button>
+						<button type="button" onClick={() => { setOtpStep("email"); setOtpCode(""); setError(""); setOtpMessage(""); }} style={{ display: "block", width: "100%", marginTop: "4px", padding: "8px", fontSize: "12px", color: "#52525b", background: "none", border: "none", cursor: "pointer", textAlign: "center" }}>
+							Change email
+						</button>
+					</form>
+				)}
+			</div>
+		</main>
 	);
 }
