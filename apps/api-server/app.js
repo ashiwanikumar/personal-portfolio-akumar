@@ -28,8 +28,25 @@ const app = express();
 // ** MIDDLEWARES ** //
 app.set("trust proxy", 1);
 
-// Logger
-app.use(morgan("combined", { stream: logger.stream }));
+// Request correlation ID — attach unique ID to every request
+app.use(logger.requestIdMiddleware);
+
+// HTTP request logging via Morgan → Winston (structured JSON)
+app.use(
+  morgan(
+    (tokens, req, res) => {
+      return JSON.stringify({
+        method: tokens.method(req, res),
+        url: tokens.url(req, res),
+        status: Number(tokens.status(req, res)),
+        duration: tokens["response-time"](req, res) + "ms",
+        ip: tokens["remote-addr"](req, res),
+        userAgent: tokens["user-agent"](req, res),
+      });
+    },
+    { stream: logger.morganStream }
+  )
+);
 
 // Passport
 app.use(passport.initialize());
@@ -154,21 +171,6 @@ try {
 } catch (error) {
   console.error("FATAL: Failed to load routes:", error);
   process.exit(1);
-}
-
-// Initialize blog scheduler cron jobs
-if (process.env.SCHEDULER_ENABLED !== "false") {
-  const blogCronJobs = require("./src/services/blog/blogCronJobs");
-
-  // Initialize cron jobs after a short delay to ensure app is ready
-  setTimeout(() => {
-    try {
-      blogCronJobs.initializeCronJobs();
-      logger.info("Blog scheduler initialized successfully");
-    } catch (error) {
-      logger.error("Failed to initialize blog scheduler:", error);
-    }
-  }, 5000);
 }
 
 module.exports = app;

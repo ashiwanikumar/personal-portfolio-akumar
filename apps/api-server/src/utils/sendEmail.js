@@ -1,85 +1,70 @@
 const nodemailer = require("nodemailer");
+const logger = require("@utils/logger");
 
-const sendEmail = async (options) => {
-  try {
-    const transporter = nodemailer.createTransport({
-      port: 587,
+// ---------------------------------------------------------------------------
+// Reusable transporter — created once, keeps SMTP connection alive via pooling
+// ---------------------------------------------------------------------------
+let _transporter = null;
+
+function getTransporter() {
+  if (!_transporter) {
+    _transporter = nodemailer.createTransport({
       host: "smtp.zoho.com",
-      tls: {
-        ciphers: "SSLv3",
-        rejectUnauthorized: false,
-      },
+      port: 587,
+      secure: false,
+      pool: true, // reuse connections
+      maxConnections: 3,
       auth: {
         user: process.env.ZOHO_NODEMAILER_EMAIL_HELLO,
         pass: process.env.ZOHO_NODEMAILER_PASSWORD_HELLO,
       },
-      secure: false,
-      encryption: "STARTTLS",
+      tls: {
+        ciphers: "SSLv3",
+        rejectUnauthorized: false,
+      },
     });
+    logger.info("[Email] SMTP transporter initialized (pooled)");
+  }
+  return _transporter;
+}
 
-    await new Promise((resolve, reject) => {
-      // verify connection configuration
-      transporter.verify(function (error, success) {
-        if (error) {
-          console.log("Email server verification failed:", error);
-          reject(error);
-        } else {
-          console.log("Email server is ready to take our messages");
-          resolve(success);
-        }
-      });
-    });
-
-    // Handle both old format (options.email) and new format (options.to)
+const sendEmail = async (options) => {
+  try {
+    const transporter = getTransporter();
     const recipientEmail = options.to || options.email;
 
     if (!recipientEmail) {
       throw new Error("Recipient email address is required");
     }
 
+    const senderEmail = process.env.ZOHO_NODEMAILER_EMAIL_HELLO;
     const mailOptions = {
-      from:
-        options.from || `Netraga <${process.env.ZOHO_NODEMAILER_EMAIL_HELLO}>`,
+      from: options.from || `Ashiwani Kumar <${senderEmail}>`,
       to: recipientEmail,
       subject: options.subject,
       html: options.html,
       encoding: "8bit",
       textEncoding: "base64",
       headers: {
-        "Reply-To": "info@shivrajsinghchouhan.co.in",
+        "Reply-To": senderEmail,
         "X-Auto-Response-Suppress": "OOF, AutoReply",
-        "X-Report-Abuse":
-          "Please report abuse to info@shivrajsinghchouhan.co.in",
+        "X-Report-Abuse": `Please report abuse to ${senderEmail}`,
         Date: new Date().toUTCString(),
         "MIME-Version": "1.0",
         "X-Priority": "1",
         "X-Mailer": "Nodemailer",
-        "Return-Path": `<info@shivrajsinghchouhan.co.in>`,
+        "Return-Path": `<${senderEmail}>`,
         ...(options.headers || {}),
       },
     };
 
     const result = await transporter.sendMail(mailOptions);
-    console.log("Email sent successfully to:", recipientEmail);
 
-    // Log user information if available
-    if (options.user) {
-      console.log("Email Details:", {
-        userID: options.user._id || options.user.id,
-        userName: options.user.name || options.user.firstName || "N/A",
-        userEmail: options.user.email,
-        emailSubject: options.subject,
-        emailType: options.emailType || "General",
-        timestamp: new Date().toISOString(),
-      });
-    } else {
-      console.log("Email Details:", {
-        recipientEmail,
-        emailSubject: options.subject,
-        emailType: options.emailType || "General",
-        timestamp: new Date().toISOString(),
-      });
-    }
+    logger.info(`[Email] Sent to: ${recipientEmail}`, {
+      subject: options.subject,
+      emailType: options.emailType || "General",
+      messageId: result.messageId,
+    });
 
     return {
       success: true,
@@ -87,7 +72,9 @@ const sendEmail = async (options) => {
       response: result.response,
     };
   } catch (error) {
-    console.error("Error sending email:", error);
+    logger.error(`[Email] Failed to send to: ${options.to || options.email}`, {
+      error: error.message,
+    });
     return {
       success: false,
       error: error.message || "Failed to send email",

@@ -1,5 +1,5 @@
 import { redirect } from "next/navigation";
 
 export default function ClientDashbaordTypoPage() {
-	redirect("/client-dashboard");
+	redirect("/dashboard");
 }

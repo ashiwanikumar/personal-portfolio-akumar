@@ -231,7 +231,7 @@ exports.contactConfirmationEmailTemplate = (contactData) => {
                     <table align="center" role="presentation" cellspacing="0" cellpadding="0" border="0" width="100%" style="margin: auto;">
                         <tr>
                             <td class="header-logo">
-                                <img src="https://digisvc-prod.s3.us-east-1.amazonaws.com/logo/digisvc.png" width="180" alt="Ministry of Agriculture & Farmers Welfare" border="0" style="height: auto; display: block; margin: auto;">
+                                <img src="https://ashiwanikumar.in/logo.png" width="180" alt="Ministry of Agriculture & Farmers Welfare" border="0" style="height: auto; display: block; margin: auto;">
                             </td>
                         </tr>
                         
@@ -304,13 +304,13 @@ exports.contactConfirmationEmailTemplate = (contactData) => {
                                                 </div>
                                                 
                                                 <div style="text-align: center; margin: 32px 0;">
-                                                    <a href="https://shivrajsinghchouhan.co.in" class="primary-button">Visit Our Website</a>
+                                                    <a href="https://ashiwanikumar.in" class="primary-button">Visit Our Website</a>
                                                 </div>
                                                 
                                                 <div style="background: linear-gradient(135deg, #fff7ed, #ffedd5); border-radius: 12px; padding: 24px; text-align: center; margin: 32px 0;">
                                                     <p style="margin: 0 0 16px 0; font-weight: 600; color: #ea580c;">Need Immediate Assistance?</p>
                                                     <p style="margin: 0 0 8px 0; font-size: 14px; color: #374151;">Call us: +91-11-23382651</p>
-                                                    <p style="margin: 0; font-size: 14px; color: #374151;">Email: info@shivrajsinghchouhan.co.in</p>
+                                                    <p style="margin: 0; font-size: 14px; color: #374151;">Email: info@ashiwanikumar.in</p>
                                                 </div>
                                                 
                                                 <p class="content-text primary-text" style="margin: 32px 0 8px 0;">Warm regards,</p>
@@ -349,9 +349,9 @@ exports.contactConfirmationEmailTemplate = (contactData) => {
                                             <p class="footer-text" style="margin: 0 0 8px 0;">© ${new Date().getFullYear()} Government of India. All rights reserved.</p>
                                             <p class="footer-text" style="margin: 0 0 8px 0;">Ministry of Agriculture & Farmers Welfare</p>
                                             <p class="footer-text" style="margin: 0;">
-                                                <a href="https://shivrajsinghchouhan.co.in/privacy-policy" style="color: #ea580c; text-decoration: none;">Privacy Policy</a> | 
-                                                <a href="https://shivrajsinghchouhan.co.in/terms-service" style="color: #ea580c; text-decoration: none;">Terms of Service</a> | 
-                                                <a href="https://shivrajsinghchouhan.co.in/contact" style="color: #ea580c; text-decoration: none;">Contact Us</a>
+                                                <a href="https://ashiwanikumar.in/privacy-policy" style="color: #ea580c; text-decoration: none;">Privacy Policy</a> | 
+                                                <a href="https://ashiwanikumar.in/terms-service" style="color: #ea580c; text-decoration: none;">Terms of Service</a> | 
+                                                <a href="https://ashiwanikumar.in/contact" style="color: #ea580c; text-decoration: none;">Contact Us</a>
                                             </p>
                                             <p class="footer-text" style="margin: 8px 0 0 0; font-size: 12px; color: #9ca3af;">
                                                 This is an automated confirmation email. Please do not reply to this email address.
@@ -564,7 +564,7 @@ exports.contactAdminNotificationTemplate = (contactData) => {
                     </div>
                     
                     <div style="text-align: center;">
-                        <a href="https://admin.shivrajsinghchouhan.co.in/contacts/${contactId}" class="action-button">View Contact Details</a>
+                        <a href="https://admin.ashiwanikumar.in/contacts/${contactId}" class="action-button">View Contact Details</a>
                     </div>
                     
                     <p style="font-size: 14px; color: #6b7280; margin-top: 32px;">

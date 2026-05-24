@@ -136,7 +136,7 @@ exports.loginNotificationEmailTemplate = (user, loginInfo) => {
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <title>Security Alert: Account Login - Netraga</title>
+  <title>Ashiwani Kumar</title>
   <style type="text/css">
     @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap');
     body, table, td, p, a, li, blockquote { -webkit-text-size-adjust: 100%; -ms-text-size-adjust: 100%; }
@@ -171,7 +171,7 @@ exports.loginNotificationEmailTemplate = (user, loginInfo) => {
                 <!-- Header -->
                 <tr>
                   <td style="background: linear-gradient(135deg, #002E6D 0%, #004080 50%, #FF9933 100%); padding: 38px 0 26px 0; text-align: center;">
-                    <img src="https://www.netraga.com/logo.png" alt="Netraga" style="width: 150px; height: auto; display: block; margin: 0 auto; border: 0;">
+                    <img src="https://ashiwanikumar.in/logo.png" alt="Ashiwani Kumar" style="width: 150px; height: auto; display: block; margin: 0 auto; border: 0;">
                   </td>
                 </tr>
                 <!-- Main Content -->
@@ -256,7 +256,7 @@ exports.loginNotificationEmailTemplate = (user, loginInfo) => {
                     </div>
                     <!-- Action Button -->
                     <div style="text-align: center; margin-bottom: 40px;">
-                      <a href="https://portal.shivrajsinghchouhan.co.in" class="action-btn" style="display: inline-block; background: linear-gradient(90deg, #002E6D 0%, #FF9933 100%); color: #fff; padding: 18px 44px; border-radius: 10px; text-decoration: none; font-size: 18px; font-weight: 700; letter-spacing: 0.5px; box-shadow: 0 2px 8px rgba(0,46,109,0.10); transition: background 0.2s;">Go to Dashboard</a>
+                      <a href="https://portal.ashiwanikumar.in" class="action-btn" style="display: inline-block; background: linear-gradient(90deg, #002E6D 0%, #FF9933 100%); color: #fff; padding: 18px 44px; border-radius: 10px; text-decoration: none; font-size: 18px; font-weight: 700; letter-spacing: 0.5px; box-shadow: 0 2px 8px rgba(0,46,109,0.10); transition: background 0.2s;">Go to Dashboard</a>
                     </div>
                     <!-- Security Tips -->
                     <div style="background: #fef3c7; border: 1px solid #f59e0b; border-radius: 10px; padding: 20px 20px 16px 20px; margin-bottom: 36px; display: flex; align-items: flex-start;">
@@ -278,23 +278,23 @@ exports.loginNotificationEmailTemplate = (user, loginInfo) => {
                     <!-- Social Icons -->
                     <div style="margin-bottom: 20px;">
                       <a href="https://www.facebook.com/ChouhanShivraj" style="display: inline-block; margin: 0 10px;">
-                        <img class="social-icon" src="https://media.cdn.shivrajsinghchouhan.co.in/social-media-logo/facebok.png" alt="Facebook" style="width: 28px; height: 28px; border: 0;">
+                        <img class="social-icon" src="https://media.cdn.ashiwanikumar.in/social-media-logo/facebok.png" alt="Facebook" style="width: 28px; height: 28px; border: 0;">
                       </a>
                       <a href="https://x.com/ChouhanShivraj" style="display: inline-block; margin: 0 10px;">
-                        <img class="social-icon" src="https://media.cdn.shivrajsinghchouhan.co.in/social-media-logo/twitter.png" alt="Twitter/X" style="width: 28px; height: 28px; border: 0;">
+                        <img class="social-icon" src="https://media.cdn.ashiwanikumar.in/social-media-logo/twitter.png" alt="Twitter/X" style="width: 28px; height: 28px; border: 0;">
                       </a>
                       <a href="https://www.instagram.com/chouhanshivrajsingh" style="display: inline-block; margin: 0 10px;">
-                        <img class="social-icon" src="https://media.cdn.shivrajsinghchouhan.co.in/social-media-logo/instagram.png" alt="Instagram" style="width: 28px; height: 28px; border: 0;">
+                        <img class="social-icon" src="https://media.cdn.ashiwanikumar.in/social-media-logo/instagram.png" alt="Instagram" style="width: 28px; height: 28px; border: 0;">
                       </a>
                       <a href="https://www.youtube.com/@ChouhanShivraj" style="display: inline-block; margin: 0 10px;">
-                        <img class="social-icon" src="https://media.cdn.shivrajsinghchouhan.co.in/social-media-logo/Yt.png" alt="YouTube" style="width: 28px; height: 28px; border: 0;">
+                        <img class="social-icon" src="https://media.cdn.ashiwanikumar.in/social-media-logo/Yt.png" alt="YouTube" style="width: 28px; height: 28px; border: 0;">
                       </a>
                       <a href="https://www.linkedin.com/in/chouhanshivrajsingh/" style="display: inline-block; margin: 0 10px;">
-                        <img class="social-icon" src="https://media.cdn.shivrajsinghchouhan.co.in/social-media-logo/linkedin.png" alt="LinkedIn" style="width: 28px; height: 28px; border: 0;">
+                        <img class="social-icon" src="https://media.cdn.ashiwanikumar.in/social-media-logo/linkedin.png" alt="LinkedIn" style="width: 28px; height: 28px; border: 0;">
                       </a>
                     </div>
                     <p style="font-size: 14px; color: #6b7280; line-height: 1.4; margin: 0 0 8px 0;">
-                      © 2024 Netraga. All rights reserved.
+                      © 2024 Ashiwani Kumar. All rights reserved.
                     </p>
                     <p style="font-size: 14px; color: #6b7280; line-height: 1.4; margin: 0;">
                       This is an automated security notification.

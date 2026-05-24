@@ -11,6 +11,8 @@ const {
   resetPassword,
   logout,
   refreshToken,
+  otpRequest,
+  otpVerify,
 } = require("../../controllers/auth/authController");
 
 // Routes
@@ -22,6 +24,10 @@ router.post("/password/reset/verify", resetPassword);
 router.post("/login", login);
 router.post("/logout", logout);
 router.post("/refresh_token", refreshToken);
+
+// OTP Routes
+router.post("/otp/request", otpRequest);
+router.post("/otp/verify", otpVerify);
 
 // Health Check Route
 router.get("/healthCheck", (req, res) => {

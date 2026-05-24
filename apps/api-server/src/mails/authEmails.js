@@ -14,7 +14,7 @@ exports.verifyAccountEmailTemplate = (newUser, verificationToken) => {
               <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
               <meta name="color-scheme" content="light dark">
               <meta name="supported-color-schemes" content="light dark">
-              <title>Verify Your Account - Netraga</title>
+              <title>Ashiwani Kumar</title>
               <style type="text/css" rel="stylesheet" media="all">
                   @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap');
                   
@@ -279,7 +279,7 @@ exports.verifyAccountEmailTemplate = (newUser, verificationToken) => {
                       <table align="center" role="presentation" cellspacing="0" cellpadding="0" border="0" width="100%" style="margin: auto;">
                           <tr>
                               <td class="header-logo animate-fade-in">
-                                  <img src="https://www.netraga.com/logo.png" width="180" alt="Netraga" border="0" style="height: auto; display: block; margin: auto;">
+                                  <img src="https://ashiwanikumar.in/logo.png" width="180" alt="Ashiwani Kumar" border="0" style="height: auto; display: block; margin: auto;">
                               </td>
                           </tr>
                           
@@ -400,7 +400,7 @@ exports.verifyAccountEmailTemplate = (newUser, verificationToken) => {
                                                   <div class="highlight-box animate-fade-in animation-delay-300">
                                                       <p class="content-text primary-text" style="margin: 0 0 8px 0;"><strong>What to expect after verification:</strong></p>
                                                       <ul style="margin: 0; padding-left: 24px;">
-                                                          <li style="margin-bottom: 8px;">Immediate access to the Netraga platform</li>
+                                                          <li style="margin-bottom: 8px;">Immediate access to the dashboard</li>
                                                           <li style="margin-bottom: 8px;">Ability to create your first AI agent in minutes</li>
                                                           <li style="margin-bottom: 8px;">Pre-built templates to get you started quickly</li>
                                                           <li>Free tier with essential features to explore the platform</li>
@@ -415,7 +415,7 @@ exports.verifyAccountEmailTemplate = (newUser, verificationToken) => {
                                                   </p>
                                                   
                                                   <p class="content-text primary-text animate-fade-in animation-delay-500" style="margin: 32px 0 8px 0;">Ready to revolutionize your workflows,</p>
-                                                  <p class="content-text primary-text animate-fade-in animation-delay-500" style="margin: 0; font-weight: 600;">The Netraga Team</p>
+                                                  <p class="content-text primary-text animate-fade-in animation-delay-500" style="margin: 0; font-weight: 600;">Ashiwani Kumar</p>
                                               </div>
                                           </td>
                                       </tr>
@@ -429,20 +429,20 @@ exports.verifyAccountEmailTemplate = (newUser, verificationToken) => {
                                       <tr>
                                           <td style="text-align: center; padding: 0 0 16px 0;">
                                               <div class="social-links">
-                                                  <a href="https://twitter.com/netraga" class="social-link"><img src="https://cdn-icons-png.flaticon.com/128/5969/5969020.png" width="32" height="32" alt="Twitter"></a>
-                                                  <a href="https://linkedin.com/company/netraga" class="social-link"><img src="https://cdn-icons-png.flaticon.com/128/3536/3536505.png" width="32" height="32" alt="LinkedIn"></a>
-                                                  <a href="https://facebook.com/netraga" class="social-link"><img src="https://cdn-icons-png.flaticon.com/128/5968/5968764.png" width="32" height="32" alt="Facebook"></a>
+                                                  <a href="https://twitter.com/ashiwanikumar" class="social-link"><img src="https://cdn-icons-png.flaticon.com/128/5969/5969020.png" width="32" height="32" alt="Twitter"></a>
+                                                  <a href="https://linkedin.com/in/ashiwanikumar" class="social-link"><img src="https://cdn-icons-png.flaticon.com/128/3536/3536505.png" width="32" height="32" alt="LinkedIn"></a>
+                                                  <a href="https://facebook.com/ashiwanikumar" class="social-link"><img src="https://cdn-icons-png.flaticon.com/128/5968/5968764.png" width="32" height="32" alt="Facebook"></a>
                                               </div>
                                           </td>
                                       </tr>
                                       <tr>
                                           <td style="text-align: center; padding: 0;">
-                                              <p class="footer-text" style="margin: 0 0 8px 0;">© ${new Date().getFullYear()} Netraga. All rights reserved.</p>
+                                              <p class="footer-text" style="margin: 0 0 8px 0;">© ${new Date().getFullYear()} Ashiwani Kumar. All rights reserved.</p>
                                               <p class="footer-text" style="margin: 0 0 8px 0;">Building the future of AI automation for businesses everywhere.</p>
                                               <p class="footer-text" style="margin: 0;">
-                                                  <a href="https://www.netraga.com/privacy-policy" style="color: #0010F7; text-decoration: none;">Privacy Policy</a> • 
-                                                  <a href="https://www.netraga.com/terms" style="color: #0010F7; text-decoration: none;">Terms of Service</a> • 
-                                                  <a href="https://www.netraga.com/contact" style="color: #0010F7; text-decoration: none;">Contact Us</a>
+                                                  <a href="https://ashiwanikumar.in/privacy-policy" style="color: #0010F7; text-decoration: none;">Privacy Policy</a> • 
+                                                  <a href="https://ashiwanikumar.in/terms" style="color: #0010F7; text-decoration: none;">Terms of Service</a> • 
+                                                  <a href="https://ashiwanikumar.in/contact" style="color: #0010F7; text-decoration: none;">Contact Us</a>
                                               </p>
                                           </td>
                                       </tr>
@@ -478,7 +478,7 @@ exports.resetPasswordEmailTemplate = (user, resetPasswordToken) => {
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <title>Password Reset Request - Netraga</title>
+  <title>Ashiwani Kumar</title>
   <style type="text/css">
     @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap');
     body, table, td, p, a, li, blockquote { -webkit-text-size-adjust: 100%; -ms-text-size-adjust: 100%; }
@@ -513,7 +513,7 @@ exports.resetPasswordEmailTemplate = (user, resetPasswordToken) => {
                 <!-- Header -->
                 <tr>
                   <td style="background: linear-gradient(135deg, #002E6D 0%, #004080 50%, #FF9933 100%); padding: 38px 0 26px 0; text-align: center;">
-                    <img src="https://www.netraga.com/logo.png" alt="Netraga" style="width: 150px; height: auto; display: block; margin: 0 auto; border: 0;">
+                    <img src="https://ashiwanikumar.in/logo.png" alt="Ashiwani Kumar" style="width: 150px; height: auto; display: block; margin: 0 auto; border: 0;">
                   </td>
                 </tr>
                 <!-- Main Content -->
@@ -583,23 +583,23 @@ exports.resetPasswordEmailTemplate = (user, resetPasswordToken) => {
                     <!-- Social Icons -->
                     <div style="margin-bottom: 20px;">
                       <a href="https://www.facebook.com/ChouhanShivraj" style="display: inline-block; margin: 0 10px;">
-                        <img class="social-icon" src="https://media.cdn.shivrajsinghchouhan.co.in/social-media-logo/facebok.png" alt="Facebook" style="width: 28px; height: 28px; border: 0;">
+                        <img class="social-icon" src="https://media.cdn.ashiwanikumar.in/social-media-logo/facebok.png" alt="Facebook" style="width: 28px; height: 28px; border: 0;">
                       </a>
                       <a href="https://x.com/ChouhanShivraj" style="display: inline-block; margin: 0 10px;">
-                        <img class="social-icon" src="https://media.cdn.shivrajsinghchouhan.co.in/social-media-logo/twitter.png" alt="Twitter/X" style="width: 28px; height: 28px; border: 0;">
+                        <img class="social-icon" src="https://media.cdn.ashiwanikumar.in/social-media-logo/twitter.png" alt="Twitter/X" style="width: 28px; height: 28px; border: 0;">
                       </a>
                       <a href="https://www.instagram.com/chouhanshivrajsingh" style="display: inline-block; margin: 0 10px;">
-                        <img class="social-icon" src="https://media.cdn.shivrajsinghchouhan.co.in/social-media-logo/instagram.png" alt="Instagram" style="width: 28px; height: 28px; border: 0;">
+                        <img class="social-icon" src="https://media.cdn.ashiwanikumar.in/social-media-logo/instagram.png" alt="Instagram" style="width: 28px; height: 28px; border: 0;">
                       </a>
                       <a href="https://www.youtube.com/@ChouhanShivraj" style="display: inline-block; margin: 0 10px;">
-                        <img class="social-icon" src="https://media.cdn.shivrajsinghchouhan.co.in/social-media-logo/Yt.png" alt="YouTube" style="width: 28px; height: 28px; border: 0;">
+                        <img class="social-icon" src="https://media.cdn.ashiwanikumar.in/social-media-logo/Yt.png" alt="YouTube" style="width: 28px; height: 28px; border: 0;">
                       </a>
                       <a href="https://www.linkedin.com/in/chouhanshivrajsingh/" style="display: inline-block; margin: 0 10px;">
-                        <img class="social-icon" src="https://media.cdn.shivrajsinghchouhan.co.in/social-media-logo/linkedin.png" alt="LinkedIn" style="width: 28px; height: 28px; border: 0;">
+                        <img class="social-icon" src="https://media.cdn.ashiwanikumar.in/social-media-logo/linkedin.png" alt="LinkedIn" style="width: 28px; height: 28px; border: 0;">
                       </a>
                     </div>
                     <p style="font-size: 14px; color: #6b7280; line-height: 1.4; margin: 0 0 8px 0;">
-                      © 2024 Netraga. All rights reserved.
+                      © 2024 Ashiwani Kumar. All rights reserved.
                     </p>
                     <p style="font-size: 14px; color: #6b7280; line-height: 1.4; margin: 0;">
                       This is an automated security notification.
@@ -681,7 +681,7 @@ exports.passwordResetSuccessEmailTemplate = (user, resetInfo) => {
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <title>Password Successfully Reset - Netraga</title>
+  <title>Ashiwani Kumar</title>
   <style type="text/css">
     @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap');
     body, table, td, p, a, li, blockquote { -webkit-text-size-adjust: 100%; -ms-text-size-adjust: 100%; }
@@ -716,7 +716,7 @@ exports.passwordResetSuccessEmailTemplate = (user, resetInfo) => {
                 <!-- Header -->
                 <tr>
                   <td style="background: linear-gradient(135deg, #002E6D 0%, #004080 50%, #FF9933 100%); padding: 38px 0 26px 0; text-align: center;">
-                    <img src="https://www.netraga.com/logo.png" alt="Netraga" style="width: 150px; height: auto; display: block; margin: 0 auto; border: 0;">
+                    <img src="https://ashiwanikumar.in/logo.png" alt="Ashiwani Kumar" style="width: 150px; height: auto; display: block; margin: 0 auto; border: 0;">
                   </td>
                 </tr>
                 <!-- Main Content -->
@@ -774,7 +774,7 @@ exports.passwordResetSuccessEmailTemplate = (user, resetInfo) => {
                     </div>
                     <!-- Action Button -->
                     <div style="text-align: center; margin-bottom: 40px;">
-                      <a href="https://portal.shivrajsinghchouhan.co.in" class="action-btn" style="display: inline-block; background: linear-gradient(90deg, #002E6D 0%, #FF9933 100%); color: #fff; padding: 18px 44px; border-radius: 10px; text-decoration: none; font-size: 18px; font-weight: 700; letter-spacing: 0.5px; box-shadow: 0 2px 8px rgba(0,46,109,0.10); transition: background 0.2s;">Go to Dashboard</a>
+                      <a href="https://portal.ashiwanikumar.in" class="action-btn" style="display: inline-block; background: linear-gradient(90deg, #002E6D 0%, #FF9933 100%); color: #fff; padding: 18px 44px; border-radius: 10px; text-decoration: none; font-size: 18px; font-weight: 700; letter-spacing: 0.5px; box-shadow: 0 2px 8px rgba(0,46,109,0.10); transition: background 0.2s;">Go to Dashboard</a>
                     </div>
                     <!-- Security Tips -->
                     <div style="background: #dcfce7; border: 1px solid #16a34a; border-radius: 10px; padding: 20px 20px 16px 20px; margin-bottom: 36px; display: flex; align-items: flex-start;">
@@ -796,23 +796,23 @@ exports.passwordResetSuccessEmailTemplate = (user, resetInfo) => {
                     <!-- Social Icons -->
                     <div style="margin-bottom: 20px;">
                       <a href="https://www.facebook.com/ChouhanShivraj" style="display: inline-block; margin: 0 10px;">
-                        <img class="social-icon" src="https://media.cdn.shivrajsinghchouhan.co.in/social-media-logo/facebok.png" alt="Facebook" style="width: 28px; height: 28px; border: 0;">
+                        <img class="social-icon" src="https://media.cdn.ashiwanikumar.in/social-media-logo/facebok.png" alt="Facebook" style="width: 28px; height: 28px; border: 0;">
                       </a>
                       <a href="https://x.com/ChouhanShivraj" style="display: inline-block; margin: 0 10px;">
-                        <img class="social-icon" src="https://media.cdn.shivrajsinghchouhan.co.in/social-media-logo/twitter.png" alt="Twitter/X" style="width: 28px; height: 28px; border: 0;">
+                        <img class="social-icon" src="https://media.cdn.ashiwanikumar.in/social-media-logo/twitter.png" alt="Twitter/X" style="width: 28px; height: 28px; border: 0;">
                       </a>
                       <a href="https://www.instagram.com/chouhanshivrajsingh" style="display: inline-block; margin: 0 10px;">
-                        <img class="social-icon" src="https://media.cdn.shivrajsinghchouhan.co.in/social-media-logo/instagram.png" alt="Instagram" style="width: 28px; height: 28px; border: 0;">
+                        <img class="social-icon" src="https://media.cdn.ashiwanikumar.in/social-media-logo/instagram.png" alt="Instagram" style="width: 28px; height: 28px; border: 0;">
                       </a>
                       <a href="https://www.youtube.com/@ChouhanShivraj" style="display: inline-block; margin: 0 10px;">
-                        <img class="social-icon" src="https://media.cdn.shivrajsinghchouhan.co.in/social-media-logo/Yt.png" alt="YouTube" style="width: 28px; height: 28px; border: 0;">
+                        <img class="social-icon" src="https://media.cdn.ashiwanikumar.in/social-media-logo/Yt.png" alt="YouTube" style="width: 28px; height: 28px; border: 0;">
                       </a>
                       <a href="https://www.linkedin.com/in/chouhanshivrajsingh/" style="display: inline-block; margin: 0 10px;">
-                        <img class="social-icon" src="https://media.cdn.shivrajsinghchouhan.co.in/social-media-logo/linkedin.png" alt="LinkedIn" style="width: 28px; height: 28px; border: 0;">
+                        <img class="social-icon" src="https://media.cdn.ashiwanikumar.in/social-media-logo/linkedin.png" alt="LinkedIn" style="width: 28px; height: 28px; border: 0;">
                       </a>
                     </div>
                     <p style="font-size: 14px; color: #6b7280; line-height: 1.4; margin: 0 0 8px 0;">
-                      © 2024 Netraga. All rights reserved.
+                      © 2024 Ashiwani Kumar. All rights reserved.
                     </p>
                     <p style="font-size: 14px; color: #6b7280; line-height: 1.4; margin: 0;">
                       This is an automated security notification.
@@ -894,7 +894,7 @@ exports.passwordChangeSuccessEmailTemplate = (user, changeInfo) => {
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <title>Password Successfully Changed - Netraga</title>
+  <title>Ashiwani Kumar</title>
   <style type="text/css">
     @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap');
     body, table, td, p, a, li, blockquote { -webkit-text-size-adjust: 100%; -ms-text-size-adjust: 100%; }
@@ -929,7 +929,7 @@ exports.passwordChangeSuccessEmailTemplate = (user, changeInfo) => {
                 <!-- Header -->
                 <tr>
                   <td style="background: linear-gradient(135deg, #002E6D 0%, #004080 50%, #FF9933 100%); padding: 38px 0 26px 0; text-align: center;">
-                    <img src="https://www.netraga.com/logo.png" alt="Netraga" style="width: 150px; height: auto; display: block; margin: 0 auto; border: 0;">
+                    <img src="https://ashiwanikumar.in/logo.png" alt="Ashiwani Kumar" style="width: 150px; height: auto; display: block; margin: 0 auto; border: 0;">
                   </td>
                 </tr>
                 <!-- Main Content -->
@@ -987,7 +987,7 @@ exports.passwordChangeSuccessEmailTemplate = (user, changeInfo) => {
                     </div>
                     <!-- Action Button -->
                     <div style="text-align: center; margin-bottom: 40px;">
-                      <a href="https://portal.shivrajsinghchouhan.co.in" class="action-btn" style="display: inline-block; background: linear-gradient(90deg, #002E6D 0%, #FF9933 100%); color: #fff; padding: 18px 44px; border-radius: 10px; text-decoration: none; font-size: 18px; font-weight: 700; letter-spacing: 0.5px; box-shadow: 0 2px 8px rgba(0,46,109,0.10); transition: background 0.2s;">Go to Dashboard</a>
+                      <a href="https://portal.ashiwanikumar.in" class="action-btn" style="display: inline-block; background: linear-gradient(90deg, #002E6D 0%, #FF9933 100%); color: #fff; padding: 18px 44px; border-radius: 10px; text-decoration: none; font-size: 18px; font-weight: 700; letter-spacing: 0.5px; box-shadow: 0 2px 8px rgba(0,46,109,0.10); transition: background 0.2s;">Go to Dashboard</a>
                     </div>
                     <!-- Security Tips -->
                     <div style="background: #fef3c7; border: 1px solid #f59e0b; border-radius: 10px; padding: 20px 20px 16px 20px; margin-bottom: 36px; display: flex; align-items: flex-start;">
@@ -1009,23 +1009,23 @@ exports.passwordChangeSuccessEmailTemplate = (user, changeInfo) => {
                     <!-- Social Icons -->
                     <div style="margin-bottom: 20px;">
                       <a href="https://www.facebook.com/ChouhanShivraj" style="display: inline-block; margin: 0 10px;">
-                        <img class="social-icon" src="https://media.cdn.shivrajsinghchouhan.co.in/social-media-logo/facebok.png" alt="Facebook" style="width: 28px; height: 28px; border: 0;">
+                        <img class="social-icon" src="https://media.cdn.ashiwanikumar.in/social-media-logo/facebok.png" alt="Facebook" style="width: 28px; height: 28px; border: 0;">
                       </a>
                       <a href="https://x.com/ChouhanShivraj" style="display: inline-block; margin: 0 10px;">
-                        <img class="social-icon" src="https://media.cdn.shivrajsinghchouhan.co.in/social-media-logo/twitter.png" alt="Twitter/X" style="width: 28px; height: 28px; border: 0;">
+                        <img class="social-icon" src="https://media.cdn.ashiwanikumar.in/social-media-logo/twitter.png" alt="Twitter/X" style="width: 28px; height: 28px; border: 0;">
                       </a>
                       <a href="https://www.instagram.com/chouhanshivrajsingh" style="display: inline-block; margin: 0 10px;">
-                        <img class="social-icon" src="https://media.cdn.shivrajsinghchouhan.co.in/social-media-logo/instagram.png" alt="Instagram" style="width: 28px; height: 28px; border: 0;">
+                        <img class="social-icon" src="https://media.cdn.ashiwanikumar.in/social-media-logo/instagram.png" alt="Instagram" style="width: 28px; height: 28px; border: 0;">
                       </a>
                       <a href="https://www.youtube.com/@ChouhanShivraj" style="display: inline-block; margin: 0 10px;">
-                        <img class="social-icon" src="https://media.cdn.shivrajsinghchouhan.co.in/social-media-logo/Yt.png" alt="YouTube" style="width: 28px; height: 28px; border: 0;">
+                        <img class="social-icon" src="https://media.cdn.ashiwanikumar.in/social-media-logo/Yt.png" alt="YouTube" style="width: 28px; height: 28px; border: 0;">
                       </a>
                       <a href="https://www.linkedin.com/in/chouhanshivrajsingh/" style="display: inline-block; margin: 0 10px;">
-                        <img class="social-icon" src="https://media.cdn.shivrajsinghchouhan.co.in/social-media-logo/linkedin.png" alt="LinkedIn" style="width: 28px; height: 28px; border: 0;">
+                        <img class="social-icon" src="https://media.cdn.ashiwanikumar.in/social-media-logo/linkedin.png" alt="LinkedIn" style="width: 28px; height: 28px; border: 0;">
                       </a>
                     </div>
                     <p style="font-size: 14px; color: #6b7280; line-height: 1.4; margin: 0 0 8px 0;">
-                      © 2024 Netraga. All rights reserved.
+                      © 2024 Ashiwani Kumar. All rights reserved.
                     </p>
                     <p style="font-size: 14px; color: #6b7280; line-height: 1.4; margin: 0;">
                       This is an automated security notification.
@@ -1060,7 +1060,7 @@ exports.teamInviteEmailTemplate = (invitedBy, teamName, inviteToken) => {
               <meta name="format-detection" content="address=no"/>
               <meta name="format-detection" content="telephone=no"/>
               <meta name="x-apple-disable-message-reformatting"/>
-              <title>You've been invited to join ${teamName} on Netraga</title>
+              <title>Ashiwani Kumar</title>
               <style type="text/css">
                   @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap');
                   
@@ -1288,7 +1288,7 @@ exports.teamInviteEmailTemplate = (invitedBy, teamName, inviteToken) => {
                       <table align="center" role="presentation" cellspacing="0" cellpadding="0" border="0" width="100%" style="margin: auto;">
                           <tr>
                               <td class="header-logo">
-                                  <img src="https://www.netraga.com/logo.png" width="180" alt="Netraga" border="0" style="height: auto; display: block; margin: auto;">
+                                  <img src="https://ashiwanikumar.in/logo.png" width="180" alt="Ashiwani Kumar" border="0" style="height: auto; display: block; margin: auto;">
                               </td>
                           </tr>
                           
@@ -1387,7 +1387,7 @@ exports.teamInviteEmailTemplate = (invitedBy, teamName, inviteToken) => {
                                                   
                                                   <p class="content-text primary-text animate-fade-in animation-delay-300" style="font-size: 18px; font-weight: 600;">You've been invited to join an AI revolution</p>
                                                   
-                                                  <p class="content-text secondary-text animate-fade-in animation-delay-300">You're invited to join <strong>${teamName}</strong> on Netraga, the platform where teams build custom AI agents that automate workflows 24/7, without coding skills required.</p>
+                                                  <p class="content-text secondary-text animate-fade-in animation-delay-300">You're invited to join <strong>${teamName}</strong> on Ashiwani Kumar Dashboard, the platform where teams build custom AI agents that automate workflows 24/7, without coding skills required.</p>
                                                   
                                                   <div class="feature-list animate-fade-in animation-delay-400">
                                                       <div class="feature-item">
@@ -1437,10 +1437,10 @@ exports.teamInviteEmailTemplate = (invitedBy, teamName, inviteToken) => {
                                                       }/account/team-invite?token=${inviteToken}
                                                   </p>
                                                   
-                                                  <p class="content-text secondary-text animate-fade-in animation-delay-600">If you have any questions or didn't expect this invitation, please contact <a href="mailto:support@netraga.com" style="color: #0010F7; text-decoration: none;">support@netraga.com</a>.</p>
+                                                  <p class="content-text secondary-text animate-fade-in animation-delay-600">If you have any questions or didn't expect this invitation, please contact <a href="mailto:hello@ashiwanikumar.in" style="color: #0010F7; text-decoration: none;">hello@ashiwanikumar.in</a>.</p>
                                                   
                                                   <p class="content-text primary-text animate-fade-in animation-delay-700" style="margin-bottom: 8px;">Looking forward to your collaboration,</p>
-                                                  <p class="content-text primary-text animate-fade-in animation-delay-700" style="margin-top: 0; font-weight: 600;">The Netraga Team</p>
+                                                  <p class="content-text primary-text animate-fade-in animation-delay-700" style="margin-top: 0; font-weight: 600;">Ashiwani Kumar</p>
                                               </div>
                                           </td>
                                       </tr>
@@ -1454,20 +1454,20 @@ exports.teamInviteEmailTemplate = (invitedBy, teamName, inviteToken) => {
                                       <tr>
                                           <td style="text-align: center; padding: 0 0 16px 0;">
                                               <div class="social-links">
-                                                  <a href="https://twitter.com/netraga" class="social-link"><img src="https://cdn-icons-png.flaticon.com/128/5969/5969020.png" width="32" height="32" alt="Twitter"></a>
-                                                  <a href="https://linkedin.com/company/netraga" class="social-link"><img src="https://cdn-icons-png.flaticon.com/128/3536/3536505.png" width="32" height="32" alt="LinkedIn"></a>
-                                                  <a href="https://facebook.com/netraga" class="social-link"><img src="https://cdn-icons-png.flaticon.com/128/5968/5968764.png" width="32" height="32" alt="Facebook"></a>
+                                                  <a href="https://twitter.com/ashiwanikumar" class="social-link"><img src="https://cdn-icons-png.flaticon.com/128/5969/5969020.png" width="32" height="32" alt="Twitter"></a>
+                                                  <a href="https://linkedin.com/in/ashiwanikumar" class="social-link"><img src="https://cdn-icons-png.flaticon.com/128/3536/3536505.png" width="32" height="32" alt="LinkedIn"></a>
+                                                  <a href="https://facebook.com/ashiwanikumar" class="social-link"><img src="https://cdn-icons-png.flaticon.com/128/5968/5968764.png" width="32" height="32" alt="Facebook"></a>
                                               </div>
                                           </td>
                                       </tr>
                                       <tr>
                                           <td style="text-align: center; padding: 0;">
-                                              <p class="footer-text" style="margin: 0 0 8px 0;">© ${new Date().getFullYear()} Netraga. All rights reserved.</p>
+                                              <p class="footer-text" style="margin: 0 0 8px 0;">© ${new Date().getFullYear()} Ashiwani Kumar. All rights reserved.</p>
                                               <p class="footer-text" style="margin: 0 0 8px 0;">Building the future of AI automation for businesses everywhere.</p>
                                               <p class="footer-text" style="margin: 0;">
-                                                  <a href="https://www.netraga.com/privacy-policy" style="color: #0010F7; text-decoration: none;">Privacy Policy</a> • 
-                                                  <a href="https://www.netraga.com/terms" style="color: #0010F7; text-decoration: none;">Terms of Service</a> • 
-                                                  <a href="https://www.netraga.com/contact" style="color: #0010F7; text-decoration: none;">Contact Us</a>
+                                                  <a href="https://ashiwanikumar.in/privacy-policy" style="color: #0010F7; text-decoration: none;">Privacy Policy</a> • 
+                                                  <a href="https://ashiwanikumar.in/terms" style="color: #0010F7; text-decoration: none;">Terms of Service</a> • 
+                                                  <a href="https://ashiwanikumar.in/contact" style="color: #0010F7; text-decoration: none;">Contact Us</a>
                                               </p>
                                           </td>
                                       </tr>

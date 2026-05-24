@@ -42,7 +42,7 @@ exports.newsletterConfirmationEmailTemplate = (subscriberData) => {
               <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
               <meta name="color-scheme" content="light dark">
               <meta name="supported-color-schemes" content="light dark">
-              <title>Newsletter Subscription Confirmed - Shivraj Singh Chouhan</title>
+              <title>Newsletter Subscription Confirmed - Ashiwani Kumar</title>
               <style type="text/css" rel="stylesheet" media="all">
                   @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap');
                   
@@ -346,7 +346,7 @@ exports.newsletterConfirmationEmailTemplate = (subscriberData) => {
                       <table align="center" role="presentation" cellspacing="0" cellpadding="0" border="0" width="100%" style="margin: auto;">
                           <tr>
                               <td class="header-logo animate-fade-in">
-                                  <img src="https://digisvc-prod.s3.us-east-1.amazonaws.com/logo/digisvc.png" width="180" alt="Shivraj Singh Chouhan - Union Minister" border="0" style="height: auto; display: block; margin: auto;">
+                                  <img src="https://ashiwanikumar.in/logo.png" width="180" alt="Ashiwani Kumar" border="0" style="height: auto; display: block; margin: auto;">
                               </td>
                           </tr>
                           
@@ -494,7 +494,7 @@ exports.newsletterConfirmationEmailTemplate = (subscriberData) => {
 
                                                   <div class="government-seal animate-fade-in animation-delay-400">
                                                       <div style="display: flex; align-items: center; justify-content: center; margin-bottom: 16px;">
-                                                          <img src="https://digisvc-prod.s3.us-east-1.amazonaws.com/logo/digisvc.png" width="50" height="50" alt="Government of India" style="margin-right: 12px;">
+                                                          <img src="https://ashiwanikumar.in/logo.png" width="50" height="50" alt="Government of India" style="margin-right: 12px;">
                                                           <div style="text-align: left;">
                                                               <p style="margin: 0; font-weight: 700; color: #ea580c; font-size: 16px;">भारत सरकार</p>
                                                               <p style="margin: 0; font-size: 14px; color: #374151;">कृषि मंत्रालय</p>
@@ -544,7 +544,7 @@ exports.newsletterConfirmationEmailTemplate = (subscriberData) => {
                                                   </div>
                                                   
                                                   <div style="text-align: center; margin: 32px 0;" class="animate-fade-in animate-pulse animation-delay-700">
-                                                      <a href="https://shivrajsinghchouhan.co.in" class="primary-button gradient-animated">और जानें & वेबसाइट देखें</a>
+                                                      <a href="https://ashiwanikumar.in" class="primary-button gradient-animated">और जानें & वेबसाइट देखें</a>
                                                   </div>
                                                   
                                                   <div class="highlight-box animate-fade-in animation-delay-800">
@@ -562,7 +562,7 @@ exports.newsletterConfirmationEmailTemplate = (subscriberData) => {
                                                   <div style="text-align: center; margin: 32px 0; padding: 20px; background: linear-gradient(135deg, #fff7ed, #ffedd5); border-radius: 12px;" class="animate-fade-in animation-delay-900">
                                                       <p style="margin: 0 0 8px 0; font-weight: 600; color: #ea580c;">संपर्क जानकारी | Contact Information</p>
                                                       <p style="margin: 0; font-size: 14px; color: #374151;">कृषि मंत्रालय, भारत सरकार - 110001</p>
-                                                      <p style="margin: 4px 0 0 0; font-size: 14px; color: #374151;">फोन: +91-11-23382651 | ईमेल: info@shivrajsinghchouhan.co.in</p>
+                                                      <p style="margin: 4px 0 0 0; font-size: 14px; color: #374151;">फोन: +91-11-23382651 | ईमेल: info@ashiwanikumar.in</p>
                                                   </div>
                                                   
                                                   <p class="content-text primary-text animate-fade-in animation-delay-1000" style="margin: 32px 0 8px 0;">शुभकामनाएँ,</p>
@@ -601,9 +601,9 @@ exports.newsletterConfirmationEmailTemplate = (subscriberData) => {
                                               <p class="footer-text" style="margin: 0 0 8px 0;">© ${new Date().getFullYear()} भारत सरकार | Government of India. सर्वाधिकार सुरक्षित।</p>
                                               <p class="footer-text" style="margin: 0 0 8px 0;">कृषि मंत्रालय | Ministry of Agriculture & Farmers Welfare</p>
                                               <p class="footer-text" style="margin: 0;">
-                                                  <a href="https://shivrajsinghchouhan.co.in/privacy-policy" style="color: #ea580c; text-decoration: none;">प्राइवेसी पॉलिसी</a> " 
-                                                  <a href="https://shivrajsinghchouhan.co.in/terms-service" style="color: #ea580c; text-decoration: none;">नियम एवं शर्तें</a> " 
-                                                  <a href="https://shivrajsinghchouhan.co.in/contact" style="color: #ea580c; text-decoration: none;">संपर्क करें</a>
+                                                  <a href="https://ashiwanikumar.in/privacy-policy" style="color: #ea580c; text-decoration: none;">प्राइवेसी पॉलिसी</a> " 
+                                                  <a href="https://ashiwanikumar.in/terms-service" style="color: #ea580c; text-decoration: none;">नियम एवं शर्तें</a> " 
+                                                  <a href="https://ashiwanikumar.in/contact" style="color: #ea580c; text-decoration: none;">संपर्क करें</a>
                                               </p>
                                           </td>
                                       </tr>
@@ -666,7 +666,7 @@ exports.newsletterWelcomeSeriesEmailTemplate = (
       <body>
         <div class="container">
           <div class="header">
-            <img src="https://digisvc-prod.s3.us-east-1.amazonaws.com/logo/digisvc.png" width="180" alt="Shivraj Singh Chouhan">
+            <img src="https://ashiwanikumar.in/logo.png" width="180" alt="Ashiwani Kumar">
           </div>
           <div class="content">
             <h2 style="color: #ea580c;">${content.subject}</h2>
@@ -695,7 +695,7 @@ exports.newsletterUnsubscribeEmailTemplate = (subscriberData) => {
           <head>
               <meta charset="utf-8">
               <meta name="viewport" content="width=device-width, initial-scale=1.0">
-              <title>Newsletter Unsubscribed - Shivraj Singh Chouhan</title>
+              <title>Newsletter Unsubscribed - Ashiwani Kumar</title>
               <style type="text/css">
                   body { font-family: Arial, sans-serif; background-color: #fff7ed; }
                   .container { max-width: 600px; margin: 0 auto; background: white; padding: 40px; }
@@ -707,7 +707,7 @@ exports.newsletterUnsubscribeEmailTemplate = (subscriberData) => {
           <body>
               <div class="container">
                   <div class="header">
-                      <img src="https://digisvc-prod.s3.us-east-1.amazonaws.com/logo/digisvc.png" width="180" alt="Shivraj Singh Chouhan">
+                      <img src="https://ashiwanikumar.in/logo.png" width="180" alt="Ashiwani Kumar">
                   </div>
                   <div class="content">
                       <h2 style="color: #ea580c;">न्यूज़लेटर सदस्यता समाप्त</h2>

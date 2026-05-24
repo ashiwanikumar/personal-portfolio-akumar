@@ -94,7 +94,7 @@ const blogScheduleNotificationEmailTemplate = (blog, scheduleData) => {
           <tr>
             <td align="center" style="padding: 20px 0;">
               <h1 style="margin: 0; font-family: 'Inter', Arial, sans-serif; font-size: 32px; font-weight: 700; background: linear-gradient(135deg, #3B82F6 0%, #2563EB 100%); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text;">
-                Shivraj Singh Chouhan
+                Ashiwani Kumar
               </h1>
             </td>
           </tr>
@@ -226,7 +226,7 @@ const blogScheduleNotificationEmailTemplate = (blog, scheduleData) => {
                   <td align="center" style="padding-bottom: 20px;">
                     <p style="margin: 0; font-family: 'Inter', Arial, sans-serif; font-size: 12px; color: #6b7280; line-height: 1.6;">
                       This is an automated notification from the Blog Management System.<br>
-                      © ${new Date().getFullYear()} Shivraj Singh Chouhan. All rights reserved.
+                      © ${new Date().getFullYear()} Ashiwani Kumar. All rights reserved.
                     </p>
                   </td>
                 </tr>
@@ -326,7 +326,7 @@ const blogPublicationConfirmationEmailTemplate = (blog, publicationData = {}) =>
           <tr>
             <td align="center" style="padding: 20px 0;">
               <h1 style="margin: 0; font-family: 'Inter', Arial, sans-serif; font-size: 32px; font-weight: 700; background: linear-gradient(135deg, #10B981 0%, #059669 100%); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text;">
-                Shivraj Singh Chouhan
+                Ashiwani Kumar
               </h1>
             </td>
           </tr>
@@ -462,7 +462,7 @@ const blogPublicationConfirmationEmailTemplate = (blog, publicationData = {}) =>
                   <td align="center" style="padding-bottom: 20px;">
                     <p style="margin: 0; font-family: 'Inter', Arial, sans-serif; font-size: 12px; color: #6b7280; line-height: 1.6;">
                       This is an automated notification from the Blog Management System.<br>
-                      © ${new Date().getFullYear()} Shivraj Singh Chouhan. All rights reserved.
+                      © ${new Date().getFullYear()} Ashiwani Kumar. All rights reserved.
                     </p>
                   </td>
                 </tr>

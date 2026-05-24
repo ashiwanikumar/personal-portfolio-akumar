@@ -6,11 +6,13 @@ const mongoose = require("mongoose");
 const http = require("http");
 const cluster = require("cluster");
 const numCPUs = require("os").cpus().length;
+const logger = require("./src/utils/logger");
 
 // Port
 const PORT = process.env.API_PORT;
 const useCluster =
-  process.env.NODE_ENV === "production" && process.env.ENABLE_CLUSTER === "true";
+  process.env.NODE_ENV === "production" &&
+  process.env.ENABLE_CLUSTER === "true";
 
 if (!PORT) {
   throw new Error("API_PORT NOT SET!");
@@ -21,62 +23,134 @@ if (!process.env.ATLAS_URI) {
   throw new Error("MONGO URI NOT SET!");
 }
 
-// db
+// ---------------------------------------------------------------------------
+// Database connection
+// ---------------------------------------------------------------------------
+const mongoURI = process.env.ATLAS_URI;
+
+console.log(
+  "Connecting to MongoDB:",
+  mongoURI.replace(/\/\/([^:]+):([^@]+)@/, "//$1:****@")
+);
+
 mongoose
-  .connect(process.env.ATLAS_URI, {
+  .connect(mongoURI, {
     useNewUrlParser: true,
     useCreateIndex: true,
     useFindAndModify: false,
     useUnifiedTopology: true,
   })
-  .then(() => console.log("Connected to MongoDB"))
-  .catch((err) => console.log(`DB connection error - ${err}`));
+  .then(() => {
+    const dbName = mongoose.connection.db.databaseName;
+    console.log(
+      `MongoDB connected successfully to database: ${dbName}`
+    );
+  })
+  .catch((err) => {
+    console.error(`DB connection error - ${err.message}`);
+    console.error("Full error:", err);
+    process.exit(1);
+  });
 
+// MongoDB connection event listeners
+mongoose.connection.on("disconnected", () => {
+  logger.warn("[DB] MongoDB disconnected");
+});
+mongoose.connection.on("reconnected", () => {
+  logger.info("[DB] MongoDB reconnected");
+});
+mongoose.connection.on("error", (err) => {
+  logger.error(`[DB] MongoDB error: ${err.message}`);
+});
+
+// ---------------------------------------------------------------------------
+// Server startup
+// ---------------------------------------------------------------------------
 let server;
 function startServer() {
   server = http.createServer(app);
-  server.listen(PORT, () => console.log(`Server running on port ${PORT}`));
+  server.listen(PORT, () => {
+    console.log(`Server running on port ${PORT}`);
+
+    // ─── Cron Jobs / Schedulers ─────────────────────────────────────────
+    const runCrons =
+      process.env.NODE_ENV === "production" ||
+      process.env.ENABLE_CRONS === "true";
+
+    if (!runCrons) {
+      console.log(
+        `\n  ⏸  Cron jobs DISABLED (NODE_ENV=${process.env.NODE_ENV || "development"})`
+      );
+      console.log(`     Set ENABLE_CRONS=true in .env to test locally.\n`);
+    } else {
+      console.log(`\n  ▶  Starting cron jobs...\n`);
+
+      function safeStart(name, fn) {
+        try {
+          fn();
+          console.log(`  ✓ ${name}`);
+        } catch (err) {
+          console.error(`  ✗ ${name} — FAILED: ${err.message}`);
+          logger.error(`[CronInit] ${name} failed: ${err.message}`);
+        }
+      }
+
+      safeStart("Blog Scheduler: Running", () => {
+        const blogCronJobs = require("./src/services/blog/blogCronJobs");
+        blogCronJobs.initializeCronJobs();
+      });
+    }
+
+    logger.info("──────────────────────────────────────────────");
+    logger.info(`[Server] Netraga API ready on port ${PORT}`);
+    logger.info(
+      `[Server] Environment: ${process.env.NODE_ENV || "development"}`
+    );
+    logger.info(`[Server] PID: ${process.pid}`);
+    logger.info(`[Server] Node: ${process.version}`);
+    logger.info("──────────────────────────────────────────────");
+  });
 }
 
 // Server
 if (useCluster && cluster.isMaster) {
-  console.log(`Number of CPUs is ${numCPUs}`);
-  console.error(`Node cluster master ${process.pid} is running`);
+  logger.info(`[Cluster] CPUs: ${numCPUs}, forking workers...`);
 
-  // Fork workers.
   for (let i = 0; i < numCPUs; i++) {
     cluster.fork({ WORKER_ID: i });
   }
 
   cluster.on("exit", (worker, code, signal) => {
-    console.error(
-      `Node cluster worker ${worker.process.pid} exited: code ${code}, signal ${signal}`
+    logger.error(
+      `[Cluster] Worker ${worker.process.pid} exited: code ${code}, signal ${signal}`
     );
   });
 } else {
   startServer();
 }
 
+// ---------------------------------------------------------------------------
 // Graceful shutdown
+// ---------------------------------------------------------------------------
 process.on("SIGTERM", async () => {
-  console.log("SIGTERM signal received: closing HTTP server");
+  logger.info("[Shutdown] SIGTERM received: closing HTTP server");
   if (server) {
     server.close(async () => {
-      console.log("HTTP server closed");
+      logger.info("[Shutdown] HTTP server closed");
       await mongoose.connection.close();
-      console.log("MongoDB connection closed");
+      logger.info("[Shutdown] MongoDB connection closed");
       process.exit(0);
     });
   }
 });
 
 process.on("SIGINT", async () => {
-  console.log("SIGINT signal received: closing HTTP server");
+  logger.info("[Shutdown] SIGINT received: closing HTTP server");
   if (server) {
     server.close(async () => {
-      console.log("HTTP server closed");
+      logger.info("[Shutdown] HTTP server closed");
       await mongoose.connection.close();
-      console.log("MongoDB connection closed");
+      logger.info("[Shutdown] MongoDB connection closed");
       process.exit(0);
     });
   }

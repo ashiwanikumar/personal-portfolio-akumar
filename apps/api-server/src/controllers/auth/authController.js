@@ -13,7 +13,7 @@ const LoginActivity = require("@models/user/loginActivity");
 const UserService = require("@services/user/userService");
 const SuperAdminService = require("@services/user/superAdminService");
 const MarketingAdminService = require("@services/user/marketingAdminService");
-// Gamification services removed for template simplicity
+const { requestOtp, verifyOtp } = require("@services/auth/otpService");
 
 // ** UTILS ** //
 const { logger } = require("@utils/logger");
@@ -1374,6 +1374,85 @@ exports.refreshToken = async (req, res) => {
           message: "Internal server error",
         },
       ],
+    });
+  }
+};
+
+/**********************************
+  OTP Request - Send OTP to email
+***********************************/
+exports.otpRequest = async (req, res) => {
+  try {
+    const { email } = req.body;
+
+    if (!email) {
+      return res.status(400).json({ message: "Email is required." });
+    }
+
+    const ipAddress = req.headers["cf-connecting-ip"] || req.headers["x-real-ip"] || req.ip;
+    const userAgent = req.headers["user-agent"] || "";
+
+    const result = await requestOtp(email, ipAddress, userAgent);
+
+    return res.status(200).json({
+      success: true,
+      message: result.message,
+    });
+  } catch (error) {
+    console.error("OTP request error:", error);
+    return res.status(500).json({
+      message: "Failed to process OTP request.",
+    });
+  }
+};
+
+/**********************************
+  OTP Verify - Verify OTP and login
+***********************************/
+exports.otpVerify = async (req, res) => {
+  try {
+    const { email, otp } = req.body;
+
+    if (!email || !otp) {
+      return res.status(400).json({ message: "Email and OTP are required." });
+    }
+
+    if (String(otp).length !== 6) {
+      return res.status(400).json({ message: "OTP must be 6 digits." });
+    }
+
+    const user = await verifyOtp(email, otp);
+
+    // Generate tokens (same pattern as regular login)
+    const userObjectData = User.toClientObject(user);
+    const idObject = { _id: userObjectData._id };
+
+    const accessToken = jwt.sign(idObject, process.env.JWT_ACCESS_SECRET, {
+      expiresIn: process.env.JWT_ACCESS_TOKEN_TTL,
+    });
+
+    const refreshToken = jwt.sign(idObject, process.env.JWT_REFRESH_SECRET, {
+      expiresIn: "1y",
+    });
+
+    res.cookie("refreshToken", refreshToken, {
+      httpOnly: true,
+      path: "/",
+      maxAge: 30 * 24 * 60 * 60 * 1000,
+    });
+
+    console.log(`OTP login successful for: ${email}`);
+
+    return res.status(200).json({
+      success: true,
+      message: "Login successful.",
+      accessToken,
+      user: userObjectData,
+    });
+  } catch (error) {
+    console.error("OTP verify error:", error.message);
+    return res.status(401).json({
+      message: error.message || "OTP verification failed.",
     });
   }
 };

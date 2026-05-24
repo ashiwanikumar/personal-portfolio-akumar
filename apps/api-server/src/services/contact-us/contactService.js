@@ -744,7 +744,11 @@ class ContactService {
         throw new ContactError("Category is required", 400);
       }
 
-      const validCategories = ["services", "feedback", "analyst"];
+      const validCategories = [
+        "services", "feedback", "analyst",
+        "devops-consulting", "cloud-infrastructure", "kubernetes",
+        "ci-cd", "other",
+      ];
       if (!validCategories.includes(contactData.category.id)) {
         throw new ContactError("Invalid category", 400);
       }
@@ -754,6 +758,11 @@ class ContactService {
         services: "Services Inquiry",
         feedback: "General Feedback",
         analyst: "Analyst Relations",
+        "devops-consulting": "DevOps Consulting",
+        "cloud-infrastructure": "Cloud Infrastructure",
+        kubernetes: "Kubernetes / OpenShift",
+        "ci-cd": "CI/CD Automation",
+        other: "Other",
       };
 
       // Create the contact document

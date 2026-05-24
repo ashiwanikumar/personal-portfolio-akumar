@@ -39,7 +39,7 @@ exports.blogApprovalNotificationEmailTemplate = (blogData, approvalData = {}) =>
               <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
               <meta name="color-scheme" content="light dark">
               <meta name="supported-color-schemes" content="light dark">
-              <title>Blog ${statusInfo.title} - Shivraj Singh Chouhan</title>
+              <title>Blog ${statusInfo.title} - Ashiwani Kumar</title>
               <style type="text/css" rel="stylesheet" media="all">
                   @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap');
                   
@@ -297,7 +297,7 @@ exports.blogApprovalNotificationEmailTemplate = (blogData, approvalData = {}) =>
           </head>
           <body>
               <div class="header-logo">
-                  <img src="https://sschouhan.com/img/logo/sschouhan.png" alt="Shivraj Singh Chouhan" style="height: 60px;">
+                  <img src="https://ashiwanikumar.in/logo.png" alt="Ashiwani Kumar" style="height: 60px;">
               </div>
               
               <div class="content-container">
@@ -441,7 +441,7 @@ exports.blogApprovalNotificationEmailTemplate = (blogData, approvalData = {}) =>
                   <div class="footer-section">
                       <h4 class="footer-title">Blog Management System</h4>
                       <p class="footer-text">
-                          Shivraj Singh Chouhan Official Website<br>
+                          Ashiwani Kumar<br>
                           Content Management & Approval System
                       </p>
                   </div>
@@ -450,7 +450,7 @@ exports.blogApprovalNotificationEmailTemplate = (blogData, approvalData = {}) =>
               <div style="text-align: center; padding: 24px; color: #6b7280; font-size: 12px;">
                   <p style="margin: 0;">
                       This is an automated blog approval notification.<br>
-                      For technical support, contact: tech-support@sschouhan.com
+                      For technical support, contact: hello@ashiwanikumar.in
                   </p>
               </div>
           </body>
@@ -652,7 +652,7 @@ exports.blogStatusUpdateEmailTemplate = (blogData, statusData = {}) => {
           </head>
           <body>
               <div class="header-logo">
-                  <img src="https://sschouhan.com/img/logo/sschouhan.png" alt="Shivraj Singh Chouhan" style="height: 60px;">
+                  <img src="https://ashiwanikumar.in/logo.png" alt="Ashiwani Kumar" style="height: 60px;">
               </div>
               
               <div class="content-container">
@@ -750,7 +750,7 @@ exports.blogStatusUpdateEmailTemplate = (blogData, statusData = {}) => {
                           Blog Management System
                       </h4>
                       <p style="color: #6b7280; font-size: 14px; line-height: 20px; margin: 0;">
-                          Shivraj Singh Chouhan Official Website<br>
+                          Ashiwani Kumar<br>
                           Content Management System
                       </p>
                   </div>
@@ -759,7 +759,7 @@ exports.blogStatusUpdateEmailTemplate = (blogData, statusData = {}) => {
               <div style="text-align: center; padding: 24px; color: #6b7280; font-size: 12px;">
                   <p style="margin: 0;">
                       This is an automated blog status notification.<br>
-                      For questions, contact: support@sschouhan.com
+                      For questions, contact: hello@ashiwanikumar.in
                   </p>
               </div>
           </body>
@@ -810,7 +810,7 @@ exports.blogApprovedWithScheduleEmailTemplate = (blog, statusData = {}) => {
           <tr>
             <td align="center" style="padding: 20px 0;">
               <h1 style="margin: 0; font-family: 'Inter', Arial, sans-serif; font-size: 32px; font-weight: 700; background: linear-gradient(135deg, #10B981 0%, #3B82F6 100%); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text;">
-                Shivraj Singh Chouhan
+                Ashiwani Kumar
               </h1>
             </td>
           </tr>
@@ -893,7 +893,7 @@ exports.blogApprovedWithScheduleEmailTemplate = (blog, statusData = {}) => {
             <td style="padding: 30px 20px; text-align: center;">
               <p style="margin: 0; font-family: 'Inter', Arial, sans-serif; font-size: 12px; color: #6b7280; line-height: 1.6;">
                 This is an automated notification from the Blog Management System.<br>
-                © ${new Date().getFullYear()} Shivraj Singh Chouhan. All rights reserved.
+                © ${new Date().getFullYear()} Ashiwani Kumar. All rights reserved.
               </p>
             </td>
           </tr>

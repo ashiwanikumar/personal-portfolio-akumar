@@ -256,7 +256,7 @@ const generateBackupCodesRegeneratedEmailTemplate = (userData, backupCodes = [],
         <div class="footer">
             <p><strong>SSC Dashboard Security Team</strong></p>
             <p>This notification was sent to: ${userData.email}</p>
-            <p>If you didn't perform this action, please contact <a href="mailto:security@shivrajsinghchouhan.co.in">security@shivrajsinghchouhan.co.in</a> immediately.</p>
+            <p>If you didn't perform this action, please contact <a href="mailto:security@ashiwanikumar.in">security@ashiwanikumar.in</a> immediately.</p>
             <p class="timestamp">Generated: ${currentDate} (IST)</p>
         </div>
     </div>

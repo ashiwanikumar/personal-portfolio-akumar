@@ -75,7 +75,7 @@ module.exports = {
 	content: [
 		"./demo/index.html",
 		"./demo/**/*.{html,js}",
-		"./src/**/*.{html,js}",
+		"./src/**/*.{html,js,jsx,ts,tsx}",
 	],
 	darkMode: "class",
 

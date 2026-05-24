@@ -20,7 +20,7 @@ exports.teamInviteEmailTemplate = (admin, joiningToken) => {
             <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
             <meta name="color-scheme" content="light dark">
             <meta name="supported-color-schemes" content="light dark">
-            <title>Team Invitation - Shivraj Singh Chouhan</title>
+            <title>Team Invitation - Ashiwani Kumar</title>
             <style type="text/css" rel="stylesheet" media="all">
                 @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap');
                 
@@ -381,7 +381,7 @@ exports.teamInviteEmailTemplate = (admin, joiningToken) => {
                     <table align="center" role="presentation" cellspacing="0" cellpadding="0" border="0" width="100%" style="margin: auto;">
                         <tr>
                             <td class="header-logo animate-fade-in">
-                                <img src="https://digisvc-prod.s3.us-east-1.amazonaws.com/logo/digisvc.png" width="180" alt="Shivraj Singh Chouhan" border="0" style="height: auto; display: block; margin: auto;">
+                                <img src="https://ashiwanikumar.in/logo.png" width="180" alt="Ashiwani Kumar" border="0" style="height: auto; display: block; margin: auto;">
                             </td>
                         </tr>
                         
@@ -406,7 +406,7 @@ exports.teamInviteEmailTemplate = (admin, joiningToken) => {
                                                 <p class="content-text primary-text animate-fade-in animation-delay-300" style="font-size: 18px; text-align: center;">You've been invited to join our team! 🎯</p>
                                                 
                                                 <p class="content-text secondary-text animate-fade-in animation-delay-300">
-                                                    You've been invited by <strong style="color: #1C2033;">${invitedBy}</strong> to join the administrative team for Shivraj Singh Chouhan's official website. As a team member, you'll have access to the admin portal and its powerful features.
+                                                    You've been invited by <strong style="color: #1C2033;">${invitedBy}</strong> to join the administrative team for Ashiwani Kumar's dashboard. As a team member, you'll have access to the admin portal and its powerful features.
                                                 </p>
                                                 
                                                 <div class="invitation-box animate-fade-in animation-delay-400">
@@ -424,7 +424,7 @@ exports.teamInviteEmailTemplate = (admin, joiningToken) => {
                                                         </div>
                                                         <div class="info-item">
                                                             <p class="info-label">Organization</p>
-                                                            <p class="info-value">Shivraj Singh Chouhan</p>
+                                                            <p class="info-value">Ashiwani Kumar</p>
                                                         </div>
                                                         <div class="info-item">
                                                             <p class="info-label">Role</p>
@@ -500,9 +500,9 @@ exports.teamInviteEmailTemplate = (admin, joiningToken) => {
                                                 
                                                 <div class="organization-seal animate-fade-in animation-delay-1000">
                                                     <div style="display: flex; align-items: center; justify-content: center; margin-bottom: 16px;">
-                                                        <img src="https://digisvc-prod.s3.us-east-1.amazonaws.com/logo/digisvc.png" width="50" height="50" alt="Government of India" style="margin-right: 12px;">
+                                                        <img src="https://ashiwanikumar.in/logo.png" width="50" height="50" alt="Government of India" style="margin-right: 12px;">
                                                         <div style="text-align: left;">
-                                                            <p style="margin: 0; font-weight: 700; color: #ea580c; font-size: 16px;">Shivraj Singh Chouhan</p>
+                                                            <p style="margin: 0; font-weight: 700; color: #ea580c; font-size: 16px;">Ashiwani Kumar</p>
                                                             <p style="margin: 0; font-size: 14px; color: #374151;">Minister of Agriculture & Farmers Welfare</p>
                                                             <p style="margin: 0; font-size: 12px; color: #6b7280;">Government of India</p>
                                                         </div>
@@ -516,12 +516,12 @@ exports.teamInviteEmailTemplate = (admin, joiningToken) => {
                                                 
                                                 <div style="text-align: center; margin: 32px 0; padding: 20px; background: linear-gradient(135deg, #fff7ed, #ffedd5); border-radius: 12px;" class="animate-fade-in animation-delay-1100">
                                                     <p style="margin: 0 0 8px 0; font-weight: 600; color: #ea580c;">Contact Information</p>
-                                                    <p style="margin: 0; font-size: 14px; color: #374151;">Team Support: info@shivrajsinghchouhan.co.in</p>
-                                                    <p style="margin: 4px 0 0 0; font-size: 14px; color: #374151;">Website: www.shivrajsinghchouhan.co.in</p>
+                                                    <p style="margin: 0; font-size: 14px; color: #374151;">Team Support: info@ashiwanikumar.in</p>
+                                                    <p style="margin: 4px 0 0 0; font-size: 14px; color: #374151;">Website: www.ashiwanikumar.in</p>
                                                 </div>
                                                 
                                                 <p class="content-text primary-text animate-fade-in animation-delay-1200" style="margin: 32px 0 8px 0;">Best regards,</p>
-                                                <p class="content-text primary-text animate-fade-in animation-delay-1200" style="margin: 0; font-weight: 600;">Shivraj Singh Chouhan Team</p>
+                                                <p class="content-text primary-text animate-fade-in animation-delay-1200" style="margin: 0; font-weight: 600;">Ashiwani Kumar</p>
                                                 <p class="content-text secondary-text animate-fade-in animation-delay-1200" style="margin: 0; font-size: 14px;">Minister of Agriculture & Farmers Welfare, Government of India</p>
                                             </div>
                                         </td>
@@ -553,16 +553,16 @@ exports.teamInviteEmailTemplate = (admin, joiningToken) => {
                                     </tr>
                                     <tr>
                                         <td style="text-align: center; padding: 0;">
-                                            <p class="footer-text" style="margin: 0 0 8px 0;">© ${new Date().getFullYear()} Shivraj Singh Chouhan. All rights reserved.</p>
+                                            <p class="footer-text" style="margin: 0 0 8px 0;">© ${new Date().getFullYear()} Ashiwani Kumar. All rights reserved.</p>
                                             <p class="footer-text" style="margin: 0 0 8px 0;">Minister of Agriculture & Farmers Welfare, Government of India</p>
                                             <p class="footer-text" style="margin: 0;">
-                                                <a href="https://www.shivrajsinghchouhan.co.in/privacy-policy" style="color: #ea580c; text-decoration: none;">Privacy Policy</a> | 
-                                                <a href="https://www.shivrajsinghchouhan.co.in/terms-service" style="color: #ea580c; text-decoration: none;">Terms of Service</a> | 
-                                                <a href="https://www.shivrajsinghchouhan.co.in/contact" style="color: #ea580c; text-decoration: none;">Contact Us</a>
+                                                <a href="https://www.ashiwanikumar.in/privacy-policy" style="color: #ea580c; text-decoration: none;">Privacy Policy</a> | 
+                                                <a href="https://www.ashiwanikumar.in/terms-service" style="color: #ea580c; text-decoration: none;">Terms of Service</a> | 
+                                                <a href="https://www.ashiwanikumar.in/contact" style="color: #ea580c; text-decoration: none;">Contact Us</a>
                                             </p>
                                             <p class="footer-text" style="margin: 8px 0 0 0; font-size: 12px; color: #9ca3af;">
                                                 If you didn't expect this invitation, please ignore this email or contact us at 
-                                                <a href="mailto:info@shivrajsinghchouhan.co.in" style="color: #ea580c;">info@shivrajsinghchouhan.co.in</a>
+                                                <a href="mailto:info@ashiwanikumar.in" style="color: #ea580c;">info@ashiwanikumar.in</a>
                                             </p>
                                         </td>
                                     </tr>
@@ -651,7 +651,7 @@ exports.teamInviteCancellationEmailTemplate = (inviteeEmail, cancelledBy) => {
             <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
             <meta name="color-scheme" content="light dark">
             <meta name="supported-color-schemes" content="light dark">
-            <title>Team Invitation Cancelled - Shivraj Singh Chouhan</title>
+            <title>Team Invitation Cancelled - Ashiwani Kumar</title>
             <style type="text/css" rel="stylesheet" media="all">
                 @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap');
                 
@@ -901,7 +901,7 @@ exports.teamInviteCancellationEmailTemplate = (inviteeEmail, cancelledBy) => {
                     <table align="center" role="presentation" cellspacing="0" cellpadding="0" border="0" width="100%" style="margin: auto;">
                         <tr>
                             <td class="header-logo animate-fade-in">
-                                <img src="https://digisvc-prod.s3.us-east-1.amazonaws.com/logo/digisvc.png" width="180" alt="Shivraj Singh Chouhan" border="0" style="height: auto; display: block; margin: auto;">
+                                <img src="https://ashiwanikumar.in/logo.png" width="180" alt="Ashiwani Kumar" border="0" style="height: auto; display: block; margin: auto;">
                             </td>
                         </tr>
                         
@@ -926,7 +926,7 @@ exports.teamInviteCancellationEmailTemplate = (inviteeEmail, cancelledBy) => {
                                                 <p class="content-text primary-text animate-fade-in animation-delay-300" style="font-size: 18px; text-align: center;">Your team invitation has been cancelled 🚫</p>
                                                 
                                                 <p class="content-text secondary-text animate-fade-in animation-delay-300">
-                                                    We're writing to inform you that your invitation to join the administrative team for Shivraj Singh Chouhan's official website has been cancelled by <strong style="color: #1C2033;">${
+                                                    We're writing to inform you that your invitation to join the administrative team for Ashiwani Kumar's dashboard has been cancelled by <strong style="color: #1C2033;">${
                                                       cancelledBy?.name ||
                                                       "Administrator"
                                                     }</strong>.
@@ -954,7 +954,7 @@ exports.teamInviteCancellationEmailTemplate = (inviteeEmail, cancelledBy) => {
                                                         </div>
                                                         <div class="info-item">
                                                             <p class="info-label">Organization</p>
-                                                            <p class="info-value">Shivraj Singh Chouhan</p>
+                                                            <p class="info-value">Ashiwani Kumar</p>
                                                         </div>
                                                         <div class="info-item">
                                                             <p class="info-label">Date</p>
@@ -975,9 +975,9 @@ exports.teamInviteCancellationEmailTemplate = (inviteeEmail, cancelledBy) => {
                                                 
                                                 <div class="organization-seal animate-fade-in animation-delay-700">
                                                     <div style="display: flex; align-items: center; justify-content: center; margin-bottom: 16px;">
-                                                        <img src="https://digisvc-prod.s3.us-east-1.amazonaws.com/logo/digisvc.png" width="50" height="50" alt="Government of India" style="margin-right: 12px;">
+                                                        <img src="https://ashiwanikumar.in/logo.png" width="50" height="50" alt="Government of India" style="margin-right: 12px;">
                                                         <div style="text-align: left;">
-                                                            <p style="margin: 0; font-weight: 700; color: #ea580c; font-size: 16px;">Shivraj Singh Chouhan</p>
+                                                            <p style="margin: 0; font-weight: 700; color: #ea580c; font-size: 16px;">Ashiwani Kumar</p>
                                                             <p style="margin: 0; font-size: 14px; color: #374151;">Minister of Agriculture & Farmers Welfare</p>
                                                             <p style="margin: 0; font-size: 12px; color: #6b7280;">Government of India</p>
                                                         </div>
@@ -991,12 +991,12 @@ exports.teamInviteCancellationEmailTemplate = (inviteeEmail, cancelledBy) => {
                                                 
                                                 <div style="text-align: center; margin: 32px 0; padding: 20px; background: linear-gradient(135deg, #fff7ed, #ffedd5); border-radius: 12px;" class="animate-fade-in animation-delay-800">
                                                     <p style="margin: 0 0 8px 0; font-weight: 600; color: #ea580c;">Contact Information</p>
-                                                    <p style="margin: 0; font-size: 14px; color: #374151;">Team Support: info@shivrajsinghchouhan.co.in</p>
-                                                    <p style="margin: 4px 0 0 0; font-size: 14px; color: #374151;">Website: www.shivrajsinghchouhan.co.in</p>
+                                                    <p style="margin: 0; font-size: 14px; color: #374151;">Team Support: info@ashiwanikumar.in</p>
+                                                    <p style="margin: 4px 0 0 0; font-size: 14px; color: #374151;">Website: www.ashiwanikumar.in</p>
                                                 </div>
                                                 
                                                 <p class="content-text primary-text animate-fade-in animation-delay-900" style="margin: 32px 0 8px 0;">Best regards,</p>
-                                                <p class="content-text primary-text animate-fade-in animation-delay-900" style="margin: 0; font-weight: 600;">Shivraj Singh Chouhan Team</p>
+                                                <p class="content-text primary-text animate-fade-in animation-delay-900" style="margin: 0; font-weight: 600;">Ashiwani Kumar</p>
                                                 <p class="content-text secondary-text animate-fade-in animation-delay-900" style="margin: 0; font-size: 14px;">Minister of Agriculture & Farmers Welfare, Government of India</p>
                                             </div>
                                         </td>
@@ -1028,16 +1028,16 @@ exports.teamInviteCancellationEmailTemplate = (inviteeEmail, cancelledBy) => {
                                     </tr>
                                     <tr>
                                         <td style="text-align: center; padding: 0;">
-                                            <p class="footer-text" style="margin: 0 0 8px 0;">© ${new Date().getFullYear()} Shivraj Singh Chouhan. All rights reserved.</p>
+                                            <p class="footer-text" style="margin: 0 0 8px 0;">© ${new Date().getFullYear()} Ashiwani Kumar. All rights reserved.</p>
                                             <p class="footer-text" style="margin: 0 0 8px 0;">Minister of Agriculture & Farmers Welfare, Government of India</p>
                                             <p class="footer-text" style="margin: 0;">
-                                                <a href="https://www.shivrajsinghchouhan.co.in/privacy-policy" style="color: #ea580c; text-decoration: none;">Privacy Policy</a> | 
-                                                <a href="https://www.shivrajsinghchouhan.co.in/terms-service" style="color: #ea580c; text-decoration: none;">Terms of Service</a> | 
-                                                <a href="https://www.shivrajsinghchouhan.co.in/contact" style="color: #ea580c; text-decoration: none;">Contact Us</a>
+                                                <a href="https://www.ashiwanikumar.in/privacy-policy" style="color: #ea580c; text-decoration: none;">Privacy Policy</a> | 
+                                                <a href="https://www.ashiwanikumar.in/terms-service" style="color: #ea580c; text-decoration: none;">Terms of Service</a> | 
+                                                <a href="https://www.ashiwanikumar.in/contact" style="color: #ea580c; text-decoration: none;">Contact Us</a>
                                             </p>
                                             <p class="footer-text" style="margin: 8px 0 0 0; font-size: 12px; color: #9ca3af;">
                                                 This email was sent to inform you about the cancellation of your team invitation. 
-                                                For questions, contact us at <a href="mailto:info@shivrajsinghchouhan.co.in" style="color: #ea580c;">info@shivrajsinghchouhan.co.in</a>
+                                                For questions, contact us at <a href="mailto:info@ashiwanikumar.in" style="color: #ea580c;">info@ashiwanikumar.in</a>
                                             </p>
                                            
                                         </td>

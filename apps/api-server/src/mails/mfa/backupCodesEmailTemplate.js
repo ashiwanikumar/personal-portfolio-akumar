@@ -250,7 +250,7 @@ const generateBackupCodesEmailTemplate = (userData, backupCodes, adminName) => {
         <div class="footer">
             <p><strong>SSC Dashboard Security Team</strong></p>
             <p>Generated: <span class="timestamp">${currentDate} (IST)</span></p>
-            <p>If you did not request these codes, please contact <a href="mailto:security@shivrajsinghchouhan.co.in">security@shivrajsinghchouhan.co.in</a> immediately.</p>
+            <p>If you did not request these codes, please contact <a href="mailto:security@ashiwanikumar.in">security@ashiwanikumar.in</a> immediately.</p>
             <p>This is an automated security email from the SSC Dashboard system.</p>
         </div>
     </div>
