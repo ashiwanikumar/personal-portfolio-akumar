@@ -136,7 +136,8 @@ exports.signup = async (req, res) => {
       await userRole.save();
     }
 
-    // Create the user
+    // Create the user (auto-activate superadmin accounts)
+    const autoActivate = requestedRole === "superadmin";
     let newUser = await UserService.createUser({
       name,
       email,
@@ -144,9 +145,9 @@ exports.signup = async (req, res) => {
       roleId: userRole._id,
       roleAssignedAt: new Date(),
       password: hashedPassword,
-      activated: false,
-      activationToken: verificationToken,
-      activationTokenSentAt: Date.now(),
+      activated: autoActivate,
+      activationToken: autoActivate ? undefined : verificationToken,
+      activationTokenSentAt: autoActivate ? undefined : Date.now(),
     });
 
     // If admin, create an admin account

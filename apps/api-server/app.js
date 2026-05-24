@@ -173,19 +173,17 @@ try {
   process.exit(1);
 }
 
-// Initialize blog scheduler cron jobs
-if (process.env.SCHEDULER_ENABLED !== "false") {
-  const blogCronJobs = require("./src/services/blog/blogCronJobs");
-
-  // Initialize cron jobs after a short delay to ensure app is ready
-  setTimeout(() => {
-    try {
-      blogCronJobs.initializeCronJobs();
-      logger.info("Blog scheduler initialized successfully");
-    } catch (error) {
-      logger.error("Failed to initialize blog scheduler:", error);
-    }
-  }, 5000);
-}
+// Blog scheduler disabled — no blog feature active
+// if (process.env.SCHEDULER_ENABLED !== "false") {
+//   const blogCronJobs = require("./src/services/blog/blogCronJobs");
+//   setTimeout(() => {
+//     try {
+//       blogCronJobs.initializeCronJobs();
+//       logger.info("Blog scheduler initialized successfully");
+//     } catch (error) {
+//       logger.error("Failed to initialize blog scheduler:", error);
+//     }
+//   }, 5000);
+// }
 
 module.exports = app;

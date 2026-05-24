@@ -95,14 +95,15 @@ function startServer() {
         }
       }
 
-      safeStart("Blog Scheduler: Running", () => {
-        const blogCronJobs = require("./src/services/blog/blogCronJobs");
-        blogCronJobs.initializeCronJobs();
-      });
+      // Blog scheduler disabled — no blog feature active
+      // safeStart("Blog Scheduler: Running", () => {
+      //   const blogCronJobs = require("./src/services/blog/blogCronJobs");
+      //   blogCronJobs.initializeCronJobs();
+      // });
     }
 
     logger.info("──────────────────────────────────────────────");
-    logger.info(`[Server] Netraga API ready on port ${PORT}`);
+    logger.info(`[Server] API ready on port ${PORT}`);
     logger.info(
       `[Server] Environment: ${process.env.NODE_ENV || "development"}`
     );

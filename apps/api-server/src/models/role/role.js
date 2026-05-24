@@ -67,7 +67,7 @@ const roleSchema = new mongoose.Schema(
     createdBy: {
       type: mongoose.Schema.Types.ObjectId,
       ref: "User",
-      required: true,
+      required: function () { return !this.isSystemRole; },
     },
     // Role hierarchy level
     hierarchyLevel: {
