@@ -199,28 +199,28 @@ const devFormat = format.combine(
 // ---------------------------------------------------------------------------
 const fileTransports = [];
 
-// Daily rotate: combined — keeps 30 days, compresses old files
+// Daily rotate: combined — max 5MB per file, keep 7 days, auto-remove old
 fileTransports.push(
   new winston.transports.DailyRotateFile({
     dirname: LOG_DIR,
     filename: "combined-%DATE%.log",
     datePattern: "YYYY-MM-DD",
-    maxSize: "50m",
-    maxFiles: "30d",
+    maxSize: "5m",
+    maxFiles: "7d",
     zippedArchive: true,
     format: structuredFormat,
   })
 );
 
-// Daily rotate: errors only — separate file for quick triage
+// Daily rotate: errors only — max 5MB per file, keep 14 days, auto-remove old
 fileTransports.push(
   new winston.transports.DailyRotateFile({
     dirname: LOG_DIR,
     filename: "error-%DATE%.log",
     datePattern: "YYYY-MM-DD",
     level: "error",
-    maxSize: "50m",
-    maxFiles: "90d",
+    maxSize: "5m",
+    maxFiles: "14d",
     zippedArchive: true,
     format: structuredFormat,
   })
