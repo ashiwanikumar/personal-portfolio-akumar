@@ -1,5 +1,4 @@
 // ** DEPENDENCIES ** //
-const AWS = require("aws-sdk");
 const multer = require("multer");
 const multerS3 = require("multer-s3");
 const { v4: uuidv4 } = require("uuid");
@@ -7,6 +6,7 @@ const path = require("path");
 
 // ** IMPORT EXISTING CONFIGURATIONS ** //
 const {
+  getS3,
   generateCloudFrontSignedUrl,
   generateCloudFrontUrl,
   generateS3Url,
@@ -15,18 +15,14 @@ const {
   invalidateCloudFrontCache,
 } = require("./multer");
 
-// ** AWS S3 CONFIGURATION ** //
-const s3 = new AWS.S3({
-  region: process.env.AWS_BUCKET_REGION,
-  accessKeyId: process.env.AWS_ACCESS_KEY_ID,
-  secretAccessKey: process.env.AWS_SECRET_ACCESS_KEY,
-});
-
-// ** GALLERY SECTION MULTER S3 STORAGE CONFIGURATION ** //
-const galleryUpload = multer({
-  storage: multerS3({
-    s3: s3,
-    bucket: process.env.AWS_BUCKET_NAME,
+// ** GALLERY SECTION MULTER S3 STORAGE CONFIGURATION (lazy) ** //
+let _galleryUpload = null;
+const getGalleryUpload = () => {
+  if (!_galleryUpload) {
+    _galleryUpload = multer({
+      storage: multerS3({
+        s3: getS3(),
+        bucket: process.env.AWS_BUCKET_NAME,
     contentType: multerS3.AUTO_CONTENT_TYPE,
 
     metadata: function (req, file, cb) {
@@ -171,17 +167,21 @@ const galleryUpload = multer({
     cb(null, true);
   },
 });
+  }
+  return _galleryUpload;
+};
 
-// ** GALLERY UPLOAD HANDLERS ** //
-// Support both image and video fields for media-agnostic uploads
-const singleGalleryFileUpload = galleryUpload.fields([
-  { name: "image", maxCount: 1 },
-  { name: "video", maxCount: 1 },
-]);
-const multipleGalleryFileUpload = galleryUpload.fields([
-  { name: "images", maxCount: 10 },
-  { name: "videos", maxCount: 10 },
-]);
+// ** GALLERY UPLOAD HANDLERS (lazy) ** //
+const singleGalleryFileUpload = (req, res, cb) =>
+  getGalleryUpload().fields([
+    { name: "image", maxCount: 1 },
+    { name: "video", maxCount: 1 },
+  ])(req, res, cb);
+const multipleGalleryFileUpload = (req, res, cb) =>
+  getGalleryUpload().fields([
+    { name: "images", maxCount: 10 },
+    { name: "videos", maxCount: 10 },
+  ])(req, res, cb);
 
 // ** SINGLE GALLERY FILE UPLOAD HANDLER ** //
 const handleGalleryUploadToS3 = (req, res) => {
@@ -491,7 +491,7 @@ const deleteGalleryFileFromS3 = async (s3Key) => {
       Key: s3Key,
     };
 
-    const result = await s3.deleteObject(params).promise();
+    const result = await getS3().deleteObject(params).promise();
     console.log("Gallery file deleted from S3:", s3Key);
 
     logSecurityEvent("GALLERY_FILE_S3_DELETE_SUCCESS", {
@@ -641,7 +641,7 @@ module.exports = {
   uploadMultipleGalleryFilesToS3,
   handleGalleryUploadToS3,
   handleMultipleGalleryUploadsToS3,
-  galleryUpload,
+  galleryUpload: getGalleryUpload,
   deleteGalleryFileFromS3,
   deleteGalleryFileWithCacheInvalidation,
   deleteMultipleGalleryFilesFromS3,

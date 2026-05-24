@@ -1,5 +1,4 @@
 // ** DEPENDENCIES ** //
-const AWS = require("aws-sdk");
 const multer = require("multer");
 const multerS3 = require("multer-s3");
 const { v4: uuidv4 } = require("uuid");
@@ -7,6 +6,7 @@ const path = require("path");
 
 // ** IMPORT EXISTING CONFIGURATIONS ** //
 const {
+  getS3,
   generateCloudFrontSignedUrl,
   generateCloudFrontUrl,
   generateS3Url,
@@ -15,18 +15,14 @@ const {
   invalidateCloudFrontCache,
 } = require("./multer");
 
-// ** AWS S3 CONFIGURATION ** //
-const s3 = new AWS.S3({
-  region: process.env.AWS_BUCKET_REGION,
-  accessKeyId: process.env.AWS_ACCESS_KEY_ID,
-  secretAccessKey: process.env.AWS_SECRET_ACCESS_KEY,
-});
-
-// ** PROFILE PICTURE MULTER S3 STORAGE CONFIGURATION ** //
-const profilePictureUpload = multer({
-  storage: multerS3({
-    s3: s3,
-    bucket: process.env.AWS_BUCKET_NAME,
+// ** PROFILE PICTURE MULTER S3 STORAGE CONFIGURATION (lazy) ** //
+let _profilePictureUpload = null;
+const getProfilePictureUpload = () => {
+  if (!_profilePictureUpload) {
+    _profilePictureUpload = multer({
+      storage: multerS3({
+        s3: getS3(),
+        bucket: process.env.AWS_BUCKET_NAME,
     contentType: multerS3.AUTO_CONTENT_TYPE,
 
     metadata: function (req, file, cb) {
@@ -125,11 +121,13 @@ const profilePictureUpload = multer({
     cb(null, true);
   },
 });
+  }
+  return _profilePictureUpload;
+};
 
-// ** SINGLE PROFILE PICTURE UPLOAD ** //
-const singleProfilePictureUpload = profilePictureUpload.fields([
-  { name: "profilePicture", maxCount: 1 },
-]);
+// ** SINGLE PROFILE PICTURE UPLOAD (lazy) ** //
+const singleProfilePictureUpload = (req, res, cb) =>
+  getProfilePictureUpload().fields([{ name: "profilePicture", maxCount: 1 }])(req, res, cb);
 
 // ** PROFILE PICTURE UPLOAD HANDLER ** //
 const handleProfilePictureUploadToS3 = (req, res) => {
@@ -262,7 +260,7 @@ const deleteProfilePictureWithCacheInvalidation = async (s3Key) => {
       Key: s3Key,
     };
 
-    const result = await s3.deleteObject(params).promise();
+    const result = await getS3().deleteObject(params).promise();
     console.log("✅ Profile picture deleted from S3:", s3Key);
 
     // Invalidate CloudFront cache

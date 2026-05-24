@@ -6,12 +6,18 @@ const { v4: uuidv4 } = require("uuid");
 const crypto = require("crypto");
 const path = require("path");
 
-// ** AWS S3 CONFIGURATION ** //
-const s3 = new AWS.S3({
-  region: process.env.AWS_BUCKET_REGION,
-  accessKeyId: process.env.AWS_ACCESS_KEY_ID,
-  secretAccessKey: process.env.AWS_SECRET_ACCESS_KEY,
-});
+// ** AWS S3 CONFIGURATION (lazy) ** //
+let _s3 = null;
+const getS3 = () => {
+  if (!_s3) {
+    _s3 = new AWS.S3({
+      region: process.env.AWS_BUCKET_REGION,
+      accessKeyId: process.env.AWS_ACCESS_KEY_ID,
+      secretAccessKey: process.env.AWS_SECRET_ACCESS_KEY,
+    });
+  }
+  return _s3;
+};
 
 // ** AWS CLOUDFRONT CONFIGURATION ** //
 const getFormattedPrivateKey = () => {
@@ -60,7 +66,9 @@ const getFormattedPrivateKey = () => {
   return privateKey;
 };
 
-const cloudfront = (() => {
+let _cloudfront = undefined;
+const getCloudFront = () => {
+  if (_cloudfront !== undefined) return _cloudfront;
   try {
     const keyPairId = process.env.CLOUDFRONT_KEY_PAIR_ID;
     const privateKey = getFormattedPrivateKey();
@@ -69,28 +77,32 @@ const cloudfront = (() => {
       console.warn(
         "CloudFront signing not configured (missing key pair ID or private key)"
       );
-      return null;
+      _cloudfront = null;
+      return _cloudfront;
     }
 
     // Test the private key format first
-    const crypto = require("crypto");
     const keyObject = crypto.createPrivateKey(privateKey);
     console.log("CloudFront signed URLs configured successfully");
 
-    const signer = new AWS.CloudFront.Signer(keyPairId, privateKey);
-    return signer;
+    _cloudfront = new AWS.CloudFront.Signer(keyPairId, privateKey);
+    return _cloudfront;
   } catch (error) {
     console.error("CloudFront signer initialization failed:", error.message);
     console.warn("Will use regular CloudFront URLs instead of signed URLs");
-    return null;
+    _cloudfront = null;
+    return _cloudfront;
   }
-})();
+};
 
-// ** MULTER S3 STORAGE CONFIGURATION ** //
-const upload = multer({
-  storage: multerS3({
-    s3: s3,
-    bucket: process.env.AWS_BUCKET_NAME,
+// ** MULTER S3 STORAGE CONFIGURATION (lazy) ** //
+let _upload = null;
+const getUpload = () => {
+  if (!_upload) {
+    _upload = multer({
+      storage: multerS3({
+        s3: getS3(),
+        bucket: process.env.AWS_BUCKET_NAME,
 
     // Set proper content type for images
     contentType: multerS3.AUTO_CONTENT_TYPE,
@@ -207,17 +219,21 @@ const upload = multer({
     cb(null, true);
   },
 });
+  }
+  return _upload;
+};
 
-// ** UPLOAD HANDLERS ** //
-const singleFileUpload = upload.single("image");
-const singleVideoUpload = upload.single("video");
-const multipleFileUpload = upload.array("images", 10);
+// ** UPLOAD HANDLERS (lazy) ** //
+const singleFileUpload = (req, res, cb) => getUpload().single("image")(req, res, cb);
+const singleVideoUpload = (req, res, cb) => getUpload().single("video")(req, res, cb);
+const multipleFileUpload = (req, res, cb) => getUpload().array("images", 10)(req, res, cb);
 
 // ** HELPER FUNCTIONS ** //
 const generateCloudFrontSignedUrl = (s3Key, customExpiration = null) => {
   const url = `https://${process.env.CLOUDFRONT_DOMAIN}/${s3Key}`;
 
   // Check if CloudFront signing is properly configured
+  const cloudfront = getCloudFront();
   if (!cloudfront) {
     console.warn("CloudFront signing not configured, using regular URL");
     return url;
@@ -549,7 +565,7 @@ const deleteFileFromS3 = async (s3Key) => {
       Key: s3Key,
     };
 
-    const result = await s3.deleteObject(params).promise();
+    const result = await getS3().deleteObject(params).promise();
     console.log("File deleted from S3:", s3Key);
     return result;
   } catch (error) {
@@ -707,7 +723,8 @@ module.exports = {
   handleUploadToS3,
   handleVideoUploadToS3,
   handleMultipleUploadsToS3,
-  upload,
+  upload: getUpload,
+  getS3,
   logSecurityEvent,
   checkUploadLimits,
 };

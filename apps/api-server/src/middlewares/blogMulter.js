@@ -1,5 +1,4 @@
 // ** DEPENDENCIES ** //
-const AWS = require("aws-sdk");
 const multer = require("multer");
 const multerS3 = require("multer-s3");
 const { v4: uuidv4 } = require("uuid");
@@ -7,6 +6,7 @@ const path = require("path");
 
 // ** IMPORT EXISTING CONFIGURATIONS ** //
 const {
+  getS3,
   generateCloudFrontSignedUrl,
   generateCloudFrontUrl,
   generateS3Url,
@@ -15,18 +15,14 @@ const {
   invalidateCloudFrontCache,
 } = require("./multer");
 
-// ** AWS S3 CONFIGURATION ** //
-const s3 = new AWS.S3({
-  region: process.env.AWS_BUCKET_REGION,
-  accessKeyId: process.env.AWS_ACCESS_KEY_ID,
-  secretAccessKey: process.env.AWS_SECRET_ACCESS_KEY,
-});
-
-// ** BLOG MULTER S3 STORAGE CONFIGURATION ** //
-const blogUpload = multer({
-  storage: multerS3({
-    s3: s3,
-    bucket: process.env.AWS_BUCKET_NAME,
+// ** BLOG MULTER S3 STORAGE CONFIGURATION (lazy) ** //
+let _blogUpload = null;
+const getBlogUpload = () => {
+  if (!_blogUpload) {
+    _blogUpload = multer({
+      storage: multerS3({
+        s3: getS3(),
+        bucket: process.env.AWS_BUCKET_NAME,
     contentType: multerS3.AUTO_CONTENT_TYPE,
 
     metadata: function (req, file, cb) {
@@ -161,19 +157,21 @@ const blogUpload = multer({
     cb(null, true);
   },
 });
+  }
+  return _blogUpload;
+};
 
-// ** BLOG UPLOAD HANDLERS ** //
-// Single file uploads for different purposes
-const singleBlogCoverImageUpload = blogUpload.single("coverImage");
-const singleBlogContentImageUpload = blogUpload.single("contentImage");
-const singleBlogVideoUpload = blogUpload.single("video");
+// ** BLOG UPLOAD HANDLERS (lazy) ** //
+const singleBlogCoverImageUpload = (req, res, cb) => getBlogUpload().single("coverImage")(req, res, cb);
+const singleBlogContentImageUpload = (req, res, cb) => getBlogUpload().single("contentImage")(req, res, cb);
+const singleBlogVideoUpload = (req, res, cb) => getBlogUpload().single("video")(req, res, cb);
 
-// Multiple file uploads
-const multipleBlogContentImagesUpload = blogUpload.array("contentImages", 20);
-const multipleBlogMediaUpload = blogUpload.fields([
-  { name: "images", maxCount: 20 },
-  { name: "videos", maxCount: 5 },
-]);
+const multipleBlogContentImagesUpload = (req, res, cb) => getBlogUpload().array("contentImages", 20)(req, res, cb);
+const multipleBlogMediaUpload = (req, res, cb) =>
+  getBlogUpload().fields([
+    { name: "images", maxCount: 20 },
+    { name: "videos", maxCount: 5 },
+  ])(req, res, cb);
 
 // ** SINGLE BLOG FILE UPLOAD HANDLER ** //
 const handleSingleBlogUploadToS3 = (uploadHandler, uploadType) => {
@@ -511,7 +509,7 @@ const deleteBlogFileFromS3 = async (s3Key) => {
       Key: s3Key,
     };
 
-    const result = await s3.deleteObject(params).promise();
+    const result = await getS3().deleteObject(params).promise();
     console.log("Blog file deleted from S3:", s3Key);
 
     logSecurityEvent("BLOG_FILE_S3_DELETE_SUCCESS", {
@@ -612,7 +610,7 @@ module.exports = {
   handleMultipleBlogUploadsToS3,
 
   // Multer instances
-  blogUpload,
+  blogUpload: getBlogUpload,
   singleBlogCoverImageUpload,
   singleBlogContentImageUpload,
   singleBlogVideoUpload,

@@ -149,7 +149,12 @@ app.use(
 app.use(cookieParser(process.env.SESSION_SECRET));
 
 // Recursive function to load routes
-loadRoutes(path.join(__dirname, "src", "routes"), app);
+try {
+  loadRoutes(path.join(__dirname, "src", "routes"), app);
+} catch (error) {
+  console.error("FATAL: Failed to load routes:", error);
+  process.exit(1);
+}
 
 // Initialize blog scheduler cron jobs
 if (process.env.SCHEDULER_ENABLED !== "false") {
