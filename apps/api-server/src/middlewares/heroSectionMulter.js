@@ -1,5 +1,4 @@
 // ** DEPENDENCIES ** //
-const AWS = require("aws-sdk");
 const multer = require("multer");
 const multerS3 = require("multer-s3");
 const { v4: uuidv4 } = require("uuid");
@@ -7,6 +6,7 @@ const path = require("path");
 
 // ** IMPORT EXISTING CONFIGURATIONS ** //
 const {
+  getS3,
   generateCloudFrontSignedUrl,
   generateCloudFrontUrl,
   generateS3Url,
@@ -15,18 +15,14 @@ const {
   invalidateCloudFrontCache,
 } = require("./multer");
 
-// ** AWS S3 CONFIGURATION ** //
-const s3 = new AWS.S3({
-  region: process.env.AWS_BUCKET_REGION,
-  accessKeyId: process.env.AWS_ACCESS_KEY_ID,
-  secretAccessKey: process.env.AWS_SECRET_ACCESS_KEY,
-});
-
-// ** HERO SECTION MULTER S3 STORAGE CONFIGURATION ** //
-const heroSectionUpload = multer({
-  storage: multerS3({
-    s3: s3,
-    bucket: process.env.AWS_BUCKET_NAME,
+// ** HERO SECTION MULTER S3 STORAGE CONFIGURATION (lazy) ** //
+let _heroSectionUpload = null;
+const getHeroSectionUpload = () => {
+  if (!_heroSectionUpload) {
+    _heroSectionUpload = multer({
+      storage: multerS3({
+        s3: getS3(),
+        bucket: process.env.AWS_BUCKET_NAME,
     contentType: multerS3.AUTO_CONTENT_TYPE,
 
     metadata: function (req, file, cb) {
@@ -136,17 +132,21 @@ const heroSectionUpload = multer({
     cb(null, true);
   },
 });
+  }
+  return _heroSectionUpload;
+};
 
-// ** HERO SECTION UPLOAD HANDLERS ** //
-// Support both image and video fields for media-agnostic uploads
-const singleHeroSectionFileUpload = heroSectionUpload.fields([
-  { name: "image", maxCount: 1 },
-  { name: "video", maxCount: 1 },
-]);
-const multipleHeroSectionFileUpload = heroSectionUpload.fields([
-  { name: "images", maxCount: 10 },
-  { name: "videos", maxCount: 10 },
-]);
+// ** HERO SECTION UPLOAD HANDLERS (lazy) ** //
+const singleHeroSectionFileUpload = (req, res, cb) =>
+  getHeroSectionUpload().fields([
+    { name: "image", maxCount: 1 },
+    { name: "video", maxCount: 1 },
+  ])(req, res, cb);
+const multipleHeroSectionFileUpload = (req, res, cb) =>
+  getHeroSectionUpload().fields([
+    { name: "images", maxCount: 10 },
+    { name: "videos", maxCount: 10 },
+  ])(req, res, cb);
 
 // ** SINGLE HERO SECTION FILE UPLOAD HANDLER ** //
 const handleHeroSectionUploadToS3 = (req, res) => {
@@ -407,7 +407,7 @@ const deleteHeroSectionFileFromS3 = async (s3Key) => {
       Key: s3Key,
     };
 
-    const result = await s3.deleteObject(params).promise();
+    const result = await getS3().deleteObject(params).promise();
     console.log("✅ Hero section file deleted from S3:", s3Key);
 
     logSecurityEvent("HERO_SECTION_FILE_S3_DELETE_SUCCESS", {
@@ -500,7 +500,7 @@ module.exports = {
   uploadMultipleHeroSectionFilesToS3,
   handleHeroSectionUploadToS3,
   handleMultipleHeroSectionUploadsToS3,
-  heroSectionUpload,
+  heroSectionUpload: getHeroSectionUpload,
   deleteHeroSectionFileFromS3,
   deleteHeroSectionFileWithCacheInvalidation,
   extractS3KeyFromUrl,

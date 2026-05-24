@@ -1,5 +1,4 @@
 // ** DEPENDENCIES ** //
-const AWS = require("aws-sdk");
 const multer = require("multer");
 const multerS3 = require("multer-s3");
 const { v4: uuidv4 } = require("uuid");
@@ -7,6 +6,7 @@ const path = require("path");
 
 // ** IMPORT EXISTING CONFIGURATIONS ** //
 const {
+  getS3,
   generateCloudFrontSignedUrl,
   generateCloudFrontUrl,
   generateS3Url,
@@ -15,18 +15,14 @@ const {
   invalidateCloudFrontCache,
 } = require("./multer");
 
-// ** AWS S3 CONFIGURATION ** //
-const s3 = new AWS.S3({
-  region: process.env.AWS_BUCKET_REGION,
-  accessKeyId: process.env.AWS_ACCESS_KEY_ID,
-  secretAccessKey: process.env.AWS_SECRET_ACCESS_KEY,
-});
-
-// ** ANNOUNCEMENT MULTER S3 STORAGE CONFIGURATION ** //
-const announcementUpload = multer({
-  storage: multerS3({
-    s3: s3,
-    bucket: process.env.AWS_BUCKET_NAME,
+// ** ANNOUNCEMENT MULTER S3 STORAGE CONFIGURATION (lazy) ** //
+let _announcementUpload = null;
+const getAnnouncementUpload = () => {
+  if (!_announcementUpload) {
+    _announcementUpload = multer({
+      storage: multerS3({
+        s3: getS3(),
+        bucket: process.env.AWS_BUCKET_NAME,
     contentType: multerS3.AUTO_CONTENT_TYPE,
 
     metadata: function (req, file, cb) {
@@ -136,19 +132,23 @@ const announcementUpload = multer({
     cb(null, true);
   },
 });
+  }
+  return _announcementUpload;
+};
 
-// ** ANNOUNCEMENT UPLOAD HANDLERS ** //
-// Support both image and video fields for media-agnostic uploads
-const singleAnnouncementFileUpload = announcementUpload.fields([
-  { name: "image", maxCount: 1 },
-  { name: "video", maxCount: 1 },
-  { name: "modalImage", maxCount: 1 }, // For backward compatibility
-]);
-const multipleAnnouncementFileUpload = announcementUpload.fields([
-  { name: "images", maxCount: 10 },
-  { name: "videos", maxCount: 10 },
-  { name: "media", maxCount: 10 }, // Support generic media field from client
-]);
+// ** ANNOUNCEMENT UPLOAD HANDLERS (lazy) ** //
+const singleAnnouncementFileUpload = (req, res, cb) =>
+  getAnnouncementUpload().fields([
+    { name: "image", maxCount: 1 },
+    { name: "video", maxCount: 1 },
+    { name: "modalImage", maxCount: 1 },
+  ])(req, res, cb);
+const multipleAnnouncementFileUpload = (req, res, cb) =>
+  getAnnouncementUpload().fields([
+    { name: "images", maxCount: 10 },
+    { name: "videos", maxCount: 10 },
+    { name: "media", maxCount: 10 },
+  ])(req, res, cb);
 
 // ** SINGLE ANNOUNCEMENT FILE UPLOAD HANDLER ** //
 const handleAnnouncementUploadToS3 = (req, res) => {
@@ -419,7 +419,7 @@ const deleteAnnouncementFileFromS3 = async (s3Key) => {
       Key: s3Key,
     };
 
-    const result = await s3.deleteObject(params).promise();
+    const result = await getS3().deleteObject(params).promise();
     console.log("✅ Announcement file deleted from S3:", s3Key);
 
     logSecurityEvent("ANNOUNCEMENT_FILE_S3_DELETE_SUCCESS", {
@@ -512,7 +512,7 @@ module.exports = {
   uploadMultipleAnnouncementFilesToS3,
   handleAnnouncementUploadToS3,
   handleMultipleAnnouncementUploadsToS3,
-  announcementUpload,
+  announcementUpload: getAnnouncementUpload,
   deleteAnnouncementFileFromS3,
   deleteAnnouncementFileWithCacheInvalidation,
   extractS3KeyFromUrl,
