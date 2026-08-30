@@ -58,6 +58,7 @@ behind `authCheck` + `superAdminCheck`.
 | `GMAIL_AUTH_PORT` | `5599` | Loopback port used by the authorize script |
 | `GMAIL_CV_FILENAME_REGEX` | `cv\|resume\|curriculum[ _-]?vitae\|profile` | What makes an attachment a CV |
 | `GMAIL_CV_ATTACHMENT_TYPES` | `pdf,doc,docx` | Allowed extensions |
+| `GMAIL_CV_FILENAME_EXCLUDE_REGEX` | `salary\|certificate\|payslip\|…` | Subtracted from the match — paperwork that carries your name but is not a CV |
 | `GMAIL_CV_EXTRA_QUERY` | — | Extra Gmail search terms, e.g. `-label:personal` |
 | `GMAIL_SYNC_CRON` | `*/30 * * * *` | Sync schedule |
 | `GMAIL_SYNC_LOOKBACK_DAYS` | `365` | How far back the first sync reaches |

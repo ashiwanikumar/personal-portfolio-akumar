@@ -19,7 +19,7 @@ function folderFilter(folder) {
     case "replied":
       return { replied: true };
     case "awaiting":
-      return { replied: false, bounced: false };
+      return { replied: { $ne: true }, bounced: { $ne: true } };
     case "bounced":
       return { bounced: true };
     case "starred":
@@ -140,7 +140,9 @@ exports.getCvOutreachMessages = async (req, res) => {
             bounced: { $sum: { $cond: ["$bounced", 1, 0] } },
             starred: { $sum: { $cond: ["$starred", 1, 0] } },
             awaiting: {
-              $sum: { $cond: [{ $and: [{ $eq: ["$replied", false] }, { $eq: ["$bounced", false] }] }, 1, 0] },
+              $sum: {
+                $cond: [{ $and: [{ $ne: ["$replied", true] }, { $ne: ["$bounced", true] }] }, 1, 0],
+              },
             },
           },
         },

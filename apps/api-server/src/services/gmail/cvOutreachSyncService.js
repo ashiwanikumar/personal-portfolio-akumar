@@ -23,6 +23,13 @@ function config() {
       process.env.GMAIL_CV_FILENAME_REGEX || "cv|resume|curriculum[ _-]?vitae|profile",
       "i"
     ),
+    // A name-based cvNameRegex also catches salary certificates, contracts and
+    // the like, so paperwork that is clearly not a CV is subtracted here.
+    cvExcludeRegex: new RegExp(
+      process.env.GMAIL_CV_FILENAME_EXCLUDE_REGEX ||
+        "salary|certificate|payslip|invoice|contract|offer[ _-]?letter|relieving|experience[ _-]?letter",
+      "i"
+    ),
     fileTypes: (process.env.GMAIL_CV_ATTACHMENT_TYPES || "pdf,doc,docx")
       .split(",")
       .map((t) => t.trim().toLowerCase())
@@ -136,7 +143,7 @@ function extractAttachments(payload, cfg) {
         mimeType: p.mimeType || "",
         sizeBytes: p.body?.size || 0,
         attachmentId: p.body?.attachmentId || "",
-        isCv: typeOk && cfg.cvNameRegex.test(filename),
+        isCv: typeOk && cfg.cvNameRegex.test(filename) && !cfg.cvExcludeRegex.test(filename),
       };
     });
 }
@@ -290,7 +297,9 @@ async function importSentMessages(gmail, since, cfg, stats) {
         const result = await CvOutreach.updateOne(
           { gmailMessageId: doc.gmailMessageId },
           { $set: doc },
-          { upsert: true }
+          // Without setDefaultsOnInsert the reply fields are absent, not false,
+          // and the reply pass below would never match the document.
+          { upsert: true, setDefaultsOnInsert: true }
         );
 
         if (result.upsertedCount || result.upserted) stats.inserted += 1;
@@ -315,8 +324,8 @@ async function checkReplies(gmail, mailboxEmail, cfg, stats) {
 
   const pending = await CvOutreach.find({
     sentAt: { $gte: windowStart },
-    replied: false,
-    bounced: false,
+    replied: { $ne: true },
+    bounced: { $ne: true },
   })
     .sort({ replyCheckedAt: 1, sentAt: -1 })
     .limit(cfg.replyCheckLimit)
