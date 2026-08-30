@@ -43,6 +43,25 @@ function config() {
   };
 }
 
+/**
+ * Gmail returns snippets HTML-escaped ("I&#39;m"). Decode them so the text reads
+ * correctly and so substring search matches what a person would type.
+ */
+const NAMED_ENTITIES = {
+  amp: "&", lt: "<", gt: ">", quot: '"', apos: "'", nbsp: " ",
+  rsquo: "\u2019", lsquo: "\u2018", ldquo: "\u201c", rdquo: "\u201d",
+  mdash: "\u2014", ndash: "\u2013", hellip: "\u2026",
+};
+
+function decodeEntities(text) {
+  if (!text) return "";
+
+  return text
+    .replace(/&#x([0-9a-f]+);/gi, (_, hex) => String.fromCodePoint(parseInt(hex, 16)))
+    .replace(/&#(\d+);/g, (_, dec) => String.fromCodePoint(parseInt(dec, 10)))
+    .replace(/&([a-z]+);/gi, (match, name) => NAMED_ENTITIES[name.toLowerCase()] ?? match);
+}
+
 // ─── Header / address helpers ──────────────────────────────────────────────
 function headerValue(headers, name) {
   const found = (headers || []).find((h) => h.name.toLowerCase() === name.toLowerCase());
@@ -175,7 +194,7 @@ function buildOutreachDoc(message, cfg) {
     labelIds: message.labelIds || [],
 
     subject: headerValue(headers, "Subject") || "(no subject)",
-    snippet: message.snippet || "",
+    snippet: decodeEntities(message.snippet),
     fromEmail: from.email,
     to: to.map((a) => a.email),
     cc: cc.map((a) => a.email),
@@ -351,7 +370,7 @@ async function checkReplies(gmail, mailboxEmail, cfg, stats) {
           return {
             email: from.email,
             subject: headerValue(headers, "Subject"),
-            snippet: m.snippet || "",
+            snippet: decodeEntities(m.snippet),
             at: Number(m.internalDate || 0),
           };
         })
@@ -489,6 +508,7 @@ module.exports = {
   syncCvOutreach,
   // exported for tests
   parseAddressList,
+  decodeEntities,
   domainFromEmail,
   companyNameFromDomain,
   buildQuery,

@@ -356,11 +356,18 @@ exports.getGmailStatus = async (req, res) => {
     const state = await GmailSyncState.findOne({ key: STATE_KEY }).lean();
     const stored = await CvOutreach.countDocuments();
 
+    // ?probe=0 skips the live Gmail round-trip, for poll-while-syncing callers.
+    const probe = req.query.probe !== "0" && req.query.probe !== "false";
+
     let mailbox = state?.mailboxEmail || "";
     let connected = false;
     let connectionError = "";
 
-    if (configured) {
+    if (configured && !probe) {
+      connected = Boolean(mailbox);
+    }
+
+    if (configured && probe) {
       try {
         const profile = await getProfile();
         mailbox = profile.emailAddress;
@@ -381,6 +388,7 @@ exports.getGmailStatus = async (req, res) => {
       sync: state
         ? {
             running: state.running,
+            runningSince: state.runningSince,
             lastSyncAt: state.lastSyncAt,
             lastSyncStatus: state.lastSyncStatus,
             lastError: state.lastError,
@@ -399,37 +407,64 @@ exports.getGmailStatus = async (req, res) => {
 
 /**
  * @route   POST /api/v1/gmail-cv/sync
- * @desc    Trigger a sync now (body: { full: true } for a full re-scan)
+ * @desc    Start a sync (body: { full: true } for a full re-scan)
  * @access  Protected (Super Admin)
+ *
+ * Returns 202 immediately and runs the sync in the background: a full re-scan
+ * takes minutes, well past any reverse-proxy read timeout. Progress and the
+ * result are read from GET /gmail-cv/status.
  */
 exports.triggerSync = async (req, res) => {
   try {
-    const result = await syncCvOutreach({
-      trigger: "manual",
-      fullResync: req.body?.full === true,
-    });
-
-    if (!result.ok) {
-      const code = result.skipped ? (result.message === "Gmail is not configured" ? 412 : 409) : 502;
-
-      return res.status(code).json({
+    if (!isConfigured()) {
+      return res.status(412).json({
         success: false,
-        message: result.message || "Sync failed",
-        stats: result.stats,
+        message: "Gmail is not configured",
+        missingEnv: getMissingEnv(),
       });
     }
 
-    res.status(200).json({
+    const staleMinutes = parseInt(process.env.GMAIL_SYNC_LOCK_STALE_MINUTES || "15", 10);
+    const state = await GmailSyncState.findOne({ key: STATE_KEY })
+      .select("running runningSince")
+      .lean();
+
+    // A lock older than the stale window belongs to a run that died with its pod.
+    const liveRun =
+      state?.running &&
+      state.runningSince &&
+      Date.now() - new Date(state.runningSince).getTime() < staleMinutes * 60 * 1000;
+
+    if (liveRun) {
+      return res.status(409).json({
+        success: false,
+        message: "A sync is already running",
+        startedAt: state.runningSince,
+      });
+    }
+
+    const full = req.body?.full === true;
+
+    // Deliberately not awaited — the response must not wait on Gmail.
+    syncCvOutreach({ trigger: "manual", fullResync: full })
+      .then((result) => {
+        if (!result.ok && !result.skipped) {
+          logger.error(`[GmailSync] Background sync failed: ${result.message}`);
+        }
+      })
+      .catch((error) => {
+        logger.error(`[GmailSync] Background sync threw: ${error.message}`);
+      });
+
+    res.status(202).json({
       success: true,
-      message: "Sync complete",
-      status: result.status,
-      durationMs: result.durationMs,
-      mailbox: result.mailbox,
-      stats: result.stats,
+      started: true,
+      full,
+      message: full ? "Full re-scan started" : "Sync started",
     });
   } catch (error) {
     logger.error(`GMAIL_CV_SYNC_ERROR: ${error.message}`);
-    res.status(500).json({ success: false, message: "Failed to run sync" });
+    res.status(500).json({ success: false, message: "Failed to start sync" });
   }
 };
 

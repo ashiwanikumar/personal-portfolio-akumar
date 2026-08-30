@@ -105,6 +105,7 @@ export default function CvOutreachPage() {
 	const [insightsOpen, setInsightsOpen] = useState(false);
 
 	const [syncing, setSyncing] = useState(false);
+	const [syncNote, setSyncNote] = useState("");
 	const [toast, setToast] = useState("");
 	const toastTimer = useRef(null);
 
@@ -190,9 +191,23 @@ export default function CvOutreachPage() {
 	}, [session, fetchAnalytics]);
 
 	// ─── Actions ─────────────────────────────────────────────────────────────
+	/**
+	 * The sync starts on the server and returns 202 straight away — a full
+	 * re-scan runs for minutes, past any proxy read timeout. Progress comes from
+	 * polling status, with probe=0 so each poll skips the Gmail round-trip.
+	 */
 	const runSync = useCallback(
 		async (full = false) => {
 			setSyncing(true);
+			setSyncNote(full ? "Full re-scan started…" : "Sync started…");
+
+			const finish = async (note) => {
+				setSyncing(false);
+				setSyncNote("");
+				if (note) showToast(note);
+				await Promise.all([fetchMessages(), fetchStatus(), fetchAnalytics()]);
+			};
+
 			try {
 				const res = await fetch("/api/admin/gmail-cv/sync", {
 					method: "POST",
@@ -201,20 +216,61 @@ export default function CvOutreachPage() {
 				});
 				const data = await res.json();
 
-				if (data?.success) {
-					const s = data.stats || {};
-					showToast(
-						`Synced in ${Math.round((data.durationMs || 0) / 1000)}s — ${s.inserted || 0} new, ` +
-							`${s.repliesFound || 0} replies found`
-					);
-					await Promise.all([fetchMessages(), fetchStatus(), fetchAnalytics()]);
-				} else {
-					showToast(data?.message || data?.error || "Sync failed");
+				if (!res.ok || !data?.success) {
+					setSyncing(false);
+					setSyncNote("");
+					showToast(data?.message || data?.error || "Could not start the sync");
+					return;
 				}
+
+				// Poll until the server clears the running flag, capped so a run that
+				// dies with its pod does not leave the button spinning forever.
+				const deadline = Date.now() + 15 * 60 * 1000;
+				let seenRunning = false;
+
+				while (Date.now() < deadline) {
+					await new Promise((resolve) => setTimeout(resolve, 3000));
+
+					let status;
+					try {
+						const poll = await fetch("/api/admin/gmail-cv?view=status&probe=0", { cache: "no-store" });
+						status = await poll.json();
+					} catch {
+						continue; // a dropped poll is not a failed sync
+					}
+
+					const sync = status?.sync;
+					if (sync?.running) {
+						seenRunning = true;
+						// storedMessages climbs as the sync writes, so it doubles as progress.
+						const indexed = status?.storedMessages;
+						setSyncNote(
+							`${full ? "Scanning your sent mail" : "Checking for new mail"}…${
+								indexed ? ` ${indexed} indexed` : ""
+							}`
+						);
+						continue;
+					}
+
+					// Not running: either it finished, or it had already finished before
+					// the first poll landed.
+					if (seenRunning || sync?.lastTrigger === "manual") {
+						const r = sync?.lastRun || {};
+						const secs = Math.round((sync?.lastDurationMs || 0) / 1000);
+						await finish(
+							sync?.lastSyncStatus === "error"
+								? `Sync failed: ${sync.lastError || "unknown error"}`
+								: `Synced in ${secs}s — ${r.inserted || 0} new, ${r.repliesFound || 0} replies found`
+						);
+						return;
+					}
+				}
+
+				await finish("Sync is taking longer than expected — showing what has landed so far");
 			} catch {
-				showToast("Sync failed — could not reach the API server");
-			} finally {
 				setSyncing(false);
+				setSyncNote("");
+				showToast("Sync failed — could not reach the API server");
 			}
 		},
 		[fetchMessages, fetchStatus, fetchAnalytics, showToast]
@@ -408,7 +464,11 @@ export default function CvOutreachPage() {
 					</nav>
 
 					<div className="mt-auto space-y-1 px-4 text-[11px] text-[#5f6368]">
-						<p>Last sync: {relativeTime(status?.sync?.lastSyncAt)}</p>
+						{syncNote ? (
+							<p className="text-[#8ab4f8]">{syncNote}</p>
+						) : (
+							<p>Last sync: {relativeTime(status?.sync?.lastSyncAt)}</p>
+						)}
 						{status?.sync?.lastSyncStatus === "error" && (
 							<p className="text-[#f28b82]">{status.sync.lastError}</p>
 						)}

@@ -80,9 +80,16 @@ All under `/api/v1/gmail-cv`, all super-admin only.
 | GET | `/messages/:id/body` | Live body fetch from Gmail (sanitized HTML) |
 | GET | `/messages/:id/attachments/:attachmentId` | Streams the CV exactly as sent |
 | PATCH | `/messages/:id` | Toggle `starred` |
-| POST | `/sync` | Run a sync now; `{ "full": true }` re-scans the whole lookback |
+| POST | `/sync` | Start a sync; `{ "full": true }` re-scans the whole lookback |
 
 `folder` is one of `all`, `awaiting`, `replied`, `starred`, `bounced`.
+
+`POST /sync` returns **202 immediately** and runs in the background — a full
+re-scan takes minutes, longer than the frontend ingress's 60s
+`proxy-read-timeout`. Poll `GET /status` for `sync.running` and, once it clears,
+`sync.lastRun` for the result. Pass `?probe=0` while polling so each call skips
+the live Gmail round-trip. A second start while one is running returns 409,
+unless the existing lock is older than `GMAIL_SYNC_LOCK_STALE_MINUTES`.
 
 ## Data model
 

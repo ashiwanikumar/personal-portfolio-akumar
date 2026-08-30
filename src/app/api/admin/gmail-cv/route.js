@@ -45,7 +45,10 @@ export async function GET(request) {
 
 	try {
 		if (view === "status") {
-			return NextResponse.json(await apiFetch("/gmail-cv/status", auth));
+			// probe=0 skips the upstream Gmail round-trip; used while polling a sync.
+			const probe = searchParams.get("probe");
+			const query = probe ? `?probe=${encodeURIComponent(probe)}` : "";
+			return NextResponse.json(await apiFetch(`/gmail-cv/status${query}`, auth));
 		}
 
 		if (view === "analytics") {
