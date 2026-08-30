@@ -4,6 +4,7 @@ const { syncCvOutreach, STATE_KEY } = require("@services/gmail/cvOutreachSyncSer
 const { isConfigured, getMissingEnv, getProfile, getGmailClient } = require("@services/gmail/gmailClient");
 const { extractBody } = require("@services/gmail/messageBody");
 const logger = require("@utils/logger");
+const ExcelJS = require("exceljs");
 
 const LIST_FIELDS =
   "gmailMessageId gmailThreadId subject snippet fromEmail primaryRecipient primaryRecipientName " +
@@ -572,5 +573,139 @@ exports.updateCvOutreachFlags = async (req, res) => {
   } catch (error) {
     logger.error(`GMAIL_CV_FLAGS_ERROR: ${error.message}`);
     res.status(500).json({ success: false, message: "Failed to update email" });
+  }
+};
+
+/**
+ * @route   GET /api/v1/gmail-cv/export
+ * @desc    Export the current view as .xlsx (or ?format=csv)
+ * @access  Protected (Super Admin)
+ *
+ * Takes the same filters as /messages, so the file matches what is on screen.
+ */
+exports.exportCvOutreach = async (req, res) => {
+  try {
+    const filter = buildListFilter(req.query);
+    const format = String(req.query.format || "xlsx").toLowerCase();
+    const limit = Math.min(parseInt(req.query.limit, 10) || 5000, 20000);
+
+    const rows = await CvOutreach.find(filter)
+      .sort({ sentAt: -1 })
+      .limit(limit)
+      .select(LIST_FIELDS + " bcc")
+      .lean();
+
+    const statusOf = (r) => (r.bounced ? "Bounced" : r.replied ? "Replied" : "Awaiting");
+    const stamp = new Date().toISOString().slice(0, 10);
+    const baseName = `cv-outreach-${req.query.folder || "all"}-${stamp}`;
+
+    if (format === "csv") {
+      const header = [
+        "Sent At", "Company", "Domain", "Recipient Name", "Recipient Email",
+        "Subject", "CV File", "Status", "Replies", "First Reply At",
+        "Hours To Reply", "Days To Reply", "Thread Messages", "Starred", "Preview",
+      ];
+
+      const escape = (value) => {
+        const text = value === undefined || value === null ? "" : String(value);
+        return /[",\n]/.test(text) ? `"${text.replace(/"/g, '""')}"` : text;
+      };
+
+      const lines = [header.join(",")];
+      rows.forEach((r) => {
+        lines.push([
+          r.sentAt ? new Date(r.sentAt).toISOString() : "",
+          r.companyName || "",
+          r.recipientDomain || "",
+          r.primaryRecipientName || "",
+          r.primaryRecipient || "",
+          r.subject || "",
+          r.cvFileName || "",
+          statusOf(r),
+          r.replyCount || 0,
+          r.firstReplyAt ? new Date(r.firstReplyAt).toISOString() : "",
+          r.hoursToReply ?? "",
+          r.daysToReply ?? "",
+          r.threadMessageCount || 1,
+          r.starred ? "Yes" : "No",
+          r.snippet || "",
+        ].map(escape).join(","));
+      });
+
+      res.setHeader("Content-Type", "text/csv; charset=utf-8");
+      res.setHeader("Content-Disposition", `attachment; filename="${baseName}.csv"`);
+      return res.send("\ufeff" + lines.join("\n"));
+    }
+
+    const workbook = new ExcelJS.Workbook();
+    workbook.creator = "CV Outreach";
+    workbook.created = new Date();
+    const sheet = workbook.addWorksheet("CV Outreach");
+
+    sheet.columns = [
+      { header: "Sent At", key: "sentAt", width: 20 },
+      { header: "Company", key: "company", width: 26 },
+      { header: "Domain", key: "domain", width: 26 },
+      { header: "Recipient Name", key: "recipientName", width: 22 },
+      { header: "Recipient Email", key: "recipientEmail", width: 32 },
+      { header: "Subject", key: "subject", width: 52 },
+      { header: "CV File", key: "cvFile", width: 34 },
+      { header: "Status", key: "status", width: 12 },
+      { header: "Replies", key: "replies", width: 9 },
+      { header: "First Reply At", key: "firstReplyAt", width: 20 },
+      { header: "Hours To Reply", key: "hoursToReply", width: 15 },
+      { header: "Days To Reply", key: "daysToReply", width: 14 },
+      { header: "Thread Messages", key: "threadMessages", width: 16 },
+      { header: "Starred", key: "starred", width: 9 },
+      { header: "Preview", key: "preview", width: 70 },
+    ];
+
+    sheet.getRow(1).font = { bold: true };
+    sheet.getRow(1).fill = {
+      type: "pattern",
+      pattern: "solid",
+      fgColor: { argb: "FFE0E0E0" },
+    };
+    sheet.views = [{ state: "frozen", ySplit: 1 }];
+    sheet.autoFilter = { from: "A1", to: "O1" };
+
+    rows.forEach((r) => {
+      const row = sheet.addRow({
+        sentAt: r.sentAt ? new Date(r.sentAt) : null,
+        company: r.companyName || "",
+        domain: r.recipientDomain || "",
+        recipientName: r.primaryRecipientName || "",
+        recipientEmail: r.primaryRecipient || "",
+        subject: r.subject || "",
+        cvFile: r.cvFileName || "",
+        status: statusOf(r),
+        replies: r.replyCount || 0,
+        firstReplyAt: r.firstReplyAt ? new Date(r.firstReplyAt) : null,
+        hoursToReply: r.hoursToReply ?? null,
+        daysToReply: r.daysToReply ?? null,
+        threadMessages: r.threadMessageCount || 1,
+        starred: r.starred ? "Yes" : "No",
+        preview: r.snippet || "",
+      });
+
+      row.getCell("sentAt").numFmt = "yyyy-mm-dd hh:mm";
+      row.getCell("firstReplyAt").numFmt = "yyyy-mm-dd hh:mm";
+
+      // Colour the status cell so the sheet reads at a glance.
+      const colour = r.bounced ? "FFF4CCCC" : r.replied ? "FFD9EAD3" : "FFFFF2CC";
+      row.getCell("status").fill = { type: "pattern", pattern: "solid", fgColor: { argb: colour } };
+    });
+
+    res.setHeader(
+      "Content-Type",
+      "application/vnd.openxmlformats-officedocument.spreadsheetml.sheet"
+    );
+    res.setHeader("Content-Disposition", `attachment; filename="${baseName}.xlsx"`);
+
+    await workbook.xlsx.write(res);
+    res.end();
+  } catch (error) {
+    logger.error(`GMAIL_CV_EXPORT_ERROR: ${error.message}`);
+    res.status(500).json({ success: false, message: "Failed to export" });
   }
 };

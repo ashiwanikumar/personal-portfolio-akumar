@@ -393,6 +393,9 @@ export default function DashboardShell({ children }) {
 	const [loading, setLoading] = useState(true);
 	const [error, setError] = useState("");
 	const [sidebarCollapsed, setSidebarCollapsed] = useState(false);
+	// Pages that want the full width — the mailbox is its own workspace, so the
+	// dashboard rail is hidden and reachable from the header menu button instead.
+	const immersive = pathname === "/dashboard/cv-outreach";
 	const [mobileSidebarOpen, setMobileSidebarOpen] = useState(false);
 
 	const checks = summary?.checks || defaultChecks;
@@ -411,6 +414,9 @@ export default function DashboardShell({ children }) {
 	}, []);
 
 	useEffect(() => { loadDashboard(); }, [loadDashboard]);
+
+	// Close the nav drawer on navigation, or it stays open over the new page.
+	useEffect(() => { setMobileSidebarOpen(false); }, [pathname]);
 
 	async function handleLogout() {
 		await fetch("/api/admin/logout", { method: "POST" });
@@ -444,6 +450,7 @@ export default function DashboardShell({ children }) {
 
 	// Get current page info
 	const currentNav = navItems.find((n) => pathname === n.href) || navItems[0];
+
 	const pageDesc = {
 		"/dashboard": "Overview of your portfolio and platform analytics",
 		"/dashboard/contacts": "Manage contact form submissions",
@@ -475,10 +482,10 @@ export default function DashboardShell({ children }) {
 		<DashboardContext.Provider value={ctx}>
 			<div className="flex min-h-screen bg-[#0b0d10] text-zinc-100">
 				{/* Mobile overlay */}
-				{mobileSidebarOpen && <div className="fixed inset-0 z-40 bg-black/50 backdrop-blur-sm lg:hidden" onClick={() => setMobileSidebarOpen(false)} />}
+				{mobileSidebarOpen && <div className={`fixed inset-0 z-40 bg-black/50 backdrop-blur-sm ${immersive ? "" : "lg:hidden"}`} onClick={() => setMobileSidebarOpen(false)} />}
 
 				{/* Sidebar */}
-				<aside className={`fixed top-0 left-0 z-50 flex h-full flex-col border-r border-white/[0.06] bg-[#0d0f13] transition-all duration-300 ${sidebarCollapsed ? "w-[68px]" : "w-60"} ${mobileSidebarOpen ? "translate-x-0" : "-translate-x-full"} lg:translate-x-0`}>
+				<aside className={`fixed top-0 left-0 z-50 flex h-full flex-col border-r border-white/[0.06] bg-[#0d0f13] transition-all duration-300 ${sidebarCollapsed ? "w-[68px]" : "w-60"} ${mobileSidebarOpen ? "translate-x-0" : "-translate-x-full"} ${immersive ? "" : "lg:translate-x-0"}`}>
 					<div className={`flex h-16 shrink-0 items-center border-b border-white/[0.06] ${sidebarCollapsed ? "justify-center px-2" : "gap-3 px-5"}`}>
 						<div className="flex h-8 w-8 shrink-0 items-center justify-center rounded-lg bg-gradient-to-br from-emerald-500 to-emerald-600 text-sm font-bold text-white">A</div>
 						{!sidebarCollapsed && <div className="min-w-0"><p className="truncate text-sm font-semibold text-white">Ashiwani Kumar</p><p className="truncate text-[11px] text-zinc-500">Admin Panel</p></div>}
@@ -523,10 +530,10 @@ export default function DashboardShell({ children }) {
 				</aside>
 
 				{/* Main */}
-				<div className={`flex min-h-screen flex-1 flex-col transition-all duration-300 ${sidebarCollapsed ? "lg:ml-[68px]" : "lg:ml-60"}`}>
+				<div className={`flex min-h-screen min-w-0 flex-1 flex-col transition-all duration-300 ${immersive ? "" : sidebarCollapsed ? "lg:ml-[68px]" : "lg:ml-60"}`}>
 					<header className="sticky top-0 z-30 flex h-16 items-center justify-between border-b border-white/[0.06] bg-[#0b0d10]/80 px-4 backdrop-blur-xl sm:px-6">
 						<div className="flex items-center gap-3">
-							<button onClick={() => setMobileSidebarOpen(true)} className="rounded-lg p-1.5 text-zinc-400 hover:bg-white/[0.06] hover:text-white lg:hidden">{Icons.menu}</button>
+							<button onClick={() => setMobileSidebarOpen(true)} aria-label="Open navigation" className={`rounded-lg p-1.5 text-zinc-400 hover:bg-white/[0.06] hover:text-white ${immersive ? "" : "lg:hidden"}`}>{Icons.menu}</button>
 							<div>
 								<h1 className="text-base font-semibold text-white">{currentNav.label}</h1>
 								<p className="hidden text-xs text-zinc-400 sm:block">{pageDesc[pathname] || ""}</p>

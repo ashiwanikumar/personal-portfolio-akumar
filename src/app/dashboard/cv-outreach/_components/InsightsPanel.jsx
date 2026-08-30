@@ -15,10 +15,10 @@ const WEEKDAYS = ["", "Sun", "Mon", "Tue", "Wed", "Thu", "Fri", "Sat"];
 
 function Tile({ label, value, sub, accent = "text-[#e8eaed]" }) {
 	return (
-		<div className="rounded-lg border border-[#3c4043] bg-[#202124] px-4 py-3">
-			<p className="text-[11px] uppercase tracking-wide text-[#9aa0a6]">{label}</p>
-			<p className={`mt-1 text-[22px] font-medium leading-7 ${accent}`}>{value}</p>
-			{sub && <p className="text-[11px] text-[#9aa0a6]">{sub}</p>}
+		<div className="min-w-0 rounded-lg border border-[#3c4043] bg-[#202124] px-4 py-3">
+			<p className="truncate text-[11px] uppercase tracking-wide text-[#9aa0a6]">{label}</p>
+			<p className={`mt-1 truncate text-[22px] font-medium leading-7 ${accent}`}>{value}</p>
+			{sub && <p className="truncate text-[11px] text-[#9aa0a6]">{sub}</p>}
 		</div>
 	);
 }
@@ -225,7 +225,7 @@ export function StatStrip({ analytics, loading, days, onDaysChange }) {
 	if (loading || !analytics) {
 		return (
 			<div className="border-b border-[#2f3033] bg-[#1a1a1a] p-4">
-				<div className="grid gap-3 sm:grid-cols-3 lg:grid-cols-6">
+				<div className="grid grid-cols-2 gap-3 sm:grid-cols-3 lg:grid-cols-6">
 					{Array.from({ length: 6 }).map((_, i) => (
 						<div key={i} className="h-[74px] animate-pulse rounded-lg bg-[#202124]" />
 					))}
@@ -256,7 +256,7 @@ export function StatStrip({ analytics, loading, days, onDaysChange }) {
 				</select>
 			</div>
 
-			<div className="grid gap-3 sm:grid-cols-3 lg:grid-cols-6">
+			<div className="grid grid-cols-2 gap-3 sm:grid-cols-3 lg:grid-cols-6">
 				<Tile label="Sent" value={s.sent ?? 0} sub={`${s.perDay ?? 0} per day`} />
 				<Tile
 					label="Reply rate"

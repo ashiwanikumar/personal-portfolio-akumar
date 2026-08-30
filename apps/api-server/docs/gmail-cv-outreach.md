@@ -80,6 +80,7 @@ All under `/api/v1/gmail-cv`, all super-admin only.
 | GET | `/messages/:id/body` | Live body fetch from Gmail (sanitized HTML) |
 | GET | `/messages/:id/attachments/:attachmentId` | Streams the CV exactly as sent |
 | PATCH | `/messages/:id` | Toggle `starred` |
+| GET | `/export?format=xlsx\|csv` | Download the current view; takes the same filters as `/messages` |
 | POST | `/sync` | Start a sync; `{ "full": true }` re-scans the whole lookback |
 
 `folder` is one of `all`, `awaiting`, `replied`, `starred`, `bounced`.

@@ -350,6 +350,17 @@ export default function CvOutreachPage() {
 		);
 	}, [messages]);
 
+	/** Export honours whatever the list is currently filtered to. */
+	const exportHref = useCallback(
+		(format) => {
+			const params = new URLSearchParams({ folder, format });
+			if (query) params.set("q", query);
+			if (domain) params.set("domain", domain);
+			return `/api/admin/gmail-cv/export?${params.toString()}`;
+		},
+		[folder, query, domain]
+	);
+
 	const folderLabel = useMemo(
 		() => FOLDERS.find((f) => f.id === folder)?.label || "All CVs",
 		[folder]
@@ -358,7 +369,7 @@ export default function CvOutreachPage() {
 	const notConfigured = status && !status.configured;
 
 	return (
-		<div className="flex h-[calc(100vh-11rem)] min-h-[600px] flex-col overflow-hidden rounded-2xl border border-[#2f3033] bg-[#1a1a1a] text-[#e8eaed]">
+		<div className="flex h-[calc(100vh-8.5rem)] min-h-[520px] w-full min-w-0 flex-col overflow-hidden rounded-2xl border border-[#2f3033] bg-[#1a1a1a] text-[#e8eaed]">
 			{/* ─── Gmail top bar ─────────────────────────────────────────────── */}
 			<div className="flex h-16 shrink-0 items-center gap-3 px-3 sm:px-4">
 				<div className="hidden items-center gap-2 md:flex">
@@ -560,6 +571,7 @@ export default function CvOutreachPage() {
 								insightsOpen={insightsOpen}
 								onToggleInsights={() => setInsightsOpen((open) => !open)}
 								folderLabel={folderLabel}
+								exportHref={exportHref}
 							/>
 						</div>
 					)}

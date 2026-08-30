@@ -56,25 +56,25 @@ function Row({ message, checked, onCheck, onOpen, onToggleStar }) {
 
 			{/* Recipient */}
 			<span
-				className={`w-[168px] shrink-0 truncate pl-1 pr-2 ${
+				className={`w-[104px] shrink-0 truncate pl-1 pr-2 sm:w-[140px] lg:w-[168px] ${
 					pending ? "font-bold text-[#e8eaed]" : "text-[#bdc1c6]"
 				}`}
 			>
-				<span className="text-[#9aa0a6]">To: </span>
+				<span className="hidden text-[#9aa0a6] sm:inline">To: </span>
 				{displayName(message)}
 			</span>
 
-			{/* Subject + snippet */}
-			<span className="flex min-w-0 flex-1 items-center gap-2">
-				<span className={`shrink-0 max-w-[45%] truncate ${pending ? "font-bold text-[#e8eaed]" : "text-[#bdc1c6]"}`}>
+			{/* Subject + snippet share one truncating line, as Gmail does */}
+			<span className="min-w-0 flex-1 truncate">
+				<span className={pending ? "font-bold text-[#e8eaed]" : "text-[#bdc1c6]"}>
 					{message.subject}
 				</span>
-				<span className="min-w-0 flex-1 truncate text-[#9aa0a6]">
-					{message.snippet ? `— ${message.snippet}` : ""}
-				</span>
+				{message.snippet && <span className="text-[#9aa0a6]"> — {message.snippet}</span>}
 			</span>
 
-			<StatusChip message={message} />
+			<span className="hidden sm:inline-flex">
+				<StatusChip message={message} />
+			</span>
 
 			{message.attachmentCount > 0 && (
 				<span
@@ -111,6 +111,7 @@ export default function MessageList({
 	insightsOpen,
 	onToggleInsights,
 	folderLabel,
+	exportHref,
 }) {
 	const allChecked = messages.length > 0 && selectedIds.size === messages.length;
 	const { currentPage = 1, perPage = 25, totalMessages = 0, totalPages = 1 } = pagination || {};
@@ -139,6 +140,24 @@ export default function MessageList({
 				<IconButton label="Insights" onClick={onToggleInsights} active={insightsOpen}>
 					<Icon path={MailIcons.insights} className="h-[18px] w-[18px]" />
 				</IconButton>
+
+				{/* Exports exactly what the current filters show */}
+				<a
+					href={exportHref("xlsx")}
+					title="Export to Excel"
+					aria-label="Export to Excel"
+					className="grid h-10 w-10 place-items-center rounded-full text-[#9aa0a6] transition-colors hover:bg-[#2f3033] hover:text-[#e8eaed]"
+				>
+					<Icon path={MailIcons.download} className="h-[18px] w-[18px]" />
+				</a>
+				<a
+					href={exportHref("csv")}
+					title="Export to CSV"
+					aria-label="Export to CSV"
+					className="hidden h-10 w-10 place-items-center rounded-full text-[#9aa0a6] transition-colors hover:bg-[#2f3033] hover:text-[#e8eaed] sm:grid"
+				>
+					<Icon path={MailIcons.table} className="h-[18px] w-[18px]" />
+				</a>
 
 				{selectedIds.size > 0 && (
 					<span className="ml-2 text-[12px] text-[#9aa0a6]">{selectedIds.size} selected</span>

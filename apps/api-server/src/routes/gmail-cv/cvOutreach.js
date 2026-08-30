@@ -18,6 +18,7 @@ const syncLimiter = rateLimit({
 gmailCvRouter.get("/status", authCheck, superAdminCheck, cvOutreachController.getGmailStatus);
 gmailCvRouter.get("/analytics", authCheck, superAdminCheck, cvOutreachController.getCvOutreachAnalytics);
 gmailCvRouter.get("/messages", authCheck, superAdminCheck, cvOutreachController.getCvOutreachMessages);
+gmailCvRouter.get("/export", authCheck, superAdminCheck, cvOutreachController.exportCvOutreach);
 gmailCvRouter.get("/messages/:id", authCheck, superAdminCheck, cvOutreachController.getCvOutreachMessage);
 gmailCvRouter.get("/messages/:id/body", authCheck, superAdminCheck, cvOutreachController.getCvOutreachBody);
 gmailCvRouter.get(
