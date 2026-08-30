@@ -121,6 +121,11 @@ export const Icons = {
 			<path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6" /><polyline points="15,3 21,3 21,9" /><line x1="10" y1="14" x2="21" y2="3" />
 		</svg>
 	),
+	outreach: (
+		<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" className="h-5 w-5">
+			<path d="m22 2-7 20-4-9-9-4 20-7z" /><path d="M22 2 11 13" />
+		</svg>
+	),
 };
 
 // ─── Sidebar nav items ─────────────────────────────────────────
@@ -129,6 +134,7 @@ const navItems = [
 	{ id: "contacts", label: "Contacts", icon: Icons.contacts, href: "/dashboard/contacts" },
 	{ id: "newsletter", label: "Subscribers", icon: Icons.newsletter, href: "/dashboard/subscribers" },
 	{ id: "cv", label: "CV Analytics", icon: Icons.cv, href: "/dashboard/cv-analytics" },
+	{ id: "outreach", label: "CV Outreach", icon: Icons.outreach, href: "/dashboard/cv-outreach" },
 	{ id: "health", label: "System Health", icon: Icons.health, href: "/dashboard/health" },
 	{ id: "settings", label: "Settings", icon: Icons.settings, href: "/dashboard/settings" },
 ];
@@ -443,6 +449,7 @@ export default function DashboardShell({ children }) {
 		"/dashboard/contacts": "Manage contact form submissions",
 		"/dashboard/subscribers": "Manage newsletter subscribers",
 		"/dashboard/cv-analytics": "CV download & view tracking with geo analytics",
+		"/dashboard/cv-outreach": "CVs you sent from Gmail, with reply tracking",
 		"/dashboard/health": "API and service health monitoring",
 		"/dashboard/settings": "Configuration and preferences",
 	};

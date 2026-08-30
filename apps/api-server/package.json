@@ -6,11 +6,24 @@
   "scripts": {
     "dev": "npx nodemon server.js",
     "start": "node server.js",
-    "test": "jest --watchAll --no-cache --runInBand --coverage"
+    "test": "jest --watchAll --no-cache --runInBand --coverage",
+    "gmail:auth": "node scripts/gmail-authorize.js"
   },
   "jest": {
     "verbose": true,
     "testEnvironment": "node",
+    "moduleNameMapper": {
+      "^@root/(.*)$": "<rootDir>/$1",
+      "^@controllers/(.*)$": "<rootDir>/src/controllers/$1",
+      "^@jobs/(.*)$": "<rootDir>/src/jobs/$1",
+      "^@mails/(.*)$": "<rootDir>/src/mails/$1",
+      "^@middlewares/(.*)$": "<rootDir>/src/middlewares/$1",
+      "^@models/(.*)$": "<rootDir>/src/models/$1",
+      "^@routes/(.*)$": "<rootDir>/src/routes/$1",
+      "^@services/(.*)$": "<rootDir>/src/services/$1",
+      "^@utils/(.*)$": "<rootDir>/src/utils/$1",
+      "^@data/(.*)$": "<rootDir>/data/$1"
+    },
     "setupFilesAfterEnv": [
       "./tests/jest.setup.js"
     ],

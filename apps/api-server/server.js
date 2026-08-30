@@ -100,6 +100,11 @@ function startServer() {
       //   const blogCronJobs = require("./src/services/blog/blogCronJobs");
       //   blogCronJobs.initializeCronJobs();
       // });
+
+      safeStart("Gmail CV Outreach Sync", () => {
+        const { initializeCvOutreachCron } = require("./src/services/gmail/cvOutreachCron");
+        initializeCvOutreachCron();
+      });
     }
 
     logger.info("──────────────────────────────────────────────");
