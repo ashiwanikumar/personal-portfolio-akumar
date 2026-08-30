@@ -15,6 +15,10 @@ const bcrypt = require("bcryptjs");
   Helper function to check if user has super admin privileges
 ***********************************/
 const hasSuperAdminPrivileges = (user) => {
+  if (!user) {
+    return false;
+  }
+
   // Check legacy super admin role
   if (user.role === "superadmin") {
     return true;
@@ -32,28 +36,65 @@ const hasSuperAdminPrivileges = (user) => {
   Check if user is super admin
 ***********************************/
 exports.currentSuperAdmin = async (req, res) => {
-  const { _id } = req.user;
+  try {
+    // Tokens carry the id under either key, same as superAdminCheck reads it.
+    const userId = req.user?.id || req.user?._id;
 
-  const user = await UserService.findUserById(_id);
+    if (!userId) {
+      return res.status(401).json({
+        error: true,
+        type: [
+          {
+            code: "GLOBAL_ERROR",
+            message: "Invalid token payload",
+          },
+        ],
+      });
+    }
 
-  // User authentication check
+    const user = await UserService.findUserById(userId);
 
-  // Check if user has super admin privileges using helper function
-  const isSuperAdmin = hasSuperAdminPrivileges(user);
+    // User authentication check — a stale token can point at a deleted user.
+    if (!user) {
+      return res.status(401).json({
+        error: true,
+        type: [
+          {
+            code: "GLOBAL_ERROR",
+            message: "User not found",
+          },
+        ],
+      });
+    }
 
-  if (isSuperAdmin) {
-    res.status(200).json({
-      superadmin: true,
-      message: "Welcome Super admin!",
-      user: User.toClientObject(user),
+    // Check if user has super admin privileges using helper function
+    const isSuperAdmin = hasSuperAdminPrivileges(user);
+
+    if (isSuperAdmin) {
+      return res.status(200).json({
+        superadmin: true,
+        message: "Welcome Super admin!",
+        user: User.toClientObject(user),
+      });
+    }
+
+    return res.status(403).json({
+      admin: false,
+      error: "Super Admin Resource, access denied!",
     });
-    return;
-  }
+  } catch (error) {
+    console.error("CURRENT_SUPER_ADMIN_ERROR", error);
 
-  res.status(403).json({
-    admin: false,
-    error: "Super Admin Resource, access denied!",
-  });
+    return res.status(500).json({
+      error: true,
+      type: [
+        {
+          code: "GLOBAL_ERROR",
+          message: "Internal server error",
+        },
+      ],
+    });
+  }
 };
 
 /**********************************
@@ -548,33 +589,24 @@ exports.changeUserRole = async (req, res) => {
 /********************************************
   Remove admin team member
 *********************************************/
+/**
+ * Not wired up. The body was commented out, which left the route hanging with no
+ * response at all — this at least answers the client.
+ *
+ * To enable: call AdminService.removeTeamMember(userId, memberId) from
+ * @services/user/adminService. Check that service first — it filters admin.team
+ * but then saves `user` instead of `admin`, so the removal does not persist.
+ */
 exports.removeTeamMember = async (req, res) => {
-  const { _id } = req.user;
-  const { memberId } = req.params;
-
-  // // Check if the user is the owner of the team (by checking if admin..billingAdmin is true)
-  // const isOwner = await AdminService.validateIfAdminTeamOwner(_id);
-
-  // if (!isOwner) {
-  //   const errorObject = {
-  //     error: true,
-  //     type: [
-  //       {
-  //         code: "GLOBAL_ERROR",
-  //         message: "Only the owner of the team can remove team members",
-  //       },
-  //     ],
-  //   };
-  //   return res.status(409).json(errorObject);
-  // }
-
-  // try {
-  //   const team = await AdminService.removeAdminTeamMember(_id, memberId);
-
-  //   res.status(200).json(team);
-  // } catch (error) {
-  //   console.log("ADMIN_TEAM_MEMBERS_ERROR", error);
-  // }
+  return res.status(501).json({
+    error: true,
+    type: [
+      {
+        code: "GLOBAL_ERROR",
+        message: "Removing team members is not implemented yet",
+      },
+    ],
+  });
 };
 
 /********************************************
