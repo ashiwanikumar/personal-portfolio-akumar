@@ -80,6 +80,30 @@ function SetupNotice({ status }) {
 	);
 }
 
+function SessionExpiredNotice() {
+	return (
+		<div className="flex flex-1 items-center justify-center p-6">
+			<div className="max-w-md rounded-xl border border-[#3c3418] bg-[#282213] p-6 text-center">
+				<h2 className="text-[16px] font-medium text-[#fdd663]">Your session expired</h2>
+				<p className="mt-2 text-[13px] leading-5 text-[#bdc1c6]">
+					Sign in again to load your CV outreach. Nothing is lost — the sync keeps running on the
+					server while you are signed out.
+				</p>
+				<button
+					type="button"
+					onClick={async () => {
+						await fetch("/api/admin/logout", { method: "POST" }).catch(() => {});
+						window.location.reload();
+					}}
+					className="mt-4 rounded-lg bg-[#c2e7ff] px-4 py-2 text-[13px] font-medium text-[#062e6f] transition-colors hover:bg-[#a8dbff]"
+				>
+					Sign in again
+				</button>
+			</div>
+		</div>
+	);
+}
+
 export default function CvOutreachPage() {
 	const { session } = useDashboard();
 
@@ -104,6 +128,7 @@ export default function CvOutreachPage() {
 	const [analyticsLoading, setAnalyticsLoading] = useState(false);
 	const [insightsOpen, setInsightsOpen] = useState(false);
 
+	const [authExpired, setAuthExpired] = useState(false);
 	const [syncing, setSyncing] = useState(false);
 	const [syncNote, setSyncNote] = useState("");
 	const [toast, setToast] = useState("");
@@ -129,7 +154,20 @@ export default function CvOutreachPage() {
 	const fetchStatus = useCallback(async () => {
 		try {
 			const res = await fetch("/api/admin/gmail-cv?view=status", { cache: "no-store" });
+			if (res.status === 401) {
+				setAuthExpired(true);
+				return;
+			}
 			const data = await res.json();
+			if (!res.ok || typeof data?.configured !== "boolean") {
+				setStatus({
+					configured: false,
+					connected: false,
+					connectionError: data?.error || data?.message || `Status request failed (${res.status})`,
+				});
+				return;
+			}
+			setAuthExpired(false);
 			setStatus(data);
 		} catch {
 			setStatus({ configured: false, connected: false, connectionError: "Could not reach the API server" });
@@ -148,6 +186,11 @@ export default function CvOutreachPage() {
 			if (domain) params.set("domain", domain);
 
 			const res = await fetch(`/api/admin/gmail-cv?${params.toString()}`, { cache: "no-store" });
+			if (res.status === 401) {
+				setAuthExpired(true);
+				setMessages([]);
+				return;
+			}
 			const data = await res.json();
 
 			if (data?.success) {
@@ -169,6 +212,10 @@ export default function CvOutreachPage() {
 		setAnalyticsLoading(true);
 		try {
 			const res = await fetch(`/api/admin/gmail-cv?view=analytics&days=${days}`, { cache: "no-store" });
+			if (res.status === 401) {
+				setAuthExpired(true);
+				return;
+			}
 			const data = await res.json();
 			if (data?.success) setAnalytics(data);
 		} catch {
@@ -366,7 +413,7 @@ export default function CvOutreachPage() {
 		[folder]
 	);
 
-	const notConfigured = status && !status.configured;
+	const notConfigured = status?.configured === false;
 
 	return (
 		<div className="flex h-[calc(100vh-8.5rem)] min-h-[520px] w-full min-w-0 flex-col overflow-hidden rounded-2xl border border-[#2f3033] bg-[#1a1a1a] text-[#e8eaed]">
@@ -527,7 +574,9 @@ export default function CvOutreachPage() {
 						</button>
 					</div>
 
-					{notConfigured ? (
+					{authExpired ? (
+						<SessionExpiredNotice />
+					) : notConfigured ? (
 						<SetupNotice status={status} />
 					) : openMessage ? (
 						<ReadingPane

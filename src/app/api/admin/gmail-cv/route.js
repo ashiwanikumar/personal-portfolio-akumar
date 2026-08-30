@@ -28,7 +28,7 @@ export async function PATCH(request) {
 		});
 		return NextResponse.json(data);
 	} catch (error) {
-		return NextResponse.json({ error: error.message }, { status: 500 });
+		return NextResponse.json({ error: error.message }, { status: error?.status || 500 });
 	}
 }
 
@@ -75,6 +75,6 @@ export async function GET(request) {
 
 		return NextResponse.json(await apiFetch(`/gmail-cv/messages?${params.toString()}`, auth));
 	} catch (error) {
-		return NextResponse.json({ error: error.message }, { status: 500 });
+		return NextResponse.json({ error: error.message }, { status: error?.status || 500 });
 	}
 }

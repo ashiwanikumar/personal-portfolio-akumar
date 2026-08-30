@@ -44,8 +44,17 @@ export async function apiFetch(path, options = {}) {
 	const data = text ? JSON.parse(text) : null;
 
 	if (!response.ok) {
-		const message = data?.message || data?.error || `Request failed with ${response.status}`;
-		throw new Error(message);
+		const rawMessage = data?.message || data?.error;
+		const message =
+			typeof rawMessage === "string" && rawMessage
+				? rawMessage
+				: data?.type?.[0]?.message || `Request failed with ${response.status}`;
+
+		// Callers need the status to tell a rejected token from an outage.
+		const error = new Error(message);
+		error.status = response.status;
+		error.body = data;
+		throw error;
 	}
 
 	return data;
