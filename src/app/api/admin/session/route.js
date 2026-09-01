@@ -1,9 +1,10 @@
 import { NextResponse } from "next/server";
 import {
-	apiFetch,
+	apiFetchAsAdmin,
 	getAdminToken,
 	getAdminUserFromCookie,
 	isSuperAdminUser,
+	setAdminCookies,
 } from "@/lib/admin-api";
 
 export async function GET() {
@@ -15,22 +16,22 @@ export async function GET() {
 	}
 
 	try {
-		const data = await apiFetch("/currentSuperAdmin", {
-			method: "POST",
-			headers: {
-				Authorization: `Bearer ${token}`,
-			},
-		});
+		// Renews the access token from the refresh token when it has expired,
+		// which is what keeps a browser signed in for the full session length.
+		const { data, refreshed } = await apiFetchAsAdmin("/currentSuperAdmin", { method: "POST" });
 		const user = data?.user || data?.superAdmin || cookieUser;
 
 		if (!isSuperAdminUser(user) && !isSuperAdminUser(cookieUser)) {
 			return NextResponse.json({ authenticated: false, user: null }, { status: 403 });
 		}
 
-		return NextResponse.json({ authenticated: true, user: user || cookieUser });
+		const response = NextResponse.json({ authenticated: true, user: user || cookieUser });
+		if (refreshed) {
+			setAdminCookies(response, { accessToken: refreshed.accessToken, user: refreshed.user });
+		}
+		return response;
 	} catch (error) {
-		// An expired or rejected token is not a live session — say so, or the
-		// dashboard renders as signed in and every data call fails with 401.
+		// The refresh token is gone or rejected: the session really is over.
 		if (error?.status === 401 || error?.status === 403) {
 			return NextResponse.json(
 				{ authenticated: false, user: null, reason: "session_expired" },
@@ -38,7 +39,7 @@ export async function GET() {
 			);
 		}
 
-		// Anything else (backend down, network) keeps the degraded session.
+		// Backend unreachable — keep the session rather than bouncing to login.
 		return NextResponse.json({ authenticated: true, user: cookieUser, degraded: true });
 	}
 }

@@ -1,10 +1,9 @@
 import { NextResponse } from "next/server";
 import {
-	ADMIN_TOKEN_COOKIE,
-	ADMIN_USER_COOKIE,
-	apiFetch,
-	encodeAdminUser,
+	extractRefreshToken,
+	getBackendApiBase,
 	isSuperAdminUser,
+	setAdminCookies,
 } from "@/lib/admin-api";
 
 export async function POST(request) {
@@ -18,10 +17,26 @@ export async function POST(request) {
 			);
 		}
 
-		const data = await apiFetch("/otp/verify", {
+		// Direct fetch so the API's Set-Cookie (its refresh token) can be read;
+		// it is issued for the API's own domain and never reaches the browser.
+		const upstream = await fetch(`${getBackendApiBase()}/otp/verify`, {
 			method: "POST",
+			headers: { Accept: "application/json", "Content-Type": "application/json" },
 			body: JSON.stringify({ email, otp }),
+			cache: "no-store",
 		});
+
+		const text = await upstream.text();
+		const data = text ? JSON.parse(text) : null;
+
+		if (!upstream.ok) {
+			return NextResponse.json(
+				{ message: data?.message || data?.type?.[0]?.message || "OTP verification failed." },
+				{ status: upstream.status === 401 ? 401 : 400 }
+			);
+		}
+
+		const refreshToken = extractRefreshToken(upstream.headers.get("set-cookie"));
 
 		if (!data?.accessToken || !isSuperAdminUser(data.user)) {
 			return NextResponse.json(
@@ -35,23 +50,11 @@ export async function POST(request) {
 			message: "Login successful.",
 		});
 
-		const secure = process.env.NODE_ENV === "production";
-		response.cookies.set(ADMIN_TOKEN_COOKIE, data.accessToken, {
-			httpOnly: true,
-			secure,
-			sameSite: "lax",
-			path: "/",
-			maxAge: 60 * 60 * 8,
+		return setAdminCookies(response, {
+			accessToken: data.accessToken,
+			user: data.user,
+			refreshToken,
 		});
-		response.cookies.set(ADMIN_USER_COOKIE, encodeAdminUser(data.user), {
-			httpOnly: true,
-			secure,
-			sameSite: "lax",
-			path: "/",
-			maxAge: 60 * 60 * 8,
-		});
-
-		return response;
 	} catch (error) {
 		return NextResponse.json(
 			{ message: error.message || "OTP verification failed." },
