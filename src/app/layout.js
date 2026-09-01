@@ -1,4 +1,6 @@
 import { Suspense } from "react";
+import { Analytics } from "@vercel/analytics/next";
+import { SpeedInsights } from "@vercel/speed-insights/next";
 import {
 	generatePersonSchema,
 	generateWebSiteSchema,
@@ -23,7 +25,7 @@ export const metadata = {
 		default: "Ashiwani Kumar | Linux DevOps Engineer & DevOps Practitioner",
 		template: "%s | Ashiwani Kumar"
 	},
-	description: "Linux DevOps Engineer with 7+ years of experience managing mission-critical infrastructure across UAE. Expert in Kubernetes, OpenShift, AWS, Terraform, Ansible, CI/CD, and DevSecOps practices with 99.9% uptime achievement.",
+	description: "Linux DevOps Engineer with 7+ years running mission-critical infrastructure across the UAE at 99.9% uptime. Kubernetes, OpenShift, AWS, Terraform, DevSecOps.",
 	keywords: ["DevOps Engineer", "Linux DevOps Engineer", "SRE", "Kubernetes", "OpenShift", "AWS", "Terraform", "Ansible", "CI/CD", "Cloud Infrastructure", "Abu Dhabi", "UAE", "Infrastructure Automation", "DevSecOps", "Open Source", "Linux Administrator"],
 	authors: [{ name: "Ashiwani Kumar", url: "https://ashiwanikumar.com" }],
 	creator: "Ashiwani Kumar",
@@ -44,7 +46,7 @@ export const metadata = {
 			{
 				url: "https://ashiwanikumar.com/img/hero/ashiwani.png",
 				width: 1200,
-				height: 630,
+				height: 600,
 				alt: "Ashiwani Kumar - Linux DevOps Engineer & DevOps Practitioner"
 			}
 		]
@@ -75,6 +77,19 @@ export const metadata = {
 		canonical: "https://ashiwanikumar.com",
 	},
 	category: "technology",
+	// Set NEXT_PUBLIC_GOOGLE_SITE_VERIFICATION / _BING_ in the Vercel project.
+	// Omitted entirely when unset, rather than emitting an empty meta tag.
+	...((process.env.NEXT_PUBLIC_GOOGLE_SITE_VERIFICATION ||
+		process.env.NEXT_PUBLIC_BING_SITE_VERIFICATION) && {
+		verification: {
+			...(process.env.NEXT_PUBLIC_GOOGLE_SITE_VERIFICATION && {
+				google: process.env.NEXT_PUBLIC_GOOGLE_SITE_VERIFICATION,
+			}),
+			...(process.env.NEXT_PUBLIC_BING_SITE_VERIFICATION && {
+				other: { "msvalidate.01": process.env.NEXT_PUBLIC_BING_SITE_VERIFICATION },
+			}),
+		},
+	}),
 	other: {
 		"contact:email": "ashvanikumar109@gmail.com",
 		"contact:phone:uae": "+971 566182303",
@@ -107,6 +122,8 @@ export default function RootLayout({ children }) {
 					Skip to main content
 				</a>
 				<Suspense fallback={<></>}>{children}</Suspense>
+				<Analytics />
+				<SpeedInsights />
 			</body>
 		</html>
 	);

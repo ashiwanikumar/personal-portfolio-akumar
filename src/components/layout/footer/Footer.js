@@ -24,7 +24,7 @@ const Footer = () => {
 						{/* Navigation */}
 						<nav aria-label="Footer navigation">
 							<ul className="flex flex-wrap justify-center items-center gap-x-8 gap-y-3">
-								{["About", "Services", "Portfolio", "Resume", "Contact"].map((item) => (
+								{["About", "Services", "Portfolio", "Blog", "Guides", "Glossary", "Resume", "Contact"].map((item) => (
 									<li key={item}>
 										<Link
 											href={`/${item.toLowerCase()}`}
