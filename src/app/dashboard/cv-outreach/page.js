@@ -621,6 +621,7 @@ export default function CvOutreachPage() {
 								onToggleInsights={() => setInsightsOpen((open) => !open)}
 								folderLabel={folderLabel}
 								exportHref={exportHref}
+								timezone={analytics?.timezone}
 							/>
 						</div>
 					)}

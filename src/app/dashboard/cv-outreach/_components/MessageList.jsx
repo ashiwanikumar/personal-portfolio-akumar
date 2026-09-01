@@ -1,17 +1,20 @@
 "use client";
 
 import {
+	DAY_ACCENT,
 	Icon,
 	IconButton,
 	MailIcons,
 	StatusChip,
+	dayBucket,
 	displayName,
 	formatGmailDate,
 } from "./GmailUI";
 
-function Row({ message, checked, onCheck, onOpen, onToggleStar }) {
+function Row({ message, checked, onCheck, onOpen, onToggleStar, timezone }) {
 	// Gmail renders unread mail bold — here "awaiting a reply" is what stands out.
 	const pending = !message.replied && !message.bounced;
+	const bucket = dayBucket(message.sentAt, timezone);
 
 	return (
 		<div
@@ -26,6 +29,12 @@ function Row({ message, checked, onCheck, onOpen, onToggleStar }) {
 			}}
 			className="group flex h-[40px] cursor-pointer items-center gap-1 border-b border-[#2f3033] px-2 text-[14px] transition-shadow hover:z-10 hover:bg-[#2a2a2a] hover:shadow-[inset_1px_0_0_#3c4043,inset_-1px_0_0_#3c4043,0_1px_2px_rgba(0,0,0,.4)]"
 		>
+			<span
+				aria-hidden="true"
+				className="h-5 w-[3px] shrink-0 rounded-full"
+				style={{ background: DAY_ACCENT[bucket] }}
+			/>
+
 			<button
 				type="button"
 				aria-label={checked ? "Deselect" : "Select"}
@@ -88,8 +97,10 @@ function Row({ message, checked, onCheck, onOpen, onToggleStar }) {
 
 			<span
 				className={`w-[64px] shrink-0 text-right text-[12px] ${
-					pending ? "font-bold text-[#e8eaed]" : "text-[#9aa0a6]"
-				}`}
+					bucket === "older" && pending ? "font-bold text-[#e8eaed]" : ""
+				} ${bucket === "older" ? "text-[#9aa0a6]" : "font-bold"}`}
+				style={bucket === "older" ? undefined : { color: DAY_ACCENT[bucket] }}
+				title={new Date(message.sentAt).toLocaleString()}
 			>
 				{formatGmailDate(message.sentAt)}
 			</span>
@@ -112,6 +123,7 @@ export default function MessageList({
 	onToggleInsights,
 	folderLabel,
 	exportHref,
+	timezone,
 }) {
 	const allChecked = messages.length > 0 && selectedIds.size === messages.length;
 	const { currentPage = 1, perPage = 25, totalMessages = 0, totalPages = 1 } = pagination || {};
@@ -159,8 +171,19 @@ export default function MessageList({
 					<Icon path={MailIcons.table} className="h-[18px] w-[18px]" />
 				</a>
 
-				{selectedIds.size > 0 && (
+				{selectedIds.size > 0 ? (
 					<span className="ml-2 text-[12px] text-[#9aa0a6]">{selectedIds.size} selected</span>
+				) : (
+					<span className="ml-3 hidden items-center gap-3 text-[11px] text-[#9aa0a6] lg:flex">
+						<span className="flex items-center gap-1.5">
+							<span className="h-2 w-[3px] rounded-full" style={{ background: DAY_ACCENT.today }} />
+							Today
+						</span>
+						<span className="flex items-center gap-1.5">
+							<span className="h-2 w-[3px] rounded-full" style={{ background: DAY_ACCENT.yesterday }} />
+							Yesterday
+						</span>
+					</span>
 				)}
 
 				<div className="ml-auto flex items-center gap-1">
@@ -212,6 +235,7 @@ export default function MessageList({
 							onCheck={onCheck}
 							onOpen={onOpen}
 							onToggleStar={onToggleStar}
+							timezone={timezone}
 						/>
 					))
 				)}

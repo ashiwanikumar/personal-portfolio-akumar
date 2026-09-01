@@ -80,6 +80,35 @@ export function formatBytes(bytes) {
 	return `${(bytes / (1024 * 1024)).toFixed(1)} MB`;
 }
 
+/**
+ * Classify a send as today / yesterday / older in the mailbox's timezone (the
+ * server reports it), so rows and the Today card can never disagree.
+ */
+export function dayKeyInTz(value, timezone) {
+	return new Intl.DateTimeFormat("en-CA", {
+		timeZone: timezone || undefined,
+		year: "numeric",
+		month: "2-digit",
+		day: "2-digit",
+	}).format(new Date(value));
+}
+
+export function dayBucket(value, timezone) {
+	if (!value) return "older";
+
+	const key = dayKeyInTz(value, timezone);
+	if (key === dayKeyInTz(Date.now(), timezone)) return "today";
+	if (key === dayKeyInTz(Date.now() - 24 * 60 * 60 * 1000, timezone)) return "yesterday";
+	return "older";
+}
+
+// Gmail's own accent hues; both sit well clear of the row surface on contrast.
+export const DAY_ACCENT = {
+	today: "#8ab4f8",
+	yesterday: "#fdd663",
+	older: "transparent",
+};
+
 export function daysAgo(value) {
 	if (!value) return 0;
 	return Math.max(0, Math.floor((Date.now() - new Date(value).getTime()) / 86400000));

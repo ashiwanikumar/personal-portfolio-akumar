@@ -300,6 +300,13 @@ exports.getCvOutreachAnalytics = async (req, res) => {
     const replyTime = replyTimes[0] || {};
     const rate = (part, whole) => (whole ? Math.round((part / whole) * 1000) / 10 : 0);
 
+    const daily = fillDailyGaps(dailyStats, since, days, timezone);
+    const todayKey = dayKey(new Date(), timezone);
+    const yesterdayKey = dayKey(new Date(Date.now() - 24 * 60 * 60 * 1000), timezone);
+    const dayOf = (key) => daily.find((d) => d.date === key) || { sent: 0, replied: 0 };
+    const today = dayOf(todayKey);
+    const yesterday = dayOf(yesterdayKey);
+
     res.status(200).json({
       success: true,
       period: `${days} days`,
@@ -311,6 +318,11 @@ exports.getCvOutreachAnalytics = async (req, res) => {
         replyRate: rate(repliedCount, totalSent),
         companies: uniqueCompanies.filter(Boolean).length,
         perDay: days ? Math.round((totalSent / days) * 10) / 10 : 0,
+        today: today.sent,
+        todayReplied: today.replied,
+        yesterday: yesterday.sent,
+        todayKey,
+        yesterdayKey,
       },
       allTime: {
         sent: allTimeTotal,
@@ -323,7 +335,7 @@ exports.getCvOutreachAnalytics = async (req, res) => {
         slowestHours: replyTime.slowestHours ?? null,
       },
       timezone,
-      dailyStats: fillDailyGaps(dailyStats, since, days, timezone),
+      dailyStats: daily,
       byCompany: byCompany.map((c) => ({
         domain: c._id.domain,
         company: c._id.company || c._id.domain,

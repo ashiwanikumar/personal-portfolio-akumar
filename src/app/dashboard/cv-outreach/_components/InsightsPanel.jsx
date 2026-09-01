@@ -1,7 +1,7 @@
 "use client";
 
 import { useMemo, useState } from "react";
-import { Icon, MailIcons } from "./GmailUI";
+import { DAY_ACCENT, Icon, MailIcons } from "./GmailUI";
 
 /**
  * Series colors validated against the #202124 panel surface: OKLCH lightness
@@ -12,6 +12,33 @@ const SENT_COLOR = "#4285f4";
 const REPLIED_COLOR = "#c87a22";
 
 const WEEKDAYS = ["", "Sun", "Mon", "Tue", "Wed", "Thu", "Fri", "Sat"];
+
+function TodayTile({ today = 0, yesterday = 0 }) {
+	const delta = today - yesterday;
+	const arrow = delta > 0 ? "▲" : delta < 0 ? "▼" : "–";
+	const deltaColor = delta > 0 ? "text-[#81c995]" : delta < 0 ? "text-[#f28b82]" : "text-[#9aa0a6]";
+
+	return (
+		<div
+			className="min-w-0 rounded-lg border bg-[#202124] px-4 py-3"
+			style={{ borderColor: DAY_ACCENT.today }}
+		>
+			<p className="flex items-center gap-1.5 truncate text-[11px] uppercase tracking-wide text-[#9aa0a6]">
+				<span className="h-2 w-[3px] rounded-full" style={{ background: DAY_ACCENT.today }} />
+				Today
+			</p>
+			<p className="mt-1 truncate text-[22px] font-medium leading-7" style={{ color: DAY_ACCENT.today }}>
+				{today}
+			</p>
+			<p className="truncate text-[11px] text-[#9aa0a6]">
+				<span className={deltaColor}>
+					{arrow} {delta === 0 ? "same as" : `${Math.abs(delta)} vs`}
+				</span>{" "}
+				yesterday ({yesterday})
+			</p>
+		</div>
+	);
+}
 
 function Tile({ label, value, sub, accent = "text-[#e8eaed]" }) {
 	return (
@@ -256,7 +283,14 @@ export function StatStrip({ analytics, loading, days, onDaysChange }) {
 				</select>
 			</div>
 
-			<div className="grid grid-cols-2 gap-3 sm:grid-cols-3 lg:grid-cols-6">
+			<div className="grid grid-cols-2 gap-3 sm:grid-cols-3 lg:grid-cols-4 2xl:grid-cols-8">
+				<TodayTile today={s.today ?? 0} yesterday={s.yesterday ?? 0} />
+				<Tile
+					label="Yesterday"
+					value={s.yesterday ?? 0}
+					sub="previous day"
+					accent="text-[#fdd663]"
+				/>
 				<Tile label="Sent" value={s.sent ?? 0} sub={`${s.perDay ?? 0} per day`} />
 				<Tile
 					label="Reply rate"

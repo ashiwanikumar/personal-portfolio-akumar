@@ -74,7 +74,7 @@ All under `/api/v1/gmail-cv`, all super-admin only.
 | Method | Path | Purpose |
 |---|---|---|
 | GET | `/status` | Connection state, mailbox, last sync result |
-| GET | `/analytics?days=30` | Volume, reply rate, top companies, CV file performance |
+| GET | `/analytics?days=30` | Volume, reply rate, top companies, CV file performance. `summary.today` / `summary.yesterday` are bucketed in `ANALYTICS_TIMEZONE`, and `timezone` is returned so the client classifies days identically |
 | GET | `/messages?page=&perPage=&folder=&q=&domain=` | Paginated list + folder counts |
 | GET | `/messages/:id` | One email plus others sent to the same company |
 | GET | `/messages/:id/body` | Live body fetch from Gmail (sanitized HTML) |
