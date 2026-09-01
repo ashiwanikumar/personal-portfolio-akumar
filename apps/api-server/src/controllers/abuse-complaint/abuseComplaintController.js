@@ -6,7 +6,7 @@ const {
   collectAdvancedTechnicalInfo,
 } = require("@utils/technical-info-collector/technicalInfoCollector");
 const GeoLocationService = require("@utils/technical-info-collector/geoLocationService");
-const { verifyTurnstileToken } = require("@utils/turnstileVerification");
+const { verifyTurnstileToken, isTurnstileConfigured } = require("@utils/turnstileVerification");
 const logger = require("@utils/logger");
 
 /**********************************
@@ -39,31 +39,42 @@ exports.submitComplaint = async (req, res) => {
       });
     }
 
-    // Verify Turnstile token
-    if (!turnstileToken) {
-      return res.status(400).json({
-        message: "Security verification is required",
-        status: "error",
+    // Turnstile is enforced only when a secret key is configured. Without one
+    // the siteverify call can never succeed, so an unconditional check rejects
+    // every genuine report while stopping no bot. The route is rate limited
+    // either way.
+    let turnstileResult = null;
+
+    if (isTurnstileConfigured()) {
+      if (!turnstileToken) {
+        return res.status(400).json({
+          message: "Security verification is required",
+          status: "error",
+        });
+      }
+
+      console.log("Verifying Turnstile token...");
+      turnstileResult = await verifyTurnstileToken(turnstileToken, req.ip);
+
+      if (!turnstileResult.success) {
+        console.error("Turnstile verification failed:", turnstileResult);
+        return res.status(400).json({
+          message: "Security verification failed. Please try again.",
+          status: "error",
+          turnstileError: turnstileResult.errorCodes || ["verification-failed"],
+        });
+      }
+
+      console.log("Turnstile verification successful:", {
+        hostname: turnstileResult.hostname,
+        action: turnstileResult.action,
+        challengeTimestamp: turnstileResult.challengeTimestamp,
       });
+    } else {
+      logger.warn(
+        "[AbuseComplaint] Turnstile is not configured — submission accepted without bot verification"
+      );
     }
-
-    console.log("Verifying Turnstile token...");
-    const turnstileResult = await verifyTurnstileToken(turnstileToken, req.ip);
-
-    if (!turnstileResult.success) {
-      console.error("Turnstile verification failed:", turnstileResult);
-      return res.status(400).json({
-        message: "Security verification failed. Please try again.",
-        status: "error",
-        turnstileError: turnstileResult.errorCodes || ["verification-failed"],
-      });
-    }
-
-    console.log("Turnstile verification successful:", {
-      hostname: turnstileResult.hostname,
-      action: turnstileResult.action,
-      challengeTimestamp: turnstileResult.challengeTimestamp,
-    });
 
     // Collect comprehensive technical information using advanced collector
     console.log("Collecting advanced technical information...");
@@ -400,10 +411,10 @@ exports.submitComplaint = async (req, res) => {
         formVersion: "1.0",
         submissionMethod: "web",
         turnstileVerification: {
-          verified: true,
-          hostname: turnstileResult.hostname,
-          action: turnstileResult.action,
-          challengeTimestamp: turnstileResult.challengeTimestamp,
+          verified: Boolean(turnstileResult?.success),
+          hostname: turnstileResult?.hostname || null,
+          action: turnstileResult?.action || null,
+          challengeTimestamp: turnstileResult?.challengeTimestamp || null,
         },
       },
     };

@@ -1,6 +1,7 @@
 // ** LIBS ** //
 const express = require("express");
 const router = express.Router();
+const rateLimit = require("express-rate-limit");
 
 // ** MIDDLEWARES ** //
 const { authCheck, superAdminCheck } = require("@middlewares/auth");
@@ -25,8 +26,22 @@ const {
 
 // ** ROUTES ** //
 
+// Public and unauthenticated, and every submission writes a record and sends
+// mail — so it is rate limited regardless of whether Turnstile is configured.
+// Deliberately tighter than sign-in: a person files a report once, not ten times.
+const submitLimiter = rateLimit({
+  windowMs: 60 * 60 * 1000,
+  max: 5,
+  standardHeaders: true,
+  legacyHeaders: false,
+  message: {
+    status: "error",
+    message: "Too many reports submitted from this network. Please try again later.",
+  },
+});
+
 // Public Routes
-router.post("/abuse-complaints/submit", submitComplaint);
+router.post("/abuse-complaints/submit", submitLimiter, submitComplaint);
 
 // Protected Routes (Admin Only)
 router.get(
