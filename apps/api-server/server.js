@@ -7,6 +7,11 @@ const http = require("http");
 const cluster = require("cluster");
 const numCPUs = require("os").cpus().length;
 const logger = require("./src/utils/logger");
+const { redactSecrets, installLogRedaction } = require("./src/utils/redactSecrets");
+
+// Node prints some warnings itself, and DEP0170 echoes the whole Mongo URI —
+// password included. Install this before anything can connect.
+installLogRedaction(logger);
 
 // Port
 const PORT = process.env.API_PORT;
@@ -28,10 +33,7 @@ if (!process.env.ATLAS_URI) {
 // ---------------------------------------------------------------------------
 const mongoURI = process.env.ATLAS_URI;
 
-console.log(
-  "Connecting to MongoDB:",
-  mongoURI.replace(/\/\/([^:]+):([^@]+)@/, "//$1:****@")
-);
+console.log("Connecting to MongoDB:", redactSecrets(mongoURI));
 
 mongoose
   .connect(mongoURI, {
@@ -47,8 +49,9 @@ mongoose
     );
   })
   .catch((err) => {
-    console.error(`DB connection error - ${err.message}`);
-    console.error("Full error:", err);
+    // Driver errors routinely quote the connection string back at you.
+    console.error(`DB connection error - ${redactSecrets(err.message)}`);
+    console.error("Full error:", redactSecrets(err.stack || err));
     process.exit(1);
   });
 
@@ -60,7 +63,7 @@ mongoose.connection.on("reconnected", () => {
   logger.info("[DB] MongoDB reconnected");
 });
 mongoose.connection.on("error", (err) => {
-  logger.error(`[DB] MongoDB error: ${err.message}`);
+  logger.error(`[DB] MongoDB error: ${redactSecrets(err.message)}`);
 });
 
 // ---------------------------------------------------------------------------

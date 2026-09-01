@@ -2,7 +2,7 @@
 
 import Link from "next/link";
 import { usePathname } from "next/navigation";
-import { useCallback, useEffect, useMemo, useState, createContext, useContext } from "react";
+import { useCallback, useEffect, useMemo, useRef, useState, createContext, useContext } from "react";
 
 // ─── Dashboard context ──────────────────────────────────────────
 const DashboardContext = createContext(null);
@@ -140,7 +140,68 @@ const navItems = [
 ];
 
 // ─── Login page ─────────────────────────────────────────────────
+const TURNSTILE_SITE_KEY = process.env.NEXT_PUBLIC_TURNSTILE_SITE_KEY || "";
+
+/**
+ * Renders the Cloudflare Turnstile widget when a site key is configured, and
+ * hands the resulting token upward. With no key it renders nothing, matching the
+ * API, which only enforces Turnstile when its secret key is set.
+ */
+function TurnstileWidget({ onToken }) {
+	const containerRef = useRef(null);
+	const widgetRef = useRef(null);
+
+	useEffect(() => {
+		if (!TURNSTILE_SITE_KEY) return undefined;
+
+		let cancelled = false;
+
+		const render = () => {
+			if (cancelled || !containerRef.current || widgetRef.current) return;
+			if (!window.turnstile) return;
+
+			widgetRef.current = window.turnstile.render(containerRef.current, {
+				sitekey: TURNSTILE_SITE_KEY,
+				theme: "dark",
+				callback: onToken,
+				"expired-callback": () => onToken(""),
+				"error-callback": () => onToken(""),
+			});
+		};
+
+		if (window.turnstile) {
+			render();
+		} else if (!document.getElementById("cf-turnstile-script")) {
+			const script = document.createElement("script");
+			script.id = "cf-turnstile-script";
+			script.src = "https://challenges.cloudflare.com/turnstile/v0/api.js?render=explicit";
+			script.async = true;
+			script.onload = render;
+			document.head.appendChild(script);
+		} else {
+			document.getElementById("cf-turnstile-script").addEventListener("load", render);
+		}
+
+		return () => {
+			cancelled = true;
+			if (widgetRef.current && window.turnstile) {
+				try {
+					window.turnstile.remove(widgetRef.current);
+				} catch {
+					// widget already gone
+				}
+				widgetRef.current = null;
+			}
+		};
+	}, [onToken]);
+
+	if (!TURNSTILE_SITE_KEY) return null;
+
+	return <div ref={containerRef} className="mt-4 flex justify-center" />;
+}
+
 function LoginPage({ loadDashboard }) {
+	const [turnstileToken, setTurnstileToken] = useState("");
 	const [email, setEmail] = useState("");
 	const [password, setPassword] = useState("");
 	const [showPassword, setShowPassword] = useState(false);
@@ -164,7 +225,7 @@ function LoginPage({ loadDashboard }) {
 		setSubmitting(true);
 		setError("");
 		try {
-			const res = await fetch("/api/admin/login", { method: "POST", headers: { "Content-Type": "application/json" }, body: JSON.stringify({ email, password }) });
+			const res = await fetch("/api/admin/login", { method: "POST", headers: { "Content-Type": "application/json" }, body: JSON.stringify({ email, password, turnstileToken }) });
 			const data = await res.json();
 			if (!res.ok) throw new Error(data.message || "Login failed.");
 			setEmail(""); setPassword("");
@@ -187,7 +248,7 @@ function LoginPage({ loadDashboard }) {
 		e.preventDefault();
 		setSubmitting(true); setError("");
 		try {
-			const res = await fetch("/api/admin/otp/verify", { method: "POST", headers: { "Content-Type": "application/json" }, body: JSON.stringify({ email, otp: otpCode }) });
+			const res = await fetch("/api/admin/otp/verify", { method: "POST", headers: { "Content-Type": "application/json" }, body: JSON.stringify({ email, otp: otpCode, turnstileToken }) });
 			const data = await res.json();
 			if (!res.ok) throw new Error(data.message || "Verification failed.");
 			setOtpCode(""); setOtpStep("email");
@@ -256,6 +317,7 @@ function LoginPage({ loadDashboard }) {
 								</button>
 							</div>
 						</div>
+						<TurnstileWidget onToken={setTurnstileToken} />
 						<button type="submit" disabled={submitting} className="dash-btn-primary">
 							<span style={{ display: "flex", alignItems: "center", justifyContent: "center", gap: "8px" }}>
 								{submitting ? <><span className="dash-spinner" />Signing in...</> : <>Sign in<svg viewBox="0 0 24 24" fill="none" style={{ width: "16px", height: "16px" }}><path d="M5 12h14m-6-6 6 6-6 6" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" /></svg></>}

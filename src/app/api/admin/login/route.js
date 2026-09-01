@@ -8,7 +8,7 @@ import {
 
 export async function POST(request) {
 	try {
-		const { email, password } = await request.json();
+		const { email, password, turnstileToken } = await request.json();
 
 		if (!email || !password) {
 			return NextResponse.json(
@@ -22,7 +22,7 @@ export async function POST(request) {
 		const upstream = await fetch(`${getBackendApiBase()}/login`, {
 			method: "POST",
 			headers: { Accept: "application/json", "Content-Type": "application/json" },
-			body: JSON.stringify({ email, password }),
+			body: JSON.stringify({ email, password, turnstileToken }),
 			cache: "no-store",
 		});
 

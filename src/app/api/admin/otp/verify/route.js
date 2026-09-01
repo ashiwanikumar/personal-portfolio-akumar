@@ -8,7 +8,7 @@ import {
 
 export async function POST(request) {
 	try {
-		const { email, otp } = await request.json();
+		const { email, otp, turnstileToken } = await request.json();
 
 		if (!email || !otp) {
 			return NextResponse.json(
@@ -22,7 +22,7 @@ export async function POST(request) {
 		const upstream = await fetch(`${getBackendApiBase()}/otp/verify`, {
 			method: "POST",
 			headers: { Accept: "application/json", "Content-Type": "application/json" },
-			body: JSON.stringify({ email, otp }),
+			body: JSON.stringify({ email, otp, turnstileToken }),
 			cache: "no-store",
 		});
 

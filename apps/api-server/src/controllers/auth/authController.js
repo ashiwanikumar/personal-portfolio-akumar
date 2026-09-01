@@ -18,7 +18,7 @@ const { requestOtp, verifyOtp } = require("@services/auth/otpService");
 // ** UTILS ** //
 const { logger } = require("@utils/logger");
 const { emailValidator, passwordValidator } = require("@utils/validations");
-const { verifyTurnstileToken } = require("@utils/turnstileVerification");
+const { verifyTurnstileToken, isTurnstileConfigured } = require("@utils/turnstileVerification");
 const {
   getRealClientIP,
 } = require("@utils/technical-info-collector/technicalInfoCollector");
@@ -636,8 +636,12 @@ exports.login = async (req, res, next) => {
     return res.status(400).json({ message: "Please provide email & password" });
   }
 
-  // Validate Turnstile token
-  if (!turnstileToken) {
+  // Turnstile is enforced only when a secret key is configured. Without one the
+  // siteverify call can never succeed, so requiring a token would lock every
+  // user out rather than stop any bot. Login is rate limited either way.
+  const turnstileEnforced = isTurnstileConfigured();
+
+  if (turnstileEnforced && !turnstileToken) {
     return res.status(400).json({
       error: true,
       type: [
@@ -650,19 +654,20 @@ exports.login = async (req, res, next) => {
   }
 
   try {
-    // Verify Turnstile token
-    const turnstileResult = await verifyTurnstileToken(turnstileToken, req.ip);
+    if (turnstileEnforced) {
+      const turnstileResult = await verifyTurnstileToken(turnstileToken, req.ip);
 
-    if (!turnstileResult.success) {
-      return res.status(400).json({
-        error: true,
-        type: [
-          {
-            code: "TURNSTILE_ERROR",
-            message: "Security verification failed. Please try again.",
-          },
-        ],
-      });
+      if (!turnstileResult.success) {
+        return res.status(400).json({
+          error: true,
+          type: [
+            {
+              code: "TURNSTILE_ERROR",
+              message: "Security verification failed. Please try again.",
+            },
+          ],
+        });
+      }
     }
     const user = await User.findOne({ email: req.body.email }).populate(
       "roleInfo"

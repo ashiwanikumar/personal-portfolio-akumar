@@ -6,6 +6,13 @@ const axios = require('axios');
  * @param {string} remoteip - The IP address of the client (optional)
  * @returns {Promise<Object>} - Verification result
  */
+/**
+ * Turnstile is only enforced when a secret key is configured. Without one the
+ * verify call can never succeed, so an unconditional check does not protect the
+ * endpoint — it just locks everyone out.
+ */
+const isTurnstileConfigured = () => Boolean(process.env.CLOUDFLARE_RECAPTCHA_SECRET_KEY);
+
 const verifyTurnstileToken = async (token, remoteip = null) => {
   try {
     const secretKey = process.env.CLOUDFLARE_RECAPTCHA_SECRET_KEY;
@@ -51,4 +58,5 @@ const verifyTurnstileToken = async (token, remoteip = null) => {
 
 module.exports = {
   verifyTurnstileToken,
+  isTurnstileConfigured,
 };
