@@ -273,13 +273,15 @@ export function StatStrip({ analytics, loading, days, onDaysChange }) {
 				</h2>
 				<select
 					value={days}
-					onChange={(e) => onDaysChange(Number(e.target.value))}
+					onChange={(e) => onDaysChange(e.target.value)}
+					title="Applies to the folder counts and the list as well"
 					className="rounded-full border border-[#3c4043] bg-[#202124] px-3 py-1 text-[12px] text-[#bdc1c6] outline-none focus:border-[#8ab4f8]"
 				>
-					<option value={7}>Last 7 days</option>
-					<option value={30}>Last 30 days</option>
-					<option value={90}>Last 90 days</option>
-					<option value={365}>Last year</option>
+					<option value="all">All time</option>
+					<option value="7">Last 7 days</option>
+					<option value="30">Last 30 days</option>
+					<option value="90">Last 90 days</option>
+					<option value="365">Last year</option>
 				</select>
 			</div>
 
@@ -291,7 +293,11 @@ export function StatStrip({ analytics, loading, days, onDaysChange }) {
 					sub="previous day"
 					accent="text-[#fdd663]"
 				/>
-				<Tile label="Sent" value={s.sent ?? 0} sub={`${s.perDay ?? 0} per day`} />
+				<Tile
+					label="Sent"
+					value={s.sent ?? 0}
+					sub={analytics.allTimeMode ? "all time" : `${s.perDay ?? 0} per day`}
+				/>
 				<Tile
 					label="Reply rate"
 					value={`${s.replyRate ?? 0}%`}

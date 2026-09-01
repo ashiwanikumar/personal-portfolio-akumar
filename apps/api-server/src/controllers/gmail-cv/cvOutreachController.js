@@ -30,6 +30,15 @@ function folderFilter(folder) {
   }
 }
 
+/** Just the period constraint, without folder/search/domain. */
+function periodOnlyFilter(query) {
+  if (!query.days || query.days === "all") return {};
+
+  const since = new Date();
+  since.setDate(since.getDate() - parseInt(query.days, 10));
+  return { sentAt: { $gte: since } };
+}
+
 function buildListFilter(query) {
   const filter = { ...folderFilter(query.folder) };
 
@@ -133,6 +142,9 @@ exports.getCvOutreachMessages = async (req, res) => {
         .lean(),
       CvOutreach.countDocuments(filter),
       CvOutreach.aggregate([
+        // Same period as the list and the insight tiles — but ignoring folder,
+        // search and domain, since these counts are what you filter *by*.
+        { $match: periodOnlyFilter(req.query) },
         {
           $group: {
             _id: null,
@@ -216,11 +228,16 @@ exports.getCvOutreachMessage = async (req, res) => {
  */
 exports.getCvOutreachAnalytics = async (req, res) => {
   try {
-    const days = parseInt(req.query.days, 10) || 30;
+    const allTime = req.query.days === "all";
+    const days = allTime ? 365 : parseInt(req.query.days, 10) || 30;
+
+    // In all-time mode the totals are unbounded, but the chart still needs a
+    // bounded window or it would draw one bar per day since the first send.
     const since = new Date();
     since.setDate(since.getDate() - days);
 
-    const periodMatch = { sentAt: { $gte: since } };
+    const periodMatch = allTime ? {} : { sentAt: { $gte: since } };
+    const chartMatch = { sentAt: { $gte: since } };
     const timezone = analyticsTimezone();
 
     const [
@@ -241,7 +258,7 @@ exports.getCvOutreachAnalytics = async (req, res) => {
       CvOutreach.countDocuments({ ...periodMatch, bounced: true }),
       CvOutreach.distinct("recipientDomain", periodMatch),
       CvOutreach.aggregate([
-        { $match: periodMatch },
+        { $match: chartMatch },
         {
           $group: {
             _id: { $dateToString: { format: "%Y-%m-%d", date: "$sentAt", timezone } },
@@ -309,7 +326,9 @@ exports.getCvOutreachAnalytics = async (req, res) => {
 
     res.status(200).json({
       success: true,
-      period: `${days} days`,
+      period: allTime ? "all time" : `${days} days`,
+      allTimeMode: allTime,
+      chartDays: days,
       summary: {
         sent: totalSent,
         replied: repliedCount,

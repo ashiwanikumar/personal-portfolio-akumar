@@ -27,11 +27,13 @@ function Row({ message, checked, onCheck, onOpen, onToggleStar, timezone }) {
 					onOpen(message);
 				}
 			}}
-			className="group flex h-[40px] cursor-pointer items-center gap-1 border-b border-[#2f3033] px-2 text-[14px] transition-shadow hover:z-10 hover:bg-[#2a2a2a] hover:shadow-[inset_1px_0_0_#3c4043,inset_-1px_0_0_#3c4043,0_1px_2px_rgba(0,0,0,.4)]"
+			className={`group flex h-[40px] cursor-pointer items-center gap-1 border-b border-[#2f3033] pr-2 text-[14px] transition-shadow hover:z-10 hover:bg-[#2a2a2a] hover:shadow-[inset_1px_0_0_#3c4043,inset_-1px_0_0_#3c4043,0_1px_2px_rgba(0,0,0,.4)] ${
+				bucket === "today" ? "bg-[#8ab4f8]/[0.05]" : bucket === "yesterday" ? "bg-[#fdd663]/[0.04]" : ""
+			}`}
 		>
 			<span
 				aria-hidden="true"
-				className="h-5 w-[3px] shrink-0 rounded-full"
+				className="-my-[1px] h-[40px] w-[4px] shrink-0"
 				style={{ background: DAY_ACCENT[bucket] }}
 			/>
 
@@ -42,7 +44,7 @@ function Row({ message, checked, onCheck, onOpen, onToggleStar, timezone }) {
 					e.stopPropagation();
 					onCheck(message.gmailMessageId);
 				}}
-				className={`grid h-8 w-8 shrink-0 place-items-center rounded-full transition-colors hover:bg-[#3c4043] ${
+				className={`ml-1 grid h-8 w-8 shrink-0 place-items-center rounded-full transition-colors hover:bg-[#3c4043] ${
 					checked ? "text-[#8ab4f8]" : "text-[#5f6368]"
 				}`}
 			>
@@ -153,6 +155,8 @@ export default function MessageList({
 					<Icon path={MailIcons.insights} className="h-[18px] w-[18px]" />
 				</IconButton>
 
+				<span className="mx-1 h-5 w-px bg-[#3c4043]" aria-hidden="true" />
+
 				{/* Exports exactly what the current filters show */}
 				<a
 					href={exportHref("xlsx")}
@@ -174,16 +178,19 @@ export default function MessageList({
 				{selectedIds.size > 0 ? (
 					<span className="ml-2 text-[12px] text-[#9aa0a6]">{selectedIds.size} selected</span>
 				) : (
-					<span className="ml-3 hidden items-center gap-3 text-[11px] text-[#9aa0a6] lg:flex">
-						<span className="flex items-center gap-1.5">
-							<span className="h-2 w-[3px] rounded-full" style={{ background: DAY_ACCENT.today }} />
-							Today
+					<>
+						<span className="mx-1 hidden h-5 w-px bg-[#3c4043] lg:block" aria-hidden="true" />
+						<span className="hidden items-center gap-4 pl-1 text-[11px] text-[#9aa0a6] lg:flex">
+							<span className="flex items-center gap-2">
+								<span className="h-3 w-[4px] rounded-[1px]" style={{ background: DAY_ACCENT.today }} />
+								Today
+							</span>
+							<span className="flex items-center gap-2">
+								<span className="h-3 w-[4px] rounded-[1px]" style={{ background: DAY_ACCENT.yesterday }} />
+								Yesterday
+							</span>
 						</span>
-						<span className="flex items-center gap-1.5">
-							<span className="h-2 w-[3px] rounded-full" style={{ background: DAY_ACCENT.yesterday }} />
-							Yesterday
-						</span>
-					</span>
+					</>
 				)}
 
 				<div className="ml-auto flex items-center gap-1">

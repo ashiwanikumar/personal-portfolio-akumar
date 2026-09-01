@@ -110,7 +110,7 @@ export default function CvOutreachPage() {
 	const [status, setStatus] = useState(null);
 	const [folder, setFolder] = useState("all");
 	const [page, setPage] = useState(1);
-	const [days, setDays] = useState(30);
+	const [days, setDays] = useState("all");
 	const [searchInput, setSearchInput] = useState("");
 	const [query, setQuery] = useState("");
 	const [domain, setDomain] = useState("");
@@ -181,6 +181,7 @@ export default function CvOutreachPage() {
 				page: String(page),
 				perPage: String(PER_PAGE),
 				folder,
+				days: String(days),
 			});
 			if (query) params.set("q", query);
 			if (domain) params.set("domain", domain);
@@ -206,7 +207,7 @@ export default function CvOutreachPage() {
 			setListLoading(false);
 			setSelectedIds(new Set());
 		}
-	}, [page, folder, query, domain]);
+	}, [page, folder, query, domain, days]);
 
 	const fetchAnalytics = useCallback(async () => {
 		setAnalyticsLoading(true);
@@ -400,12 +401,12 @@ export default function CvOutreachPage() {
 	/** Export honours whatever the list is currently filtered to. */
 	const exportHref = useCallback(
 		(format) => {
-			const params = new URLSearchParams({ folder, format });
+			const params = new URLSearchParams({ folder, format, days: String(days) });
 			if (query) params.set("q", query);
 			if (domain) params.set("domain", domain);
 			return `/api/admin/gmail-cv/export?${params.toString()}`;
 		},
-		[folder, query, domain]
+		[folder, query, domain, days]
 	);
 
 	const folderLabel = useMemo(
@@ -515,7 +516,7 @@ export default function CvOutreachPage() {
 								>
 									<Icon path={item.icon} className="h-[18px] w-[18px] shrink-0" />
 									<span className="min-w-0 flex-1 truncate text-left">{item.label}</span>
-									{count > 0 && <span className="shrink-0 text-[12px]">{count}</span>}
+									<span className={`shrink-0 text-[12px] ${count > 0 ? "" : "text-[#5f6368]"}`}>{count}</span>
 								</button>
 							);
 						})}
