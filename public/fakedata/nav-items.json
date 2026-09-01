@@ -1,37 +1,27 @@
 [
-  {
-    "name": "About",
-    "path": "/about",
-    "path2": "/about"
-  },
-  {
-    "name": "Services",
-    "path": "/services",
-    "path2": "/services"
-  },
-  {
-    "name": "Portfolio",
-    "path": "/portfolio",
-    "path2": "/portfolio"
-  },
-  {
-    "name": "Blog",
-    "path": "/blog",
-    "path2": "/blog"
-  },
-  {
-    "name": "Guides",
-    "path": "/guides",
-    "path2": "/guides"
-  },
-  {
-    "name": "Resume",
-    "path": "/resume",
-    "path2": "/resume"
-  },
-  {
-    "name": "Contact",
-    "path": "/contact",
-    "path2": "/contact"
-  }
+    {
+      "name":"About",
+      "path":"/about",
+      "path2":"/about"
+    },
+    {
+      "name":"Services",
+      "path":"/services",
+      "path2":"/services"
+    },
+    {
+      "name":"Portfolio",
+      "path":"/portfolio",
+      "path2":"/portfolio"
+    },
+    {
+      "name":"Resume",
+      "path":"/resume",
+      "path2":"/resume"
+    },
+    {
+      "name":"Contact",
+      "path":"/contact",
+      "path2":"/contact"
+    }
 ]

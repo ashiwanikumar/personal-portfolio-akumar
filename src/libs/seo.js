@@ -26,8 +26,6 @@ export function generatePageMetadata({
   ogImage,
   ogType = "website",
   noindex = false,
-  publishedTime,
-  modifiedTime,
 }) {
   const isAbsolute = typeof title !== "string";
   // Fit before the layout template appends " | Ashiwani Kumar", so the rendered
@@ -64,11 +62,6 @@ export function generatePageMetadata({
       url,
       siteName: `${SITE_NAME} - SRE & DevOps Engineer`,
       type: ogType,
-      ...(ogType === "article" && {
-        publishedTime,
-        modifiedTime: modifiedTime || publishedTime,
-        authors: [SITE_URL],
-      }),
       images: [
         { url: resolvedOgImage, width: 1200, height: 600, alt: titleText },
       ],
@@ -308,118 +301,4 @@ export function fitTitle(title, hasBrandSuffix = true) {
     if (candidate.length <= budget) return candidate;
   }
   return title;
-}
-
-export const AUTHOR = {
-  "@type": "Person",
-  name: SITE_NAME,
-  url: SITE_URL,
-  jobTitle: "Linux DevOps Engineer",
-  sameAs: Object.values(SOCIAL_PROFILES),
-};
-
-export function generateBlogPostingSchema(post) {
-  return {
-    "@context": "https://schema.org",
-    "@type": "BlogPosting",
-    headline: post.title,
-    description: post.seoDescription,
-    image: `${SITE_URL}${post.coverImage}`,
-    datePublished: post.date,
-    dateModified: post.lastUpdated || post.date,
-    author: AUTHOR,
-    publisher: AUTHOR,
-    mainEntityOfPage: {
-      "@type": "WebPage",
-      "@id": `${SITE_URL}/blog/${post.slug}`,
-    },
-    keywords: post.keywords?.join(", "),
-    articleSection: post.category,
-    inLanguage: "en-US",
-    ...(post.quickAnswer && { abstract: post.quickAnswer }),
-  };
-}
-
-/**
- * Guides are step-by-step, so they earn HowTo rather than Article. Google shows
- * the step list in the SERP when the steps carry names and text.
- */
-export function generateHowToSchema(guide) {
-  return {
-    "@context": "https://schema.org",
-    "@type": "HowTo",
-    name: guide.title,
-    description: guide.seoDescription,
-    totalTime: guide.totalTime,
-    author: AUTHOR,
-    ...(guide.lastUpdated && { dateModified: guide.lastUpdated }),
-    ...(guide.prerequisites?.length && {
-      supply: guide.prerequisites.map((p) => ({ "@type": "HowToSupply", name: p })),
-    }),
-    ...(guide.tools?.length && {
-      tool: guide.tools.map((t) => ({ "@type": "HowToTool", name: t.name })),
-    }),
-    step: guide.steps.map((s, i) => ({
-      "@type": "HowToStep",
-      position: i + 1,
-      name: s.title,
-      text: s.description,
-      url: `${SITE_URL}/guides/${guide.slug}#step-${s.step}`,
-    })),
-  };
-}
-
-export function generateDefinedTermSchema(term) {
-  return {
-    "@context": "https://schema.org",
-    "@type": "DefinedTerm",
-    "@id": `${SITE_URL}/glossary/${term.term}`,
-    name: term.name,
-    description: term.shortDefinition,
-    termCode: term.term,
-    ...(term.alsoKnownAs?.length && { alternateName: term.alsoKnownAs }),
-    inDefinedTermSet: {
-      "@type": "DefinedTermSet",
-      name: "DevOps & SRE Glossary",
-      url: `${SITE_URL}/glossary`,
-    },
-  };
-}
-
-export function generateDefinedTermSetSchema(terms) {
-  return {
-    "@context": "https://schema.org",
-    "@type": "DefinedTermSet",
-    name: "DevOps & SRE Glossary",
-    description:
-      "Plain-English definitions of Kubernetes, Terraform, CI/CD, and SRE terminology, written from production experience.",
-    url: `${SITE_URL}/glossary`,
-    hasDefinedTerm: terms.map((t) => ({
-      "@type": "DefinedTerm",
-      "@id": `${SITE_URL}/glossary/${t.term}`,
-      name: t.name,
-      description: t.shortDefinition,
-    })),
-  };
-}
-
-export function generateItemListSchema({ name, description, path, items }) {
-  return {
-    "@context": "https://schema.org",
-    "@type": "CollectionPage",
-    name,
-    description,
-    url: `${SITE_URL}${path}`,
-    author: AUTHOR,
-    mainEntity: {
-      "@type": "ItemList",
-      numberOfItems: items.length,
-      itemListElement: items.map((item, i) => ({
-        "@type": "ListItem",
-        position: i + 1,
-        name: item.name,
-        url: `${SITE_URL}${item.url}`,
-      })),
-    },
-  };
 }
