@@ -51,7 +51,7 @@ const Navbar = ({ isActiveMobileMenu, setIsActiveMobileMenu, isSticky }) => {
 										headerType === 5 || headerType === 10 ? "" : "py-10px "
 									}  ${
 										headerType === 5 || headerType === 6 || headerType === 9
-											? ` text-[#00ff41] nav-glow-hover font-mono tracking-wider uppercase text-sm ${
+											? ` text-white/70 nav-glow-hover text-sm font-medium ${
 													headerType === 6 || headerType === 9
 														? "py-10px md:py-12px lg:py-12px 2xl:py-12px px-4"
 														: "px-14px py-3px border border-transparent hover:border-primary-color rounded-full"

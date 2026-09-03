@@ -54,13 +54,13 @@ const TypeWriterLoop = ({
     <span className={className}>
       {currentText}
       <span
-        className={`inline-block w-[4px] ml-2 bg-[#00ff41] transition-opacity duration-100 ${
+        className={`inline-block w-[4px] ml-2 bg-[#10b981] transition-opacity duration-100 ${
           showCursor ? 'opacity-100' : 'opacity-0'
         }`}
         style={{
           height: '0.9em',
           verticalAlign: 'middle',
-          boxShadow: showCursor ? '0 0 10px rgba(0,255,65,0.8), 0 0 20px rgba(0,255,65,0.4)' : 'none'
+          boxShadow: showCursor ? '0 0 10px rgba(16,185,129,0.8), 0 0 20px rgba(16,185,129,0.4)' : 'none'
         }}
       />
     </span>

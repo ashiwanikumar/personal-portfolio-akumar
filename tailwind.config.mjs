@@ -26,10 +26,10 @@ container
 /** @type {import('tailwindcss').Config} */
 
 // variables
-const primaryColor = "#8750f7";
-const primaryColor2 = "#9b8dff";
+const primaryColor = "#10b981";
+const primaryColor2 = "#34d399";
 const primaryColorLight = "#000000";
-const seondaryColor = "#2a1454";
+const seondaryColor = "#064e3b";
 const seondaryColor2 = "#333333";
 const seondaryColor3 = "#222222";
 const bodyColor = "#000000";
@@ -46,7 +46,7 @@ const grayColor2 = "#888888";
 const grayColor3 = "#333333";
 const grayColor4 = "#FFFFFF80";
 const borderColor = "#666666";
-const borderColor2 = "rgba(129, 76, 236, 0.2)";
+const borderColor2 = "rgba(16, 185, 129, 0.2)";
 const borderColor3 = "#FFFFFF24";
 const borderColor4 = "#FFFFFF26";
 const borderColor5 = "#ffffff14";
@@ -65,12 +65,12 @@ const green1 = "#00ff2f";
 const green2 = "#00f721";
 
 // Hacker theme colors for light mode
-const hackerPrimary = "#00ff41";       // Matrix green
-const hackerSecondary = "#003300";     // Dark green
-const hackerBg = "#001100";            // Very dark green/black
-const hackerText = "#00ff41";          // Bright green text
-const hackerTextDim = "#00cc33";       // Dimmer green
-const hackerBorder = "#00ff4140";      // Transparent green border
+const hackerPrimary = "#10b981";       // Matrix green
+const hackerSecondary = "#064e3b";     // Dark green
+const hackerBg = "#022c22";            // Very dark green/black
+const hackerText = "#10b981";          // Bright green text
+const hackerTextDim = "#10b981";       // Dimmer green
+const hackerBorder = "#10b98140";      // Transparent green border
 module.exports = {
 	content: [
 		"./demo/index.html",
@@ -426,7 +426,11 @@ module.exports = {
 
 			// typography
 			fontFamily: {
-				sora: "'Sora', sans-serif",
+				sans: "'Inter', sans-serif",
+				sora: "'Inter', sans-serif",
+				inter: "'Inter', sans-serif",
+				mono: "'JetBrains Mono', monospace",
+				jetbrains: "'JetBrains Mono', monospace",
 				fontawesome: `"Font Awesome 6 Pro"`,
 				helvetica: `"Helvetica Neue", sans-serif`,
 				flaticon: `flaticon_gerold`,
@@ -543,7 +547,7 @@ module.exports = {
 				"gradient-primary-7": `linear-gradient(90deg, rgba(255, 255, 255, 1) 0%, rgba(255, 255, 255, 0) 28.52%, rgba(255, 255, 255, 0) 68.59%, rgba(255, 255, 255, 1) 96.94%)`,
 				"gradient-primary-8": `linear-gradient(-10deg, ${seondaryColor} 0%, ${primaryColor} 100%)`,
 				"gradient-primary-9": `linear-gradient(180deg, rgba(5, 7, 8, 0) 0%, #050708 100%)`,
-				"gradient-primary-10": `linear-gradient(107deg, rgba(129, 76, 236, 0.1) 0%, rgba(255, 255, 255, 0.1) 100%)`,
+				"gradient-primary-10": `linear-gradient(107deg, rgba(16, 185, 129, 0.1) 0%, rgba(255, 255, 255, 0.1) 100%)`,
 				"gradient-primary-10-light": `linear-gradient(to right, rgba(135, 80, 247, 0.1) 0%, ${seondaryColor} 100%)`,
 				"gradient-primary-11": `linear-gradient(to right, currentColor 0, currentColor 100%)`,
 				"gradient-12": `linear-gradient(rgba(255, 255, 255, 0.1) 0%, rgba(255, 255, 255, 0.01) 100%)`,
@@ -678,8 +682,8 @@ module.exports = {
 			// shadow
 			boxShadow: {
 				"boxShadow-1": "0 16px 40px rgba(135, 80, 247, 0.1)",
-				"shadow-inset": "0px 0px 16.98px rgb(129, 76, 236) inset",
-				"shadow-inset-2": "0px 0px 16.98px 0px rgb(129, 76, 236) inset",
+				"shadow-inset": "0px 0px 16.98px rgb(16, 185, 129) inset",
+				"shadow-inset-2": "0px 0px 16.98px 0px rgb(16, 185, 129) inset",
 			},
 			// animain
 		},

@@ -5,8 +5,8 @@
       <stop offset="100%" style="stop-color:#111115"/>
     </linearGradient>
     <linearGradient id="acc2" x1="0%" y1="0%" x2="100%" y2="0%">
-      <stop offset="0%" style="stop-color:#00ff41"/>
-      <stop offset="100%" style="stop-color:#00cc88"/>
+      <stop offset="0%" style="stop-color:#10b981"/>
+      <stop offset="100%" style="stop-color:#34d399"/>
     </linearGradient>
     <filter id="sg2">
       <feGaussianBlur stdDeviation="20" result="b"/>
@@ -19,7 +19,7 @@
     <circle cx="20" cy="20" r="0.8" fill="white" opacity="0.08"/>
   </pattern>
   <rect width="800" height="600" fill="url(#d2)"/>
-  <ellipse cx="400" cy="220" rx="250" ry="100" fill="#00ff41" opacity="0.03" filter="url(#sg2)"/>
+  <ellipse cx="400" cy="220" rx="250" ry="100" fill="#10b981" opacity="0.03" filter="url(#sg2)"/>
 
   <!-- Infinity symbol -->
   <g transform="translate(400, 170)">
@@ -36,8 +36,8 @@
       <text x="0" y="33" fill="white" opacity="0.45" font-family="system-ui, sans-serif" font-size="17" text-anchor="middle">&lt;/&gt;</text>
       <text x="0" y="57" fill="white" opacity="0.3" font-family="system-ui, sans-serif" font-size="10" text-anchor="middle" font-weight="600">CODE</text>
     </g>
-    <path d="M160,35 L190,35" stroke="#00ff41" stroke-width="1" opacity="0.3"/>
-    <polygon points="190,32 196,35 190,38" fill="#00ff41" opacity="0.3"/>
+    <path d="M160,35 L190,35" stroke="#10b981" stroke-width="1" opacity="0.3"/>
+    <polygon points="190,32 196,35 190,38" fill="#10b981" opacity="0.3"/>
 
     <g transform="translate(235, 0)">
       <rect x="-40" y="0" width="80" height="70" rx="12" fill="#141416" stroke="white" stroke-opacity="0.07"/>
@@ -45,26 +45,26 @@
       <rect x="-6" y="27" width="12" height="7" rx="1.5" fill="white" opacity="0.12"/>
       <text x="0" y="57" fill="white" opacity="0.3" font-family="system-ui, sans-serif" font-size="10" text-anchor="middle" font-weight="600">BUILD</text>
     </g>
-    <path d="M280,35 L310,35" stroke="#00ff41" stroke-width="1" opacity="0.3"/>
-    <polygon points="310,32 316,35 310,38" fill="#00ff41" opacity="0.3"/>
+    <path d="M280,35 L310,35" stroke="#10b981" stroke-width="1" opacity="0.3"/>
+    <polygon points="310,32 316,35 310,38" fill="#10b981" opacity="0.3"/>
 
     <g transform="translate(355, 0)">
       <rect x="-40" y="0" width="80" height="70" rx="12" fill="#141416" stroke="white" stroke-opacity="0.07"/>
-      <circle cx="0" cy="26" r="10" fill="none" stroke="#00ff41" stroke-width="1.5" opacity="0.5"/>
-      <path d="M-4,26 L-1,29 L5,23" fill="none" stroke="#00ff41" stroke-width="1.5" opacity="0.5"/>
+      <circle cx="0" cy="26" r="10" fill="none" stroke="#10b981" stroke-width="1.5" opacity="0.5"/>
+      <path d="M-4,26 L-1,29 L5,23" fill="none" stroke="#10b981" stroke-width="1.5" opacity="0.5"/>
       <text x="0" y="57" fill="white" opacity="0.3" font-family="system-ui, sans-serif" font-size="10" text-anchor="middle" font-weight="600">TEST</text>
     </g>
-    <path d="M400,35 L430,35" stroke="#00ff41" stroke-width="1" opacity="0.3"/>
-    <polygon points="430,32 436,35 430,38" fill="#00ff41" opacity="0.3"/>
+    <path d="M400,35 L430,35" stroke="#10b981" stroke-width="1" opacity="0.3"/>
+    <polygon points="430,32 436,35 430,38" fill="#10b981" opacity="0.3"/>
 
     <g transform="translate(475, 0)">
       <rect x="-40" y="0" width="80" height="70" rx="12" fill="#141416" stroke="white" stroke-opacity="0.07"/>
-      <path d="M-6,20 L0,30 L6,20" fill="none" stroke="#00aaff" stroke-width="1.5" opacity="0.5"/>
-      <line x1="-8" y1="33" x2="8" y2="33" stroke="#00aaff" stroke-width="1.5" opacity="0.35"/>
+      <path d="M-6,20 L0,30 L6,20" fill="none" stroke="#38bdf8" stroke-width="1.5" opacity="0.5"/>
+      <line x1="-8" y1="33" x2="8" y2="33" stroke="#38bdf8" stroke-width="1.5" opacity="0.35"/>
       <text x="0" y="57" fill="white" opacity="0.3" font-family="system-ui, sans-serif" font-size="10" text-anchor="middle" font-weight="600">DEPLOY</text>
     </g>
-    <path d="M520,35 L550,35" stroke="#00ff41" stroke-width="1" opacity="0.3"/>
-    <polygon points="550,32 556,35 550,38" fill="#00ff41" opacity="0.3"/>
+    <path d="M520,35 L550,35" stroke="#10b981" stroke-width="1" opacity="0.3"/>
+    <polygon points="550,32 556,35 550,38" fill="#10b981" opacity="0.3"/>
 
     <g transform="translate(595, 0)">
       <rect x="-40" y="0" width="80" height="70" rx="12" fill="#141416" stroke="white" stroke-opacity="0.07"/>
@@ -79,16 +79,16 @@
     <line x1="100" y1="25" x2="700" y2="25" stroke="white" stroke-opacity="0.05" stroke-width="1"/>
     <circle cx="160" cy="25" r="4" fill="#1a1a1e" stroke="white" stroke-opacity="0.15" stroke-width="1.5"/>
     <circle cx="280" cy="25" r="4" fill="#1a1a1e" stroke="white" stroke-opacity="0.15" stroke-width="1.5"/>
-    <circle cx="400" cy="25" r="5" fill="#00ff41" opacity="0.5"/>
+    <circle cx="400" cy="25" r="5" fill="#10b981" opacity="0.5"/>
     <circle cx="520" cy="25" r="4" fill="#1a1a1e" stroke="white" stroke-opacity="0.15" stroke-width="1.5"/>
-    <circle cx="640" cy="25" r="6" fill="#1a1a1e" stroke="#00ff41" stroke-width="1.5" opacity="0.5"/>
-    <circle cx="640" cy="25" r="2.5" fill="#00ff41" opacity="0.5"/>
+    <circle cx="640" cy="25" r="6" fill="#1a1a1e" stroke="#10b981" stroke-width="1.5" opacity="0.5"/>
+    <circle cx="640" cy="25" r="2.5" fill="#10b981" opacity="0.5"/>
 
     <text x="160" y="48" fill="white" opacity="0.2" font-family="system-ui, sans-serif" font-size="10" text-anchor="middle">commit</text>
     <text x="280" y="48" fill="white" opacity="0.2" font-family="system-ui, sans-serif" font-size="10" text-anchor="middle">merge</text>
     <text x="400" y="48" fill="white" opacity="0.2" font-family="system-ui, sans-serif" font-size="10" text-anchor="middle">release</text>
     <text x="520" y="48" fill="white" opacity="0.2" font-family="system-ui, sans-serif" font-size="10" text-anchor="middle">tag</text>
-    <text x="640" y="48" fill="#00ff41" opacity="0.45" font-family="system-ui, sans-serif" font-size="10" text-anchor="middle" font-weight="600">LIVE</text>
+    <text x="640" y="48" fill="#10b981" opacity="0.45" font-family="system-ui, sans-serif" font-size="10" text-anchor="middle" font-weight="600">LIVE</text>
   </g>
 
   <!-- Title -->

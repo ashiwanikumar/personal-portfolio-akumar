@@ -12,29 +12,31 @@ const Services8 = () => {
 			<div className="py-60px md:py-20 lg:py-30 relative overflow-hidden">
 				<div className="mesh-gradient" aria-hidden="true" />
 				<div className="container relative z-10">
-					<div className="mb-10 md:mb-50px xl:mb-60px flex flex-wrap justify-between items-end">
+					<div className="mb-10 md:mb-50px xl:mb-60px flex flex-wrap justify-between items-end gap-6">
 						<div>
-							<span className="section-badge mb-6 inline-flex">
-								My Services
-							</span>
-							<h2 id="services-heading" className="text-[26px] md:text-[32px] lg:text-[38px] xl:text-[44px] uppercase font-bold leading-1.2 -tracking-0.02em inline-block max-w-580px w-full">
-								<span className="gradient-text">Here&apos;s How</span>{" "}
-								<span className="text-[#00ff41]">I Can Help!</span>
+							<span className="section-badge mb-6 inline-flex">Services</span>
+							<h2 id="services-heading" className="text-[28px] md:text-[36px] lg:text-[42px] font-bold leading-[1.1] tracking-[-0.03em] inline-block max-w-580px w-full text-white">
+								What I can take{" "}
+								<span className="gradient-text">off your plate.</span>
 							</h2>
+							<p className="text-white/45 text-base leading-[1.75] max-w-[520px] mt-4">
+								From cloud migrations to on-call firefighting — the unglamorous work
+								that keeps your product shipping.
+							</p>
 						</div>
 						<div>
 							<div className="testimonial-navigation hidden lg:flex flex-wrap gap-3 items-center">
 								<button
-									className="service-prev w-12 h-12 inline-flex justify-center items-center glass-card rounded-full hover:bg-[#00ff41]/10 transition-all duration-300"
+									className="service-prev w-12 h-12 inline-flex justify-center items-center glass-card rounded-full hover:bg-[#10b981]/10 transition-all duration-300"
 									aria-label="Previous service"
 								>
-									<i className="fa-regular fa-arrow-left text-[#00ff41]" aria-hidden="true"></i>
+									<i className="fa-regular fa-arrow-left text-[#34d399]" aria-hidden="true"></i>
 								</button>
 								<button
-									className="service-next w-12 h-12 inline-flex justify-center items-center glass-card rounded-full hover:bg-[#00ff41]/10 transition-all duration-300"
+									className="service-next w-12 h-12 inline-flex justify-center items-center glass-card rounded-full hover:bg-[#10b981]/10 transition-all duration-300"
 									aria-label="Next service"
 								>
-									<i className="fa-regular fa-arrow-right text-[#00ff41]" aria-hidden="true"></i>
+									<i className="fa-regular fa-arrow-right text-[#34d399]" aria-hidden="true"></i>
 								</button>
 							</div>
 						</div>

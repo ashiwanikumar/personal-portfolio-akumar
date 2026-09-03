@@ -4,7 +4,7 @@ const ButtonPrimary2 = ({ url, children }) => {
 	return (
 		<Link
 			href={url ? url : "#"}
-			className="text-size-15 font-semibold text-white-color capitalize py-4 px-30px ml-10px bg-primary-color rounded-full leading-1 transition-all duration-300 group inline-flex gap-x-10px items-center"
+			className="text-size-15 font-semibold text-[#022c22] capitalize py-4 px-30px ml-10px bg-primary-color hover:bg-[#34d399] rounded-full leading-1 transition-all duration-300 group inline-flex gap-x-10px items-center"
 		>
 			{children}{" "}
 			<span className="relative overflow-hidden">

@@ -58,14 +58,14 @@ const LinkedInFollowModal = () => {
 
 			{/* Modal Content */}
 			<div
-				className={`relative bg-[#09090b] border border-[#00ff41]/50 rounded-[20px] shadow-[0_0_50px_rgba(0,255,65,0.2)] max-w-sm w-full transform transition-all duration-300 ${
+				className={`relative bg-[#0c0c0e] border border-white/10 rounded-2xl shadow-[0_24px_80px_rgba(0,0,0,0.6)] max-w-sm w-full transform transition-all duration-300 ${
 					isClosing ? "scale-95 opacity-0" : "scale-100 opacity-100"
 				}`}
 			>
 				{/* Close Button */}
 				<button
 					onClick={handleClose}
-					className="absolute top-4 right-4 w-8 h-8 flex items-center justify-center rounded-full text-[#00ff41] hover:bg-[#00ff41]/10 transition-colors duration-200 z-10"
+					className="absolute top-4 right-4 w-8 h-8 flex items-center justify-center rounded-full text-white/50 hover:text-white hover:bg-white/10 transition-colors duration-200 z-10"
 					aria-label="Close modal"
 				>
 					<i className="fa-solid fa-xmark text-lg"></i>
@@ -74,10 +74,10 @@ const LinkedInFollowModal = () => {
 				{/* Modal Body */}
 				<div className="p-6 text-center">
 					{/* Header */}
-					<h3 className="text-[#00ff41] font-mono font-bold text-lg mb-2">
-						Let&apos;s Connect!
+					<h3 className="text-white font-semibold text-lg mb-2 tracking-[-0.01em]">
+						Let&apos;s connect
 					</h3>
-					<p className="text-[#00cc33]/80 font-mono text-sm mb-4">
+					<p className="text-white/50 text-sm mb-4">
 						Follow me on LinkedIn for DevOps insights and updates
 					</p>
 
@@ -107,7 +107,7 @@ const LinkedInFollowModal = () => {
 						target="_blank"
 						rel="noopener noreferrer"
 						onClick={handleClose}
-						className="inline-flex items-center justify-center gap-2 px-6 py-3 bg-[#00ff41] text-[#09090b] font-mono font-bold text-sm rounded-full hover:bg-[#00ff88] hover:shadow-[0_0_20px_rgba(0,255,65,0.5)] transition-all duration-300"
+						className="inline-flex items-center justify-center gap-2 px-6 py-3 bg-[#10b981] text-[#022c22] font-semibold text-sm rounded-full hover:bg-[#34d399] hover:shadow-[0_0_28px_rgba(16,185,129,0.35)] transition-all duration-300"
 					>
 						<i className="fa-brands fa-linkedin"></i>
 						Follow on LinkedIn

@@ -5,12 +5,12 @@
       <stop offset="100%" style="stop-color:#111115"/>
     </linearGradient>
     <linearGradient id="accent" x1="0%" y1="0%" x2="100%" y2="100%">
-      <stop offset="0%" style="stop-color:#00ff41"/>
-      <stop offset="100%" style="stop-color:#00cc88"/>
+      <stop offset="0%" style="stop-color:#10b981"/>
+      <stop offset="100%" style="stop-color:#34d399"/>
     </linearGradient>
     <linearGradient id="blue" x1="0%" y1="0%" x2="100%" y2="100%">
       <stop offset="0%" style="stop-color:#326CE5"/>
-      <stop offset="100%" style="stop-color:#00aaff"/>
+      <stop offset="100%" style="stop-color:#38bdf8"/>
     </linearGradient>
     <filter id="glow">
       <feGaussianBlur stdDeviation="4" result="b"/>
@@ -76,22 +76,22 @@
   <g>
     <!-- Pod 1 -->
     <rect x="70" y="120" width="100" height="50" rx="10" fill="#111115" stroke="white" stroke-opacity="0.08" stroke-width="1"/>
-    <circle cx="95" cy="145" r="6" fill="#00ff41" opacity="0.8"/>
+    <circle cx="95" cy="145" r="6" fill="#10b981" opacity="0.8"/>
     <text x="110" y="149" fill="white" opacity="0.6" font-family="system-ui, sans-serif" font-size="13" font-weight="500">Pod 1</text>
 
     <!-- Pod 2 -->
     <rect x="630" y="120" width="100" height="50" rx="10" fill="#111115" stroke="white" stroke-opacity="0.08" stroke-width="1"/>
-    <circle cx="655" cy="145" r="6" fill="#00ff41" opacity="0.8"/>
+    <circle cx="655" cy="145" r="6" fill="#10b981" opacity="0.8"/>
     <text x="670" y="149" fill="white" opacity="0.6" font-family="system-ui, sans-serif" font-size="13" font-weight="500">Pod 2</text>
 
     <!-- Pod 3 -->
     <rect x="70" y="370" width="100" height="50" rx="10" fill="#111115" stroke="white" stroke-opacity="0.08" stroke-width="1"/>
-    <circle cx="95" cy="395" r="6" fill="#00ff41" opacity="0.8"/>
+    <circle cx="95" cy="395" r="6" fill="#10b981" opacity="0.8"/>
     <text x="110" y="399" fill="white" opacity="0.6" font-family="system-ui, sans-serif" font-size="13" font-weight="500">Pod 3</text>
 
     <!-- Pod 4 -->
     <rect x="630" y="370" width="100" height="50" rx="10" fill="#111115" stroke="white" stroke-opacity="0.08" stroke-width="1"/>
-    <circle cx="655" cy="395" r="6" fill="#00ff41" opacity="0.8"/>
+    <circle cx="655" cy="395" r="6" fill="#10b981" opacity="0.8"/>
     <text x="670" y="399" fill="white" opacity="0.6" font-family="system-ui, sans-serif" font-size="13" font-weight="500">Pod 4</text>
   </g>
 

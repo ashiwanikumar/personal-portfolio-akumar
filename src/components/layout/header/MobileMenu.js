@@ -19,7 +19,7 @@ const MobileMenu = ({ isActiveMobileMenu }) => {
                 <li key={idx}>
                   <Link
                     href={isIndexPage ? path : path2}
-                    className="text-size-25 text-[#00ff41] hover:text-[#00ff88] uppercase leading-1.2 py-15px font-mono block transition-all duration-300"
+                    className="text-2xl text-white/70 hover:text-white capitalize leading-1.2 py-15px font-semibold tracking-[-0.01em] block transition-all duration-300"
                   >
                     {name}
                   </Link>

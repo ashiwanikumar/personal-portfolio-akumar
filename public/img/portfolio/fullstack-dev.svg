@@ -46,7 +46,7 @@
 
   <rect x="357" y="147" width="85" height="55" rx="8" fill="#141416"/>
   <text x="370" y="165" fill="white" opacity="0.2" font-family="Arial, sans-serif" font-size="7">Revenue</text>
-  <text x="370" y="185" fill="#00ff41" opacity="0.5" font-family="Arial, sans-serif" font-size="16" font-weight="bold">$18k</text>
+  <text x="370" y="185" fill="#10b981" opacity="0.5" font-family="Arial, sans-serif" font-size="16" font-weight="bold">$18k</text>
 
   <rect x="452" y="147" width="85" height="55" rx="8" fill="#141416"/>
   <text x="465" y="165" fill="white" opacity="0.2" font-family="Arial, sans-serif" font-size="7">Orders</text>
@@ -54,7 +54,7 @@
 
   <rect x="547" y="147" width="81" height="55" rx="8" fill="#141416"/>
   <text x="560" y="165" fill="white" opacity="0.2" font-family="Arial, sans-serif" font-size="7">Uptime</text>
-  <text x="560" y="185" fill="#00ff41" opacity="0.5" font-family="Arial, sans-serif" font-size="16" font-weight="bold">99.9</text>
+  <text x="560" y="185" fill="#10b981" opacity="0.5" font-family="Arial, sans-serif" font-size="16" font-weight="bold">99.9</text>
 
   <!-- Chart area -->
   <rect x="262" y="212" width="180" height="140" rx="8" fill="#141416"/>
@@ -63,7 +63,7 @@
   <rect x="282" y="295" width="14" height="40" rx="2" fill="#61DAFB" opacity="0.2"/>
   <rect x="304" y="275" width="14" height="60" rx="2" fill="#61DAFB" opacity="0.25"/>
   <rect x="326" y="285" width="14" height="50" rx="2" fill="#61DAFB" opacity="0.2"/>
-  <rect x="348" y="265" width="14" height="70" rx="2" fill="#00ff41" opacity="0.3"/>
+  <rect x="348" y="265" width="14" height="70" rx="2" fill="#10b981" opacity="0.3"/>
   <rect x="370" y="280" width="14" height="55" rx="2" fill="#61DAFB" opacity="0.2"/>
   <rect x="392" y="290" width="14" height="45" rx="2" fill="#61DAFB" opacity="0.15"/>
   <rect x="414" y="270" width="14" height="65" rx="2" fill="#61DAFB" opacity="0.25"/>

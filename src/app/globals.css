@@ -1,5 +1,5 @@
-@import url("https://fonts.googleapis.com/css2?family=Sora:wght@100..800&display=swap");
-@import url("https://fonts.googleapis.com/css2?family=Russo+One&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Inter:wght@100..900&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@100..800&display=swap");
 /*-----------------------------------------------------------------------------------
 
 Theme Name: Ashiwani Kumar - SRE & DevOps Portfolio
@@ -161,8 +161,8 @@ Description: Personal Portfolio - Linux DevOps Engineer & DevOps Expert
   transform: translateX(-50%);
   z-index: 10000;
   padding: 12px 24px;
-  background: #00ff41;
-  color: #001100;
+  background: #10b981;
+  color: #022c22;
   font-weight: 700;
   border-radius: 0 0 8px 8px;
   transition: top 0.3s ease;
@@ -173,7 +173,7 @@ Description: Personal Portfolio - Linux DevOps Engineer & DevOps Expert
 
 /* Focus states for accessibility */
 *:focus-visible {
-  outline: 2px solid #00ff41;
+  outline: 2px solid #10b981;
   outline-offset: 2px;
 }
 
@@ -218,8 +218,8 @@ Description: Personal Portfolio - Linux DevOps Engineer & DevOps Expert
 
 /* Glow pulse */
 @keyframes glow-pulse {
-  0%, 100% { box-shadow: 0 0 20px rgba(0, 255, 65, 0.1); }
-  50% { box-shadow: 0 0 40px rgba(0, 255, 65, 0.2), 0 0 60px rgba(0, 255, 65, 0.1); }
+  0%, 100% { box-shadow: 0 0 20px rgba(16, 185, 129, 0.1); }
+  50% { box-shadow: 0 0 40px rgba(16, 185, 129, 0.2), 0 0 60px rgba(16, 185, 129, 0.1); }
 }
 
 /* Slide up reveal */
@@ -245,7 +245,7 @@ Description: Personal Portfolio - Linux DevOps Engineer & DevOps Expert
 
 /* Gradient text */
 .gradient-text {
-  background: linear-gradient(135deg, #00ff41 0%, #00e5a0 40%, #00aaff 100%) !important;
+  background: linear-gradient(120deg, #34d399 0%, #2dd4bf 45%, #38bdf8 100%) !important;
   -webkit-background-clip: text !important;
   -webkit-text-fill-color: transparent !important;
   background-clip: text !important;
@@ -263,7 +263,7 @@ Description: Personal Portfolio - Linux DevOps Engineer & DevOps Expert
   inset: 0;
   padding: 1px;
   border-radius: inherit;
-  background: linear-gradient(135deg, rgba(0,255,65,0.3), rgba(0,170,255,0.2), rgba(0,255,65,0.1));
+  background: linear-gradient(135deg, rgba(16,185,129,0.3), rgba(56,189,248,0.2), rgba(16,185,129,0.1));
   -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
   -webkit-mask-composite: xor;
   mask-composite: exclude;
@@ -276,15 +276,15 @@ Description: Personal Portfolio - Linux DevOps Engineer & DevOps Expert
   align-items: center;
   gap: 8px;
   padding: 8px 20px;
-  background: rgba(0, 255, 65, 0.06);
-  border: 1px solid rgba(0, 255, 65, 0.12);
+  background: rgba(16, 185, 129, 0.06);
+  border: 1px solid rgba(16, 185, 129, 0.12);
   border-radius: 100px;
   font-size: 11px;
-  font-weight: 600;
-  letter-spacing: 0.2em;
+  font-weight: 500;
+  letter-spacing: 0.16em;
   text-transform: uppercase;
-  color: #00ff41;
-  font-family: "Sora", sans-serif;
+  color: #34d399;
+  font-family: "JetBrains Mono", monospace;
 }
 
 /* Animated mesh gradient background */
@@ -306,14 +306,14 @@ Description: Personal Portfolio - Linux DevOps Engineer & DevOps Expert
 .mesh-gradient::before {
   width: 600px;
   height: 600px;
-  background: radial-gradient(circle, rgba(0,255,65,0.15) 0%, transparent 70%);
+  background: radial-gradient(circle, rgba(16,185,129,0.15) 0%, transparent 70%);
   top: -200px;
   right: -100px;
 }
 .mesh-gradient::after {
   width: 500px;
   height: 500px;
-  background: radial-gradient(circle, rgba(0,170,255,0.1) 0%, transparent 70%);
+  background: radial-gradient(circle, rgba(56,189,248,0.1) 0%, transparent 70%);
   bottom: -200px;
   left: -100px;
   animation-delay: -4s;
@@ -332,7 +332,7 @@ Description: Personal Portfolio - Linux DevOps Engineer & DevOps Expert
   left: 0;
   width: 100%;
   height: 2px;
-  background: linear-gradient(90deg, transparent, #00ff41, transparent);
+  background: linear-gradient(90deg, transparent, #10b981, transparent);
   transform: scaleX(0);
   transform-origin: right;
   transition: transform 0.4s cubic-bezier(0.4, 0, 0.2, 1);
@@ -345,7 +345,7 @@ Description: Personal Portfolio - Linux DevOps Engineer & DevOps Expert
   left: 0;
   width: 100%;
   height: 6px;
-  background: linear-gradient(90deg, transparent, #00ff41, transparent);
+  background: linear-gradient(90deg, transparent, #10b981, transparent);
   filter: blur(6px);
   transform: scaleX(0);
   transform-origin: right;
@@ -360,8 +360,8 @@ Description: Personal Portfolio - Linux DevOps Engineer & DevOps Expert
 }
 
 .nav-glow-hover:hover {
-  color: #00ff88;
-  text-shadow: 0 0 10px rgba(0, 255, 65, 0.6), 0 0 20px rgba(0, 255, 65, 0.3);
+  color: #34d399;
+  text-shadow: 0 0 14px rgba(16, 185, 129, 0.25);
 }
 
 /* Smooth scroll */
@@ -372,9 +372,9 @@ html {
 /* variable */
 :root {
 	--body-color: #000000;
-	--primary-color: #8750f7;
+	--primary-color: #10b981;
 	--primary-color-light: #000000;
-	--secondary-color: #2a1454;
+	--secondary-color: #064e3b;
 	--white-color: #ffffff;
 	--off-white-color: #ffffff;
 	--black-color: #000000;
@@ -386,8 +386,9 @@ html {
 	--bg-color-2: #ffffff;
 
 	/* font family */
-	--body-font: "Sora", sans-serif;
-	--russo: "Russo One", sans-serif;
+	--body-font: "Inter", sans-serif;
+	--russo: "Inter", sans-serif;
+	--mono-font: "JetBrains Mono", monospace;
 	--font-family: "Font Awesome 6 Pro";
 
 	/* font weight */
@@ -427,6 +428,7 @@ body {
 body.hacker-theme {
 	background-color: #09090b;
 	color: #e4e4e7;
+	color-scheme: dark;
 }
 
 body.hacker-theme .bg-white-color {
@@ -447,7 +449,7 @@ body.hacker-theme .text-gray-color-2 {
 }
 
 body.hacker-theme .text-primary-color {
-	color: #00ff41 !important;
+	color: #10b981 !important;
 }
 
 body.hacker-theme .border-body-color,
@@ -456,7 +458,7 @@ body.hacker-theme .border-border-color {
 }
 
 body.hacker-theme .bg-gradient-primary-8 {
-	background: linear-gradient(-10deg, #09090b 0%, #00ff41 100%) !important;
+	background: linear-gradient(-10deg, #09090b 0%, #10b981 100%) !important;
 }
 
 /* Social Media Icons Visibility */
@@ -479,13 +481,13 @@ body.hacker-theme .nav_item a:hover span i {
 
 /* Footer Social Icons */
 body.hacker-theme .socials a {
-	color: #00ff41 !important;
-	border-color: #00ff41 !important;
+	color: #10b981 !important;
+	border-color: #10b981 !important;
 }
 
 body.hacker-theme .socials a:hover {
-	background-color: #00ff41 !important;
-	color: #001100 !important;
+	background-color: #10b981 !important;
+	color: #022c22 !important;
 }
 
 /* Additional Hacker Theme Styles */
@@ -504,7 +506,7 @@ body.hacker-theme .border-border-color-5 {
 
 /* Hero scroll indicator */
 body.hacker-theme .hero_scroll a {
-	color: #00ff41 !important;
+	color: #10b981 !important;
 }
 
 /* Navigation and Header Improvements */
@@ -515,7 +517,7 @@ body.hacker-theme .header a {
 }
 
 body.hacker-theme .header a:hover {
-	color: #00ff41 !important;
+	color: #10b981 !important;
 }
 
 /* Header background for better contrast */
@@ -544,7 +546,7 @@ body.hacker-theme .nav {
 /* Typewriter Animation */
 .typewriter {
 	overflow: hidden;
-	border-right: 2px solid #8750f7;
+	border-right: 2px solid #10b981;
 	white-space: nowrap;
 	animation: typing 4s steps(25, end), blink-caret 0.8s step-end infinite;
 	display: inline-block;
@@ -573,34 +575,34 @@ body.hacker-theme .nav {
 
 /* Typewriter for hacker theme */
 body.hacker-theme .typewriter {
-	border-right-color: #00ff41;
+	border-right-color: #10b981;
 }
 
 body.hacker-theme .typewriter::after {
-	color: #00ff41;
+	color: #10b981;
 }
 
 /* Typewriter for dark theme */
 .dark .typewriter {
-	border-right-color: #8750f7;
+	border-right-color: #10b981;
 }
 
 .dark .typewriter::after {
-	color: #8750f7;
+	color: #10b981;
 }
 
 /* Default light theme typewriter */
 .typewriter {
-	border-right-color: #8750f7;
+	border-right-color: #10b981;
 }
 
 /* Hacker theme cursor for TypeWriter component */
 body.hacker-theme .bg-primary-color {
-	background-color: #00ff41 !important;
+	background-color: #10b981 !important;
 }
 
 body.hacker-theme .text-primary-color {
-	color: #00ff41 !important;
+	color: #10b981 !important;
 }
 /* typography */
 h1,
@@ -786,7 +788,7 @@ img {
 	width: 44px;
 	height: 44px;
 	background: transparent !important;
-	border: 2px solid #00ff41 !important;
+	border: 2px solid #10b981 !important;
 	border-radius: 50%;
 	padding: 0;
 	cursor: pointer;
@@ -797,7 +799,7 @@ img {
 	display: block;
 	width: 20px;
 	height: 2px;
-	background-color: #00ff41 !important;
+	background-color: #10b981 !important;
 	transition: all 0.3s ease;
 	position: absolute;
 }
@@ -1186,7 +1188,7 @@ img {
 }
 .tj-hero-5-thumb-shape-4-text-animed h2.second {
 	color: transparent;
-	-webkit-text-stroke: 2px rgba(135, 80, 247, 0.6);
+	-webkit-text-stroke: 2px rgba(16, 185, 129, 0.6);
 	animation: waves 4s ease-in-out infinite;
 }
 .hero_scroll {
@@ -1668,14 +1670,14 @@ img {
 }
 
 .swiper-pagination .swiper-pagination-bullet {
-	background: rgba(0, 255, 65, 0.3);
+	background: rgba(16, 185, 129, 0.3);
 	opacity: 1;
 	width: 8px;
 	height: 8px;
 	transition: all 0.3s ease;
 }
 .swiper-pagination .swiper-pagination-bullet-active {
-	background: #00ff41;
+	background: #10b981;
 	opacity: 1;
 	width: 24px;
 	border-radius: 4px;
@@ -1861,23 +1863,23 @@ body.loaded {
 	font-weight: 700;
 	letter-spacing: 12px;
 	text-transform: uppercase;
-	color: #00ff41;
+	color: #10b981;
 	z-index: 20;
 	font-family: monospace;
-	text-shadow: 0 0 20px rgba(0, 255, 65, 0.5), 0 0 40px rgba(0, 255, 65, 0.3);
+	text-shadow: 0 0 20px rgba(16, 185, 129, 0.5), 0 0 40px rgba(16, 185, 129, 0.3);
 }
 
 .preloader .preloader-heading .load-subtext {
 	font-size: 14px;
 	font-weight: 400;
 	letter-spacing: 3px;
-	color: #00cc33;
+	color: #10b981;
 	font-family: monospace;
 	animation: blink-text 1s infinite;
 }
 
 .preloader .preloader-heading .terminal-cursor {
-	color: #00ff41;
+	color: #10b981;
 	margin-right: 8px;
 }
 
@@ -1930,22 +1932,22 @@ body.loaded {
 @-webkit-keyframes loading-glow {
 	0% {
 		opacity: 0.4;
-		text-shadow: 0 0 10px rgba(0, 255, 65, 0.3);
+		text-shadow: 0 0 10px rgba(16, 185, 129, 0.3);
 	}
 	100% {
 		opacity: 1;
-		text-shadow: 0 0 20px rgba(0, 255, 65, 0.8), 0 0 40px rgba(0, 255, 65, 0.5);
+		text-shadow: 0 0 20px rgba(16, 185, 129, 0.8), 0 0 40px rgba(16, 185, 129, 0.5);
 	}
 }
 
 @keyframes loading-glow {
 	0% {
 		opacity: 0.4;
-		text-shadow: 0 0 10px rgba(0, 255, 65, 0.3);
+		text-shadow: 0 0 10px rgba(16, 185, 129, 0.3);
 	}
 	100% {
 		opacity: 1;
-		text-shadow: 0 0 20px rgba(0, 255, 65, 0.8), 0 0 40px rgba(0, 255, 65, 0.5);
+		text-shadow: 0 0 20px rgba(16, 185, 129, 0.8), 0 0 40px rgba(16, 185, 129, 0.5);
 	}
 }
 

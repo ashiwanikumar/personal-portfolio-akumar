@@ -107,7 +107,7 @@ const magicCursor = () => {
 						borderWidth: 1,
 						zIndex: 1,
 						backdropFilter: "blur(15px)",
-						backgroundColor: "#8750f7",
+						backgroundColor: "#10b981",
 						boxShadow: "0px 1px 3px 0px rgba(18, 20, 32, 0.14)",
 					});
 

@@ -10,7 +10,7 @@ const Footer = () => {
 				<div className="container">
 					<div className="flex flex-col items-center pt-14 pb-8">
 						{/* Logo */}
-						<div className="footer-logo w-[70px] h-[70px] mb-8">
+						<div className="footer-logo w-[64px] h-[64px] mb-8">
 							<Link href="/" aria-label="Go to homepage">
 								<Image
 									src="/img/logo/logo.png"
@@ -28,7 +28,7 @@ const Footer = () => {
 									<li key={item}>
 										<Link
 											href={`/${item.toLowerCase()}`}
-											className="text-[#00ff41]/70 hover:text-[#00ff41] text-sm font-medium uppercase tracking-[0.15em] transition-all duration-300 font-mono"
+											className="text-white/50 hover:text-white text-sm font-medium transition-all duration-300"
 										>
 											{item}
 										</Link>
@@ -46,10 +46,10 @@ const Footer = () => {
 									{ label: "Cookies Policy", href: "/cookies-policy" },
 								].map((link, idx) => (
 									<li key={link.href} className="flex items-center gap-2">
-										{idx > 0 && <span className="text-[#00ff41]/20" aria-hidden="true">|</span>}
+										{idx > 0 && <span className="text-white/15" aria-hidden="true">·</span>}
 										<Link
 											href={link.href}
-											className="text-white/30 hover:text-[#00ff41] text-xs font-mono transition-all duration-300"
+											className="text-white/30 hover:text-[#34d399] text-xs transition-all duration-300"
 										>
 											{link.label}
 										</Link>
@@ -64,7 +64,7 @@ const Footer = () => {
 						</div>
 
 						<div className="text-white/25 text-xs mt-6 font-mono">
-							&copy; {new Date().getFullYear()} Ashiwani Kumar. All rights reserved.
+							&copy; {new Date().getFullYear()} Ashiwani Kumar · Built in Abu Dhabi, runs everywhere.
 						</div>
 					</div>
 				</div>

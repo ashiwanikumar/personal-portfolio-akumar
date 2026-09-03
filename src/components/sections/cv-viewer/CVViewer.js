@@ -53,38 +53,43 @@ const CVViewer = () => {
 		trackCvEvent("open_tab");
 	}, []);
 
+	const stats = [
+		{ value: "7+", label: "Years in production" },
+		{ value: "99.9%", label: "Uptime maintained" },
+		{ value: "5", label: "UAE airports" },
+		{ value: "6+", label: "Certifications" },
+	];
+
 	return (
 		<>
 			<section id="cv" className="py-60px md:py-20 lg:py-30 bg-[#09090b]">
 				<div className="container">
 					<div className="text-center mb-50px">
-						<span className="text-xs uppercase text-[#00ff41] font-semibold tracking-0.2em mb-4 block font-mono">
-							&gt;_ My Resume
-						</span>
-						<h2 className="text-[26px] md:text-[32px] lg:text-[38px] uppercase font-bold leading-1.2 -tracking-0.02em text-white mb-4">
-							View My CV
+						<span className="section-badge mb-6 inline-flex">Resume</span>
+						<h2 className="text-[28px] md:text-[36px] lg:text-[42px] font-bold leading-[1.1] tracking-[-0.03em] text-white mb-4">
+							The full story, <span className="gradient-text">on paper.</span>
 						</h2>
-						<p className="text-[#00cc33] leading-1.5 max-w-600px mx-auto text-lg font-mono">
-							Download or view my detailed resume with complete work history,
-							certifications, and technical skills.
+						<p className="text-white/45 leading-[1.75] max-w-600px mx-auto text-base">
+							Complete work history, certifications, and technical skills — view it
+							here or take a copy with you.
 						</p>
 					</div>
 
 					<div className="max-w-4xl mx-auto">
 						{/* CV Preview Card */}
-						<div className="bg-[#09090b] border border-[#00ff41]/30 rounded-[30px] p-6 md:p-10">
+						<div className="glass-card rounded-3xl p-6 md:p-10">
 							{/* Header */}
-							<div className="flex flex-col lg:flex-row items-start lg:items-center justify-between gap-6 mb-10 pb-8 border-b border-[#00ff41]/20">
+							<div className="flex flex-col lg:flex-row items-start lg:items-center justify-between gap-6 mb-10 pb-8 border-b border-white/[0.08]">
 								<div className="flex items-center gap-4 min-w-0 w-full lg:w-auto">
-									<div className="w-16 h-16 sm:w-20 sm:h-20 bg-[#00ff41]/10 border border-[#00ff41]/30 rounded-[15px] sm:rounded-[20px] flex items-center justify-center flex-shrink-0">
-										<i className="fa-solid fa-file-pdf text-2xl sm:text-4xl text-[#00ff41]"></i>
+									<div className="w-16 h-16 sm:w-20 sm:h-20 bg-[#10b981]/10 border border-[#10b981]/15 rounded-2xl flex items-center justify-center flex-shrink-0">
+										<i className="fa-solid fa-file-pdf text-2xl sm:text-3xl text-[#34d399]"></i>
 									</div>
 									<div className="min-w-0 flex-1">
-										<h3 className="text-lg sm:text-xl md:text-2xl font-bold text-[#00ff41] font-mono mb-1 sm:mb-2 break-words">
-											Ashiwani Kumar CV
+										<h3 className="text-lg sm:text-xl md:text-2xl font-semibold text-white mb-1 sm:mb-2 tracking-[-0.01em] break-words">
+											Ashiwani Kumar — CV
 										</h3>
-										<p className="text-[#00cc33] text-sm sm:text-base font-mono break-words">
-											Linux DevOps Engineer | Open Source Enthusiast
+										<p className="text-white/45 text-sm sm:text-base font-mono break-words">
+											Linux DevOps Engineer · Open source enthusiast
 										</p>
 									</div>
 								</div>
@@ -92,7 +97,7 @@ const CVViewer = () => {
 								<div className="flex gap-3 sm:gap-4 w-full sm:w-auto">
 									<button
 										onClick={openModal}
-										className="flex-1 sm:flex-none inline-flex items-center justify-center gap-2 px-4 sm:px-6 py-3 bg-transparent border-2 border-[#00ff41] text-[#00ff41] font-bold rounded-full hover:bg-[#00ff41]/10 hover:shadow-[0_0_20px_rgba(0,255,65,0.3)] transition-all duration-300 font-mono text-sm whitespace-nowrap"
+										className="flex-1 sm:flex-none inline-flex items-center justify-center gap-2 px-4 sm:px-6 py-3 bg-transparent border border-white/10 hover:border-white/25 text-white/60 hover:text-white font-semibold rounded-full transition-all duration-300 text-sm whitespace-nowrap"
 									>
 										<i className="fa-solid fa-eye"></i>
 										View CV
@@ -101,7 +106,7 @@ const CVViewer = () => {
 										href={cvPath}
 										download="Ashiwani_Kumar_CV.pdf"
 										onClick={handleDownload}
-										className="flex-1 sm:flex-none inline-flex items-center justify-center gap-2 px-4 sm:px-6 py-3 bg-[#00ff41] text-[#09090b] font-bold rounded-full hover:bg-[#00ff88] hover:shadow-[0_0_20px_rgba(0,255,65,0.5)] transition-all duration-300 font-mono text-sm whitespace-nowrap"
+										className="flex-1 sm:flex-none inline-flex items-center justify-center gap-2 px-4 sm:px-6 py-3 bg-[#10b981] hover:bg-[#34d399] text-[#022c22] font-semibold rounded-full hover:shadow-[0_0_28px_rgba(16,185,129,0.35)] transition-all duration-300 text-sm whitespace-nowrap"
 									>
 										<i className="fa-solid fa-download"></i>
 										Download
@@ -111,22 +116,12 @@ const CVViewer = () => {
 
 							{/* Quick Stats */}
 							<div className="grid grid-cols-2 md:grid-cols-4 gap-5">
-								<div className="bg-[#111113] border border-[#00ff41]/20 rounded-[20px] p-6 text-center">
-									<div className="text-3xl md:text-4xl font-bold text-[#00ff41] font-mono mb-2">7+</div>
-									<div className="text-[#00cc33] text-sm font-mono">Years Experience</div>
-								</div>
-								<div className="bg-[#111113] border border-[#00ff41]/20 rounded-[20px] p-6 text-center">
-									<div className="text-3xl md:text-4xl font-bold text-[#00ff41] font-mono mb-2">99.9%</div>
-									<div className="text-[#00cc33] text-sm font-mono">Uptime Achieved</div>
-								</div>
-								<div className="bg-[#111113] border border-[#00ff41]/20 rounded-[20px] p-6 text-center">
-									<div className="text-3xl md:text-4xl font-bold text-[#00ff41] font-mono mb-2">5</div>
-									<div className="text-[#00cc33] text-sm font-mono">UAE Airports</div>
-								</div>
-								<div className="bg-[#111113] border border-[#00ff41]/20 rounded-[20px] p-6 text-center">
-									<div className="text-3xl md:text-4xl font-bold text-[#00ff41] font-mono mb-2">6+</div>
-									<div className="text-[#00cc33] text-sm font-mono">Certifications</div>
-								</div>
+								{stats.map((stat) => (
+									<div key={stat.label} className="bg-white/[0.03] border border-white/[0.08] rounded-2xl p-6 text-center">
+										<div className="text-3xl md:text-4xl font-bold text-white tracking-[-0.02em] mb-2">{stat.value}</div>
+										<div className="text-white/35 text-xs font-mono">{stat.label}</div>
+									</div>
+								))}
 							</div>
 						</div>
 					</div>
@@ -145,20 +140,20 @@ const CVViewer = () => {
 					{/* Close button - Fixed position for mobile */}
 					<button
 						onClick={closeModal}
-						className="fixed top-4 right-4 z-[10000] w-12 h-12 flex items-center justify-center bg-red-600 text-white rounded-full hover:bg-red-500 transition-all duration-300 shadow-[0_0_20px_rgba(255,0,0,0.5)] border-2 border-white"
+						className="fixed top-4 right-4 z-[10000] w-12 h-12 flex items-center justify-center bg-white/10 hover:bg-white/20 text-white rounded-full border border-white/15 backdrop-blur-md transition-all duration-300"
 						aria-label="Close"
 					>
-						<i className="fa-solid fa-xmark text-2xl font-bold"></i>
+						<i className="fa-solid fa-xmark text-xl"></i>
 					</button>
 
 					{/* Modal Content */}
-					<div className="relative w-full max-w-6xl h-[90vh] mx-2 sm:mx-4 bg-[#09090b] border border-[#00ff41]/50 rounded-[20px] overflow-hidden shadow-[0_0_50px_rgba(0,255,65,0.3)]">
+					<div className="relative w-full max-w-6xl h-[90vh] mx-2 sm:mx-4 bg-[#0c0c0e] border border-white/10 rounded-2xl overflow-hidden shadow-[0_24px_80px_rgba(0,0,0,0.6)]">
 						{/* Modal Header */}
-						<div className="flex items-center justify-between p-3 sm:p-4 border-b border-[#00ff41]/30 bg-[#111113]">
+						<div className="flex items-center justify-between p-3 sm:p-4 border-b border-white/[0.08] bg-white/[0.02]">
 							<div className="flex items-center gap-2 sm:gap-3 min-w-0 flex-1">
-								<i className="fa-solid fa-file-pdf text-lg sm:text-xl text-[#00ff41] flex-shrink-0"></i>
-								<span className="text-[#00ff41] font-mono font-bold text-sm sm:text-base truncate">
-									Ashiwani Kumar CV
+								<i className="fa-solid fa-file-pdf text-lg sm:text-xl text-[#34d399] flex-shrink-0"></i>
+								<span className="text-white font-mono font-semibold text-sm sm:text-base truncate">
+									Ashiwani Kumar — CV
 								</span>
 							</div>
 							<div className="flex items-center gap-2 sm:gap-3 flex-shrink-0">
@@ -166,7 +161,7 @@ const CVViewer = () => {
 									href={cvPath}
 									download="Ashiwani_Kumar_CV.pdf"
 									onClick={handleDownload}
-									className="inline-flex items-center gap-1 sm:gap-2 px-3 sm:px-4 py-2 bg-[#00ff41] text-[#09090b] font-bold rounded-lg hover:bg-[#00ff88] transition-all duration-300 font-mono text-xs sm:text-sm"
+									className="inline-flex items-center gap-1 sm:gap-2 px-3 sm:px-4 py-2 bg-[#10b981] hover:bg-[#34d399] text-[#022c22] font-semibold rounded-lg transition-all duration-300 text-xs sm:text-sm"
 								>
 									<i className="fa-solid fa-download"></i>
 									<span className="hidden sm:inline">Download</span>
@@ -176,7 +171,7 @@ const CVViewer = () => {
 									target="_blank"
 									rel="noopener noreferrer"
 									onClick={handleOpenTab}
-									className="hidden sm:inline-flex items-center gap-2 px-4 py-2 bg-transparent border border-[#00ff41] text-[#00ff41] font-bold rounded-lg hover:bg-[#00ff41]/10 transition-all duration-300 font-mono text-sm"
+									className="hidden sm:inline-flex items-center gap-2 px-4 py-2 bg-transparent border border-white/10 hover:border-white/25 text-white/60 hover:text-white font-semibold rounded-lg transition-all duration-300 text-sm"
 								>
 									<i className="fa-solid fa-external-link"></i>
 									Open in New Tab

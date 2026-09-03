@@ -102,7 +102,7 @@ const ShareButton = ({ title, text, className = "", isRound = false }) => {
 			) : (
 				<button
 					onClick={toggleShareMenu}
-					className={`inline-flex items-center justify-center gap-2 px-5 py-2.5 bg-[#111113] border border-[#00ff41]/30 text-[#00ff41] font-mono text-sm rounded-full hover:border-[#00ff41] hover:shadow-[0_0_15px_rgba(0,255,65,0.3)] transition-all duration-300 ${className}`}
+					className={`inline-flex items-center justify-center gap-2 px-5 py-2.5 bg-white/[0.04] border border-white/10 text-white/60 text-sm font-medium rounded-full hover:text-white hover:border-white/25 transition-all duration-300 ${className}`}
 					aria-label="Share"
 				>
 					<i className="fa-solid fa-share-nodes"></i>
@@ -147,11 +147,11 @@ const ShareButton = ({ title, text, className = "", isRound = false }) => {
 							position: 'relative',
 							width: '100%',
 							maxWidth: '320px',
-							backgroundColor: '#09090b',
-							border: '2px solid rgba(0, 255, 65, 0.5)',
+							backgroundColor: '#0c0c0e',
+							border: '1px solid rgba(255, 255, 255, 0.12)',
 							borderRadius: '16px',
 							padding: '16px',
-							boxShadow: '0 0 40px rgba(0, 255, 65, 0.3)',
+							boxShadow: '0 24px 80px rgba(0, 0, 0, 0.6)',
 							zIndex: 10,
 						}}
 					>
@@ -162,12 +162,11 @@ const ShareButton = ({ title, text, className = "", isRound = false }) => {
 							justifyContent: 'space-between',
 							marginBottom: '16px',
 							paddingBottom: '12px',
-							borderBottom: '1px solid rgba(0, 255, 65, 0.3)',
+							borderBottom: '1px solid rgba(255, 255, 255, 0.08)',
 						}}>
 							<span style={{
-								color: '#00ff41',
-								fontFamily: 'monospace',
-								fontWeight: 'bold',
+								color: '#ffffff',
+								fontWeight: '600',
 								fontSize: '14px',
 							}}>
 								<i className="fa-solid fa-share-nodes" style={{ marginRight: '8px' }}></i>
@@ -181,8 +180,8 @@ const ShareButton = ({ title, text, className = "", isRound = false }) => {
 									display: 'flex',
 									alignItems: 'center',
 									justifyContent: 'center',
-									backgroundColor: '#dc2626',
-									color: 'white',
+									backgroundColor: 'rgba(255, 255, 255, 0.08)',
+									color: 'rgba(255, 255, 255, 0.7)',
 									borderRadius: '50%',
 									border: 'none',
 									cursor: 'pointer',
@@ -245,7 +244,7 @@ const ShareButton = ({ title, text, className = "", isRound = false }) => {
 							padding: '10px',
 							backgroundColor: '#111113',
 							borderRadius: '12px',
-							border: '1px solid rgba(0, 255, 65, 0.3)',
+							border: '1px solid rgba(255, 255, 255, 0.1)',
 						}}>
 							<input
 								type="text"
@@ -255,7 +254,7 @@ const ShareButton = ({ title, text, className = "", isRound = false }) => {
 									flex: 1,
 									minWidth: 0,
 									backgroundColor: 'transparent',
-									color: '#00ff41',
+									color: 'rgba(255, 255, 255, 0.6)',
 									fontSize: '12px',
 									fontFamily: 'monospace',
 									outline: 'none',
@@ -277,8 +276,8 @@ const ShareButton = ({ title, text, className = "", isRound = false }) => {
 									border: 'none',
 									cursor: 'pointer',
 									whiteSpace: 'nowrap',
-									backgroundColor: copied ? '#00ff41' : 'rgba(0, 255, 65, 0.2)',
-									color: copied ? '#09090b' : '#00ff41',
+									backgroundColor: copied ? '#10b981' : 'rgba(16, 185, 129, 0.2)',
+									color: copied ? '#09090b' : '#10b981',
 									transition: 'all 0.3s',
 								}}
 							>

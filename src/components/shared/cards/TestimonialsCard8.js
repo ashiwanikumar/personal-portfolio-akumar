@@ -5,8 +5,8 @@ const TestimonialsCard8 = ({ testimonial }) => {
 			<div className="relative z-10 flex flex-col flex-1">
 				{/* Quote icon */}
 				<div className="mb-6" aria-hidden="true">
-					<div className="w-10 h-10 rounded-xl bg-[#00ff41]/10 flex items-center justify-center">
-						<i className="fa-solid fa-quote-left text-[#00ff41] text-sm"></i>
+					<div className="w-10 h-10 rounded-xl bg-[#10b981]/10 flex items-center justify-center">
+						<i className="fa-solid fa-quote-left text-[#10b981] text-sm"></i>
 					</div>
 				</div>
 
@@ -14,9 +14,9 @@ const TestimonialsCard8 = ({ testimonial }) => {
 					{desc}
 				</blockquote>
 
-				<div className="pt-6 border-t border-[#00ff41]/15">
+				<div className="pt-6 border-t border-[#10b981]/15">
 					<div className="flex gap-4 items-center">
-						<div className="flex-shrink-0 w-12 h-12 p-0.5 rounded-full bg-gradient-to-br from-[#00ff41]/40 to-[#00aaff]/30">
+						<div className="flex-shrink-0 w-12 h-12 p-0.5 rounded-full bg-gradient-to-br from-[#10b981]/40 to-[#38bdf8]/30">
 							<img
 								className="w-full h-full object-cover rounded-full"
 								src={img}
