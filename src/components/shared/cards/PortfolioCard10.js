@@ -25,7 +25,7 @@ const PortfolioCard10 = ({ portfolio, idx }) => {
 							{category}
 						</span>
 					</div>
-					<h4 className="block text-2xl md:text-[28px] lg:text-[32px] text-white font-bold leading-[1.15] tracking-[-0.02em] mb-4 lg:mb-5">
+					<h4 className="block text-xl md:text-2xl lg:text-[28px] text-white font-semibold leading-[1.15] tracking-[-0.02em] mb-4 lg:mb-5">
 						{title}
 					</h4>
 

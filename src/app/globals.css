@@ -245,7 +245,7 @@ Description: Personal Portfolio - Linux DevOps Engineer & DevOps Expert
 
 /* Gradient text */
 .gradient-text {
-  background: linear-gradient(120deg, #34d399 0%, #2dd4bf 45%, #38bdf8 100%) !important;
+  background: linear-gradient(120deg, #ffffff 0%, #e4e4e7 55%, #a7f3d0 100%) !important;
   -webkit-background-clip: text !important;
   -webkit-text-fill-color: transparent !important;
   background-clip: text !important;
@@ -732,31 +732,20 @@ img {
 	top: 0;
 	width: 100%;
 	z-index: 99;
+	transition: opacity 0.2s ease;
+}
+.header-area.header-absolute.header-top-hidden {
+	opacity: 0;
+	pointer-events: none;
 }
 
 .header-area.header-2 {
 	width: 100%;
 	position: fixed;
-	top: -90px;
+	top: 0;
 	left: 0;
 	z-index: 100;
-	opacity: 0;
-	transition: 0.3s;
 	box-shadow: 0 4px 30px rgba(0, 0, 0, 0.3);
-}
-.header-area.header-2.sticky {
-	top: 0;
-	opacity: 1;
-	animation: bounceInDown 1s;
-	animation-duration: 1s;
-	animation-fill-mode: both;
-}
-.header-area.header-2.sticky-out {
-	top: 0;
-	opacity: 1;
-	animation: bounceInUp 1s;
-	animation-duration: 1s;
-	animation-fill-mode: forwards;
 }
 .nav .nav_item .active:after {
 	width: 100%;

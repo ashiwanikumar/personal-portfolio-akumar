@@ -69,11 +69,11 @@ const About5 = () => {
 				<div className="container relative z-10">
 					<div className="text-center mb-16">
 						<span className="section-badge mb-6 inline-flex">About</span>
-						<h2 id="about-heading" className="text-[28px] md:text-[36px] lg:text-[42px] xl:text-[46px] font-bold leading-[1.1] tracking-[-0.03em] mb-6 text-white">
+						<h2 id="about-heading" className="text-[26px] md:text-[30px] lg:text-[34px] xl:text-[36px] font-semibold leading-[1.1] tracking-[-0.02em] mb-6 text-white">
 							Reliability isn&apos;t a feature.{" "}
 							<span className="gradient-text">It&apos;s the product.</span>
 						</h2>
-						<p className="text-white/50 max-w-2xl mx-auto text-[17px] leading-[1.75]">
+						<p className="text-white/50 max-w-2xl mx-auto text-[15px] leading-[1.75]">
 							For seven years I&apos;ve run the systems people only notice when they break —
 							airport infrastructure, healthcare platforms, telecom backbones. Right now
 							that means keeping five UAE airports, serving 50M+ passengers a year, at
@@ -88,7 +88,7 @@ const About5 = () => {
 								<div className="w-10 h-10 mx-auto mb-3 rounded-xl bg-white/[0.04] flex items-center justify-center group-hover:bg-[#10b981]/10 transition-all duration-300" aria-hidden="true">
 									<i className={`${stat.icon} text-white/30 group-hover:text-[#34d399] text-sm transition-colors duration-300`}></i>
 								</div>
-								<div className="text-3xl md:text-4xl font-bold text-white mb-1 tracking-[-0.02em]">
+								<div className="text-2xl md:text-3xl font-semibold text-white mb-1 tracking-[-0.02em]">
 									{stat.value}
 								</div>
 								<div className="text-white/35 text-xs font-mono">
@@ -134,7 +134,7 @@ const About5 = () => {
 					<div className="flex flex-col sm:flex-row gap-4 items-center justify-center">
 						<ButtonPrimary isIcon={true} href="/#contact">Work with me</ButtonPrimary>
 						<a
-							className="inline-flex items-center justify-center px-6 py-3 text-white/60 hover:text-white bg-transparent border border-white/10 hover:border-white/25 rounded-full transition-all duration-300 text-sm font-semibold min-w-[180px] h-[50px] group"
+							className="inline-flex items-center justify-center px-5 py-2.5 text-white/60 hover:text-white bg-transparent border border-white/10 hover:border-white/25 rounded-lg transition-all duration-300 text-sm font-medium group"
 							href="https://www.linkedin.com/in/ashiwanikumar/"
 							target="_blank"
 							rel="noopener noreferrer"

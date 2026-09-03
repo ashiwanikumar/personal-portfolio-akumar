@@ -26,7 +26,7 @@ const ButtonDownload = ({ text, path }) => {
 				href={path || "/cv/Ashiwani_Kumar_CV.pdf"}
 				download="Ashiwani_Kumar_CV.pdf"
 				onClick={handleClick}
-				className="text-sm font-semibold text-[#022c22] py-[14px] px-7 bg-[#10b981] hover:bg-[#34d399] hover:shadow-[0_0_28px_rgba(16,185,129,0.35)] rounded-full leading-1 text-nowrap group inline-flex gap-x-2.5 items-center transition-all duration-300"
+				className="text-sm font-medium text-[#022c22] py-2.5 px-5 bg-[#10b981] hover:bg-[#34d399] rounded-lg leading-1 text-nowrap group inline-flex gap-x-2.5 items-center transition-all duration-300"
 				aria-label={text || "Download CV"}
 			>
 				{text ? text : "Download CV"}

@@ -23,7 +23,7 @@ export default function CookiesPolicy() {
 				</div>
 
 				<div className="bg-white/[0.02] border border-white/10 rounded-3xl p-8 md:p-12">
-					<h1 className="text-3xl md:text-4xl font-bold text-white mb-4 tracking-[-0.02em]">
+					<h1 className="text-2xl md:text-3xl font-semibold text-white mb-4 tracking-[-0.02em]">
 						Cookies Policy
 					</h1>
 					<p className="text-white/35 font-mono text-sm mb-8">

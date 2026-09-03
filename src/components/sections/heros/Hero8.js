@@ -41,13 +41,13 @@ const Hero8 = () => {
 							Available for consulting
 						</span>
 
-						<h1 className="text-[36px] sm:text-[44px] md:text-[52px] xl:text-[58px] 2xl:text-[64px] leading-[1.05] mb-6 tracking-[-0.035em] font-bold text-white">
+						<h1 className="text-[32px] sm:text-[38px] md:text-[44px] xl:text-[50px] 2xl:text-[54px] leading-[1.12] mb-6 tracking-[-0.025em] font-semibold text-white">
 							Infrastructure that
 							<br />
 							<span className="gradient-text">stays up.</span>
 						</h1>
 
-						<p className="text-[17px] md:text-lg leading-[1.75] text-white/55 max-w-[480px] mx-auto lg:mx-0 mb-9">
+						<p className="text-[15px] md:text-base leading-[1.75] text-white/55 max-w-[480px] mx-auto lg:mx-0 mb-9">
 							I&apos;m Ashiwani Kumar — a Linux DevOps &amp; SRE engineer with 7+ years
 							running mission-critical systems. Today that means keeping five UAE
 							airports online at 99.9% uptime, on Kubernetes, OpenShift, and AWS.
@@ -59,7 +59,7 @@ const Hero8 = () => {
 							</ButtonPrimary>
 							<a
 								href="/#portfolio"
-								className="inline-flex items-center gap-2 px-6 py-[14px] text-white/60 hover:text-white text-sm font-semibold border border-white/10 hover:border-white/25 rounded-full transition-all duration-300 group"
+								className="inline-flex items-center gap-2 px-5 py-2.5 text-white/60 hover:text-white text-sm font-medium border border-white/10 hover:border-white/25 rounded-lg transition-all duration-300 group"
 								aria-label="View my projects"
 							>
 								See my work

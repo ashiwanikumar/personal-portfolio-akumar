@@ -73,12 +73,12 @@ const Cta5 = () => {
 	};
 
 	const inputClasses =
-		"mt-2 w-full rounded-xl border border-white/10 bg-white/[0.04] px-4 py-3 text-sm text-white outline-none transition-all duration-300 placeholder:text-white/30 focus:border-[#10b981]/50 focus:shadow-[0_0_0_3px_rgba(16,185,129,0.12)]";
+		"mt-1.5 w-full rounded-lg border border-white/10 bg-white/[0.04] px-3.5 py-2.5 text-sm text-white outline-none transition-all duration-300 placeholder:text-white/30 focus:border-[#10b981]/50 focus:shadow-[0_0_0_3px_rgba(16,185,129,0.12)]";
 
 	return (
 		<section id="contact" aria-labelledby="cta-heading">
-			<div className="container py-20 md:py-28">
-				<div className="glass-card py-16 px-6 sm:py-20 lg:px-16 lg:py-24 rounded-[32px] relative z-0 overflow-hidden">
+			<div className="container py-12 md:py-16">
+				<div className="glass-card max-w-4xl mx-auto py-10 px-6 sm:py-12 lg:px-12 rounded-3xl relative z-0 overflow-hidden">
 					{/* Background glow */}
 					<div className="absolute inset-0 opacity-15" aria-hidden="true">
 						<div className="absolute top-0 left-1/4 w-[300px] h-[300px] bg-[#10b981] rounded-full blur-[150px]"></div>
@@ -86,10 +86,10 @@ const Cta5 = () => {
 					</div>
 
 					<div className="text-center relative z-10">
-						<span className="section-badge mb-8 inline-flex">Contact</span>
+						<span className="section-badge mb-5 inline-flex">Contact</span>
 
-						<div className="min-h-[70px] md:min-h-[100px] lg:min-h-[120px] flex items-center justify-center mb-6">
-							<h2 id="cta-heading" className="text-[26px] sm:text-[32px] md:text-[38px] lg:text-[44px] tracking-[-0.03em] leading-[1.1] font-bold text-white">
+						<div className="min-h-[40px] md:min-h-[48px] flex items-center justify-center mb-3">
+							<h2 id="cta-heading" className="text-[20px] sm:text-[24px] md:text-[26px] lg:text-[28px] tracking-[-0.02em] leading-[1.15] font-semibold text-white">
 								<span className="gradient-text">
 									<TypeWriterLoop
 										phrases={phrases}
@@ -101,14 +101,14 @@ const Cta5 = () => {
 							</h2>
 						</div>
 
-						<p className="text-white/45 text-[16px] lg:text-[17px] max-w-2xl mx-auto mb-12 leading-[1.75]">
+						<p className="text-white/45 text-[15px] max-w-xl mx-auto mb-8 leading-[1.75]">
 							Tell me what you&apos;re building and where it hurts. I&apos;ll reply with an
 							honest take on whether I can help — usually within a day.
 						</p>
 
 						<form
 							onSubmit={handleSubmit}
-							className="mx-auto mb-14 grid max-w-3xl gap-4 text-left"
+							className="mx-auto mb-8 grid max-w-2xl gap-3.5 text-left"
 							aria-label="Contact form"
 						>
 							<div className="grid gap-4 md:grid-cols-2">
@@ -163,7 +163,7 @@ const Cta5 = () => {
 										name="message"
 										value={form.message}
 										onChange={handleChange}
-										rows={5}
+										rows={4}
 										maxLength={5000}
 										className={`${inputClasses} resize-none`}
 										placeholder="Tell me about your infrastructure, your team, and what's not working…"
@@ -179,7 +179,7 @@ const Cta5 = () => {
 								<button
 									type="submit"
 									disabled={status === "loading"}
-									className="inline-flex items-center justify-center gap-2 rounded-xl bg-[#10b981] hover:bg-[#34d399] px-8 py-4 text-sm font-semibold text-[#022c22] transition-all duration-300 hover:shadow-[0_0_32px_rgba(16,185,129,0.3)] disabled:cursor-not-allowed disabled:opacity-60"
+									className="inline-flex items-center justify-center gap-2 rounded-lg bg-[#10b981] hover:bg-[#34d399] px-6 py-3 text-sm font-medium text-[#022c22] transition-all duration-300 hover:shadow-[0_0_32px_rgba(16,185,129,0.3)] disabled:cursor-not-allowed disabled:opacity-60"
 								>
 									<i
 										className={`fa-solid ${
@@ -193,7 +193,7 @@ const Cta5 = () => {
 									href="https://www.linkedin.com/in/ashiwanikumar/"
 									target="_blank"
 									rel="noopener noreferrer"
-									className="inline-flex items-center justify-center gap-2 rounded-xl border border-white/10 bg-transparent px-8 py-4 text-sm font-semibold text-white/60 transition-all duration-300 hover:border-white/25 hover:text-white"
+									className="inline-flex items-center justify-center gap-2 rounded-lg border border-white/10 bg-transparent px-6 py-3 text-sm font-medium text-white/60 transition-all duration-300 hover:border-white/25 hover:text-white"
 									aria-label="Connect on LinkedIn"
 								>
 									<i className="fa-brands fa-linkedin" aria-hidden="true"></i>

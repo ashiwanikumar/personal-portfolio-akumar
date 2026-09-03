@@ -27,6 +27,15 @@ export const IndiaFlag = ({ className = "w-8 h-6" }) => (
 	</svg>
 );
 
+export const OmanFlag = ({ className = "w-8 h-6" }) => (
+	<svg className={className} viewBox="0 0 640 480" xmlns="http://www.w3.org/2000/svg">
+		<path fill="#fff" d="M0 0h640v160H0z"/>
+		<path fill="#db161b" d="M0 160h640v160H0z"/>
+		<path fill="#008000" d="M0 320h640v160H0z"/>
+		<path fill="#db161b" d="M0 0h160v480H0z"/>
+	</svg>
+);
+
 export const GlobalFlag = ({ className = "w-8 h-6" }) => (
 	<svg className={className} viewBox="0 0 640 480" xmlns="http://www.w3.org/2000/svg">
 		<rect fill="#09090b" width="640" height="480"/>
@@ -43,6 +52,7 @@ export const getFlag = (countryCode) => {
 	const flags = {
 		'UAE': UAEFlag,
 		'India': IndiaFlag,
+		'Oman': OmanFlag,
 		'Global': GlobalFlag,
 	};
 	return flags[countryCode] || GlobalFlag;

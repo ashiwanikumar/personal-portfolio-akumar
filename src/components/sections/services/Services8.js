@@ -15,7 +15,7 @@ const Services8 = () => {
 					<div className="mb-10 md:mb-50px xl:mb-60px flex flex-wrap justify-between items-end gap-6">
 						<div>
 							<span className="section-badge mb-6 inline-flex">Services</span>
-							<h2 id="services-heading" className="text-[28px] md:text-[36px] lg:text-[42px] font-bold leading-[1.1] tracking-[-0.03em] inline-block max-w-580px w-full text-white">
+							<h2 id="services-heading" className="text-[26px] md:text-[30px] lg:text-[34px] font-semibold leading-[1.1] tracking-[-0.02em] inline-block max-w-580px w-full text-white">
 								What I can take{" "}
 								<span className="gradient-text">off your plate.</span>
 							</h2>

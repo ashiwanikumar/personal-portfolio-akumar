@@ -46,7 +46,7 @@ const Newsletter = () => {
 				<div className="max-w-3xl mx-auto text-center">
 					<span className="section-badge mb-6 inline-flex">Newsletter</span>
 
-					<h2 id="newsletter-heading" className="text-[28px] md:text-[34px] lg:text-[40px] font-bold leading-[1.1] mb-6 tracking-[-0.03em] text-white">
+					<h2 id="newsletter-heading" className="text-[26px] md:text-[30px] lg:text-[34px] font-semibold leading-[1.1] mb-6 tracking-[-0.02em] text-white">
 						Notes from{" "}
 						<span className="gradient-text">production.</span>
 					</h2>

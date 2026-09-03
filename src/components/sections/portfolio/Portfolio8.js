@@ -12,7 +12,7 @@ const Portfolio8 = () => {
 				<div className="container relative z-10">
 					<div className="mb-10 md:mb-50px xl:mb-60px text-center">
 						<span className="section-badge mb-6 inline-flex">Work</span>
-						<h2 id="portfolio-heading" className="text-[28px] md:text-[36px] lg:text-[42px] font-bold leading-[1.1] tracking-[-0.03em] inline-block max-w-580px w-full text-white">
+						<h2 id="portfolio-heading" className="text-[26px] md:text-[30px] lg:text-[34px] font-semibold leading-[1.1] tracking-[-0.02em] inline-block max-w-580px w-full text-white">
 							Selected <span className="gradient-text">projects.</span>
 						</h2>
 						<p className="text-white/45 text-base leading-[1.75] max-w-[520px] mx-auto mt-4">

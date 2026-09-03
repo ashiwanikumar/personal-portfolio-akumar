@@ -30,7 +30,7 @@ const AIThoughts = () => {
 			<div className="container relative z-10">
 				<div className="text-center mb-16">
 					<span className="section-badge mb-6 inline-flex">Perspective</span>
-					<h2 id="ai-heading" className="text-[28px] md:text-[36px] lg:text-[42px] font-bold leading-[1.1] tracking-[-0.03em] mb-5 text-white">
+					<h2 id="ai-heading" className="text-[26px] md:text-[30px] lg:text-[34px] font-semibold leading-[1.1] tracking-[-0.02em] mb-5 text-white">
 						Where DevOps{" "}
 						<span className="gradient-text">meets AI.</span>
 					</h2>
@@ -68,7 +68,7 @@ const AIThoughts = () => {
 							href="https://x.com/theashvanikumar"
 							target="_blank"
 							rel="noopener noreferrer"
-							className="inline-flex items-center gap-2 px-6 py-3 bg-[#10b981] hover:bg-[#34d399] text-[#022c22] font-semibold rounded-full hover:shadow-[0_0_28px_rgba(16,185,129,0.35)] transition-all duration-300 text-sm"
+							className="inline-flex items-center gap-2 px-5 py-2.5 bg-[#10b981] hover:bg-[#34d399] text-[#022c22] font-medium rounded-lg transition-all duration-300 text-sm"
 							aria-label="Follow Ashiwani Kumar on X (Twitter)"
 						>
 							<i className="fa-brands fa-x-twitter" aria-hidden="true"></i>

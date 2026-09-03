@@ -66,7 +66,7 @@ const CVViewer = () => {
 				<div className="container">
 					<div className="text-center mb-50px">
 						<span className="section-badge mb-6 inline-flex">Resume</span>
-						<h2 className="text-[28px] md:text-[36px] lg:text-[42px] font-bold leading-[1.1] tracking-[-0.03em] text-white mb-4">
+						<h2 className="text-[26px] md:text-[30px] lg:text-[34px] font-semibold leading-[1.1] tracking-[-0.02em] text-white mb-4">
 							The full story, <span className="gradient-text">on paper.</span>
 						</h2>
 						<p className="text-white/45 leading-[1.75] max-w-600px mx-auto text-base">
@@ -97,7 +97,7 @@ const CVViewer = () => {
 								<div className="flex gap-3 sm:gap-4 w-full sm:w-auto">
 									<button
 										onClick={openModal}
-										className="flex-1 sm:flex-none inline-flex items-center justify-center gap-2 px-4 sm:px-6 py-3 bg-transparent border border-white/10 hover:border-white/25 text-white/60 hover:text-white font-semibold rounded-full transition-all duration-300 text-sm whitespace-nowrap"
+										className="flex-1 sm:flex-none inline-flex items-center justify-center gap-2 px-4 sm:px-5 py-2.5 bg-transparent border border-white/10 hover:border-white/25 text-white/60 hover:text-white font-medium rounded-lg transition-all duration-300 text-sm whitespace-nowrap"
 									>
 										<i className="fa-solid fa-eye"></i>
 										View CV
@@ -106,7 +106,7 @@ const CVViewer = () => {
 										href={cvPath}
 										download="Ashiwani_Kumar_CV.pdf"
 										onClick={handleDownload}
-										className="flex-1 sm:flex-none inline-flex items-center justify-center gap-2 px-4 sm:px-6 py-3 bg-[#10b981] hover:bg-[#34d399] text-[#022c22] font-semibold rounded-full hover:shadow-[0_0_28px_rgba(16,185,129,0.35)] transition-all duration-300 text-sm whitespace-nowrap"
+										className="flex-1 sm:flex-none inline-flex items-center justify-center gap-2 px-4 sm:px-5 py-2.5 bg-[#10b981] hover:bg-[#34d399] text-[#022c22] font-medium rounded-lg transition-all duration-300 text-sm whitespace-nowrap"
 									>
 										<i className="fa-solid fa-download"></i>
 										Download
@@ -118,7 +118,7 @@ const CVViewer = () => {
 							<div className="grid grid-cols-2 md:grid-cols-4 gap-5">
 								{stats.map((stat) => (
 									<div key={stat.label} className="bg-white/[0.03] border border-white/[0.08] rounded-2xl p-6 text-center">
-										<div className="text-3xl md:text-4xl font-bold text-white tracking-[-0.02em] mb-2">{stat.value}</div>
+										<div className="text-2xl md:text-3xl font-semibold text-white tracking-[-0.02em] mb-2">{stat.value}</div>
 										<div className="text-white/35 text-xs font-mono">{stat.label}</div>
 									</div>
 								))}

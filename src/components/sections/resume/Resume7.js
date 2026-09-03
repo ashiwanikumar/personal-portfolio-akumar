@@ -39,7 +39,7 @@ const Resume7 = () => {
 						<div className="w-full lg:w-[400px] xl:w-[450px] lg:flex-shrink-0">
 							<div className="lg:sticky lg:top-[100px]">
 								<span className="section-badge mb-6 inline-flex">Experience</span>
-								<h2 id="resume-heading" className="text-[28px] md:text-[36px] lg:text-[42px] font-bold leading-[1.1] tracking-[-0.03em] mb-4 text-white">
+								<h2 id="resume-heading" className="text-[26px] md:text-[30px] lg:text-[34px] font-semibold leading-[1.1] tracking-[-0.02em] mb-4 text-white">
 									Where I&apos;ve{" "}
 									<span className="gradient-text">been on call.</span>
 								</h2>

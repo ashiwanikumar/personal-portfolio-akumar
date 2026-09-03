@@ -29,7 +29,7 @@ export default function Error({ error, reset }) {
 						</div>
 					</div>
 
-					<h1 className="text-3xl md:text-4xl font-bold font-mono mb-4">
+					<h1 className="text-2xl md:text-3xl font-semibold font-mono mb-4">
 						<span className="gradient-text">System Error</span>
 					</h1>
 
