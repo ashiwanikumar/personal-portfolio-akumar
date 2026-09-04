@@ -1,253 +1,326 @@
 [
-	{
-		"id": 1,
-		"title": "Kubernetes Migration",
-		"title2": "Cloud Native Transformation",
-		"img": "/img/portfolio/kubernetes-migration.svg",
-		"img2": "/img/portfolio/portfolio-6-1.jpg",
-		"imgLarge": "/img/project/project-5.png",
-		"detailsImg": "/img/portfolio/portfolio-details-1.jpg",
-		"desc": "Led the migration of monolithic applications to microservices architecture on Kubernetes, resulting in 40% improvement in deployment speed.",
-		"shortDesc": "Enterprise-scale Kubernetes migration project",
-		"desc1": "Designed and implemented a complete Kubernetes platform for a Fortune 500 company, migrating over 100 applications from legacy infrastructure to cloud-native architecture. Implemented GitOps workflows with ArgoCD and established comprehensive monitoring.",
-		"desc2": "The project included setting up multi-cluster management, implementing service mesh with Istio, and establishing CI/CD pipelines with automated testing and security scanning. Reduced infrastructure costs by 35% through efficient resource utilization.",
-		"category": "Cloud Infrastructure",
-		"featured": true,
-		"featuredDesc": "Transformed legacy infrastructure to cloud-native Kubernetes platform, enabling faster deployments and better scalability",
-		"featuredImg": "/img/project/project-2.png",
-		"employee": {
-			"name": "Ashiwani Kumar",
-			"desig": "DevOps/SRE Engineer",
-			"img": "/img/project/project-1.png"
-		},
-		"tags": ["Kubernetes", "Cloud Migration", "GitOps"],
-		"dataFilter": "infrastructure",
-		"statusItem": [
-			{
-				"title": "Category",
-				"desc": "Cloud Infrastructure"
-			},
-			{
-				"title": "Technologies",
-				"desc": "Kubernetes, ArgoCD, Istio"
-			},
-			{
-				"title": "Duration",
-				"desc": "6 months"
-			},
-			{
-				"title": "Scale",
-				"desc": "100+ Applications"
-			}
-		],
-		"descItems": [
-			{
-				"title": "The Challenge",
-				"desc": "The client had a complex monolithic architecture with manual deployment processes that took days. They needed to modernize their infrastructure to support rapid development and deployment while ensuring high availability and scalability."
-			},
-			{
-				"title": "Our Approach",
-				"desc": "We implemented a phased migration strategy, starting with containerization of applications, followed by Kubernetes cluster setup across multiple regions. Established GitOps workflows for declarative infrastructure management and implemented comprehensive monitoring and alerting."
-			}
-		],
-		"challenge": {
-			"title": "The challenge of Project",
-			"desc": "Migrating critical production workloads without downtime while training teams on new technologies and processes."
-		}
-	},
-	{
-		"id": 2,
-		"title": "CI/CD Pipeline Automation",
-		"title2": "DevOps Transformation",
-		"img": "/img/portfolio/cicd-pipeline.svg",
-		"img2": "/img/portfolio/portfolio-6-2.jpg",
-		"imgLarge": "/img/project/project-1.png",
-		"detailsImg": "/img/portfolio/portfolio-details-2.jpg",
-		"desc": "Built enterprise CI/CD pipelines reducing deployment time from hours to minutes with automated testing and security scanning.",
-		"shortDesc": "End-to-end CI/CD pipeline implementation",
-		"desc1": "Implemented comprehensive CI/CD pipelines using Jenkins, GitLab CI, and GitHub Actions. Integrated automated testing, code quality checks, security scanning, and compliance validation into the deployment process.",
-		"desc2": "The solution included blue-green deployments, automated rollbacks, and feature flags for safe production releases. Achieved 99% reduction in deployment-related incidents and enabled multiple daily deployments.",
-		"category": "DevOps",
-		"featured": true,
-		"featuredDesc": "Automated software delivery pipeline enabling rapid, reliable deployments with built-in security and quality checks",
-		"featuredImg": "/img/project/project-3.png",
-		"tags": ["CI/CD", "Jenkins", "Automation"],
-		"dataFilter": "devops",
-		"statusItem": [
-			{
-				"title": "Category",
-				"desc": "DevOps Automation"
-			},
-			{
-				"title": "Tools",
-				"desc": "Jenkins, GitLab CI, Sonar"
-			},
-			{
-				"title": "Deployment Time",
-				"desc": "< 10 minutes"
-			},
-			{
-				"title": "Success Rate",
-				"desc": "99.5%"
-			}
-		],
-		"descItems": [
-			{
-				"title": "Pipeline Architecture",
-				"desc": "Designed multi-stage pipelines with parallel execution for faster builds. Implemented caching strategies and distributed builds to optimize performance. Integrated with multiple testing frameworks and security tools."
-			},
-			{
-				"title": "Results",
-				"desc": "Reduced deployment time by 90%, eliminated manual errors, and enabled developers to deploy with confidence. Established automated rollback procedures and comprehensive deployment metrics."
-			}
-		]
-	},
-	{
-		"id": 3,
-		"title": "AWS Infrastructure Automation",
-		"title2": "Cloud Automation Project",
-		"img": "/img/portfolio/aws-terraform.svg",
-		"img2": "/img/portfolio/portfolio-6-3.jpg",
-		"imgLarge": "/img/project/project-3.png",
-		"detailsImg": "/img/portfolio/portfolio-details-3.jpg",
-		"desc": "Automated AWS infrastructure provisioning using Terraform, reducing setup time from days to minutes.",
-		"shortDesc": "Infrastructure as Code implementation on AWS",
-		"desc1": "Developed comprehensive Terraform modules for AWS infrastructure including VPCs, EKS clusters, RDS databases, and Lambda functions. Implemented automated compliance checking and cost optimization.",
-		"desc2": "Created reusable modules enabling teams to provision complete environments in minutes. Implemented GitOps workflows for infrastructure changes with automated testing and approval processes.",
-		"category": "Cloud",
-		"featured": false,
-		"tags": ["AWS", "Terraform", "IaC"],
-		"dataFilter": "cloud",
-		"statusItem": [
-			{
-				"title": "Category",
-				"desc": "Cloud Automation"
-			},
-			{
-				"title": "Platform",
-				"desc": "AWS"
-			},
-			{
-				"title": "IaC Tool",
-				"desc": "Terraform"
-			},
-			{
-				"title": "Cost Savings",
-				"desc": "45%"
-			}
-		],
-		"descItems": [
-			{
-				"title": "Infrastructure Design",
-				"desc": "Designed highly available, multi-region architecture with automated failover. Implemented least-privilege IAM policies and encryption at rest and in transit."
-			},
-			{
-				"title": "Automation Benefits",
-				"desc": "Reduced infrastructure provisioning time by 95%, eliminated configuration drift, and enabled self-service infrastructure for development teams."
-			}
-		]
-	},
-	{
-		"id": 4,
-		"title": "SRE Implementation",
-		"title2": "Reliability Engineering",
-		"img": "/img/portfolio/sre-monitoring.svg",
-		"img2": "/img/portfolio/portfolio-6-1.jpg",
-		"imgLarge": "/img/project/project-4.png",
-		"detailsImg": "/img/portfolio/portfolio-details-4.jpg",
-		"desc": "Established SRE practices achieving 99.99% uptime through proactive monitoring and automated incident response.",
-		"shortDesc": "Linux DevOps Engineering transformation",
-		"desc1": "Implemented comprehensive SRE practices including SLI/SLO definition, error budgets, and automated incident response. Built custom monitoring dashboards and intelligent alerting systems.",
-		"desc2": "Established chaos engineering practices, automated remediation for common issues, and comprehensive runbooks. Reduced MTTR by 70% through improved observability and automation.",
-		"category": "SRE",
-		"featured": true,
-		"featuredDesc": "Transformed operations with SRE practices, achieving industry-leading reliability and reduced incident response times",
-		"featuredImg": "/img/project/project-4.png",
-		"tags": ["SRE", "Monitoring", "Reliability"],
-		"dataFilter": "sre",
-		"statusItem": [
-			{
-				"title": "Category",
-				"desc": "Site Reliability"
-			},
-			{
-				"title": "Uptime",
-				"desc": "99.99%"
-			},
-			{
-				"title": "MTTR Reduction",
-				"desc": "70%"
-			},
-			{
-				"title": "Alert Reduction",
-				"desc": "80%"
-			}
-		],
-		"descItems": [
-			{
-				"title": "Observability Stack",
-				"desc": "Implemented Prometheus, Grafana, and ELK stack for comprehensive monitoring. Created custom dashboards for business metrics and established intelligent alerting with PagerDuty integration."
-			},
-			{
-				"title": "Incident Management",
-				"desc": "Established on-call procedures, automated incident creation, and post-mortem processes. Implemented automated remediation for 60% of common issues."
-			}
-		]
-	},
-	{
-		"id": 5,
-		"title": "Full Stack Web Applications",
-		"title2": "End-to-End Development",
-		"img": "/img/portfolio/fullstack-dev.svg",
-		"img2": "/img/portfolio/portfolio-6-1.jpg",
-		"imgLarge": "/img/project/project-5.png",
-		"detailsImg": "/img/portfolio/portfolio-details-1.jpg",
-		"desc": "Designed and developed production-ready full stack applications using Next.js, React, Node.js, and modern databases with complete CI/CD integration.",
-		"shortDesc": "Modern full stack web development",
-		"desc1": "Built multiple production web applications from scratch including SaaS platforms, landing pages, and internal dashboards. Leveraged Next.js App Router, React 19, Tailwind CSS, and TypeScript for performant, SEO-optimized frontends.",
-		"desc2": "Implemented backend APIs with Node.js, integrated with PostgreSQL and MongoDB databases, set up authentication with OAuth/JWT, and deployed with Docker on AWS. Every project includes automated CI/CD pipelines, monitoring, and infrastructure as code.",
-		"category": "Full Stack",
-		"featured": true,
-		"featuredDesc": "End-to-end web application development with modern frameworks, cloud deployment, and DevOps best practices",
-		"featuredImg": "/img/project/project-5.png",
-		"employee": {
-			"name": "Ashiwani Kumar",
-			"desig": "Full Stack & DevOps Engineer",
-			"img": "/img/project/project-1.png"
-		},
-		"tags": ["Next.js", "React", "Node.js", "TypeScript", "Tailwind CSS"],
-		"dataFilter": "fullstack",
-		"statusItem": [
-			{
-				"title": "Category",
-				"desc": "Full Stack Development"
-			},
-			{
-				"title": "Frontend",
-				"desc": "Next.js, React, Tailwind"
-			},
-			{
-				"title": "Backend",
-				"desc": "Node.js, PostgreSQL"
-			},
-			{
-				"title": "Projects",
-				"desc": "10+ Applications"
-			}
-		],
-		"descItems": [
-			{
-				"title": "Tech Stack",
-				"desc": "Next.js 16 with App Router, React 19, TypeScript, Tailwind CSS for frontend. Node.js, Express, PostgreSQL, MongoDB, Redis for backend. Docker, AWS, and Terraform for deployment infrastructure."
-			},
-			{
-				"title": "DevOps Integration",
-				"desc": "Every application ships with automated CI/CD pipelines, containerized deployments, comprehensive monitoring, and infrastructure as code. Bridging the gap between development and operations for truly production-ready applications."
-			}
-		],
-		"challenge": {
-			"title": "The challenge of Project",
-			"desc": "Building performant, SEO-optimized, and scalable web applications while maintaining DevOps best practices across the entire stack."
-		}
-	}
+ {
+  "id": 1,
+  "title": "Kubernetes Migration",
+  "title2": "Cloud Native Transformation",
+  "img": "/img/portfolio/kubernetes-migration.svg",
+  "img2": "/img/portfolio/portfolio-6-1.jpg",
+  "imgLarge": "/img/project/project-5.png",
+  "detailsImg": "/img/portfolio/portfolio-details-1.jpg",
+  "desc": "Led the migration of monolithic applications to microservices architecture on Kubernetes, resulting in 40% improvement in deployment speed.",
+  "shortDesc": "Enterprise-scale Kubernetes migration project",
+  "desc1": "Designed and implemented a complete Kubernetes platform for a Fortune 500 company, migrating over 100 applications from legacy infrastructure to cloud-native architecture. Implemented GitOps workflows with ArgoCD and established comprehensive monitoring.",
+  "desc2": "The project included setting up multi-cluster management, implementing service mesh with Istio, and establishing CI/CD pipelines with automated testing and security scanning. Reduced infrastructure costs by 35% through efficient resource utilization.",
+  "category": "Cloud Infrastructure",
+  "featured": true,
+  "featuredDesc": "Transformed legacy infrastructure to cloud-native Kubernetes platform, enabling faster deployments and better scalability",
+  "featuredImg": "/img/project/project-2.png",
+  "employee": {
+   "name": "Ashiwani Kumar",
+   "desig": "DevOps/SRE Engineer",
+   "img": "/img/project/project-1.png"
+  },
+  "tags": [
+   "Kubernetes",
+   "Cloud Migration",
+   "GitOps"
+  ],
+  "dataFilter": "infrastructure",
+  "statusItem": [
+   {
+    "title": "Category",
+    "desc": "Cloud Infrastructure"
+   },
+   {
+    "title": "Technologies",
+    "desc": "Kubernetes, ArgoCD, Istio"
+   },
+   {
+    "title": "Duration",
+    "desc": "6 months"
+   },
+   {
+    "title": "Scale",
+    "desc": "100+ Applications"
+   }
+  ],
+  "descItems": [
+   {
+    "title": "The Challenge",
+    "desc": "The client had a complex monolithic architecture with manual deployment processes that took days. They needed to modernize their infrastructure to support rapid development and deployment while ensuring high availability and scalability."
+   },
+   {
+    "title": "Our Approach",
+    "desc": "We implemented a phased migration strategy, starting with containerization of applications, followed by Kubernetes cluster setup across multiple regions. Established GitOps workflows for declarative infrastructure management and implemented comprehensive monitoring and alerting."
+   }
+  ],
+  "challenge": {
+   "title": "The challenge of Project",
+   "desc": "Migrating critical production workloads without downtime while training teams on new technologies and processes."
+  }
+ },
+ {
+  "id": 2,
+  "title": "CI/CD Pipeline Automation",
+  "title2": "DevOps Transformation",
+  "img": "/img/portfolio/cicd-pipeline.svg",
+  "img2": "/img/portfolio/portfolio-6-2.jpg",
+  "imgLarge": "/img/project/project-1.png",
+  "detailsImg": "/img/portfolio/portfolio-details-2.jpg",
+  "desc": "Built enterprise CI/CD pipelines reducing deployment time from hours to minutes with automated testing and security scanning.",
+  "shortDesc": "End-to-end CI/CD pipeline implementation",
+  "desc1": "Implemented comprehensive CI/CD pipelines using Jenkins, GitLab CI, and GitHub Actions. Integrated automated testing, code quality checks, security scanning, and compliance validation into the deployment process.",
+  "desc2": "The solution included blue-green deployments, automated rollbacks, and feature flags for safe production releases. Achieved 99% reduction in deployment-related incidents and enabled multiple daily deployments.",
+  "category": "DevOps",
+  "featured": true,
+  "featuredDesc": "Automated software delivery pipeline enabling rapid, reliable deployments with built-in security and quality checks",
+  "featuredImg": "/img/project/project-3.png",
+  "tags": [
+   "CI/CD",
+   "Jenkins",
+   "Automation"
+  ],
+  "dataFilter": "devops",
+  "statusItem": [
+   {
+    "title": "Category",
+    "desc": "DevOps Automation"
+   },
+   {
+    "title": "Tools",
+    "desc": "Jenkins, GitLab CI, Sonar"
+   },
+   {
+    "title": "Deployment Time",
+    "desc": "< 10 minutes"
+   },
+   {
+    "title": "Success Rate",
+    "desc": "99.5%"
+   }
+  ],
+  "descItems": [
+   {
+    "title": "Pipeline Architecture",
+    "desc": "Designed multi-stage pipelines with parallel execution for faster builds. Implemented caching strategies and distributed builds to optimize performance. Integrated with multiple testing frameworks and security tools."
+   },
+   {
+    "title": "Results",
+    "desc": "Reduced deployment time by 90%, eliminated manual errors, and enabled developers to deploy with confidence. Established automated rollback procedures and comprehensive deployment metrics."
+   }
+  ]
+ },
+ {
+  "id": 3,
+  "title": "AWS Infrastructure Automation",
+  "title2": "Cloud Automation Project",
+  "img": "/img/portfolio/aws-terraform.svg",
+  "img2": "/img/portfolio/portfolio-6-3.jpg",
+  "imgLarge": "/img/project/project-3.png",
+  "detailsImg": "/img/portfolio/portfolio-details-3.jpg",
+  "desc": "Automated AWS infrastructure provisioning using Terraform, reducing setup time from days to minutes.",
+  "shortDesc": "Infrastructure as Code implementation on AWS",
+  "desc1": "Developed comprehensive Terraform modules for AWS infrastructure including VPCs, EKS clusters, RDS databases, and Lambda functions. Implemented automated compliance checking and cost optimization.",
+  "desc2": "Created reusable modules enabling teams to provision complete environments in minutes. Implemented GitOps workflows for infrastructure changes with automated testing and approval processes.",
+  "category": "Cloud",
+  "featured": false,
+  "tags": [
+   "AWS",
+   "Terraform",
+   "IaC"
+  ],
+  "dataFilter": "cloud",
+  "statusItem": [
+   {
+    "title": "Category",
+    "desc": "Cloud Automation"
+   },
+   {
+    "title": "Platform",
+    "desc": "AWS"
+   },
+   {
+    "title": "IaC Tool",
+    "desc": "Terraform"
+   },
+   {
+    "title": "Cost Savings",
+    "desc": "45%"
+   }
+  ],
+  "descItems": [
+   {
+    "title": "Infrastructure Design",
+    "desc": "Designed highly available, multi-region architecture with automated failover. Implemented least-privilege IAM policies and encryption at rest and in transit."
+   },
+   {
+    "title": "Automation Benefits",
+    "desc": "Reduced infrastructure provisioning time by 95%, eliminated configuration drift, and enabled self-service infrastructure for development teams."
+   }
+  ]
+ },
+ {
+  "id": 4,
+  "title": "SRE Implementation",
+  "title2": "Reliability Engineering",
+  "img": "/img/portfolio/sre-monitoring.svg",
+  "img2": "/img/portfolio/portfolio-6-1.jpg",
+  "imgLarge": "/img/project/project-4.png",
+  "detailsImg": "/img/portfolio/portfolio-details-4.jpg",
+  "desc": "Established SRE practices achieving 99.99% uptime through proactive monitoring and automated incident response.",
+  "shortDesc": "Linux DevOps Engineering transformation",
+  "desc1": "Implemented comprehensive SRE practices including SLI/SLO definition, error budgets, and automated incident response. Built custom monitoring dashboards and intelligent alerting systems.",
+  "desc2": "Established chaos engineering practices, automated remediation for common issues, and comprehensive runbooks. Reduced MTTR by 70% through improved observability and automation.",
+  "category": "SRE",
+  "featured": true,
+  "featuredDesc": "Transformed operations with SRE practices, achieving industry-leading reliability and reduced incident response times",
+  "featuredImg": "/img/project/project-4.png",
+  "tags": [
+   "SRE",
+   "Monitoring",
+   "Reliability"
+  ],
+  "dataFilter": "sre",
+  "statusItem": [
+   {
+    "title": "Category",
+    "desc": "Site Reliability"
+   },
+   {
+    "title": "Uptime",
+    "desc": "99.99%"
+   },
+   {
+    "title": "MTTR Reduction",
+    "desc": "70%"
+   },
+   {
+    "title": "Alert Reduction",
+    "desc": "80%"
+   }
+  ],
+  "descItems": [
+   {
+    "title": "Observability Stack",
+    "desc": "Implemented Prometheus, Grafana, and ELK stack for comprehensive monitoring. Created custom dashboards for business metrics and established intelligent alerting with PagerDuty integration."
+   },
+   {
+    "title": "Incident Management",
+    "desc": "Established on-call procedures, automated incident creation, and post-mortem processes. Implemented automated remediation for 60% of common issues."
+   }
+  ]
+ },
+ {
+  "id": 5,
+  "title": "Full Stack Web Applications",
+  "title2": "End-to-End Development",
+  "img": "/img/portfolio/fullstack-dev.svg",
+  "img2": "/img/portfolio/portfolio-6-1.jpg",
+  "imgLarge": "/img/project/project-5.png",
+  "detailsImg": "/img/portfolio/portfolio-details-1.jpg",
+  "desc": "Designed and developed production-ready full stack applications using Next.js, React, Node.js, and modern databases with complete CI/CD integration.",
+  "shortDesc": "Modern full stack web development",
+  "desc1": "Built multiple production web applications from scratch including SaaS platforms, landing pages, and internal dashboards. Leveraged Next.js App Router, React 19, Tailwind CSS, and TypeScript for performant, SEO-optimized frontends.",
+  "desc2": "Implemented backend APIs with Node.js, integrated with PostgreSQL and MongoDB databases, set up authentication with OAuth/JWT, and deployed with Docker on AWS. Every project includes automated CI/CD pipelines, monitoring, and infrastructure as code.",
+  "category": "Full Stack",
+  "featured": true,
+  "featuredDesc": "End-to-end web application development with modern frameworks, cloud deployment, and DevOps best practices",
+  "featuredImg": "/img/project/project-5.png",
+  "employee": {
+   "name": "Ashiwani Kumar",
+   "desig": "Full Stack & DevOps Engineer",
+   "img": "/img/project/project-1.png"
+  },
+  "tags": [
+   "Next.js",
+   "React",
+   "Node.js",
+   "TypeScript",
+   "Tailwind CSS"
+  ],
+  "dataFilter": "fullstack",
+  "statusItem": [
+   {
+    "title": "Category",
+    "desc": "Full Stack Development"
+   },
+   {
+    "title": "Frontend",
+    "desc": "Next.js, React, Tailwind"
+   },
+   {
+    "title": "Backend",
+    "desc": "Node.js, PostgreSQL"
+   },
+   {
+    "title": "Projects",
+    "desc": "10+ Applications"
+   }
+  ],
+  "descItems": [
+   {
+    "title": "Tech Stack",
+    "desc": "Next.js 16 with App Router, React 19, TypeScript, Tailwind CSS for frontend. Node.js, Express, PostgreSQL, MongoDB, Redis for backend. Docker, AWS, and Terraform for deployment infrastructure."
+   },
+   {
+    "title": "DevOps Integration",
+    "desc": "Every application ships with automated CI/CD pipelines, containerized deployments, comprehensive monitoring, and infrastructure as code. Bridging the gap between development and operations for truly production-ready applications."
+   }
+  ],
+  "challenge": {
+   "title": "The challenge of Project",
+   "desc": "Building performant, SEO-optimized, and scalable web applications while maintaining DevOps best practices across the entire stack."
+  }
+ },
+ {
+  "id": 6,
+  "title": "Azure DevOps Platform",
+  "title2": "Enterprise Delivery on Azure DevOps",
+  "img": "/img/portfolio/azure-devops.svg",
+  "img2": "/img/portfolio/portfolio-6-2.jpg",
+  "imgLarge": "/img/project/project-1.png",
+  "detailsImg": "/img/portfolio/portfolio-details-2.jpg",
+  "desc": "Rolled out Azure DevOps end to end - Boards, Repos, Pipelines, and Artifacts - standardizing delivery for enterprise teams with multi-stage YAML pipelines and gated releases.",
+  "shortDesc": "End-to-end Azure DevOps rollout for enterprise delivery",
+  "desc1": "Implemented Azure DevOps as the single delivery platform: Boards for planning, Repos with branch policies and PR validation, and multi-stage YAML Pipelines with environment approvals, secrets management, and security scanning.",
+  "desc2": "Connected pipelines to AKS and on-prem targets with service connections and deployment gates. Standardized templates across teams cut pipeline onboarding for a new service to under a day.",
+  "category": "DevOps",
+  "featured": false,
+  "featuredDesc": "Enterprise Azure DevOps platform with standardized multi-stage pipelines and gated releases",
+  "featuredImg": "/img/project/project-3.png",
+  "tags": [
+   "Azure DevOps",
+   "YAML Pipelines",
+   "AKS"
+  ],
+  "dataFilter": "devops",
+  "statusItem": [
+   {
+    "title": "Category",
+    "desc": "DevOps Platform"
+   },
+   {
+    "title": "Tools",
+    "desc": "Azure DevOps, AKS, Terraform"
+   },
+   {
+    "title": "Pipeline Onboarding",
+    "desc": "< 1 day"
+   },
+   {
+    "title": "Teams Standardized",
+    "desc": "Multiple squads"
+   }
+  ],
+  "descItems": [
+   {
+    "title": "Platform Rollout",
+    "desc": "Set up Azure DevOps organization-wide: Boards for sprint planning, Repos with branch policies and PR validation builds, and multi-stage YAML Pipelines with environment approvals, Key Vault-backed secrets, and integrated security scanning."
+   },
+   {
+    "title": "Results",
+    "desc": "Standardized reusable pipeline templates across teams, connected deployments to AKS and on-prem targets with gated releases, and cut onboarding a new service's pipeline to under a day."
+   }
+  ]
+ }
 ]

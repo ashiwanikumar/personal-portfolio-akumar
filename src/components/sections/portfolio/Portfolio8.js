@@ -3,7 +3,7 @@ import PortfolioCard10 from "@/components/shared/cards/PortfolioCard10";
 import getPortfolio from "@/libs/getPortfolio";
 
 const Portfolio8 = () => {
-	const portfolio = getPortfolio()?.slice(0, 5);
+	const portfolio = getPortfolio()?.slice(0, 6);
 
 	return (
 		<section id="portfolio" className="relative overflow-hidden" aria-labelledby="portfolio-heading">
