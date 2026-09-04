@@ -426,11 +426,11 @@ module.exports = {
 
 			// typography
 			fontFamily: {
-				sans: "'Inter', sans-serif",
-				sora: "'Inter', sans-serif",
-				inter: "'Inter', sans-serif",
-				mono: "'JetBrains Mono', monospace",
-				jetbrains: "'JetBrains Mono', monospace",
+				sans: "var(--font-inter), sans-serif",
+				sora: "var(--font-inter), sans-serif",
+				inter: "var(--font-inter), sans-serif",
+				mono: "var(--font-jetbrains), monospace",
+				jetbrains: "var(--font-jetbrains), monospace",
 				fontawesome: `"Font Awesome 6 Pro"`,
 				helvetica: `"Helvetica Neue", sans-serif`,
 				flaticon: `flaticon_gerold`,

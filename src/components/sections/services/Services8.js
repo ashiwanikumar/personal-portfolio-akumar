@@ -30,13 +30,13 @@ const Services8 = () => {
 									className="service-prev w-12 h-12 inline-flex justify-center items-center glass-card rounded-full hover:bg-[#10b981]/10 transition-all duration-300"
 									aria-label="Previous service"
 								>
-									<i className="fa-regular fa-arrow-left text-[#34d399]" aria-hidden="true"></i>
+									<i className="fa-solid fa-arrow-left text-[#34d399]" aria-hidden="true"></i>
 								</button>
 								<button
 									className="service-next w-12 h-12 inline-flex justify-center items-center glass-card rounded-full hover:bg-[#10b981]/10 transition-all duration-300"
 									aria-label="Next service"
 								>
-									<i className="fa-regular fa-arrow-right text-[#34d399]" aria-hidden="true"></i>
+									<i className="fa-solid fa-arrow-right text-[#34d399]" aria-hidden="true"></i>
 								</button>
 							</div>
 						</div>

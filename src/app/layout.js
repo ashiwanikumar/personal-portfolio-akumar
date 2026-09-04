@@ -1,20 +1,29 @@
 import { Suspense } from "react";
+import { Inter, JetBrains_Mono } from "next/font/google";
 import {
 	generatePersonSchema,
 	generateWebSiteSchema,
 	generateProfilePageSchema,
 } from "@/libs/seo";
 
+const inter = Inter({
+	subsets: ["latin"],
+	variable: "--font-inter",
+	display: "swap",
+});
+
+const jetbrainsMono = JetBrains_Mono({
+	subsets: ["latin"],
+	variable: "--font-jetbrains",
+	display: "swap",
+});
+
 import "swiper/css";
 import "swiper/css/navigation";
 import "swiper/css/pagination";
-import "./css/animate.min.css";
 import "./css/backToTop.css";
 import "./css/flaticon_gerold.css";
 import "./css/font-awesome-pro.min.css";
-import "./css/glightbox.min.css";
-import "./css/nice-select2.css";
-import "./css/odometer-theme-default.css";
 import "./globals.css";
 
 export const metadata = {
@@ -42,7 +51,7 @@ export const metadata = {
 		description: "Linux DevOps Engineer with 7+ years experience. Expert in Kubernetes, OpenShift, AWS, Terraform, Ansible, and building reliable infrastructure at scale.",
 		images: [
 			{
-				url: "https://ashiwanikumar.com/img/hero/ashiwani.png",
+				url: "https://ashiwanikumar.com/img/og-card.png",
 				width: 1200,
 				height: 630,
 				alt: "Ashiwani Kumar - Linux DevOps Engineer & DevOps Practitioner"
@@ -55,7 +64,7 @@ export const metadata = {
 		creator: "@theashvanikumar",
 		title: "Ashiwani Kumar | SRE & DevOps Practitioner",
 		description: "Linux DevOps Engineer with 7+ years experience managing mission-critical infrastructure across UAE.",
-		images: ["https://ashiwanikumar.com/img/hero/ashiwani.png"]
+		images: ["https://ashiwanikumar.com/img/og-card.png"]
 	},
 	robots: {
 		index: true,
@@ -101,7 +110,7 @@ export default function RootLayout({ children }) {
 				))}
 			</head>
 			<body
-				className="font-sora hacker-theme overflow-x-hidden relative"
+				className={`${inter.variable} ${jetbrainsMono.variable} font-sora hacker-theme overflow-x-hidden relative`}
 			>
 				<a href="#main-content" className="skip-to-content">
 					Skip to main content

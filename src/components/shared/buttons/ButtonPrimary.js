@@ -10,7 +10,7 @@ const ButtonPrimary = ({ children, type, url, className, isIcon, href }) => {
 		>
 			{children ? children : ""}{" "}
 			{isIcon ? (
-				<i className="fa-regular fa-arrow-right transition-all duration-400 group-hover:translate-x-0.5" aria-hidden="true"></i>
+				<i className="fa-solid fa-arrow-right transition-all duration-400 group-hover:translate-x-0.5" aria-hidden="true"></i>
 			) : null}
 		</Link>
 	);

@@ -1,6 +1,6 @@
 const SITE_NAME = "Ashiwani Kumar";
 const SITE_URL = "https://ashiwanikumar.com";
-const DEFAULT_OG_IMAGE = `${SITE_URL}/img/hero/ashiwani.png`;
+const DEFAULT_OG_IMAGE = `${SITE_URL}/img/og-card.png`;
 
 export const SOCIAL_PROFILES = {
   linkedin: "https://www.linkedin.com/in/ashiwanikumar/",

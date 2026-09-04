@@ -114,7 +114,7 @@ const Resume7 = () => {
 													</div>
 													<div>
 														<time className="inline-flex items-center gap-2 px-3 py-1.5 bg-[#10b981]/[0.07] border border-[#10b981]/15 rounded-full">
-															<i className="fa-regular fa-calendar text-xs text-[#34d399]" aria-hidden="true"></i>
+															<i className="fa-solid fa-calendar text-xs text-[#34d399]" aria-hidden="true"></i>
 															<span className="text-[#34d399]/90 text-xs font-mono font-medium whitespace-nowrap">
 																{item.date}
 															</span>

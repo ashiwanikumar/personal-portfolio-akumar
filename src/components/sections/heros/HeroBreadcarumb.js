@@ -25,7 +25,7 @@ const HeroBreadcarumb = ({ title, text, actualItem, path }) => {
                   {" "}
                   <li className="nav_item group relative">
                     <p className="font-medium text-white-color capitalize relative flex items-center gap-10px">
-                      <i className=" fa-regular fa-greater-than text-xs"></i>
+                      <i className=" fa-solid fa-greater-than text-xs"></i>
                     </p>
                   </li>
                   <li className="nav_item group relative">
@@ -42,7 +42,7 @@ const HeroBreadcarumb = ({ title, text, actualItem, path }) => {
               )}
               <li className="nav_item group relative">
                 <p className="font-medium text-white-color capitalize relative flex items-center gap-10px">
-                  <i className="fa-regular fa-greater-than text-xs"></i>
+                  <i className="fa-solid fa-greater-than text-xs"></i>
                 </p>
               </li>
               <li className="nav_item group relative">

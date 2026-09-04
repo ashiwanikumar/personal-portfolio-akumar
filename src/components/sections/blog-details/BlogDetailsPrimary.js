@@ -309,7 +309,7 @@ const BlogDetailsPrimary = ({
 																href={isPrevBlog ? `/blogs/${prevId}` : "#"}
 																className="uppercase text-primary-color mb-1.5 inline-flex gap-2 items-center"
 															>
-																<i className="fa-regular fa-angle-double-left"></i>
+																<i className="fa-solid fa-angle-double-left"></i>
 																<span> previous</span>
 															</Link>
 															<h3>
@@ -339,7 +339,7 @@ const BlogDetailsPrimary = ({
 															className="uppercase text-primary-color mb-1.5 inline-flex gap-2 items-center"
 														>
 															<span> Next</span>
-															<i className="fa-regular fa-angle-double-right"></i>
+															<i className="fa-solid fa-angle-double-right"></i>
 														</Link>
 														<h3>
 															<Link
