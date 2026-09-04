@@ -4,7 +4,7 @@
 
 Key facts:
 - Role: Linux DevOps Engineer at Astek Middle East (Jan 2024 – present), Abu Dhabi, UAE
-- Focus: Kubernetes, OpenShift, AWS, Terraform, Ansible, CI/CD pipelines, DevSecOps, cloud migration
+- Focus: Kubernetes, OpenShift, AWS, Terraform, Ansible, CI/CD pipelines (Jenkins, GitLab CI, Azure DevOps), DevSecOps, Docker, cloud migration, monitoring & observability (Prometheus, Grafana, ELK)
 - Track record: 7+ years in production, 500+ servers managed, 99.9% uptime across aviation, healthcare, and telecom
 - Aviation: critical systems for Abu Dhabi, Sharjah, and other UAE airports; on-site work at Muscat International Airport (Oman, ongoing)
 - Previous: System Engineer at NMC Healthcare (UAE), Linux System Administrator at CoreHive Computing (India), SUSE Linux & VMware Admin at Dilip Buildcon (India)
@@ -25,7 +25,8 @@ Key facts:
 ## Contact
 
 - Email: ashvanikumar109@gmail.com
-- Phone: +971-566182303 (UAE)
+- Phone (UAE): +971 566182303
+- Phone (India): +91 8770616837
 - Location: Abu Dhabi, UAE
 - LinkedIn: https://www.linkedin.com/in/ashiwanikumar/
 - GitHub: https://github.com/ashiwanikumar
