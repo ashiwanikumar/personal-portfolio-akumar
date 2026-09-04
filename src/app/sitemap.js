@@ -3,7 +3,7 @@ export default function sitemap() {
 
   // Use a stable date rather than new Date() which changes every build
   // Update this when actual content changes
-  const lastUpdated = "2025-05-20T00:00:00.000Z";
+  const lastUpdated = "2026-09-03T00:00:00.000Z";
 
   return [
     {
