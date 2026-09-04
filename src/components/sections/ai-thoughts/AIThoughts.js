@@ -69,7 +69,7 @@ const AIThoughts = () => {
 							target="_blank"
 							rel="noopener noreferrer"
 							className="inline-flex items-center gap-2 px-5 py-2.5 bg-[#10b981] hover:bg-[#34d399] text-[#022c22] font-medium rounded-lg transition-all duration-300 text-sm"
-							aria-label="Follow Ashiwani Kumar on X (Twitter)"
+							aria-label="Follow @theashvanikumar on X"
 						>
 							<i className="fa-brands fa-x-twitter" aria-hidden="true"></i>
 							Follow @theashvanikumar

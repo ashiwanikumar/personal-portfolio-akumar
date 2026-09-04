@@ -36,7 +36,7 @@ const SkillCard = ({ skill }) => {
 			>
 				{skill.name}
 			</div>
-			<div className="text-white/30 text-xs font-mono">
+			<div className="text-white/50 text-xs font-mono">
 				{skill.desc}
 			</div>
 		</div>
@@ -91,7 +91,7 @@ const About5 = () => {
 								<div className="text-2xl md:text-3xl font-semibold text-white mb-1 tracking-[-0.02em]">
 									{stat.value}
 								</div>
-								<div className="text-white/35 text-xs font-mono">
+								<div className="text-white/50 text-xs font-mono">
 									{stat.label}
 								</div>
 							</div>
@@ -100,7 +100,7 @@ const About5 = () => {
 
 					{/* Skills */}
 					<div className="mb-16">
-						<h3 className="text-center text-xs font-medium text-white/30 mb-8 uppercase tracking-[0.2em] font-mono">
+						<h3 className="text-center text-xs font-medium text-white/50 mb-8 uppercase tracking-[0.2em] font-mono">
 							The stack I work in every day
 						</h3>
 						<div className="grid grid-cols-2 md:grid-cols-4 lg:grid-cols-7 gap-3 max-w-5xl mx-auto" role="list" aria-label="Technical skills">

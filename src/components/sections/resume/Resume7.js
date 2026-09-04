@@ -54,16 +54,16 @@ const Resume7 = () => {
 									{stats.map((stat, idx) => (
 										<div key={idx} className="glass-card rounded-xl p-4 text-center group">
 											<div className="text-2xl font-bold text-white tracking-[-0.02em]">{stat.value}</div>
-											<div className="text-white/35 text-xs font-mono mt-1">{stat.label}</div>
+											<div className="text-white/50 text-xs font-mono mt-1">{stat.label}</div>
 										</div>
 									))}
 								</div>
 
 								{/* Highlights */}
 								<div className="mb-8">
-									<h4 className="text-xs font-medium text-white/30 font-mono mb-4 uppercase tracking-[0.2em]">
+									<h3 className="text-xs font-medium text-white/50 font-mono mb-4 uppercase tracking-[0.2em]">
 										Core skills
-									</h4>
+									</h3>
 									<div className="flex flex-wrap gap-2">
 										{highlights.map((item, idx) => (
 											<span

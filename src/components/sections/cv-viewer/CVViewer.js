@@ -119,7 +119,7 @@ const CVViewer = () => {
 								{stats.map((stat) => (
 									<div key={stat.label} className="bg-white/[0.03] border border-white/[0.08] rounded-2xl p-6 text-center">
 										<div className="text-2xl md:text-3xl font-semibold text-white tracking-[-0.02em] mb-2">{stat.value}</div>
-										<div className="text-white/35 text-xs font-mono">{stat.label}</div>
+										<div className="text-white/50 text-xs font-mono">{stat.label}</div>
 									</div>
 								))}
 							</div>

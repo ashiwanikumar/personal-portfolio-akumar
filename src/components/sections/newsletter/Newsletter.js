@@ -95,7 +95,7 @@ const Newsletter = () => {
 						</button>
 					</form>
 
-					<p id="newsletter-hint" className="text-white/30 text-xs mt-6 font-mono">
+					<p id="newsletter-hint" className="text-white/50 text-xs mt-6 font-mono">
 						{status === "error"
 							? "Subscription failed — please try again, or use the contact form below."
 							: "Read by DevOps and SRE folks worldwide."}

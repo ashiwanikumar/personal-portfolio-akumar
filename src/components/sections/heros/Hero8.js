@@ -60,7 +60,7 @@ const Hero8 = () => {
 							<a
 								href="/#portfolio"
 								className="inline-flex items-center gap-2 px-5 py-2.5 text-white/60 hover:text-white text-sm font-medium border border-white/10 hover:border-white/25 rounded-lg transition-all duration-300 group"
-								aria-label="View my projects"
+								aria-label="See my work"
 							>
 								See my work
 								<i className="fa-solid fa-arrow-right transition-transform duration-300 group-hover:translate-x-1" aria-hidden="true"></i>
@@ -76,7 +76,7 @@ const Hero8 = () => {
 								<div key={m.label} className="text-center lg:text-left">
 									<dt className="sr-only">{m.label}</dt>
 									<dd className="text-white text-lg font-semibold leading-none mb-1">{m.value}</dd>
-									<dd className="text-white/35 text-[11px] uppercase tracking-[0.15em]">{m.label}</dd>
+									<dd className="text-white/50 text-[11px] uppercase tracking-[0.15em]">{m.label}</dd>
 								</div>
 							))}
 						</dl>
@@ -94,7 +94,7 @@ const Hero8 = () => {
 									<span className="w-3 h-3 rounded-full bg-[#ff5f57]" aria-hidden="true"></span>
 									<span className="w-3 h-3 rounded-full bg-[#febc2e]" aria-hidden="true"></span>
 									<span className="w-3 h-3 rounded-full bg-[#28c840]" aria-hidden="true"></span>
-									<span className="ml-3 text-white/30 text-xs font-mono">ashiwani@prod: ~</span>
+									<span className="ml-3 text-white/50 text-xs font-mono">ashiwani@prod: ~</span>
 								</div>
 								<div className="px-5 sm:px-6 py-6 font-mono text-[13px] sm:text-sm leading-[1.9]">
 									{terminalLines.map((line, idx) => (

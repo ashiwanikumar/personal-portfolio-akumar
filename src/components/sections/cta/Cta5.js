@@ -170,7 +170,7 @@ const Cta5 = () => {
 										required
 									/>
 								</label>
-								<span className="mt-1 block text-right text-xs text-white/30 font-mono">
+								<span className="mt-1 block text-right text-xs text-white/50 font-mono">
 									{form.message.length}/5000
 								</span>
 							</div>
@@ -215,7 +215,7 @@ const Cta5 = () => {
 							) : null}
 						</form>
 
-						<div className="flex flex-col sm:flex-row items-center justify-center gap-6 sm:gap-8 text-white/35 text-sm font-mono">
+						<div className="flex flex-col sm:flex-row items-center justify-center gap-6 sm:gap-8 text-white/55 text-sm font-mono">
 							<span className="flex items-center gap-2">
 								<i className="fa-solid fa-location-dot text-[#34d399]/50" aria-hidden="true"></i>
 								Abu Dhabi, UAE

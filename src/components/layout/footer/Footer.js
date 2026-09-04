@@ -19,7 +19,7 @@ const Footer = () => {
 										{idx > 0 && <span className="text-white/15" aria-hidden="true">·</span>}
 										<Link
 											href={link.href}
-											className="text-white/30 hover:text-[#34d399] text-xs transition-all duration-300"
+											className="text-white/50 hover:text-[#34d399] text-xs transition-all duration-300"
 										>
 											{link.label}
 										</Link>
@@ -28,7 +28,7 @@ const Footer = () => {
 							</ul>
 						</div>
 
-						<div className="text-white/25 text-xs mt-6 font-mono">
+						<div className="text-white/45 text-xs mt-6 font-mono">
 							&copy; {new Date().getFullYear()} Ashiwani Kumar · Built in Abu Dhabi, runs everywhere.
 						</div>
 					</div>
