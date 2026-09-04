@@ -1,6 +1,7 @@
 "use client";
 
 import ButtonDownload from "@/components/shared/buttons/ButtonDownload";
+import ButtonViewCV from "@/components/shared/buttons/ButtonViewCV";
 import CountryFlag from "@/components/shared/icons/CountryFlags";
 import getResume from "@/libs/getResume";
 
@@ -75,7 +76,10 @@ const Resume7 = () => {
 									</div>
 								</div>
 
-								<ButtonDownload />
+								<div className="flex flex-wrap items-center gap-3">
+									<ButtonDownload />
+									<ButtonViewCV />
+								</div>
 							</div>
 						</div>
 

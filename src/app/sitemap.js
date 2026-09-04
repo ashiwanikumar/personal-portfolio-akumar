@@ -37,6 +37,12 @@ export default function sitemap() {
       priority: 0.9,
     },
     {
+      url: `${baseUrl}/cv/Ashiwani_Kumar_CV.pdf`,
+      lastModified: lastUpdated,
+      changeFrequency: "monthly",
+      priority: 0.7,
+    },
+    {
       url: `${baseUrl}/contact`,
       lastModified: lastUpdated,
       changeFrequency: "monthly",
