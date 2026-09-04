@@ -1,42 +1,38 @@
-# Ashiwani Kumar - Linux DevOps Engineer & DevOps Practitioner
+# Ashiwani Kumar — Linux DevOps & SRE Engineer
 
-> Personal portfolio and professional profile of Ashiwani Kumar, a Linux DevOps Engineer with 7+ years of experience managing mission-critical infrastructure across UAE.
+> Personal portfolio of Ashiwani Kumar, a Linux DevOps / Site Reliability Engineer based in Abu Dhabi, UAE, with 7+ years running mission-critical infrastructure. Currently managing infrastructure for 5 UAE airports (50M+ annual passengers) at 99.9% uptime, plus an ongoing deployment at Muscat International Airport, Oman.
 
-## About
-
-Ashiwani Kumar is a Linux DevOps Engineer based in Abu Dhabi, UAE, currently working at Astek Middle East. He specializes in managing mission-critical infrastructure for aviation systems serving 50M+ passengers annually across 5 UAE airports, achieving 99.9% uptime.
-
-## Core Expertise
-
-- Linux DevOps Engineering (SRE)
-- Kubernetes & OpenShift orchestration
-- AWS Cloud Infrastructure
-- Terraform Infrastructure as Code
-- Ansible Automation
-- CI/CD Pipeline Design (Jenkins, GitLab CI, Azure DevOps)
-- DevSecOps practices
-- Linux Administration
-- Docker containerization
-- Monitoring & Observability (Prometheus, Grafana, ELK)
+Key facts:
+- Role: Linux DevOps Engineer at Astek Middle East (Jan 2024 – present), Abu Dhabi, UAE
+- Focus: Kubernetes, OpenShift, AWS, Terraform, Ansible, CI/CD pipelines, DevSecOps, cloud migration
+- Track record: 7+ years in production, 500+ servers managed, 99.9% uptime across aviation, healthcare, and telecom
+- Aviation: critical systems for Abu Dhabi, Sharjah, and other UAE airports; on-site work at Muscat International Airport (Oman, ongoing)
+- Previous: System Engineer at NMC Healthcare (UAE), Linux System Administrator at CoreHive Computing (India), SUSE Linux & VMware Admin at Dilip Buildcon (India)
+- Certifications: AWS Solutions Architect – Associate, RHCSA, CCNA, JNCIA (Cloud, SEC, Junos)
+- Education: B.E. Computer Science Engineering, RGPV University (2015–2018)
+- Open source enthusiast; interested in AI-assisted operations, MLOps, and cloud-native AI platforms
+- Available for DevOps consulting, cloud infrastructure, Kubernetes/OpenShift, and CI/CD automation work
 
 ## Pages
 
-- [Home](https://ashiwanikumar.com/)
-- [About](https://ashiwanikumar.com/about)
-- [Services](https://ashiwanikumar.com/services)
-- [Portfolio](https://ashiwanikumar.com/portfolio)
-- [Resume](https://ashiwanikumar.com/resume)
-- [Contact](https://ashiwanikumar.com/contact)
+- [Home](https://ashiwanikumar.com): Overview, key metrics, and contact
+- [About](https://ashiwanikumar.com/about): Background, tech stack, and stats
+- [Services](https://ashiwanikumar.com/services): DevOps consulting, cloud infrastructure, CI/CD, container orchestration
+- [Portfolio](https://ashiwanikumar.com/portfolio): Selected projects — Kubernetes migration, CI/CD automation, AWS/Terraform, SRE monitoring
+- [Resume](https://ashiwanikumar.com/resume): Full work history by country (UAE, Oman, India) with downloadable CV
+- [Contact](https://ashiwanikumar.com/contact): Contact form, email, and phone
 
 ## Contact
 
 - Email: ashvanikumar109@gmail.com
-- Phone (UAE): +971 566182303
-- Phone (India): +91 8770616837
+- Phone: +971-566182303 (UAE)
+- Location: Abu Dhabi, UAE
 - LinkedIn: https://www.linkedin.com/in/ashiwanikumar/
 - GitHub: https://github.com/ashiwanikumar
-- Twitter: https://x.com/theashvanikumar
+- X (Twitter): https://x.com/theashvanikumar
 
-## Location
+## Optional
 
-Abu Dhabi, United Arab Emirates
+- [Privacy Notice](https://ashiwanikumar.com/privacy-notice)
+- [Terms & Conditions](https://ashiwanikumar.com/terms-and-conditions)
+- [Cookies Policy](https://ashiwanikumar.com/cookies-policy)
