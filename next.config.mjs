@@ -7,7 +7,9 @@ const { loadEnvConfig } = nextEnv;
 loadEnvConfig(path.resolve(process.cwd(), ".."));
 
 const nextConfig = {
-  output: "standalone",
+  // Standalone output is for the Docker/k8s image. Vercel does its own
+  // packaging, and standalone breaks its build tracing on Next 16.2.6+.
+  ...(process.env.VERCEL ? {} : { output: "standalone" }),
   poweredByHeader: false,
   async redirects() {
     return [
