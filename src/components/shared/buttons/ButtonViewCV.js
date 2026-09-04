@@ -1,6 +1,7 @@
 "use client";
 
-import { useState, useCallback } from "react";
+import { useState, useCallback, useEffect } from "react";
+import { createPortal } from "react-dom";
 
 function trackCvEvent(action) {
 	try {
@@ -31,7 +32,12 @@ function trackCvEvent(action) {
 
 const ButtonViewCV = () => {
 	const [isModalOpen, setIsModalOpen] = useState(false);
+	const [mounted, setMounted] = useState(false);
 	const cvPath = "/cv/Ashiwani_Kumar_CV.pdf";
+
+	useEffect(() => {
+		setMounted(true);
+	}, []);
 
 	const openModal = useCallback(() => {
 		setIsModalOpen(true);
@@ -62,7 +68,7 @@ const ButtonViewCV = () => {
 				View CV
 			</button>
 
-			{isModalOpen && (
+			{isModalOpen && mounted && createPortal(
 				<div className="fixed inset-0 z-[9999] flex items-center justify-center">
 					{/* Backdrop */}
 					<div
@@ -121,7 +127,8 @@ const ButtonViewCV = () => {
 							/>
 						</div>
 					</div>
-				</div>
+				</div>,
+				document.body
 			)}
 		</>
 	);
