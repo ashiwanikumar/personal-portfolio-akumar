@@ -7,24 +7,8 @@ const Footer = () => {
 			<div className="footer-inner bg-[#09090b] border-t border-white/5">
 				<div className="container">
 					<div className="flex flex-col items-center pt-12 pb-10">
-						{/* Navigation */}
-						<nav aria-label="Footer navigation">
-							<ul className="flex flex-wrap justify-center items-center gap-x-8 gap-y-3">
-								{["About", "Services", "Portfolio", "Resume", "Contact"].map((item) => (
-									<li key={item}>
-										<Link
-											href={`/${item.toLowerCase()}`}
-											className="text-white/50 hover:text-white text-sm font-medium transition-all duration-300"
-										>
-											{item}
-										</Link>
-									</li>
-								))}
-							</ul>
-						</nav>
-
 						{/* Legal Links */}
-						<div className="mt-5">
+						<div>
 							<ul className="flex flex-wrap justify-center items-center gap-x-2 gap-y-2">
 								{[
 									{ label: "Privacy Notice", href: "/privacy-notice" },
