@@ -71,7 +71,7 @@ const hackerBg = "#022c22";            // Very dark green/black
 const hackerText = "#10b981";          // Bright green text
 const hackerTextDim = "#10b981";       // Dimmer green
 const hackerBorder = "#10b98140";      // Transparent green border
-module.exports = {
+export default {
 	content: [
 		"./demo/index.html",
 		"./demo/**/*.{html,js}",
