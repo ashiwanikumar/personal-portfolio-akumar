@@ -1,26 +1,12 @@
 "use client";
-import Image from "next/image";
 import Link from "next/link";
-import ShareButton from "@/components/shared/buttons/ShareButton";
 
 const Footer = () => {
 	return (
 		<footer role="contentinfo">
 			<div className="footer-inner bg-[#09090b] border-t border-white/5">
 				<div className="container">
-					<div className="flex flex-col items-center pt-14 pb-8">
-						{/* Logo */}
-						<div className="footer-logo w-[64px] h-[64px] mb-8">
-							<Link href="/" aria-label="Go to homepage">
-								<Image
-									src="/img/logo/logo.png"
-									alt="Ashiwani Kumar - Linux DevOps Engineer"
-									width={400}
-									height={400}
-								/>
-							</Link>
-						</div>
-
+					<div className="flex flex-col items-center pt-12 pb-10">
 						{/* Navigation */}
 						<nav aria-label="Footer navigation">
 							<ul className="flex flex-wrap justify-center items-center gap-x-8 gap-y-3">
@@ -38,7 +24,7 @@ const Footer = () => {
 						</nav>
 
 						{/* Legal Links */}
-						<div className="mt-6">
+						<div className="mt-5">
 							<ul className="flex flex-wrap justify-center items-center gap-x-2 gap-y-2">
 								{[
 									{ label: "Privacy Notice", href: "/privacy-notice" },
@@ -56,11 +42,6 @@ const Footer = () => {
 									</li>
 								))}
 							</ul>
-						</div>
-
-						{/* Share */}
-						<div className="mt-6">
-							<ShareButton />
 						</div>
 
 						<div className="text-white/25 text-xs mt-6 font-mono">
