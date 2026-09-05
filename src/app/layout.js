@@ -1,5 +1,7 @@
 import { Suspense } from "react";
 import { Inter, JetBrains_Mono } from "next/font/google";
+import { Analytics } from "@vercel/analytics/next";
+import { SpeedInsights } from "@vercel/speed-insights/next";
 import {
 	generatePersonSchema,
 	generateWebSiteSchema,
@@ -116,6 +118,8 @@ export default function RootLayout({ children }) {
 					Skip to main content
 				</a>
 				<Suspense fallback={<></>}>{children}</Suspense>
+				<Analytics />
+				<SpeedInsights />
 			</body>
 		</html>
 	);
