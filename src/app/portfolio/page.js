@@ -4,8 +4,8 @@ import { generatePageMetadata, generatePortfolioSchema, generateBreadcrumbSchema
 import portfolioData from "../../../public/fakedata/portfolio.json";
 
 export const metadata = generatePageMetadata({
-	title: "Portfolio - Featured DevOps & Infrastructure Projects",
-	description: "Explore Ashiwani Kumar's DevOps and infrastructure projects including Kubernetes deployments, AWS cloud migrations, CI/CD pipeline implementations, Terraform IaC, and enterprise infrastructure automation for aviation and healthcare systems.",
+	title: "DevOps & Infrastructure Projects",
+	description: "Selected infrastructure work: Kubernetes migration, CI/CD automation, Terraform-provisioned AWS and SRE practice for aviation and healthcare systems.",
 	keywords: ["DevOps Projects", "Infrastructure Portfolio", "Kubernetes Projects", "Cloud Migration Case Studies", "CI/CD Implementation", "Aviation Infrastructure Projects", "Enterprise DevOps", "AWS Projects", "Terraform Projects", "OpenShift Deployments"],
 	path: "/portfolio",
 });

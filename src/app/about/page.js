@@ -3,8 +3,8 @@ import PageWrapper from "@/components/shared/wrappers/PageWrapper";
 import { generatePageMetadata, generateBreadcrumbSchema } from "@/libs/seo";
 
 export const metadata = generatePageMetadata({
-	title: "About Me - Linux DevOps Engineer & DevOps Expert",
-	description: "Ashiwani Kumar - Linux DevOps Engineer with 7+ years of experience managing mission-critical infrastructure for 5 UAE airports serving 50M+ passengers. Expert in Kubernetes, OpenShift, AWS, Terraform, Ansible, and DevSecOps.",
+	title: "About Me - Linux DevOps Engineer & SRE",
+	description: "Seven years running the systems people only notice when they break \u2014 airport infrastructure, healthcare platforms and telecom backbones across the UAE.",
 	keywords: ["About Ashiwani Kumar", "SRE Background", "DevOps Experience", "Linux DevOps Engineer UAE", "Cloud Infrastructure Expert", "Open Source Enthusiast", "Aviation Infrastructure", "Abu Dhabi Engineer", "Indian DevOps Engineer"],
 	path: "/about",
 	ogType: "profile",

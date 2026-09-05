@@ -5,7 +5,7 @@ import servicesData from "../../../public/fakedata/services.json";
 
 export const metadata = generatePageMetadata({
 	title: "Services - DevOps & SRE Solutions",
-	description: "Professional DevOps and Linux DevOps Engineering services including cloud infrastructure automation, Kubernetes deployment, CI/CD pipelines, Terraform IaC, Ansible automation, and 24/7 monitoring solutions. Based in UAE.",
+	description: "From cloud migrations to on-call firefighting: Kubernetes, CI/CD pipelines, Terraform IaC and the monitoring that keeps your product shipping.",
 	keywords: ["DevOps Services", "SRE Services", "Cloud Infrastructure Consulting", "Kubernetes Consulting UAE", "CI/CD Pipeline Services", "Infrastructure Automation", "Terraform Consulting", "AWS Solutions", "OpenShift Services", "DevSecOps Implementation", "Cloud Migration Services"],
 	path: "/services",
 });

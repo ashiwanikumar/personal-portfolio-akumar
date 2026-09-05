@@ -6,7 +6,7 @@ import resumeData from "../../../public/fakedata/resume.json";
 
 export const metadata = generatePageMetadata({
 	title: "Resume & CV - Professional Experience",
-	description: "View and download Ashiwani Kumar's professional resume. Linux DevOps Engineer with 7+ years managing infrastructure for aviation (5 UAE airports), healthcare, and telecommunications industries. 99.9% uptime achievement, 500+ servers managed.",
+	description: "Linux DevOps Engineer, 7+ years across aviation, healthcare and telecom. 500+ servers at 99.9% uptime. Read the full history or download the CV.",
 	keywords: ["SRE Resume", "DevOps CV", "Linux DevOps Engineer CV", "Download CV", "Professional Experience", "UAE Work Experience", "Aviation Infrastructure Engineer", "Cloud Engineer Resume", "Kubernetes Expert Resume", "DevOps Engineer Abu Dhabi"],
 	path: "/resume",
 	ogType: "profile",
