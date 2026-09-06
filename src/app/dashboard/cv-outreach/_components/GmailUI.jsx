@@ -1,9 +1,10 @@
 "use client";
 
 /**
- * Gmail-styled primitives for the CV Outreach mailbox.
- * Palette and metrics follow Gmail's dark theme (surface #1a1a1a, hover #2a2a2a,
- * search #333438, active label pill #004a77 / #c2e7ff, accent link #8ab4f8).
+ * Netraga-styled primitives for the CV Outreach mailbox.
+ * Dark palette: surface #0B1220 / raised #121A2B / sunken #070C16, lines
+ * #1F2A3D / #2E3B52, ink #E8EEF4 / #9FB0C2 / #67788C, accent #33D6EA on
+ * #00C8E0 fills, signal #FBBF24, grounded #34D399, unfounded #FB7194.
  */
 
 // ─── Icons (Material-style, as Gmail uses) ──────────────────────────────────
@@ -102,10 +103,11 @@ export function dayBucket(value, timezone) {
 	return "older";
 }
 
-// Gmail's own accent hues; both sit well clear of the row surface on contrast.
+// Netraga hues: cyan is the brand and marks today, amber is the signal hue
+// and marks yesterday. Both sit well clear of the row surface on contrast.
 export const DAY_ACCENT = {
-	today: "#8ab4f8",
-	yesterday: "#fdd663",
+	today: "#00C8E0",
+	yesterday: "#FBBF24",
 	older: "transparent",
 };
 
@@ -125,13 +127,13 @@ export function displayName(message) {
 
 export function avatarColor(seed = "") {
 	const palette = [
-		"bg-[#8ab4f8] text-[#062e6f]",
-		"bg-[#f28b82] text-[#5c1a16]",
-		"bg-[#fdd663] text-[#5c4200]",
-		"bg-[#81c995] text-[#0d3b1e]",
-		"bg-[#d7aefb] text-[#3d1c5c]",
-		"bg-[#78d9ec] text-[#0b3c47]",
-		"bg-[#fcad70] text-[#5c2f00]",
+		"bg-[#0C2A33] text-[#33D6EA] ring-1 ring-[#135A69]",
+		"bg-[#33141F] text-[#FB7194] ring-1 ring-[#FB7194]/25",
+		"bg-[#2A1F08] text-[#FBBF24] ring-1 ring-[#5A4310]",
+		"bg-[#0F2A22] text-[#34D399] ring-1 ring-[#34D399]/25",
+		"bg-[#2A1F47] text-[#C4B5FD] ring-1 ring-[#C4B5FD]/25",
+		"bg-[#0C2740] text-[#7DD3FC] ring-1 ring-[#7DD3FC]/25",
+		"bg-[#3B1F08] text-[#FDBA74] ring-1 ring-[#FDBA74]/25",
 	];
 	let hash = 0;
 	for (let i = 0; i < seed.length; i += 1) hash = (hash * 31 + seed.charCodeAt(i)) % 997;
@@ -147,8 +149,10 @@ export function IconButton({ label, children, onClick, disabled, className = "",
 			aria-label={label}
 			onClick={onClick}
 			disabled={disabled}
-			className={`grid h-10 w-10 place-items-center rounded-full text-[#9aa0a6] transition-colors hover:bg-[#2f3033] hover:text-[#e8eaed] disabled:cursor-not-allowed disabled:opacity-40 ${
-				active ? "bg-[#004a77] text-[#c2e7ff] hover:bg-[#005a8f] hover:text-[#c2e7ff]" : ""
+			className={`grid h-9 w-9 place-items-center rounded-md text-[#67788C] transition-colors hover:bg-[#1F2A3D] hover:text-[#E8EEF4] disabled:cursor-not-allowed disabled:opacity-40 ${
+				active
+					? "bg-[#0C2A33] text-[#33D6EA] ring-1 ring-[#135A69] hover:bg-[#0C2A33] hover:text-[#33D6EA]"
+					: ""
 			} ${className}`}
 		>
 			{children}
@@ -156,24 +160,16 @@ export function IconButton({ label, children, onClick, disabled, className = "",
 	);
 }
 
+/* Netraga pill: mono, uppercase, 10px, tracking-wide — never sentence-case sans. */
+const PILL_BASE =
+	"nx-mono inline-flex shrink-0 items-center rounded border px-1.5 py-0.5 text-[10px] uppercase tracking-wide";
+
 export function StatusChip({ message }) {
 	if (message.bounced) {
-		return (
-			<span className="inline-flex shrink-0 items-center gap-1 rounded-[4px] bg-[#5c1a16] px-1.5 py-[1px] text-[10px] font-medium text-[#f28b82]">
-				Bounced
-			</span>
-		);
+		return <span className={`${PILL_BASE} border-transparent bg-[#33141F] text-[#FB7194]`}>Bounced</span>;
 	}
 	if (message.replied) {
-		return (
-			<span className="inline-flex shrink-0 items-center gap-1 rounded-[4px] bg-[#0d3b1e] px-1.5 py-[1px] text-[10px] font-medium text-[#81c995]">
-				Replied
-			</span>
-		);
+		return <span className={`${PILL_BASE} border-transparent bg-[#0F2A22] text-[#34D399]`}>Replied</span>;
 	}
-	return (
-		<span className="inline-flex shrink-0 items-center gap-1 rounded-[4px] bg-[#3c3418] px-1.5 py-[1px] text-[10px] font-medium text-[#fdd663]">
-			Awaiting
-		</span>
-	);
+	return <span className={`${PILL_BASE} border-[#5A4310] bg-[#2A1F08] text-[#FBBF24]`}>Awaiting</span>;
 }

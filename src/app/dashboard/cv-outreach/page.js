@@ -6,6 +6,7 @@ import { Icon, MailIcons } from "./_components/GmailUI";
 import MessageList from "./_components/MessageList";
 import ReadingPane from "./_components/ReadingPane";
 import InsightsDetail, { StatStrip } from "./_components/InsightsPanel";
+import "./netraga-theme.css";
 
 const FOLDERS = [
 	{ id: "all", label: "All CVs", icon: MailIcons.send, countKey: "all" },
@@ -31,17 +32,18 @@ function relativeTime(value) {
 function SetupNotice({ status }) {
 	return (
 		<div className="flex flex-1 items-center justify-center p-6">
-			<div className="max-w-lg rounded-xl border border-[#3c4043] bg-[#202124] p-6">
-				<h2 className="text-[16px] font-medium text-[#e8eaed]">Connect your Gmail</h2>
-				<p className="mt-2 text-[13px] leading-5 text-[#9aa0a6]">
+			<div className="nx-rise max-w-lg rounded-lg border border-[#1F2A3D] bg-[#121A2B] p-6 shadow-[0_1px_2px_rgb(0_0_0/0.35)]">
+				<span aria-hidden="true" className="mb-2.5 block h-[3px] w-9 rounded-full bg-[#00C8E0]" />
+				<h2 className="nx-display text-[16px] text-[#E8EEF4]">Connect your Gmail</h2>
+				<p className="mt-2 text-[13px] leading-5 text-[#9FB0C2]">
 					This mailbox view reads your own SENT mail read-only and indexes every message that carries a
 					CV attachment.
 				</p>
 
 				{status?.missingEnv?.length > 0 && (
-					<div className="mt-4 rounded-lg border border-[#3c3418] bg-[#282213] p-3">
-						<p className="text-[12px] font-medium text-[#fdd663]">Missing environment variables</p>
-						<ul className="mt-1 space-y-0.5 font-mono text-[12px] text-[#bdc1c6]">
+					<div className="mt-4 rounded-md border border-[#5A4310] border-l-[3px] border-l-[#FBBF24] bg-[#2A1F08] p-3">
+						<p className="text-[12px] font-medium text-[#FBBF24]">Missing environment variables</p>
+						<ul className="nx-mono mt-1 space-y-0.5 text-[11px] text-[#9FB0C2]">
 							{status.missingEnv.map((key) => (
 								<li key={key}>{key}</li>
 							))}
@@ -50,29 +52,29 @@ function SetupNotice({ status }) {
 				)}
 
 				{status?.connectionError && (
-					<div className="mt-4 rounded-lg border border-[#5c1a16] bg-[#2d1310] p-3">
-						<p className="text-[12px] font-medium text-[#f28b82]">Gmail rejected the credentials</p>
-						<p className="mt-1 text-[12px] text-[#bdc1c6]">{status.connectionError}</p>
+					<div className="mt-4 rounded-md border border-[#FB7194]/45 border-l-[3px] border-l-[#FB7194] bg-[#33141F] p-3">
+						<p className="text-[12px] font-medium text-[#FB7194]">Gmail rejected the credentials</p>
+						<p className="mt-1 text-[12px] text-[#9FB0C2]">{status.connectionError}</p>
 					</div>
 				)}
 
-				<ol className="mt-4 space-y-2 text-[13px] text-[#bdc1c6]">
+				<ol className="mt-4 space-y-2 text-[13px] text-[#9FB0C2]">
 					<li>
-						1. Put <span className="font-mono text-[12px] text-[#8ab4f8]">GMAIL_CLIENT_ID</span> and{" "}
-						<span className="font-mono text-[12px] text-[#8ab4f8]">GMAIL_CLIENT_SECRET</span> in{" "}
-						<span className="font-mono text-[12px]">.env</span>.
+						1. Put <span className="nx-mono text-[12px] text-[#33D6EA]">GMAIL_CLIENT_ID</span> and{" "}
+						<span className="nx-mono text-[12px] text-[#33D6EA]">GMAIL_CLIENT_SECRET</span> in{" "}
+						<span className="nx-mono text-[12px]">.env</span>.
 					</li>
 					<li>
 						2. Run{" "}
-						<span className="font-mono text-[12px] text-[#8ab4f8]">
+						<span className="nx-mono text-[12px] text-[#33D6EA]">
 							cd apps/api-server &amp;&amp; npm run gmail:auth
 						</span>{" "}
 						and approve access.
 					</li>
 					<li>
 						3. Paste the printed{" "}
-						<span className="font-mono text-[12px] text-[#8ab4f8]">GMAIL_REFRESH_TOKEN</span> into{" "}
-						<span className="font-mono text-[12px]">.env</span> and restart the API server.
+						<span className="nx-mono text-[12px] text-[#33D6EA]">GMAIL_REFRESH_TOKEN</span> into{" "}
+						<span className="nx-mono text-[12px]">.env</span> and restart the API server.
 					</li>
 				</ol>
 			</div>
@@ -83,9 +85,9 @@ function SetupNotice({ status }) {
 function SessionExpiredNotice() {
 	return (
 		<div className="flex flex-1 items-center justify-center p-6">
-			<div className="max-w-md rounded-xl border border-[#3c3418] bg-[#282213] p-6 text-center">
-				<h2 className="text-[16px] font-medium text-[#fdd663]">Your session expired</h2>
-				<p className="mt-2 text-[13px] leading-5 text-[#bdc1c6]">
+			<div className="nx-rise max-w-md rounded-lg border border-[#5A4310] border-l-[3px] border-l-[#FBBF24] bg-[#2A1F08] p-6 text-center">
+				<h2 className="nx-display text-[16px] text-[#FBBF24]">Your session expired</h2>
+				<p className="mt-2 text-[13px] leading-5 text-[#9FB0C2]">
 					Sign in again to load your CV outreach. Nothing is lost — the sync keeps running on the
 					server while you are signed out.
 				</p>
@@ -95,7 +97,7 @@ function SessionExpiredNotice() {
 						await fetch("/api/admin/logout", { method: "POST" }).catch(() => {});
 						window.location.reload();
 					}}
-					className="mt-4 rounded-lg bg-[#c2e7ff] px-4 py-2 text-[13px] font-medium text-[#062e6f] transition-colors hover:bg-[#a8dbff]"
+					className="mt-4 inline-flex items-center gap-1.5 rounded-md bg-[#00C8E0] px-4 py-2 text-[13px] font-semibold text-[#06202A] shadow-[0_1px_2px_rgb(0_200_224/0.35)] transition-all hover:brightness-110"
 				>
 					Sign in again
 				</button>
@@ -417,23 +419,27 @@ export default function CvOutreachPage() {
 	const notConfigured = status?.configured === false;
 
 	return (
-		<div className="flex h-[calc(100vh-8.5rem)] min-h-[520px] w-full min-w-0 flex-col overflow-hidden rounded-2xl border border-[#2f3033] bg-[#1a1a1a] text-[#e8eaed]">
-			{/* ─── Gmail top bar ─────────────────────────────────────────────── */}
-			<div className="flex h-16 shrink-0 items-center gap-3 px-3 sm:px-4">
-				<div className="hidden items-center gap-2 md:flex">
-					<div className="grid h-8 w-8 place-items-center rounded-full bg-[#c2e7ff] text-[#062e6f]">
+		<div className="nx-scope flex h-[calc(100vh-8.5rem)] min-h-[520px] w-full min-w-0 flex-col overflow-hidden rounded-lg border border-[#1F2A3D] bg-[#0B1220] text-[#E8EEF4] shadow-[0_1px_2px_rgb(0_0_0/0.35)]">
+			{/* ─── Top bar ───────────────────────────────────────────────────── */}
+			<div className="flex h-16 shrink-0 items-center gap-3 border-b border-[#1F2A3D] px-3 sm:px-4">
+				<div className="hidden items-center gap-2.5 md:flex">
+					<div className="grid h-8 w-8 place-items-center rounded-md bg-[#00C8E0] text-[#06202A] shadow-[0_1px_2px_rgb(0_200_224/0.35)]">
 						<Icon path={MailIcons.send} className="h-4 w-4" />
 					</div>
-					<span className="text-[18px] font-normal tracking-tight text-[#e8eaed]">CV Mail</span>
+					<div className="leading-tight">
+						<span className="nx-display block text-[14px] text-[#E8EEF4]">CV Mail</span>
+						<span className="nx-eyebrow block">Gmail outreach</span>
+					</div>
 				</div>
 
-				<div className="group flex h-12 max-w-[720px] flex-1 items-center gap-2 rounded-full bg-[#333438] px-4 transition-colors focus-within:bg-[#3f4043]">
-					<Icon path={MailIcons.search} className="h-5 w-5 shrink-0 text-[#9aa0a6]" />
+				{/* The .dashboard-scope reset forces font-size: inherit on inputs, so the size sits on the wrapper. */}
+				<div className="flex h-9 max-w-[560px] flex-1 items-center gap-2 rounded-md border border-[#2E3B52] bg-[#121A2B] px-3 text-[13px] transition-[border-color,box-shadow] focus-within:border-[#33D6EA] focus-within:shadow-[0_0_0_3px_#0C2A33]">
+					<Icon path={MailIcons.search} className="h-4 w-4 shrink-0 text-[#67788C]" />
 					<input
 						value={searchInput}
 						onChange={(e) => setSearchInput(e.target.value)}
 						placeholder="Search company, recipient, subject or CV file"
-						className="min-w-0 flex-1 bg-transparent text-[14px] text-[#e8eaed] placeholder:text-[#9aa0a6] outline-none"
+						className="min-w-0 flex-1 bg-transparent text-[#E8EEF4] placeholder:text-[#67788C] outline-none"
 					/>
 					{(searchInput || domain) && (
 						<button
@@ -443,20 +449,22 @@ export default function CvOutreachPage() {
 								setSearchInput("");
 								setDomain("");
 							}}
-							className="grid h-8 w-8 place-items-center rounded-full text-[#9aa0a6] hover:bg-[#4a4b4f]"
+							className="grid h-6 w-6 place-items-center rounded text-[#67788C] transition-colors hover:bg-[#1F2A3D] hover:text-[#E8EEF4]"
 						>
-							<Icon path={MailIcons.close} className="h-[18px] w-[18px]" />
+							<Icon path={MailIcons.close} className="h-4 w-4" />
 						</button>
 					)}
 				</div>
 
-				<div className="ml-auto flex items-center gap-2">
+				<div className="ml-auto flex items-center gap-2.5">
 					{status?.mailbox && (
-						<span className="hidden text-[12px] text-[#9aa0a6] lg:inline">{status.mailbox}</span>
+						<span className="nx-mono hidden text-[11px] text-[#67788C] lg:inline">{status.mailbox}</span>
 					)}
 					<div
-						className={`grid h-8 w-8 place-items-center rounded-full text-[13px] font-medium ${
-							status?.connected ? "bg-[#81c995] text-[#0d3b1e]" : "bg-[#3c4043] text-[#9aa0a6]"
+						className={`grid h-8 w-8 place-items-center rounded-md ring-1 ${
+							status?.connected
+								? "bg-[#0F2A22] text-[#34D399] ring-[#34D399]/35"
+								: "bg-[#121A2B] text-[#67788C] ring-[#1F2A3D]"
 						}`}
 						title={status?.connected ? `Connected as ${status.mailbox}` : "Gmail not connected"}
 					>
@@ -466,8 +474,8 @@ export default function CvOutreachPage() {
 			</div>
 
 			{domain && (
-				<div className="flex items-center gap-2 px-4 pb-2">
-					<span className="inline-flex items-center gap-1 rounded-full bg-[#004a77] px-3 py-1 text-[12px] text-[#c2e7ff]">
+				<div className="flex items-center gap-2 px-4 py-2">
+					<span className="nx-mono inline-flex items-center gap-1.5 rounded border border-[#135A69] bg-[#0C2A33] px-2 py-0.5 text-[10px] uppercase tracking-wide text-[#33D6EA]">
 						Domain: {domain}
 						<button type="button" onClick={() => setDomain("")} aria-label="Clear domain filter">
 							<Icon path={MailIcons.close} className="h-3.5 w-3.5" />
@@ -478,23 +486,27 @@ export default function CvOutreachPage() {
 
 			<div className="flex min-h-0 flex-1">
 				{/* ─── Sidebar ─────────────────────────────────────────────────── */}
-				<aside className="hidden w-[240px] shrink-0 flex-col gap-2 pb-3 pr-2 md:flex">
-					<div className="px-3 pb-2">
+				<aside className="hidden w-[240px] shrink-0 flex-col gap-2 pb-3 pt-3 md:flex">
+					<div className="px-3 pb-1">
 						<button
 							type="button"
 							onClick={() => runSync(false)}
 							disabled={syncing || notConfigured}
-							className="flex h-14 items-center gap-3 rounded-2xl bg-[#c2e7ff] px-6 text-[14px] font-medium text-[#062e6f] shadow-[0_1px_3px_rgba(0,0,0,.4)] transition-all hover:bg-[#a8dbff] hover:shadow-[0_2px_6px_rgba(0,0,0,.5)] disabled:cursor-not-allowed disabled:opacity-50"
+							className="flex h-9 w-full items-center justify-center gap-2 rounded-md bg-[#00C8E0] px-4 text-[13px] font-semibold text-[#06202A] shadow-[0_1px_2px_rgb(0_200_224/0.35)] transition-all hover:brightness-110 disabled:cursor-not-allowed disabled:opacity-45"
 						>
 							<Icon
 								path={MailIcons.refresh}
-								className={`h-5 w-5 ${syncing ? "animate-spin" : ""}`}
+								className={`h-4 w-4 ${syncing ? "animate-spin" : ""}`}
 							/>
 							{syncing ? "Syncing…" : "Sync now"}
 						</button>
 					</div>
 
-					<nav className="flex-1 overflow-y-auto pr-2">
+					<nav className="nx-scroll-thin flex-1 overflow-y-auto px-2">
+						<p className="nx-eyebrow mb-2 mt-1 flex items-center gap-2 px-2">
+							Folders
+							<span className="h-px flex-1 bg-[#1F2A3D]" aria-hidden="true" />
+						</p>
 						{FOLDERS.map((item) => {
 							const active = folder === item.id;
 							const count = folderCounts[item.countKey] || 0;
@@ -508,35 +520,58 @@ export default function CvOutreachPage() {
 										setPage(1);
 										setOpenMessage(null);
 									}}
-									className={`flex h-8 w-full items-center gap-4 rounded-r-full pl-6 pr-3 text-[14px] transition-colors ${
+									className={`group relative flex w-full items-center gap-3 rounded-md py-1.5 pl-3.5 pr-2 text-[13px] transition-colors ${
 										active
-											? "bg-[#004a77] font-bold text-[#c2e7ff]"
-											: "text-[#e8eaed] hover:bg-[#2a2a2a]"
+											? "bg-[#070C16] font-medium text-[#E8EEF4]"
+											: "text-[#9FB0C2] hover:bg-[#070C16]/70 hover:text-[#E8EEF4]"
 									}`}
 								>
-									<Icon path={item.icon} className="h-[18px] w-[18px] shrink-0" />
+									<span
+										aria-hidden="true"
+										className={`absolute left-0 top-1/2 w-[3px] -translate-y-1/2 rounded-full transition-all ${
+											active ? "h-4 bg-[#00C8E0]" : "h-2 bg-transparent group-hover:bg-[#2E3B52]"
+										}`}
+									/>
+									<span
+										className={`transition-colors ${
+											active ? "text-[#33D6EA]" : "text-[#67788C] group-hover:text-[#9FB0C2]"
+										}`}
+									>
+										<Icon path={item.icon} className="h-[18px] w-[18px] shrink-0" />
+									</span>
 									<span className="min-w-0 flex-1 truncate text-left">{item.label}</span>
-									<span className={`shrink-0 text-[12px] ${count > 0 ? "" : "text-[#5f6368]"}`}>{count}</span>
+									<span
+										className={`nx-mono shrink-0 tabular-nums ${
+											active && count > 0
+												? "rounded-full bg-[#00C8E0] px-1.5 py-px text-[10px] font-semibold text-[#06202A]"
+												: `text-[10px] ${count > 0 ? "text-[#9FB0C2]" : "text-[#2E3B52]"}`
+										}`}
+									>
+										{count}
+									</span>
 								</button>
 							);
 						})}
 					</nav>
 
-					<div className="mt-auto space-y-1 px-4 text-[11px] text-[#5f6368]">
+					<div className="nx-mono mt-auto space-y-1 px-4 text-[10px] text-[#67788C]">
 						{syncNote ? (
-							<p className="text-[#8ab4f8]">{syncNote}</p>
+							<p className="flex items-center gap-1.5 text-[#33D6EA]">
+								<span className="nx-pulse-dot h-1.5 w-1.5 shrink-0 rounded-full bg-[#00C8E0]" />
+								{syncNote}
+							</p>
 						) : (
 							<p>Last sync: {relativeTime(status?.sync?.lastSyncAt)}</p>
 						)}
 						{status?.sync?.lastSyncStatus === "error" && (
-							<p className="text-[#f28b82]">{status.sync.lastError}</p>
+							<p className="text-[#FB7194]">{status.sync.lastError}</p>
 						)}
 						<p>{status?.storedMessages ?? 0} indexed</p>
 						<button
 							type="button"
 							onClick={() => runSync(true)}
 							disabled={syncing || notConfigured}
-							className="text-[#8ab4f8] hover:underline disabled:opacity-50"
+							className="uppercase tracking-wide text-[#33D6EA] hover:underline disabled:opacity-50"
 						>
 							Full re-scan
 						</button>
@@ -544,9 +579,9 @@ export default function CvOutreachPage() {
 				</aside>
 
 				{/* ─── Mail pane ───────────────────────────────────────────────── */}
-				<section className="flex min-w-0 flex-1 flex-col overflow-hidden rounded-tl-2xl border-l border-t border-[#2f3033] bg-[#1a1a1a] md:rounded-tl-2xl">
+				<section className="flex min-w-0 flex-1 flex-col overflow-hidden border-l border-[#1F2A3D] bg-[#0B1220]">
 					{/* Mobile folder chips */}
-					<div className="flex gap-2 overflow-x-auto border-b border-[#2f3033] px-3 py-2 md:hidden">
+					<div className="flex gap-2 overflow-x-auto border-b border-[#1F2A3D] px-3 py-2 md:hidden">
 						{FOLDERS.map((item) => (
 							<button
 								key={item.id}
@@ -556,10 +591,10 @@ export default function CvOutreachPage() {
 									setPage(1);
 									setOpenMessage(null);
 								}}
-								className={`shrink-0 rounded-full px-3 py-1 text-[12px] ${
+								className={`nx-mono shrink-0 rounded border px-2.5 py-1 text-[10px] uppercase tracking-wide ${
 									folder === item.id
-										? "bg-[#004a77] text-[#c2e7ff]"
-										: "border border-[#3c4043] text-[#bdc1c6]"
+										? "border-[#135A69] bg-[#0C2A33] text-[#33D6EA]"
+										: "border-[#2E3B52] text-[#9FB0C2]"
 								}`}
 							>
 								{item.label} {folderCounts[item.countKey] ? `(${folderCounts[item.countKey]})` : ""}
@@ -569,7 +604,7 @@ export default function CvOutreachPage() {
 							type="button"
 							onClick={() => runSync(false)}
 							disabled={syncing || notConfigured}
-							className="shrink-0 rounded-full bg-[#c2e7ff] px-3 py-1 text-[12px] font-medium text-[#062e6f] disabled:opacity-50"
+							className="shrink-0 rounded bg-[#00C8E0] px-3 py-1 text-[11px] font-semibold text-[#06202A] disabled:opacity-45"
 						>
 							{syncing ? "Syncing…" : "Sync"}
 						</button>
@@ -588,7 +623,7 @@ export default function CvOutreachPage() {
 							onOpenRelated={openById}
 						/>
 					) : (
-						<div className="flex min-h-0 flex-1 flex-col overflow-y-auto">
+						<div className="nx-scroll-thin flex min-h-0 flex-1 flex-col overflow-y-auto">
 							<StatStrip
 								analytics={analytics}
 								loading={analyticsLoading}
@@ -629,9 +664,9 @@ export default function CvOutreachPage() {
 				</section>
 			</div>
 
-			{/* Gmail-style toast */}
+			{/* Toast */}
 			{toast && (
-				<div className="pointer-events-none fixed bottom-6 left-1/2 z-50 -translate-x-1/2 rounded-lg bg-[#e8eaed] px-4 py-3 text-[13px] text-[#202124] shadow-xl">
+				<div className="nx-rise pointer-events-none fixed bottom-6 left-1/2 z-50 -translate-x-1/2 rounded-md border border-[#1F2A3D] bg-[#121A2B] px-4 py-3 text-[13px] text-[#E8EEF4] shadow-[0_8px_24px_rgb(0_0_0/0.5)]">
 					{toast}
 				</div>
 			)}
