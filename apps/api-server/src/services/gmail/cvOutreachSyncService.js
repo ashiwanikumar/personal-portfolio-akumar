@@ -436,7 +436,7 @@ async function checkReplies(gmail, mailboxEmail, cfg, stats) {
   const remainingBudget = cfg.replyCheckLimit - recent.length;
   const older =
     remainingBudget > 0
-      ? await CvOutreach.find({ ...base, sentAt: { $lt: recentCutoff } })
+      ? await CvOutreach.find({ ...base, sentAt: { $gte: windowStart, $lt: recentCutoff } })
           .sort({ replyCheckedAt: 1, sentAt: -1 })
           .limit(remainingBudget)
           .select("gmailThreadId gmailMessageId sentAt")
