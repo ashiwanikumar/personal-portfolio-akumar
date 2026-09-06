@@ -34,7 +34,7 @@ export const metadata = {
 		default: "Ashiwani Kumar | Linux DevOps Engineer & DevOps Practitioner",
 		template: "%s | Ashiwani Kumar"
 	},
-	description: "Linux DevOps Engineer with 7+ years running mission-critical infrastructure across the UAE at 99.9% uptime. Kubernetes, OpenShift, AWS, Terraform, DevSecOps.",
+	description: "Linux DevOps & SRE engineer with 7+ years running mission-critical systems across the UAE at 99.9% uptime. Kubernetes, OpenShift, AWS, Terraform.",
 	keywords: ["DevOps Engineer", "Linux DevOps Engineer", "SRE", "Kubernetes", "OpenShift", "AWS", "Terraform", "Ansible", "CI/CD", "Cloud Infrastructure", "Abu Dhabi", "UAE", "Infrastructure Automation", "DevSecOps", "Open Source", "Linux Administrator"],
 	authors: [{ name: "Ashiwani Kumar", url: "https://ashiwanikumar.com" }],
 	creator: "Ashiwani Kumar",
@@ -55,7 +55,7 @@ export const metadata = {
 			{
 				url: "https://ashiwanikumar.com/img/og-card.png",
 				width: 1200,
-				height: 600,
+				height: 630,
 				alt: "Ashiwani Kumar - Linux DevOps Engineer & DevOps Practitioner"
 			}
 		]

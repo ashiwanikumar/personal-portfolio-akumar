@@ -32,7 +32,7 @@ const Hero8 = () => {
 
 			<div className="container relative z-10">
 				<div className="grid lg:grid-cols-2 gap-y-[80px] md:gap-y-16 lg:gap-y-0 gap-x-12 items-center">
-					<div className="lg:pl-30px xl:pl-15px 2xl:pl-0 text-center lg:text-left">
+					<div className="min-w-0 lg:pl-30px xl:pl-15px 2xl:pl-0 text-center lg:text-left">
 						<span className="section-badge mb-7 inline-flex items-center">
 							<span className="relative flex h-2 w-2" aria-hidden="true">
 								<span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-[#34d399] opacity-60"></span>
@@ -82,7 +82,7 @@ const Hero8 = () => {
 						</dl>
 					</div>
 
-					<div className="flex items-center justify-center lg:justify-end">
+					<div className="min-w-0 flex items-center justify-center lg:justify-end">
 						<div className="relative w-full max-w-[540px]">
 							<div
 								className="absolute inset-0 rounded-3xl bg-gradient-to-r from-[#10b981]/10 via-[#2dd4bf]/5 to-[#38bdf8]/10 blur-[100px] scale-90"
