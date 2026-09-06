@@ -366,9 +366,12 @@ async function checkBounces(gmail, cfg, stats, lookbackDays) {
 
   if (!bounceByThread.size) return;
 
+  // Skip docs already replied: with multiple recipients one address can bounce
+  // while another answers, and a real reply must never be downgraded to a bounce.
   const docs = await CvOutreach.find({
     gmailThreadId: { $in: [...bounceByThread.keys()] },
     bounced: { $ne: true },
+    replied: { $ne: true },
   })
     .select("gmailMessageId gmailThreadId sentAt")
     .lean();
