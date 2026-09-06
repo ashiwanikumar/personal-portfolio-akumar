@@ -44,7 +44,7 @@ function Row({ message, checked, onCheck, onOpen, onToggleStar, timezone }) {
 					e.stopPropagation();
 					onCheck(message.gmailMessageId);
 				}}
-				className={`ml-1 grid h-8 w-8 shrink-0 place-items-center rounded-md transition-colors hover:bg-[#21252D] ${
+				className={`ml-1 hidden h-8 w-8 shrink-0 place-items-center rounded-md transition-colors hover:bg-[#21252D] sm:grid ${
 					checked ? "text-[#34D399]" : "text-[#70747E]"
 				}`}
 			>
@@ -140,7 +140,7 @@ export default function MessageList({
 					type="button"
 					aria-label={allChecked ? "Deselect all" : "Select all"}
 					onClick={onCheckAll}
-					className={`grid h-9 w-9 place-items-center rounded-md transition-colors hover:bg-[#21252D] ${
+					className={`hidden h-9 w-9 place-items-center rounded-md transition-colors hover:bg-[#21252D] sm:grid ${
 						allChecked ? "text-[#34D399]" : "text-[#70747E]"
 					}`}
 				>
@@ -196,7 +196,7 @@ export default function MessageList({
 				)}
 
 				<div className="ml-auto flex items-center gap-1">
-					<span className="nx-mono mr-1 text-[11px] tabular-nums text-[#70747E]">
+					<span className="nx-mono mr-1 hidden text-[11px] tabular-nums text-[#70747E] sm:inline">
 						{rangeStart}–{rangeEnd} of {totalMessages.toLocaleString()}
 					</span>
 					<IconButton label="Newer" disabled={currentPage <= 1} onClick={() => onPageChange(currentPage - 1)}>

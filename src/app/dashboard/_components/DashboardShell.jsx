@@ -542,7 +542,7 @@ export default function DashboardShell({ children }) {
 
 	return (
 		<DashboardContext.Provider value={ctx}>
-			<div className={`flex bg-[#0b0d10] text-zinc-100 ${immersive ? "h-screen overflow-hidden" : "min-h-screen"}`}>
+			<div className={`flex bg-[#0b0d10] text-zinc-100 ${immersive ? "h-screen overflow-hidden supports-[height:100dvh]:h-[100dvh]" : "min-h-screen"}`}>
 				{/* Mobile overlay */}
 				{mobileSidebarOpen && <div className={`fixed inset-0 z-40 bg-black/50 backdrop-blur-sm ${immersive ? "" : "lg:hidden"}`} onClick={() => setMobileSidebarOpen(false)} />}
 
@@ -592,7 +592,7 @@ export default function DashboardShell({ children }) {
 				</aside>
 
 				{/* Main */}
-				<div className={`flex min-w-0 flex-1 flex-col transition-all duration-300 ${immersive ? "h-screen" : sidebarCollapsed ? "min-h-screen lg:ml-[68px]" : "min-h-screen lg:ml-60"}`}>
+				<div className={`flex min-w-0 flex-1 flex-col transition-all duration-300 ${immersive ? "h-screen supports-[height:100dvh]:h-[100dvh]" : sidebarCollapsed ? "min-h-screen lg:ml-[68px]" : "min-h-screen lg:ml-60"}`}>
 					<header className="sticky top-0 z-30 flex h-16 items-center justify-between border-b border-white/[0.06] bg-[#0b0d10]/80 px-4 backdrop-blur-xl sm:px-6">
 						<div className="flex items-center gap-3">
 							<button onClick={() => setMobileSidebarOpen(true)} aria-label="Open navigation" className={`rounded-lg p-1.5 text-zinc-400 hover:bg-white/[0.06] hover:text-white ${immersive ? "" : "lg:hidden"}`}>{Icons.menu}</button>

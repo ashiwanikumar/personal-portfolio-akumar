@@ -67,16 +67,22 @@ function ReplyStatus({ message }) {
 	);
 }
 
-function AttachmentTile({ message, attachment }) {
-	const href = `/api/admin/gmail-cv/attachment?id=${encodeURIComponent(
+function attachmentHref(message, attachment) {
+	return `/api/admin/gmail-cv/attachment?id=${encodeURIComponent(
 		message.gmailMessageId
 	)}&attachmentId=${encodeURIComponent(attachment.attachmentId)}`;
+}
 
-	return (
-		<a
-			href={href}
-			className="group flex w-[240px] items-center gap-3 rounded-md border border-[#21252D] bg-[#12151A] p-3 shadow-[0_1px_2px_rgb(0_0_0/0.35)] transition-colors hover:border-[#363C47] hover:shadow-[0_8px_24px_rgb(0_0_0/0.5)]"
-		>
+function isPdf(attachment) {
+	return /\.pdf$/i.test(attachment.filename || "") || /pdf/i.test(attachment.mimeType || "");
+}
+
+function AttachmentTile({ message, attachment, onPreview }) {
+	const href = attachmentHref(message, attachment);
+	const previewable = isPdf(attachment);
+
+	const inner = (
+		<>
 			<div
 				className={`grid h-10 w-10 shrink-0 place-items-center rounded-md ${
 					attachment.isCv ? "bg-[#0B2A20] text-[#34D399]" : "bg-[#07080A] text-[#70747E]"
@@ -89,13 +95,140 @@ function AttachmentTile({ message, attachment }) {
 				<p className="nx-mono text-[10px] uppercase tracking-wide text-[#70747E]">
 					{formatBytes(attachment.sizeBytes)}
 					{attachment.isCv ? " · CV" : ""}
+					{previewable ? " · Preview" : ""}
 				</p>
 			</div>
 			<Icon
-				path={MailIcons.download}
-				className="h-[18px] w-[18px] text-[#70747E] opacity-0 transition-opacity group-hover:opacity-100"
+				path={previewable ? MailIcons.openInNew : MailIcons.download}
+				className="h-[18px] w-[18px] shrink-0 text-[#70747E] opacity-0 transition-opacity group-hover:opacity-100"
 			/>
+		</>
+	);
+
+	const tileClass =
+		"group flex w-full items-center gap-3 rounded-md border border-[#21252D] bg-[#12151A] p-3 text-left shadow-[0_1px_2px_rgb(0_0_0/0.35)] transition-colors hover:border-[#363C47] hover:shadow-[0_8px_24px_rgb(0_0_0/0.5)] sm:w-[240px]";
+
+	// PDFs open the in-app preview; everything else downloads directly.
+	return previewable ? (
+		<button type="button" onClick={() => onPreview(attachment)} className={tileClass}>
+			{inner}
+		</button>
+	) : (
+		<a href={href} className={tileClass}>
+			{inner}
 		</a>
+	);
+}
+
+/**
+ * In-app PDF viewer. The attachment endpoint sends Content-Disposition:
+ * attachment (a plain link always downloads), so the file is fetched as a
+ * blob and rendered through the browser's PDF viewer in an iframe instead.
+ */
+function PdfPreviewModal({ message, attachment, onClose }) {
+	const [blobUrl, setBlobUrl] = useState("");
+	const [error, setError] = useState("");
+	const href = attachmentHref(message, attachment);
+
+	useEffect(() => {
+		let cancelled = false;
+		let url = "";
+
+		fetch(href, { cache: "no-store" })
+			.then((res) => {
+				if (!res.ok) throw new Error(`Download failed (${res.status})`);
+				return res.blob();
+			})
+			.then((blob) => {
+				if (cancelled) return;
+				const pdfBlob =
+					blob.type === "application/pdf" ? blob : new Blob([blob], { type: "application/pdf" });
+				url = URL.createObjectURL(pdfBlob);
+				setBlobUrl(url);
+			})
+			.catch(() => !cancelled && setError("Could not load the PDF preview. Use Download instead."));
+
+		return () => {
+			cancelled = true;
+			if (url) URL.revokeObjectURL(url);
+		};
+	}, [href]);
+
+	useEffect(() => {
+		const onKey = (e) => e.key === "Escape" && onClose();
+		window.addEventListener("keydown", onKey);
+		return () => window.removeEventListener("keydown", onKey);
+	}, [onClose]);
+
+	return (
+		<div
+			className="fixed inset-0 z-50 flex items-center justify-center bg-black/70 p-2 backdrop-blur-sm sm:p-6"
+			onClick={onClose}
+			role="dialog"
+			aria-modal="true"
+			aria-label={`Preview of ${attachment.filename}`}
+		>
+			<div
+				className="nx-rise flex h-full w-full max-w-4xl flex-col overflow-hidden rounded-xl border border-[#21252D] bg-[#12151A] shadow-[0_16px_48px_rgb(0_0_0/0.6)]"
+				onClick={(e) => e.stopPropagation()}
+			>
+				{/* Header */}
+				<div className="flex h-14 shrink-0 items-center gap-3 border-b border-[#21252D] px-3 sm:px-4">
+					<div className="grid h-8 w-8 shrink-0 place-items-center rounded-md bg-[#0B2A20] text-[#34D399]">
+						<Icon path={MailIcons.description} className="h-4 w-4" />
+					</div>
+					<div className="min-w-0 flex-1">
+						<p className="truncate text-[13px] font-medium text-[#F4F4F5]">{attachment.filename}</p>
+						<p className="nx-mono text-[10px] uppercase tracking-wide text-[#70747E]">
+							{formatBytes(attachment.sizeBytes)}
+							{attachment.isCv ? " · CV" : ""}
+						</p>
+					</div>
+					{blobUrl && (
+						<button
+							type="button"
+							onClick={() => window.open(blobUrl, "_blank", "noopener")}
+							title="Open in new tab"
+							aria-label="Open in new tab"
+							className="hidden h-9 w-9 place-items-center rounded-md text-[#70747E] transition-colors hover:bg-[#21252D] hover:text-[#F4F4F5] sm:grid"
+						>
+							<Icon path={MailIcons.openInNew} className="h-[18px] w-[18px]" />
+						</button>
+					)}
+					<a
+						href={href}
+						download={attachment.filename}
+						className="flex h-9 items-center gap-1.5 rounded-md bg-[#10B981] px-3 text-[12px] font-semibold text-[#022C22] transition-all hover:brightness-110"
+					>
+						<Icon path={MailIcons.download} className="h-4 w-4" />
+						<span className="hidden sm:inline">Download</span>
+					</a>
+					<button
+						type="button"
+						onClick={onClose}
+						aria-label="Close preview"
+						className="grid h-9 w-9 shrink-0 place-items-center rounded-md text-[#70747E] transition-colors hover:bg-[#21252D] hover:text-[#F4F4F5]"
+					>
+						<Icon path={MailIcons.close} className="h-[18px] w-[18px]" />
+					</button>
+				</div>
+
+				{/* Viewer */}
+				<div className="min-h-0 flex-1 bg-[#07080A]">
+					{error ? (
+						<div className="flex h-full items-center justify-center p-6">
+							<p className="text-center text-[13px] text-[#FB7185]">{error}</p>
+						</div>
+					) : blobUrl ? (
+						<iframe src={blobUrl} title={attachment.filename} className="h-full w-full border-0" />
+					) : (
+						<div className="flex h-full items-center justify-center">
+							<div className="h-8 w-8 animate-spin rounded-full border-2 border-transparent border-t-[#34D399]" />
+						</div>
+					)}
+				</div>
+			</div>
+		</div>
 	);
 }
 
@@ -104,6 +237,7 @@ export default function ReadingPane({ message, related, onBack, onToggleStar, on
 	const [bodyError, setBodyError] = useState("");
 	const [loadingBody, setLoadingBody] = useState(true);
 	const [detailsOpen, setDetailsOpen] = useState(false);
+	const [previewAttachment, setPreviewAttachment] = useState(null);
 
 	useEffect(() => {
 		let cancelled = false;
@@ -253,7 +387,7 @@ export default function ReadingPane({ message, related, onBack, onToggleStar, on
 								</div>
 							) : body?.format === "html" ? (
 								<div
-									className="gmail-body [&_a]:text-[#34D399] [&_a]:underline [&_blockquote]:border-l-2 [&_blockquote]:border-[#363C47] [&_blockquote]:pl-3 [&_img]:max-w-full [&_table]:max-w-full"
+									className="gmail-body overflow-x-auto [&_a]:text-[#34D399] [&_a]:underline [&_blockquote]:border-l-2 [&_blockquote]:border-[#363C47] [&_blockquote]:pl-3 [&_img]:max-w-full [&_table]:max-w-full"
 									dangerouslySetInnerHTML={{ __html: body.html }}
 								/>
 							) : body?.text ? (
@@ -276,6 +410,7 @@ export default function ReadingPane({ message, related, onBack, onToggleStar, on
 											key={attachment.attachmentId || attachment.filename}
 											message={message}
 											attachment={attachment}
+											onPreview={setPreviewAttachment}
 										/>
 									))}
 								</div>
@@ -317,6 +452,14 @@ export default function ReadingPane({ message, related, onBack, onToggleStar, on
 					</div>
 				</div>
 			</div>
+
+			{previewAttachment && (
+				<PdfPreviewModal
+					message={message}
+					attachment={previewAttachment}
+					onClose={() => setPreviewAttachment(null)}
+				/>
+			)}
 		</div>
 	);
 }

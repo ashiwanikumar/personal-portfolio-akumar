@@ -688,6 +688,14 @@ export default function CvOutreachPage() {
 						>
 							{syncing ? "Syncing…" : "Sync"}
 						</button>
+						<button
+							type="button"
+							onClick={() => runSync(true)}
+							disabled={syncing || notConfigured}
+							className="nx-mono shrink-0 rounded border border-[#363C47] px-2.5 py-1 text-[10px] uppercase tracking-wide text-[#A1A1AA] disabled:opacity-45"
+						>
+							Re-scan
+						</button>
 					</div>
 
 					{authExpired ? (

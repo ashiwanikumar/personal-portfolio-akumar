@@ -313,7 +313,7 @@ export function StatStrip({ analytics, loading, days, onDaysChange }) {
 	if (loading || !analytics) {
 		return (
 			<div className="border-b border-[#21252D] bg-[#0B0D10] p-4">
-				<div className="grid grid-cols-2 gap-3 sm:grid-cols-3 lg:grid-cols-6">
+				<div className="nx-scroll-thin grid grid-flow-col auto-cols-[minmax(150px,1fr)] gap-3 overflow-x-auto pb-1 sm:grid-flow-row sm:auto-cols-auto sm:grid-cols-3 sm:overflow-visible sm:pb-0 lg:grid-cols-6">
 					{Array.from({ length: 6 }).map((_, i) => (
 						<div key={i} className="h-[86px] animate-pulse rounded-lg bg-[#12151A]" />
 					))}
@@ -356,7 +356,8 @@ export function StatStrip({ analytics, loading, days, onDaysChange }) {
 				</label>
 			</div>
 
-			<div className="nx-stagger grid grid-cols-2 gap-3 sm:grid-cols-3 lg:grid-cols-4 2xl:grid-cols-8">
+			{/* Phones get one horizontally-scrolling row; larger screens a grid. */}
+			<div className="nx-scroll-thin nx-stagger grid grid-flow-col auto-cols-[minmax(150px,1fr)] gap-3 overflow-x-auto pb-1 sm:grid-flow-row sm:auto-cols-auto sm:grid-cols-3 sm:overflow-visible sm:pb-0 lg:grid-cols-4 2xl:grid-cols-8">
 				<TodayTile today={s.today ?? 0} yesterday={s.yesterday ?? 0} />
 				<Tile label="Yesterday" value={s.yesterday ?? 0} sub="previous day" hue="plainAmber" />
 				<Tile
