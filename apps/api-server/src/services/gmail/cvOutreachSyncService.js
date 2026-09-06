@@ -38,6 +38,7 @@ function config() {
     maxMessages: parseInt(process.env.GMAIL_SYNC_MAX_MESSAGES || "500", 10),
     replyWindowDays: parseInt(process.env.GMAIL_REPLY_WINDOW_DAYS || "60", 10),
     replyCheckLimit: parseInt(process.env.GMAIL_REPLY_CHECK_LIMIT || "80", 10),
+    bounceLookbackDays: parseInt(process.env.GMAIL_BOUNCE_LOOKBACK_DAYS || "7", 10),
     extraQuery: process.env.GMAIL_CV_EXTRA_QUERY || "",
     lockStaleMinutes: parseInt(process.env.GMAIL_SYNC_LOCK_STALE_MINUTES || "15", 10),
   };
@@ -337,19 +338,112 @@ async function importSentMessages(gmail, since, cfg, stats) {
   } while (pageToken && stats.scanned < cfg.maxMessages);
 }
 
+// ─── Bounce pass ───────────────────────────────────────────────────────────
+/**
+ * Bounces land in the sent message's own thread, from mailer-daemon or
+ * postmaster. One inbox search finds every recent bounce and maps it straight
+ * onto the matching outreach doc by thread id — so a fresh bounce is marked on
+ * the very next sync, instead of waiting for the reply rotation to reach that
+ * thread (with hundreds pending and replyCheckLimit per sync, that takes hours).
+ */
+async function checkBounces(gmail, cfg, stats, lookbackDays) {
+  const q = `from:(mailer-daemon OR postmaster) newer_than:${lookbackDays}d`;
+  const bounceByThread = new Map();
+
+  let pageToken;
+  do {
+    const { data } = await gmail.users.messages.list({
+      userId: "me",
+      q,
+      maxResults: 100,
+      pageToken,
+    });
+    for (const m of data.messages || []) {
+      if (!bounceByThread.has(m.threadId)) bounceByThread.set(m.threadId, m.id);
+    }
+    pageToken = data.nextPageToken;
+  } while (pageToken);
+
+  if (!bounceByThread.size) return;
+
+  const docs = await CvOutreach.find({
+    gmailThreadId: { $in: [...bounceByThread.keys()] },
+    bounced: { $ne: true },
+  })
+    .select("gmailMessageId gmailThreadId sentAt")
+    .lean();
+
+  for (const doc of docs) {
+    try {
+      const { data: bounce } = await gmail.users.messages.get({
+        userId: "me",
+        id: bounceByThread.get(doc.gmailThreadId),
+        format: "metadata",
+        metadataHeaders: ["From", "Subject"],
+      });
+
+      const headers = bounce.payload?.headers || [];
+      const from = parseAddressList(headerValue(headers, "From"))[0] || { email: "" };
+      const at = Number(bounce.internalDate || 0);
+      const ms = at - new Date(doc.sentAt).getTime();
+
+      await CvOutreach.updateOne(
+        { gmailMessageId: doc.gmailMessageId },
+        {
+          $set: {
+            bounced: true,
+            replied: false,
+            replyCount: 1,
+            firstReplyAt: new Date(at),
+            lastReplyAt: new Date(at),
+            lastReplyFrom: from.email || "mailer-daemon",
+            firstReplySnippet: decodeEntities(bounce.snippet || "").slice(0, 300),
+            hoursToReply: Math.round((ms / (1000 * 60 * 60)) * 10) / 10,
+            daysToReply: Math.round((ms / (1000 * 60 * 60 * 24)) * 10) / 10,
+            replyCheckedAt: new Date(),
+          },
+          $inc: { replyChecks: 1 },
+        }
+      );
+
+      stats.bouncesFound += 1;
+    } catch (error) {
+      stats.errors.push(`bounce ${doc.gmailThreadId}: ${error.message}`);
+      logger.warn(`[GmailSync] Failed bounce ${doc.gmailThreadId}: ${error.message}`);
+    }
+  }
+}
+
 // ─── Reply pass ────────────────────────────────────────────────────────────
 async function checkReplies(gmail, mailboxEmail, cfg, stats) {
   const windowStart = new Date(Date.now() - cfg.replyWindowDays * 24 * 60 * 60 * 1000);
 
-  const pending = await CvOutreach.find({
+  const base = {
     sentAt: { $gte: windowStart },
     replied: { $ne: true },
     bounced: { $ne: true },
-  })
-    .sort({ replyCheckedAt: 1, sentAt: -1 })
+  };
+
+  // Fresh sends are the likeliest to hear back, so they get first claim on the
+  // per-sync budget; whatever is left rotates through the older pending mail.
+  const recentCutoff = new Date(Date.now() - 3 * 24 * 60 * 60 * 1000);
+  const recent = await CvOutreach.find({ ...base, sentAt: { $gte: recentCutoff } })
+    .sort({ replyCheckedAt: 1 })
     .limit(cfg.replyCheckLimit)
     .select("gmailThreadId gmailMessageId sentAt")
     .lean();
+
+  const remainingBudget = cfg.replyCheckLimit - recent.length;
+  const older =
+    remainingBudget > 0
+      ? await CvOutreach.find({ ...base, sentAt: { $lt: recentCutoff } })
+          .sort({ replyCheckedAt: 1, sentAt: -1 })
+          .limit(remainingBudget)
+          .select("gmailThreadId gmailMessageId sentAt")
+          .lean()
+      : [];
+
+  const pending = [...recent, ...older];
 
   for (const doc of pending) {
     try {
@@ -439,6 +533,7 @@ async function syncCvOutreach({ trigger = "cron", fullResync = false } = {}) {
     updated: 0,
     threadsChecked: 0,
     repliesFound: 0,
+    bouncesFound: 0,
     newestSentAt: null,
     errors: [],
   };
@@ -457,6 +552,8 @@ async function syncCvOutreach({ trigger = "cron", fullResync = false } = {}) {
     }
 
     await importSentMessages(gmail, since, cfg, stats);
+    // Bounces first, so the reply rotation skips threads already marked bounced.
+    await checkBounces(gmail, cfg, stats, fullResync ? cfg.replyWindowDays : cfg.bounceLookbackDays);
     await checkReplies(gmail, profile.emailAddress, cfg, stats);
 
     const durationMs = Date.now() - startedAt;
@@ -476,6 +573,7 @@ async function syncCvOutreach({ trigger = "cron", fullResync = false } = {}) {
         updated: stats.updated,
         threadsChecked: stats.threadsChecked,
         repliesFound: stats.repliesFound,
+        bouncesFound: stats.bouncesFound,
       },
     });
 
@@ -486,7 +584,7 @@ async function syncCvOutreach({ trigger = "cron", fullResync = false } = {}) {
 
     logger.info(
       `[GmailSync] ${status} in ${durationMs}ms — scanned ${stats.scanned}, matched ${stats.matched}, ` +
-        `new ${stats.inserted}, threads ${stats.threadsChecked}, replies ${stats.repliesFound}`
+        `new ${stats.inserted}, threads ${stats.threadsChecked}, replies ${stats.repliesFound}, bounces ${stats.bouncesFound}`
     );
 
     return { ok: true, status, durationMs, mailbox: profile.emailAddress, stats };

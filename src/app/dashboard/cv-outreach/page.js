@@ -389,7 +389,7 @@ export default function CvOutreachPage() {
 						await finish(
 							sync?.lastSyncStatus === "error"
 								? `Sync failed: ${sync.lastError || "unknown error"}`
-								: `Synced in ${secs}s — ${r.inserted || 0} new, ${r.repliesFound || 0} replies found`
+								: `Synced in ${secs}s — ${r.inserted || 0} new, ${r.repliesFound || 0} replies, ${r.bouncesFound || 0} bounces`
 						);
 						return;
 					}
