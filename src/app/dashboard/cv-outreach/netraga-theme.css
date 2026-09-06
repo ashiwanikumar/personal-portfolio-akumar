@@ -1,9 +1,9 @@
 /*
- * Netraga design language, scoped to the CV Outreach mailbox.
- * Dark palette: surface #0B1220 / raised #121A2B / sunken #070C16,
- * lines #1F2A3D / #2E3B52, ink #E8EEF4 / #9FB0C2 / #67788C,
- * accent #33D6EA on fills of #00C8E0, signal #FBBF24, grounded #34D399,
- * unfounded #FB7194. Everything below is prefixed nx- so nothing leaks
+ * CV Outreach mailbox theme — dark graphite matching the dashboard shell.
+ * Palette: surface #0B0D10 / raised #12151A / sunken #07080A,
+ * lines #21252D / #363C47, ink #F4F4F5 / #A1A1AA / #70747E,
+ * emerald accent #34D399 on fills of #10B981, signal #FBBF24,
+ * bounced #FB7185. Everything below is prefixed nx- so nothing leaks
  * into the portfolio site or the other dashboard pages.
  */
 
@@ -32,14 +32,14 @@
 
 /* Zero specificity so a `text-[...]` utility can always tint an eyebrow. */
 :where(.nx-eyebrow) {
-	color: #67788c;
+	color: #70747E;
 }
 
-/* Brand hatch wash — the cyan diagonal pinstripe behind hero surfaces. */
+/* Brand hatch wash — the emerald diagonal pinstripe behind hero surfaces. */
 .nx-hatch {
 	background-image: repeating-linear-gradient(
 		135deg,
-		rgb(0 200 224 / 0.14) 0 1px,
+		rgb(16 185 129 / 0.14) 0 1px,
 		transparent 1px 9px
 	);
 }
@@ -81,10 +81,10 @@
 @keyframes nxPulseDot {
 	0%,
 	100% {
-		box-shadow: 0 0 0 0 rgb(0 200 224 / 0.5);
+		box-shadow: 0 0 0 0 rgb(16 185 129 / 0.5);
 	}
 	60% {
-		box-shadow: 0 0 0 6px rgb(0 200 224 / 0);
+		box-shadow: 0 0 0 6px rgb(16 185 129 / 0);
 	}
 }
 
@@ -98,7 +98,7 @@
 	scrollbar-gutter: stable;
 }
 .nx-scroll-thin:hover {
-	scrollbar-color: #2e3b52 transparent;
+	scrollbar-color: #363C47 transparent;
 }
 .nx-scroll-thin::-webkit-scrollbar {
 	width: 6px;
@@ -112,7 +112,7 @@
 	border-radius: 9999px;
 }
 .nx-scroll-thin:hover::-webkit-scrollbar-thumb {
-	background: #2e3b52;
+	background: #363C47;
 }
 
 @media (prefers-reduced-motion: reduce) {

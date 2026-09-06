@@ -2,9 +2,9 @@
 
 /**
  * Netraga-styled primitives for the CV Outreach mailbox.
- * Dark palette: surface #0B1220 / raised #121A2B / sunken #070C16, lines
- * #1F2A3D / #2E3B52, ink #E8EEF4 / #9FB0C2 / #67788C, accent #33D6EA on
- * #00C8E0 fills, signal #FBBF24, grounded #34D399, unfounded #FB7194.
+ * Dark palette: surface #0B0D10 / raised #12151A / sunken #07080A, lines
+ * #21252D / #363C47, ink #F4F4F5 / #A1A1AA / #70747E, accent #34D399 on
+ * #10B981 fills, signal #FBBF24, grounded #34D399, unfounded #FB7185.
  */
 
 // ─── Icons (Material-style, as Gmail uses) ──────────────────────────────────
@@ -106,7 +106,7 @@ export function dayBucket(value, timezone) {
 // Netraga hues: cyan is the brand and marks today, amber is the signal hue
 // and marks yesterday. Both sit well clear of the row surface on contrast.
 export const DAY_ACCENT = {
-	today: "#00C8E0",
+	today: "#10B981",
 	yesterday: "#FBBF24",
 	older: "transparent",
 };
@@ -127,10 +127,10 @@ export function displayName(message) {
 
 export function avatarColor(seed = "") {
 	const palette = [
-		"bg-[#0C2A33] text-[#33D6EA] ring-1 ring-[#135A69]",
-		"bg-[#33141F] text-[#FB7194] ring-1 ring-[#FB7194]/25",
-		"bg-[#2A1F08] text-[#FBBF24] ring-1 ring-[#5A4310]",
-		"bg-[#0F2A22] text-[#34D399] ring-1 ring-[#34D399]/25",
+		"bg-[#0A2626] text-[#2DD4BF] ring-1 ring-[#2DD4BF]/25",
+		"bg-[#2A1218] text-[#FB7185] ring-1 ring-[#FB7185]/25",
+		"bg-[#251B07] text-[#FBBF24] ring-1 ring-[#4E3A0D]",
+		"bg-[#0B2A20] text-[#34D399] ring-1 ring-[#34D399]/25",
 		"bg-[#2A1F47] text-[#C4B5FD] ring-1 ring-[#C4B5FD]/25",
 		"bg-[#0C2740] text-[#7DD3FC] ring-1 ring-[#7DD3FC]/25",
 		"bg-[#3B1F08] text-[#FDBA74] ring-1 ring-[#FDBA74]/25",
@@ -149,9 +149,9 @@ export function IconButton({ label, children, onClick, disabled, className = "",
 			aria-label={label}
 			onClick={onClick}
 			disabled={disabled}
-			className={`grid h-9 w-9 place-items-center rounded-md text-[#67788C] transition-colors hover:bg-[#1F2A3D] hover:text-[#E8EEF4] disabled:cursor-not-allowed disabled:opacity-40 ${
+			className={`grid h-9 w-9 place-items-center rounded-md text-[#70747E] transition-colors hover:bg-[#21252D] hover:text-[#F4F4F5] disabled:cursor-not-allowed disabled:opacity-40 ${
 				active
-					? "bg-[#0C2A33] text-[#33D6EA] ring-1 ring-[#135A69] hover:bg-[#0C2A33] hover:text-[#33D6EA]"
+					? "bg-[#0B2A20] text-[#34D399] ring-1 ring-[#1F5C46] hover:bg-[#0B2A20] hover:text-[#34D399]"
 					: ""
 			} ${className}`}
 		>
@@ -166,10 +166,10 @@ const PILL_BASE =
 
 export function StatusChip({ message }) {
 	if (message.bounced) {
-		return <span className={`${PILL_BASE} border-transparent bg-[#33141F] text-[#FB7194]`}>Bounced</span>;
+		return <span className={`${PILL_BASE} border-transparent bg-[#2A1218] text-[#FB7185]`}>Bounced</span>;
 	}
 	if (message.replied) {
-		return <span className={`${PILL_BASE} border-transparent bg-[#0F2A22] text-[#34D399]`}>Replied</span>;
+		return <span className={`${PILL_BASE} border-transparent bg-[#0B2A20] text-[#34D399]`}>Replied</span>;
 	}
-	return <span className={`${PILL_BASE} border-[#5A4310] bg-[#2A1F08] text-[#FBBF24]`}>Awaiting</span>;
+	return <span className={`${PILL_BASE} border-[#4E3A0D] bg-[#251B07] text-[#FBBF24]`}>Awaiting</span>;
 }

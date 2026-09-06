@@ -4,11 +4,11 @@ import { useMemo, useState } from "react";
 import { Icon, MailIcons } from "./GmailUI";
 
 /**
- * Series colors on the #121A2B card surface: brand cyan for sent, signal
+ * Series colors on the #12151A card surface: brand cyan for sent, signal
  * amber for replied — a reply is observed evidence, and the pair keeps CVD
  * separation (cyan/amber splits cleanly for protan and tritan vision).
  */
-const SENT_COLOR = "#00C8E0";
+const SENT_COLOR = "#10B981";
 const REPLIED_COLOR = "#FBBF24";
 
 const WEEKDAYS = ["", "Sun", "Mon", "Tue", "Wed", "Thu", "Fri", "Sat"];
@@ -20,59 +20,59 @@ const WEEKDAYS = ["", "Sun", "Mon", "Tue", "Wed", "Thu", "Fri", "Sat"];
  */
 const TILE_HUES = {
 	cyan: {
-		surface: "bg-[#0C2A33] ring-[#135A69]/70",
-		rail: "bg-[#00C8E0]",
-		eyebrow: "text-[#33D6EA]",
-		value: "text-[#33D6EA]",
-		sub: "text-[#33D6EA]/70",
+		surface: "bg-[#0B2A20] ring-[#1F5C46]/70",
+		rail: "bg-[#10B981]",
+		eyebrow: "text-[#34D399]",
+		value: "text-[#34D399]",
+		sub: "text-[#34D399]/70",
 	},
 	emerald: {
-		surface: "bg-[#0F2A22] ring-[#34D399]/30",
+		surface: "bg-[#0B2A20] ring-[#34D399]/30",
 		rail: "bg-[#34D399]",
 		eyebrow: "text-[#34D399]",
 		value: "text-[#34D399]",
 		sub: "text-[#34D399]/70",
 	},
 	signal: {
-		surface: "bg-[#2A1F08] ring-[#5A4310]",
+		surface: "bg-[#251B07] ring-[#4E3A0D]",
 		rail: "bg-[#FBBF24]",
 		eyebrow: "text-[#FBBF24]",
 		value: "text-[#FBBF24]",
 		sub: "text-[#FBBF24]/70",
 	},
 	plain: {
-		surface: "bg-[#121A2B] ring-[#1F2A3D]",
-		rail: "bg-[#2E3B52]",
+		surface: "bg-[#12151A] ring-[#21252D]",
+		rail: "bg-[#363C47]",
 		eyebrow: "",
-		value: "text-[#E8EEF4]",
+		value: "text-[#F4F4F5]",
 		sub: "",
 	},
 	plainCyan: {
-		surface: "bg-[#121A2B] ring-[#1F2A3D]",
-		rail: "bg-[#00C8E0]",
+		surface: "bg-[#12151A] ring-[#21252D]",
+		rail: "bg-[#10B981]",
 		eyebrow: "",
-		value: "text-[#E8EEF4]",
+		value: "text-[#F4F4F5]",
 		sub: "",
 	},
 	plainAmber: {
-		surface: "bg-[#121A2B] ring-[#1F2A3D]",
+		surface: "bg-[#12151A] ring-[#21252D]",
 		rail: "bg-[#FBBF24]",
 		eyebrow: "",
-		value: "text-[#E8EEF4]",
+		value: "text-[#F4F4F5]",
 		sub: "",
 	},
 	plainSky: {
-		surface: "bg-[#121A2B] ring-[#1F2A3D]",
+		surface: "bg-[#12151A] ring-[#21252D]",
 		rail: "bg-[#38BDF8]",
 		eyebrow: "",
-		value: "text-[#E8EEF4]",
+		value: "text-[#F4F4F5]",
 		sub: "",
 	},
 	plainViolet: {
-		surface: "bg-[#121A2B] ring-[#1F2A3D]",
+		surface: "bg-[#12151A] ring-[#21252D]",
 		rail: "bg-[#8B5CF6]",
 		eyebrow: "",
-		value: "text-[#E8EEF4]",
+		value: "text-[#F4F4F5]",
 		sub: "",
 	},
 };
@@ -86,7 +86,7 @@ function Tile({ label, value, sub, hue = "plain" }) {
 			<span aria-hidden="true" className={`absolute inset-y-0 left-0 w-[3px] ${h.rail}`} />
 			<p className={`nx-eyebrow truncate ${h.eyebrow}`}>{label}</p>
 			<p className={`nx-display mt-1.5 truncate text-[22px] leading-7 tabular-nums ${h.value}`}>{value}</p>
-			{sub && <p className={`nx-mono mt-0.5 truncate text-[10px] ${h.sub || "text-[#67788C]"}`}>{sub}</p>}
+			{sub && <p className={`nx-mono mt-0.5 truncate text-[10px] ${h.sub || "text-[#70747E]"}`}>{sub}</p>}
 		</div>
 	);
 }
@@ -94,14 +94,14 @@ function Tile({ label, value, sub, hue = "plain" }) {
 function TodayTile({ today = 0, yesterday = 0 }) {
 	const delta = today - yesterday;
 	const arrow = delta > 0 ? "▲" : delta < 0 ? "▼" : "–";
-	const deltaColor = delta > 0 ? "text-[#34D399]" : delta < 0 ? "text-[#FB7194]" : "text-[#67788C]";
+	const deltaColor = delta > 0 ? "text-[#34D399]" : delta < 0 ? "text-[#FB7185]" : "text-[#70747E]";
 
 	return (
-		<div className="nx-hatch relative min-w-0 overflow-hidden rounded-lg bg-[#0C2A33] p-3.5 shadow-[0_1px_2px_rgb(0_0_0/0.35)] ring-1 ring-[#135A69]/70 transition-transform duration-200 hover:-translate-y-0.5">
-			<span aria-hidden="true" className="absolute inset-y-0 left-0 w-[3px] bg-[#00C8E0]" />
-			<p className="nx-eyebrow truncate text-[#33D6EA]">Today</p>
-			<p className="nx-display mt-1.5 truncate text-[22px] leading-7 tabular-nums text-[#33D6EA]">{today}</p>
-			<p className="nx-mono truncate text-[10px] text-[#33D6EA]/70">
+		<div className="nx-hatch relative min-w-0 overflow-hidden rounded-lg bg-[#0B2A20] p-3.5 shadow-[0_1px_2px_rgb(0_0_0/0.35)] ring-1 ring-[#1F5C46]/70 transition-transform duration-200 hover:-translate-y-0.5">
+			<span aria-hidden="true" className="absolute inset-y-0 left-0 w-[3px] bg-[#10B981]" />
+			<p className="nx-eyebrow truncate text-[#34D399]">Today</p>
+			<p className="nx-display mt-1.5 truncate text-[22px] leading-7 tabular-nums text-[#34D399]">{today}</p>
+			<p className="nx-mono truncate text-[10px] text-[#34D399]/70">
 				<span className={deltaColor}>
 					{arrow} {delta === 0 ? "same as" : `${Math.abs(delta)} vs`}
 				</span>{" "}
@@ -140,12 +140,12 @@ function DailyChart({ data }) {
 	const max = Math.max(1, ...series.map((d) => d.sent));
 
 	return (
-		<div className="rounded-lg border border-[#1F2A3D] bg-[#121A2B] p-4 shadow-[0_1px_2px_rgb(0_0_0/0.35)]">
+		<div className="rounded-lg border border-[#21252D] bg-[#12151A] p-4 shadow-[0_1px_2px_rgb(0_0_0/0.35)]">
 			<div className="mb-3 flex flex-wrap items-center justify-between gap-2">
-				<h3 className="nx-display text-[13px] text-[#E8EEF4]">
+				<h3 className="nx-display text-[13px] text-[#F4F4F5]">
 					CVs sent per {unit}
 				</h3>
-				<div className="nx-mono flex items-center gap-4 text-[10px] uppercase tracking-wide text-[#9FB0C2]">
+				<div className="nx-mono flex items-center gap-4 text-[10px] uppercase tracking-wide text-[#A1A1AA]">
 					<span className="flex items-center gap-1.5">
 						<span className="h-2 w-2 rounded-[2px]" style={{ background: SENT_COLOR }} />
 						Sent
@@ -163,10 +163,10 @@ function DailyChart({ data }) {
 					{[0, 0.5, 1].map((t) => (
 						<div
 							key={t}
-							className="absolute inset-x-0 border-t border-[#1F2A3D]/80"
+							className="absolute inset-x-0 border-t border-[#21252D]/80"
 							style={{ top: `${t * 100}%` }}
 						>
-							<span className="nx-mono absolute -top-2 -left-1 bg-[#121A2B] pr-1 text-[10px] tabular-nums text-[#67788C]">
+							<span className="nx-mono absolute -top-2 -left-1 bg-[#12151A] pr-1 text-[10px] tabular-nums text-[#70747E]">
 								{Math.round(max * (1 - t))}
 							</span>
 						</div>
@@ -197,8 +197,8 @@ function DailyChart({ data }) {
 								/>
 
 								{hover === i && (
-									<div className="pointer-events-none absolute bottom-full left-1/2 z-20 mb-1 w-max -translate-x-1/2 rounded-md border border-[#2E3B52] bg-[#0B1220] px-2.5 py-1.5 text-left shadow-[0_8px_24px_rgb(0_0_0/0.5)]">
-										<p className="text-[11px] font-medium text-[#E8EEF4]">
+									<div className="pointer-events-none absolute bottom-full left-1/2 z-20 mb-1 w-max -translate-x-1/2 rounded-md border border-[#363C47] bg-[#0B0D10] px-2.5 py-1.5 text-left shadow-[0_8px_24px_rgb(0_0_0/0.5)]">
+										<p className="text-[11px] font-medium text-[#F4F4F5]">
 											{new Date(`${day.date}T00:00:00`).toLocaleDateString("en-US",
 												unit === "week"
 													? { day: "numeric", month: "short" }
@@ -211,7 +211,7 @@ function DailyChart({ data }) {
 												  })}`
 												: ""}
 										</p>
-										<p className="nx-mono text-[10px] tabular-nums text-[#9FB0C2]">
+										<p className="nx-mono text-[10px] tabular-nums text-[#A1A1AA]">
 											<span style={{ color: SENT_COLOR }}>{day.sent}</span> sent ·{" "}
 											<span style={{ color: REPLIED_COLOR }}>{day.replied}</span> replied
 										</p>
@@ -223,7 +223,7 @@ function DailyChart({ data }) {
 				</div>
 			</div>
 
-			<div className="nx-mono mt-2 flex items-center justify-between pl-5 text-[10px] text-[#67788C]">
+			<div className="nx-mono mt-2 flex items-center justify-between pl-5 text-[10px] text-[#70747E]">
 				<span>{series[0]?.date}</span>
 				<span>{series[series.length - 1]?.endDate || series[series.length - 1]?.date}</span>
 			</div>
@@ -231,24 +231,24 @@ function DailyChart({ data }) {
 			<button
 				type="button"
 				onClick={() => setShowTable((open) => !open)}
-				className="nx-mono mt-3 text-[10px] uppercase tracking-wide text-[#33D6EA] hover:underline"
+				className="nx-mono mt-3 text-[10px] uppercase tracking-wide text-[#34D399] hover:underline"
 			>
 				{showTable ? "Hide data table" : "Show data table"}
 			</button>
 
 			{showTable && (
-				<div className="nx-scroll-thin mt-2 max-h-48 overflow-y-auto rounded border border-[#1F2A3D]">
+				<div className="nx-scroll-thin mt-2 max-h-48 overflow-y-auto rounded border border-[#21252D]">
 					<table className="w-full text-left text-[11px]">
-						<thead className="sticky top-0 bg-[#0B1220]">
+						<thead className="sticky top-0 bg-[#0B0D10]">
 							<tr>
 								<th scope="col" className="nx-eyebrow px-3 py-1.5">{unit === "week" ? "Week of" : "Date"}</th>
 								<th scope="col" className="nx-eyebrow px-3 py-1.5">Sent</th>
 								<th scope="col" className="nx-eyebrow px-3 py-1.5">Replied</th>
 							</tr>
 						</thead>
-						<tbody className="text-[#9FB0C2]">
+						<tbody className="text-[#A1A1AA]">
 							{series.map((day) => (
-								<tr key={day.date} className="border-t border-[#1F2A3D] transition-colors hover:bg-[#070C16]">
+								<tr key={day.date} className="border-t border-[#21252D] transition-colors hover:bg-[#07080A]">
 									<td className="nx-mono px-3 py-1 tabular-nums">{day.date}</td>
 									<td className="nx-mono px-3 py-1 tabular-nums">{day.sent}</td>
 									<td className="nx-mono px-3 py-1 tabular-nums">{day.replied}</td>
@@ -266,10 +266,10 @@ function RankedList({ title, items, emptyText, renderLabel, onSelect, barColor =
 	const max = Math.max(1, ...items.map((i) => i.sent));
 
 	return (
-		<div className="rounded-lg border border-[#1F2A3D] bg-[#121A2B] p-4 shadow-[0_1px_2px_rgb(0_0_0/0.35)]">
-			<h3 className="nx-display mb-3 text-[13px] text-[#E8EEF4]">{title}</h3>
+		<div className="rounded-lg border border-[#21252D] bg-[#12151A] p-4 shadow-[0_1px_2px_rgb(0_0_0/0.35)]">
+			<h3 className="nx-display mb-3 text-[13px] text-[#F4F4F5]">{title}</h3>
 			{items.length === 0 ? (
-				<p className="text-[12px] text-[#67788C]">{emptyText}</p>
+				<p className="text-[12px] text-[#70747E]">{emptyText}</p>
 			) : (
 				<ul className="nx-stagger space-y-2">
 					{items.map((item, i) => (
@@ -278,17 +278,17 @@ function RankedList({ title, items, emptyText, renderLabel, onSelect, barColor =
 								type="button"
 								disabled={!onSelect}
 								onClick={() => onSelect?.(item)}
-								className="group w-full rounded px-1 py-0.5 text-left transition-colors enabled:hover:bg-[#070C16] disabled:cursor-default"
+								className="group w-full rounded px-1 py-0.5 text-left transition-colors enabled:hover:bg-[#07080A] disabled:cursor-default"
 							>
 								<div className="flex items-baseline justify-between gap-3">
-									<span className="min-w-0 flex-1 truncate text-[12px] text-[#E8EEF4]">
+									<span className="min-w-0 flex-1 truncate text-[12px] text-[#F4F4F5]">
 										{renderLabel(item)}
 									</span>
-									<span className="nx-mono shrink-0 text-[10px] tabular-nums text-[#67788C]">
+									<span className="nx-mono shrink-0 text-[10px] tabular-nums text-[#70747E]">
 										{item.sent} sent · {item.replyRate}%
 									</span>
 								</div>
-								<div className="mt-1 h-1 w-full overflow-hidden rounded-full bg-[#070C16]">
+								<div className="mt-1 h-1 w-full overflow-hidden rounded-full bg-[#07080A]">
 									<div
 										className="h-full rounded-full"
 										style={{ width: `${(item.sent / max) * 100}%`, background: barColor }}
@@ -312,10 +312,10 @@ export function StatStrip({ analytics, loading, days, onDaysChange }) {
 
 	if (loading || !analytics) {
 		return (
-			<div className="border-b border-[#1F2A3D] bg-[#0B1220] p-4">
+			<div className="border-b border-[#21252D] bg-[#0B0D10] p-4">
 				<div className="grid grid-cols-2 gap-3 sm:grid-cols-3 lg:grid-cols-6">
 					{Array.from({ length: 6 }).map((_, i) => (
-						<div key={i} className="h-[86px] animate-pulse rounded-lg bg-[#121A2B]" />
+						<div key={i} className="h-[86px] animate-pulse rounded-lg bg-[#12151A]" />
 					))}
 				</div>
 			</div>
@@ -326,20 +326,20 @@ export function StatStrip({ analytics, loading, days, onDaysChange }) {
 	const replyTime = analytics.replyTime || {};
 
 	return (
-		<div className="border-b border-[#1F2A3D] bg-[#0B1220] p-4">
+		<div className="border-b border-[#21252D] bg-[#0B0D10] p-4">
 			<div className="mb-3 flex items-center justify-between">
 				<h2 className="flex items-center gap-2">
-					<span className="grid h-7 w-7 shrink-0 place-items-center rounded-md bg-[#00C8E0] text-[#06202A] shadow-sm">
+					<span className="grid h-7 w-7 shrink-0 place-items-center rounded-md bg-[#10B981] text-[#022C22] shadow-sm">
 						<Icon path={MailIcons.insights} className="h-4 w-4" />
 					</span>
-					<span className="nx-eyebrow text-[#33D6EA]">Outreach insights</span>
+					<span className="nx-eyebrow text-[#34D399]">Outreach insights</span>
 				</h2>
 				{/*
 				 * The .dashboard-scope reset strips border/background/padding from raw
 				 * selects with !important, so the frame and the chevron live on the
 				 * wrapper — the select itself only carries the text.
 				 */}
-				<label className="flex h-7 cursor-pointer items-center gap-1.5 rounded-md border border-[#2E3B52] bg-[#121A2B] px-2.5 text-[12px] text-[#9FB0C2] transition-colors focus-within:border-[#33D6EA]">
+				<label className="flex h-7 cursor-pointer items-center gap-1.5 rounded-md border border-[#363C47] bg-[#12151A] px-2.5 text-[12px] text-[#A1A1AA] transition-colors focus-within:border-[#34D399]">
 					<select
 						value={days}
 						onChange={(e) => onDaysChange(e.target.value)}
@@ -352,7 +352,7 @@ export function StatStrip({ analytics, loading, days, onDaysChange }) {
 						<option value="90">Last 90 days</option>
 						<option value="365">Last year</option>
 					</select>
-					<Icon path={MailIcons.chevronDown} className="h-3.5 w-3.5 shrink-0 text-[#67788C]" />
+					<Icon path={MailIcons.chevronDown} className="h-3.5 w-3.5 shrink-0 text-[#70747E]" />
 				</label>
 			</div>
 
@@ -399,14 +399,14 @@ export function StatStrip({ analytics, loading, days, onDaysChange }) {
 export default function InsightsDetail({ analytics, loading, onSelectDomain }) {
 	if (loading || !analytics) {
 		return (
-			<div className="border-b border-[#1F2A3D] bg-[#0B1220] px-4 pb-4">
-				<div className="h-[220px] animate-pulse rounded-lg bg-[#121A2B]" />
+			<div className="border-b border-[#21252D] bg-[#0B0D10] px-4 pb-4">
+				<div className="h-[220px] animate-pulse rounded-lg bg-[#12151A]" />
 			</div>
 		);
 	}
 
 	return (
-		<div className="border-b border-[#1F2A3D] bg-[#0B1220] px-4 pb-4">
+		<div className="border-b border-[#21252D] bg-[#0B0D10] px-4 pb-4">
 			{analytics.dailyStats?.length > 0 && <DailyChart data={analytics.dailyStats} />}
 
 			<div className="mt-3 grid gap-3 lg:grid-cols-2">
@@ -418,7 +418,7 @@ export default function InsightsDetail({ analytics, loading, onSelectDomain }) {
 					renderLabel={(item) => (
 						<>
 							{item.company}
-							<span className="nx-mono ml-1.5 text-[10px] text-[#67788C]">{item.domain}</span>
+							<span className="nx-mono ml-1.5 text-[10px] text-[#70747E]">{item.domain}</span>
 						</>
 					)}
 				/>
@@ -432,11 +432,11 @@ export default function InsightsDetail({ analytics, loading, onSelectDomain }) {
 			</div>
 
 			{analytics.allTime && (
-				<p className="nx-mono mt-3 flex flex-wrap items-center gap-x-2.5 gap-y-1 text-[10px] text-[#67788C]">
+				<p className="nx-mono mt-3 flex flex-wrap items-center gap-x-2.5 gap-y-1 text-[10px] text-[#70747E]">
 					<span>All time: {analytics.allTime.sent} CVs sent</span>
-					<span className="text-[#2E3B52]">/</span>
+					<span className="text-[#363C47]">/</span>
 					<span>{analytics.allTime.replied} replied</span>
-					<span className="text-[#2E3B52]">/</span>
+					<span className="text-[#363C47]">/</span>
 					<span>{analytics.allTime.replyRate}% reply rate</span>
 				</p>
 			)}

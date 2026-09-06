@@ -32,18 +32,18 @@ function relativeTime(value) {
 function SetupNotice({ status }) {
 	return (
 		<div className="flex flex-1 items-center justify-center p-6">
-			<div className="nx-rise max-w-lg rounded-lg border border-[#1F2A3D] bg-[#121A2B] p-6 shadow-[0_1px_2px_rgb(0_0_0/0.35)]">
-				<span aria-hidden="true" className="mb-2.5 block h-[3px] w-9 rounded-full bg-[#00C8E0]" />
-				<h2 className="nx-display text-[16px] text-[#E8EEF4]">Connect your Gmail</h2>
-				<p className="mt-2 text-[13px] leading-5 text-[#9FB0C2]">
+			<div className="nx-rise max-w-lg rounded-lg border border-[#21252D] bg-[#12151A] p-6 shadow-[0_1px_2px_rgb(0_0_0/0.35)]">
+				<span aria-hidden="true" className="mb-2.5 block h-[3px] w-9 rounded-full bg-[#10B981]" />
+				<h2 className="nx-display text-[16px] text-[#F4F4F5]">Connect your Gmail</h2>
+				<p className="mt-2 text-[13px] leading-5 text-[#A1A1AA]">
 					This mailbox view reads your own SENT mail read-only and indexes every message that carries a
 					CV attachment.
 				</p>
 
 				{status?.missingEnv?.length > 0 && (
-					<div className="mt-4 rounded-md border border-[#5A4310] border-l-[3px] border-l-[#FBBF24] bg-[#2A1F08] p-3">
+					<div className="mt-4 rounded-md border border-[#4E3A0D] border-l-[3px] border-l-[#FBBF24] bg-[#251B07] p-3">
 						<p className="text-[12px] font-medium text-[#FBBF24]">Missing environment variables</p>
-						<ul className="nx-mono mt-1 space-y-0.5 text-[11px] text-[#9FB0C2]">
+						<ul className="nx-mono mt-1 space-y-0.5 text-[11px] text-[#A1A1AA]">
 							{status.missingEnv.map((key) => (
 								<li key={key}>{key}</li>
 							))}
@@ -52,28 +52,28 @@ function SetupNotice({ status }) {
 				)}
 
 				{status?.connectionError && (
-					<div className="mt-4 rounded-md border border-[#FB7194]/45 border-l-[3px] border-l-[#FB7194] bg-[#33141F] p-3">
-						<p className="text-[12px] font-medium text-[#FB7194]">Gmail rejected the credentials</p>
-						<p className="mt-1 text-[12px] text-[#9FB0C2]">{status.connectionError}</p>
+					<div className="mt-4 rounded-md border border-[#FB7185]/45 border-l-[3px] border-l-[#FB7185] bg-[#2A1218] p-3">
+						<p className="text-[12px] font-medium text-[#FB7185]">Gmail rejected the credentials</p>
+						<p className="mt-1 text-[12px] text-[#A1A1AA]">{status.connectionError}</p>
 					</div>
 				)}
 
-				<ol className="mt-4 space-y-2 text-[13px] text-[#9FB0C2]">
+				<ol className="mt-4 space-y-2 text-[13px] text-[#A1A1AA]">
 					<li>
-						1. Put <span className="nx-mono text-[12px] text-[#33D6EA]">GMAIL_CLIENT_ID</span> and{" "}
-						<span className="nx-mono text-[12px] text-[#33D6EA]">GMAIL_CLIENT_SECRET</span> in{" "}
+						1. Put <span className="nx-mono text-[12px] text-[#34D399]">GMAIL_CLIENT_ID</span> and{" "}
+						<span className="nx-mono text-[12px] text-[#34D399]">GMAIL_CLIENT_SECRET</span> in{" "}
 						<span className="nx-mono text-[12px]">.env</span>.
 					</li>
 					<li>
 						2. Run{" "}
-						<span className="nx-mono text-[12px] text-[#33D6EA]">
+						<span className="nx-mono text-[12px] text-[#34D399]">
 							cd apps/api-server &amp;&amp; npm run gmail:auth
 						</span>{" "}
 						and approve access.
 					</li>
 					<li>
 						3. Paste the printed{" "}
-						<span className="nx-mono text-[12px] text-[#33D6EA]">GMAIL_REFRESH_TOKEN</span> into{" "}
+						<span className="nx-mono text-[12px] text-[#34D399]">GMAIL_REFRESH_TOKEN</span> into{" "}
 						<span className="nx-mono text-[12px]">.env</span> and restart the API server.
 					</li>
 				</ol>
@@ -85,9 +85,9 @@ function SetupNotice({ status }) {
 function SessionExpiredNotice() {
 	return (
 		<div className="flex flex-1 items-center justify-center p-6">
-			<div className="nx-rise max-w-md rounded-lg border border-[#5A4310] border-l-[3px] border-l-[#FBBF24] bg-[#2A1F08] p-6 text-center">
+			<div className="nx-rise max-w-md rounded-lg border border-[#4E3A0D] border-l-[3px] border-l-[#FBBF24] bg-[#251B07] p-6 text-center">
 				<h2 className="nx-display text-[16px] text-[#FBBF24]">Your session expired</h2>
-				<p className="mt-2 text-[13px] leading-5 text-[#9FB0C2]">
+				<p className="mt-2 text-[13px] leading-5 text-[#A1A1AA]">
 					Sign in again to load your CV outreach. Nothing is lost — the sync keeps running on the
 					server while you are signed out.
 				</p>
@@ -97,10 +97,74 @@ function SessionExpiredNotice() {
 						await fetch("/api/admin/logout", { method: "POST" }).catch(() => {});
 						window.location.reload();
 					}}
-					className="mt-4 inline-flex items-center gap-1.5 rounded-md bg-[#00C8E0] px-4 py-2 text-[13px] font-semibold text-[#06202A] shadow-[0_1px_2px_rgb(0_200_224/0.35)] transition-all hover:brightness-110"
+					className="mt-4 inline-flex items-center gap-1.5 rounded-md bg-[#10B981] px-4 py-2 text-[13px] font-semibold text-[#022C22] shadow-[0_1px_2px_rgb(16_185_129/0.35)] transition-all hover:brightness-110"
 				>
 					Sign in again
 				</button>
+			</div>
+		</div>
+	);
+}
+
+/**
+ * Centered progress modal for the full re-scan. The percentage is estimated
+ * against the index size before the scan started — the server never says how
+ * many messages it will walk — so it is capped at 99% until the run reports done.
+ */
+function FullScanModal({ scan, onHide }) {
+	const pct =
+		scan.baseline > 0
+			? Math.max(2, Math.min(99, Math.round((scan.indexed / scan.baseline) * 100)))
+			: null;
+
+	return (
+		<div className="fixed inset-0 z-50 flex items-center justify-center bg-black/60 px-4 backdrop-blur-sm">
+			<div className="nx-rise w-full max-w-md rounded-xl border border-[#21252D] bg-[#12151A] p-6 shadow-[0_16px_48px_rgb(0_0_0/0.6)]">
+				<div className="flex items-center gap-3">
+					<span className="grid h-9 w-9 shrink-0 place-items-center rounded-lg bg-[#10B981] text-[#022C22]">
+						<Icon path={MailIcons.refresh} className="h-5 w-5 animate-spin" />
+					</span>
+					<div className="min-w-0">
+						<h3 className="nx-display text-[15px] text-[#F4F4F5]">Full re-scan in progress</h3>
+						<p className="truncate text-[12px] text-[#A1A1AA]">{scan.note}</p>
+					</div>
+				</div>
+
+				<div className="mt-5">
+					<div className="flex items-baseline justify-between">
+						<span className="nx-mono text-[11px] tabular-nums text-[#A1A1AA]">
+							{scan.indexed.toLocaleString()} indexed
+						</span>
+						<span className="nx-mono text-[13px] font-medium tabular-nums text-[#34D399]">
+							{pct === null ? "…" : `${pct}%`}
+						</span>
+					</div>
+					<div className="mt-1.5 h-1.5 w-full overflow-hidden rounded-full bg-[#07080A]">
+						{pct === null ? (
+							<div className="h-full w-1/3 animate-pulse rounded-full bg-[#10B981]" />
+						) : (
+							<div
+								className="h-full rounded-full bg-[#10B981] transition-[width] duration-500"
+								style={{ width: `${pct}%` }}
+							/>
+						)}
+					</div>
+				</div>
+
+				<p className="mt-4 text-[12px] leading-5 text-[#70747E]">
+					Scanning your entire sent mailbox on the server. You can keep using the app — closing this
+					window will not stop the scan.
+				</p>
+
+				<div className="mt-4 flex justify-end">
+					<button
+						type="button"
+						onClick={onHide}
+						className="rounded-lg border border-[#363C47] px-3.5 py-1.5 text-[12px] font-medium text-[#A1A1AA] transition-colors hover:bg-[#21252D] hover:text-[#F4F4F5]"
+					>
+						Continue in background
+					</button>
+				</div>
 			</div>
 		</div>
 	);
@@ -133,6 +197,8 @@ export default function CvOutreachPage() {
 	const [authExpired, setAuthExpired] = useState(false);
 	const [syncing, setSyncing] = useState(false);
 	const [syncNote, setSyncNote] = useState("");
+	// Set while a full re-scan runs; drives the centered progress modal.
+	const [scan, setScan] = useState(null); // { baseline, indexed, hidden, note }
 	const [toast, setToast] = useState("");
 	const toastTimer = useRef(null);
 
@@ -250,10 +316,17 @@ export default function CvOutreachPage() {
 		async (full = false) => {
 			setSyncing(true);
 			setSyncNote(full ? "Full re-scan started…" : "Sync started…");
+			if (full) {
+				// The previous index size is the best available estimate of the total,
+				// since the server does not report how many messages it will scan.
+				const baseline = status?.storedMessages || 0;
+				setScan({ baseline, indexed: baseline, hidden: false, note: "Starting the re-scan…" });
+			}
 
 			const finish = async (note) => {
 				setSyncing(false);
 				setSyncNote("");
+				setScan(null);
 				if (note) showToast(note);
 				await Promise.all([fetchMessages(), fetchStatus(), fetchAnalytics()]);
 			};
@@ -269,6 +342,7 @@ export default function CvOutreachPage() {
 				if (!res.ok || !data?.success) {
 					setSyncing(false);
 					setSyncNote("");
+					setScan(null);
 					showToast(data?.message || data?.error || "Could not start the sync");
 					return;
 				}
@@ -299,6 +373,11 @@ export default function CvOutreachPage() {
 								indexed ? ` ${indexed} indexed` : ""
 							}`
 						);
+						if (full) {
+							setScan((s) =>
+								s ? { ...s, indexed: indexed ?? s.indexed, note: "Scanning your sent mail…" } : s
+							);
+						}
 						continue;
 					}
 
@@ -320,10 +399,11 @@ export default function CvOutreachPage() {
 			} catch {
 				setSyncing(false);
 				setSyncNote("");
+				setScan(null);
 				showToast("Sync failed — could not reach the API server");
 			}
 		},
-		[fetchMessages, fetchStatus, fetchAnalytics, showToast]
+		[fetchMessages, fetchStatus, fetchAnalytics, showToast, status]
 	);
 
 	const toggleStar = useCallback(
@@ -419,27 +499,27 @@ export default function CvOutreachPage() {
 	const notConfigured = status?.configured === false;
 
 	return (
-		<div className="nx-scope flex h-[calc(100vh-8.5rem)] min-h-[520px] w-full min-w-0 flex-col overflow-hidden rounded-lg border border-[#1F2A3D] bg-[#0B1220] text-[#E8EEF4] shadow-[0_1px_2px_rgb(0_0_0/0.35)]">
+		<div className="nx-scope flex h-full min-h-0 w-full min-w-0 flex-col overflow-hidden bg-[#0B0D10] text-[#F4F4F5]">
 			{/* ─── Top bar ───────────────────────────────────────────────────── */}
-			<div className="flex h-16 shrink-0 items-center gap-3 border-b border-[#1F2A3D] px-3 sm:px-4">
+			<div className="flex h-16 shrink-0 items-center gap-3 border-b border-[#21252D] px-3 sm:px-4">
 				<div className="hidden items-center gap-2.5 md:flex">
-					<div className="grid h-8 w-8 place-items-center rounded-md bg-[#00C8E0] text-[#06202A] shadow-[0_1px_2px_rgb(0_200_224/0.35)]">
+					<div className="grid h-8 w-8 place-items-center rounded-md bg-[#10B981] text-[#022C22] shadow-[0_1px_2px_rgb(16_185_129/0.35)]">
 						<Icon path={MailIcons.send} className="h-4 w-4" />
 					</div>
 					<div className="leading-tight">
-						<span className="nx-display block text-[14px] text-[#E8EEF4]">CV Mail</span>
+						<span className="nx-display block text-[14px] text-[#F4F4F5]">CV Mail</span>
 						<span className="nx-eyebrow block">Gmail outreach</span>
 					</div>
 				</div>
 
 				{/* The .dashboard-scope reset forces font-size: inherit on inputs, so the size sits on the wrapper. */}
-				<div className="flex h-9 max-w-[560px] flex-1 items-center gap-2 rounded-md border border-[#2E3B52] bg-[#121A2B] px-3 text-[13px] transition-[border-color,box-shadow] focus-within:border-[#33D6EA] focus-within:shadow-[0_0_0_3px_#0C2A33]">
-					<Icon path={MailIcons.search} className="h-4 w-4 shrink-0 text-[#67788C]" />
+				<div className="flex h-9 max-w-[560px] flex-1 items-center gap-2 rounded-md border border-[#363C47] bg-[#12151A] px-3 text-[13px] transition-[border-color,box-shadow] focus-within:border-[#34D399] focus-within:shadow-[0_0_0_3px_#0B2A20]">
+					<Icon path={MailIcons.search} className="h-4 w-4 shrink-0 text-[#70747E]" />
 					<input
 						value={searchInput}
 						onChange={(e) => setSearchInput(e.target.value)}
 						placeholder="Search company, recipient, subject or CV file"
-						className="min-w-0 flex-1 bg-transparent text-[#E8EEF4] placeholder:text-[#67788C] outline-none"
+						className="min-w-0 flex-1 bg-transparent text-[#F4F4F5] placeholder:text-[#70747E] outline-none"
 					/>
 					{(searchInput || domain) && (
 						<button
@@ -449,7 +529,7 @@ export default function CvOutreachPage() {
 								setSearchInput("");
 								setDomain("");
 							}}
-							className="grid h-6 w-6 place-items-center rounded text-[#67788C] transition-colors hover:bg-[#1F2A3D] hover:text-[#E8EEF4]"
+							className="grid h-6 w-6 place-items-center rounded text-[#70747E] transition-colors hover:bg-[#21252D] hover:text-[#F4F4F5]"
 						>
 							<Icon path={MailIcons.close} className="h-4 w-4" />
 						</button>
@@ -458,13 +538,13 @@ export default function CvOutreachPage() {
 
 				<div className="ml-auto flex items-center gap-2.5">
 					{status?.mailbox && (
-						<span className="nx-mono hidden text-[11px] text-[#67788C] lg:inline">{status.mailbox}</span>
+						<span className="nx-mono hidden text-[11px] text-[#70747E] lg:inline">{status.mailbox}</span>
 					)}
 					<div
 						className={`grid h-8 w-8 place-items-center rounded-md ring-1 ${
 							status?.connected
-								? "bg-[#0F2A22] text-[#34D399] ring-[#34D399]/35"
-								: "bg-[#121A2B] text-[#67788C] ring-[#1F2A3D]"
+								? "bg-[#0B2A20] text-[#34D399] ring-[#34D399]/35"
+								: "bg-[#12151A] text-[#70747E] ring-[#21252D]"
 						}`}
 						title={status?.connected ? `Connected as ${status.mailbox}` : "Gmail not connected"}
 					>
@@ -475,7 +555,7 @@ export default function CvOutreachPage() {
 
 			{domain && (
 				<div className="flex items-center gap-2 px-4 py-2">
-					<span className="nx-mono inline-flex items-center gap-1.5 rounded border border-[#135A69] bg-[#0C2A33] px-2 py-0.5 text-[10px] uppercase tracking-wide text-[#33D6EA]">
+					<span className="nx-mono inline-flex items-center gap-1.5 rounded border border-[#1F5C46] bg-[#0B2A20] px-2 py-0.5 text-[10px] uppercase tracking-wide text-[#34D399]">
 						Domain: {domain}
 						<button type="button" onClick={() => setDomain("")} aria-label="Clear domain filter">
 							<Icon path={MailIcons.close} className="h-3.5 w-3.5" />
@@ -492,7 +572,7 @@ export default function CvOutreachPage() {
 							type="button"
 							onClick={() => runSync(false)}
 							disabled={syncing || notConfigured}
-							className="flex h-9 w-full items-center justify-center gap-2 rounded-md bg-[#00C8E0] px-4 text-[13px] font-semibold text-[#06202A] shadow-[0_1px_2px_rgb(0_200_224/0.35)] transition-all hover:brightness-110 disabled:cursor-not-allowed disabled:opacity-45"
+							className="flex h-9 w-full items-center justify-center gap-2 rounded-md bg-[#10B981] px-4 text-[13px] font-semibold text-[#022C22] shadow-[0_1px_2px_rgb(16_185_129/0.35)] transition-all hover:brightness-110 disabled:cursor-not-allowed disabled:opacity-45"
 						>
 							<Icon
 								path={MailIcons.refresh}
@@ -505,7 +585,7 @@ export default function CvOutreachPage() {
 					<nav className="nx-scroll-thin flex-1 overflow-y-auto px-2">
 						<p className="nx-eyebrow mb-2 mt-1 flex items-center gap-2 px-2">
 							Folders
-							<span className="h-px flex-1 bg-[#1F2A3D]" aria-hidden="true" />
+							<span className="h-px flex-1 bg-[#21252D]" aria-hidden="true" />
 						</p>
 						{FOLDERS.map((item) => {
 							const active = folder === item.id;
@@ -522,19 +602,19 @@ export default function CvOutreachPage() {
 									}}
 									className={`group relative flex w-full items-center gap-3 rounded-md py-1.5 pl-3.5 pr-2 text-[13px] transition-colors ${
 										active
-											? "bg-[#070C16] font-medium text-[#E8EEF4]"
-											: "text-[#9FB0C2] hover:bg-[#070C16]/70 hover:text-[#E8EEF4]"
+											? "bg-[#07080A] font-medium text-[#F4F4F5]"
+											: "text-[#A1A1AA] hover:bg-[#07080A]/70 hover:text-[#F4F4F5]"
 									}`}
 								>
 									<span
 										aria-hidden="true"
 										className={`absolute left-0 top-1/2 w-[3px] -translate-y-1/2 rounded-full transition-all ${
-											active ? "h-4 bg-[#00C8E0]" : "h-2 bg-transparent group-hover:bg-[#2E3B52]"
+											active ? "h-4 bg-[#10B981]" : "h-2 bg-transparent group-hover:bg-[#363C47]"
 										}`}
 									/>
 									<span
 										className={`transition-colors ${
-											active ? "text-[#33D6EA]" : "text-[#67788C] group-hover:text-[#9FB0C2]"
+											active ? "text-[#34D399]" : "text-[#70747E] group-hover:text-[#A1A1AA]"
 										}`}
 									>
 										<Icon path={item.icon} className="h-[18px] w-[18px] shrink-0" />
@@ -543,8 +623,8 @@ export default function CvOutreachPage() {
 									<span
 										className={`nx-mono shrink-0 tabular-nums ${
 											active && count > 0
-												? "rounded-full bg-[#00C8E0] px-1.5 py-px text-[10px] font-semibold text-[#06202A]"
-												: `text-[10px] ${count > 0 ? "text-[#9FB0C2]" : "text-[#2E3B52]"}`
+												? "rounded-full bg-[#10B981] px-1.5 py-px text-[10px] font-semibold text-[#022C22]"
+												: `text-[10px] ${count > 0 ? "text-[#A1A1AA]" : "text-[#363C47]"}`
 										}`}
 									>
 										{count}
@@ -554,24 +634,24 @@ export default function CvOutreachPage() {
 						})}
 					</nav>
 
-					<div className="nx-mono mt-auto space-y-1 px-4 text-[10px] text-[#67788C]">
+					<div className="nx-mono mt-auto space-y-1 px-4 text-[10px] text-[#70747E]">
 						{syncNote ? (
-							<p className="flex items-center gap-1.5 text-[#33D6EA]">
-								<span className="nx-pulse-dot h-1.5 w-1.5 shrink-0 rounded-full bg-[#00C8E0]" />
+							<p className="flex items-center gap-1.5 text-[#34D399]">
+								<span className="nx-pulse-dot h-1.5 w-1.5 shrink-0 rounded-full bg-[#10B981]" />
 								{syncNote}
 							</p>
 						) : (
 							<p>Last sync: {relativeTime(status?.sync?.lastSyncAt)}</p>
 						)}
 						{status?.sync?.lastSyncStatus === "error" && (
-							<p className="text-[#FB7194]">{status.sync.lastError}</p>
+							<p className="text-[#FB7185]">{status.sync.lastError}</p>
 						)}
 						<p>{status?.storedMessages ?? 0} indexed</p>
 						<button
 							type="button"
 							onClick={() => runSync(true)}
 							disabled={syncing || notConfigured}
-							className="uppercase tracking-wide text-[#33D6EA] hover:underline disabled:opacity-50"
+							className="uppercase tracking-wide text-[#34D399] hover:underline disabled:opacity-50"
 						>
 							Full re-scan
 						</button>
@@ -579,9 +659,9 @@ export default function CvOutreachPage() {
 				</aside>
 
 				{/* ─── Mail pane ───────────────────────────────────────────────── */}
-				<section className="flex min-w-0 flex-1 flex-col overflow-hidden border-l border-[#1F2A3D] bg-[#0B1220]">
+				<section className="flex min-w-0 flex-1 flex-col overflow-hidden border-l border-[#21252D] bg-[#0B0D10]">
 					{/* Mobile folder chips */}
-					<div className="flex gap-2 overflow-x-auto border-b border-[#1F2A3D] px-3 py-2 md:hidden">
+					<div className="flex gap-2 overflow-x-auto border-b border-[#21252D] px-3 py-2 md:hidden">
 						{FOLDERS.map((item) => (
 							<button
 								key={item.id}
@@ -593,8 +673,8 @@ export default function CvOutreachPage() {
 								}}
 								className={`nx-mono shrink-0 rounded border px-2.5 py-1 text-[10px] uppercase tracking-wide ${
 									folder === item.id
-										? "border-[#135A69] bg-[#0C2A33] text-[#33D6EA]"
-										: "border-[#2E3B52] text-[#9FB0C2]"
+										? "border-[#1F5C46] bg-[#0B2A20] text-[#34D399]"
+										: "border-[#363C47] text-[#A1A1AA]"
 								}`}
 							>
 								{item.label} {folderCounts[item.countKey] ? `(${folderCounts[item.countKey]})` : ""}
@@ -604,7 +684,7 @@ export default function CvOutreachPage() {
 							type="button"
 							onClick={() => runSync(false)}
 							disabled={syncing || notConfigured}
-							className="shrink-0 rounded bg-[#00C8E0] px-3 py-1 text-[11px] font-semibold text-[#06202A] disabled:opacity-45"
+							className="shrink-0 rounded bg-[#10B981] px-3 py-1 text-[11px] font-semibold text-[#022C22] disabled:opacity-45"
 						>
 							{syncing ? "Syncing…" : "Sync"}
 						</button>
@@ -623,23 +703,28 @@ export default function CvOutreachPage() {
 							onOpenRelated={openById}
 						/>
 					) : (
-						<div className="nx-scroll-thin flex min-h-0 flex-1 flex-col overflow-y-auto">
-							<StatStrip
-								analytics={analytics}
-								loading={analyticsLoading}
-								days={days}
-								onDaysChange={setDays}
-							/>
-
-							{insightsOpen && (
-								<InsightsDetail
+						/* Insights stay pinned; only the message rows scroll (inside MessageList). */
+						<div className="flex min-h-0 flex-1 flex-col">
+							<div className="shrink-0">
+								<StatStrip
 									analytics={analytics}
 									loading={analyticsLoading}
-									onSelectDomain={(value) => {
-										setDomain(value);
-										setPage(1);
-									}}
+									days={days}
+									onDaysChange={setDays}
 								/>
+							</div>
+
+							{insightsOpen && (
+								<div className="nx-scroll-thin max-h-[45vh] shrink-0 overflow-y-auto">
+									<InsightsDetail
+										analytics={analytics}
+										loading={analyticsLoading}
+										onSelectDomain={(value) => {
+											setDomain(value);
+											setPage(1);
+										}}
+									/>
+								</div>
 							)}
 
 							<MessageList
@@ -664,9 +749,14 @@ export default function CvOutreachPage() {
 				</section>
 			</div>
 
+			{/* Full re-scan progress modal */}
+			{scan && !scan.hidden && (
+				<FullScanModal scan={scan} onHide={() => setScan((s) => (s ? { ...s, hidden: true } : s))} />
+			)}
+
 			{/* Toast */}
 			{toast && (
-				<div className="nx-rise pointer-events-none fixed bottom-6 left-1/2 z-50 -translate-x-1/2 rounded-md border border-[#1F2A3D] bg-[#121A2B] px-4 py-3 text-[13px] text-[#E8EEF4] shadow-[0_8px_24px_rgb(0_0_0/0.5)]">
+				<div className="nx-rise pointer-events-none fixed bottom-6 left-1/2 z-50 -translate-x-1/2 rounded-md border border-[#21252D] bg-[#12151A] px-4 py-3 text-[13px] text-[#F4F4F5] shadow-[0_8px_24px_rgb(0_0_0/0.5)]">
 					{toast}
 				</div>
 			)}
