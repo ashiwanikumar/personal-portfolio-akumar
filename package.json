@@ -13,9 +13,12 @@
 		"api:start": "npm --prefix apps/api-server start",
 		"start:all": "sh -c 'trap \"kill 0\" INT TERM EXIT; npm run api:start & npm run start'",
 		"install:api": "npm --prefix apps/api-server install",
-		"lint": "next lint"
+		"lint": "next lint",
+		"indexnow": "node scripts/indexnow-submit.js"
 	},
 	"dependencies": {
+		"@vercel/analytics": "^2.0.1",
+		"@vercel/speed-insights": "^2.0.0",
 		"next": "^16.3.4",
 		"react": "^19.2.8",
 		"react-dom": "^19.2.8",

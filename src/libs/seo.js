@@ -27,13 +27,21 @@ export function generatePageMetadata({
   ogType = "website",
   noindex = false,
 }) {
-  const titleText = typeof title === "string" ? title : title.absolute;
+  const isAbsolute = typeof title !== "string";
+  // Fit before the layout template appends " | Ashiwani Kumar", so the rendered
+  // tag stays inside the SERP cut-off rather than being truncated mid-phrase.
+  const fittedTitle = isAbsolute
+    ? { absolute: fitTitle(title.absolute, false) }
+    : fitTitle(title, true);
+  const titleText = isAbsolute ? fittedTitle.absolute : fittedTitle;
   const url = `${SITE_URL}${path}`;
   const resolvedOgImage = ogImage || DEFAULT_OG_IMAGE;
 
   return {
-    title,
-    description,
+    title: fittedTitle,
+    // Clamped so an over-long description is trimmed on a word boundary here
+    // rather than truncated mid-word by Google.
+    description: clampWords(description, DESCRIPTION_LIMIT),
     keywords: keywords?.join(", "),
     ...(noindex && { robots: { index: false, follow: false } }),
     ...(!noindex && {
@@ -55,7 +63,7 @@ export function generatePageMetadata({
       siteName: `${SITE_NAME} - SRE & DevOps Engineer`,
       type: ogType,
       images: [
-        { url: resolvedOgImage, width: 1200, height: 630, alt: titleText },
+        { url: resolvedOgImage, width: 1200, height: 600, alt: titleText },
       ],
     },
     twitter: {
@@ -250,4 +258,47 @@ export function generateResumeSchema(experience, education) {
       description: edu.desc,
     })),
   };
+}
+
+/* ────────────────────────────────────────────────────────────────────────────
+ * SERP fitting
+ *
+ * Google truncates titles around 60 characters and descriptions around 158.
+ * A title cut mid-word reads as broken, so trim on a boundary instead.
+ * ──────────────────────────────────────────────────────────────────────────── */
+
+const TITLE_LIMIT = 60;
+const TITLE_SUFFIX = ` | ${SITE_NAME}`;
+export const DESCRIPTION_LIMIT = 158;
+
+/** Truncate on a word boundary and strip trailing punctuation. */
+export function clampWords(text, max) {
+  if (!text || text.length <= max) return text;
+  const cut = text.slice(0, max);
+  const lastSpace = cut.lastIndexOf(" ");
+  return `${cut.slice(0, lastSpace > 0 ? lastSpace : max).replace(/[\s,;:.|–—-]+$/, "")}…`;
+}
+
+/**
+ * Fits a title inside the SERP cut-off, but only when it can do so cleanly.
+ *
+ * Over-long titles here are `Primary phrase | Secondary phrase`, where the
+ * secondary half is what Google was truncating anyway. Dropping whole trailing
+ * segments keeps the primary keyword intact and still reads as a sentence.
+ * With no separator to drop the title is returned unchanged — hard-truncating a
+ * single phrase reads worse than Google's own truncation and throws away
+ * keyword text the full tag still earns relevance for.
+ */
+export function fitTitle(title, hasBrandSuffix = true) {
+  const budget = TITLE_LIMIT - (hasBrandSuffix ? TITLE_SUFFIX.length : 0);
+  if (title.length <= budget) return title;
+
+  // A spaced hyphen counts as a separator; an unspaced one does not, so
+  // "Blue-Green Deployment" is never split.
+  const segments = title.split(/\s+[|\u2013\u2014-]\s+/);
+  for (let i = segments.length - 1; i > 0; i--) {
+    const candidate = segments.slice(0, i).join(" - ");
+    if (candidate.length <= budget) return candidate;
+  }
+  return title;
 }

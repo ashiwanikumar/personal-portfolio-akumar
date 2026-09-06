@@ -14,7 +14,7 @@ Welcome to my personal portfolio website built with Next.js. This is a showcase 
 
 ## 🌐 Portfolio Website
 
-**Live Site**: [ashiwanikumar.in](https://ashiwanikumar.in)
+**Live Site**: [ashiwanikumar.com](https://ashiwanikumar.com)
 
 This portfolio showcases my professional journey, technical skills, project portfolio, and contact information.
 
@@ -111,7 +111,7 @@ The easiest way to deploy your Next.js portfolio:
 
 1. Push your code to GitHub
 2. Connect your repository to [Vercel](https://vercel.com)
-3. Configure your custom domain (ashiwanikumar.in)
+3. Configure your custom domain (ashiwanikumar.com)
 4. Deploy automatically on every push
 
 ### Other Platforms

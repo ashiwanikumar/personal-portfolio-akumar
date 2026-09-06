@@ -1,70 +1,36 @@
+const baseUrl = "https://ashiwanikumar.com";
+
+// Stable dates rather than new Date(), which would move on every build and
+// become noise crawlers learn to ignore. Update when the page content changes.
+const CONTENT_UPDATED = "2026-09-03T00:00:00.000Z";
+const LEGAL_UPDATED = "2026-01-01T00:00:00.000Z";
+
 export default function sitemap() {
-  const baseUrl = "https://ashiwanikumar.com";
+	const pages = [
+		{ path: "", changeFrequency: "weekly", priority: 1.0 },
+		{ path: "/about", changeFrequency: "monthly", priority: 0.9 },
+		{ path: "/services", changeFrequency: "monthly", priority: 0.9 },
+		{ path: "/portfolio", changeFrequency: "monthly", priority: 0.9 },
+		{ path: "/resume", changeFrequency: "monthly", priority: 0.9 },
+		{ path: "/contact", changeFrequency: "monthly", priority: 0.8 },
+		{ path: "/cv/Ashiwani_Kumar_CV.pdf", changeFrequency: "monthly", priority: 0.7 },
+	].map((p) => ({
+		url: `${baseUrl}${p.path}`,
+		lastModified: CONTENT_UPDATED,
+		changeFrequency: p.changeFrequency,
+		priority: p.priority,
+	}));
 
-  // Use a stable date rather than new Date() which changes every build
-  // Update this when actual content changes
-  const lastUpdated = "2026-09-03T00:00:00.000Z";
+	const legal = [
+		"/privacy-notice",
+		"/terms-and-conditions",
+		"/cookies-policy",
+	].map((path) => ({
+		url: `${baseUrl}${path}`,
+		lastModified: LEGAL_UPDATED,
+		changeFrequency: "yearly",
+		priority: 0.3,
+	}));
 
-  return [
-    {
-      url: baseUrl,
-      lastModified: lastUpdated,
-      changeFrequency: "weekly",
-      priority: 1.0,
-    },
-    {
-      url: `${baseUrl}/about`,
-      lastModified: lastUpdated,
-      changeFrequency: "monthly",
-      priority: 0.9,
-    },
-    {
-      url: `${baseUrl}/services`,
-      lastModified: lastUpdated,
-      changeFrequency: "monthly",
-      priority: 0.9,
-    },
-    {
-      url: `${baseUrl}/portfolio`,
-      lastModified: lastUpdated,
-      changeFrequency: "monthly",
-      priority: 0.9,
-    },
-    {
-      url: `${baseUrl}/resume`,
-      lastModified: lastUpdated,
-      changeFrequency: "monthly",
-      priority: 0.9,
-    },
-    {
-      url: `${baseUrl}/cv/Ashiwani_Kumar_CV.pdf`,
-      lastModified: lastUpdated,
-      changeFrequency: "monthly",
-      priority: 0.7,
-    },
-    {
-      url: `${baseUrl}/contact`,
-      lastModified: lastUpdated,
-      changeFrequency: "monthly",
-      priority: 0.8,
-    },
-    {
-      url: `${baseUrl}/privacy-notice`,
-      lastModified: "2025-01-01T00:00:00.000Z",
-      changeFrequency: "yearly",
-      priority: 0.3,
-    },
-    {
-      url: `${baseUrl}/terms-and-conditions`,
-      lastModified: "2025-01-01T00:00:00.000Z",
-      changeFrequency: "yearly",
-      priority: 0.3,
-    },
-    {
-      url: `${baseUrl}/cookies-policy`,
-      lastModified: "2025-01-01T00:00:00.000Z",
-      changeFrequency: "yearly",
-      priority: 0.3,
-    },
-  ];
+	return [...pages, ...legal];
 }
