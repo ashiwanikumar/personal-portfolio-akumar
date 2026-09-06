@@ -77,7 +77,14 @@ pipeline {
                 script {
                     def dateStr = new Date().format('yyyyMMdd-HHmmss')
                     env.DEPLOYMENT_ID = "${env.BUILD_NUMBER}-${dateStr}"
-                    env.IMAGE_TAG = "${env.BUILD_NUMBER}"
+                    // Tag images by commit, not build number: this repo is mirrored on
+                    // two GitHub remotes and each has its own Jenkins job pushing to the
+                    // SAME Nexus repos. With per-job build counters the jobs overwrite
+                    // each other's tags (Nexus keeps only the newest), and a rollout can
+                    // 404 on its own image mid-deploy. Same commit -> same tag makes the
+                    // two jobs idempotent. Falls back to the build number if GIT_COMMIT
+                    // is somehow unset.
+                    env.IMAGE_TAG = env.GIT_COMMIT ? env.GIT_COMMIT.take(8) : "${env.BUILD_NUMBER}"
 
                     echo "============================================"
                     echo "Deployment Configuration"
