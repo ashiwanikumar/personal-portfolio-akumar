@@ -5,7 +5,7 @@ const DEFAULT_OG_IMAGE = `${SITE_URL}/img/og-card.png`;
 export const SOCIAL_PROFILES = {
   linkedin: "https://www.linkedin.com/in/ashiwanikumar/",
   github: "https://github.com/ashiwanikumar",
-  twitter: "https://x.com/theashvanikumar",
+  twitter: "https://x.com/byteforge_ai",
   facebook: "https://www.facebook.com/ashiwani0",
   instagram: "https://www.instagram.com/ashiwani0/",
 };
@@ -68,8 +68,8 @@ export function generatePageMetadata({
     },
     twitter: {
       card: "summary_large_image",
-      site: "@theashvanikumar",
-      creator: "@theashvanikumar",
+      site: "@byteforge_ai",
+      creator: "@byteforge_ai",
       title: titleText,
       description,
       images: [resolvedOgImage],

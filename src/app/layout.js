@@ -62,8 +62,8 @@ export const metadata = {
 	},
 	twitter: {
 		card: "summary_large_image",
-		site: "@theashvanikumar",
-		creator: "@theashvanikumar",
+		site: "@byteforge_ai",
+		creator: "@byteforge_ai",
 		title: "Ashiwani Kumar | SRE & DevOps Practitioner",
 		description: "Linux DevOps Engineer with 7+ years experience managing mission-critical infrastructure across UAE.",
 		images: ["https://ashiwanikumar.com/img/og-card.png"]

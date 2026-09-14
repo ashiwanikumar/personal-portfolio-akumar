@@ -137,7 +137,7 @@ const Hero8 = () => {
 					{[
 						{ href: "https://github.com/ashiwanikumar", icon: "fa-brands fa-github", label: "GitHub" },
 						{ href: "https://www.linkedin.com/in/ashiwanikumar/", icon: "fa-brands fa-linkedin-in", label: "LinkedIn" },
-						{ href: "https://x.com/theashvanikumar", icon: "fa-brands fa-x-twitter", label: "X (Twitter)" },
+						{ href: "https://x.com/byteforge_ai", icon: "fa-brands fa-x-twitter", label: "X (Twitter)" },
 						{ href: "mailto:ashvanikumar109@gmail.com", icon: "fa-solid fa-envelope", label: "Email" },
 					].map((social) => (
 						<li key={social.label} className="nav_item group relative">

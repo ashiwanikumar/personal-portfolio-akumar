@@ -546,7 +546,7 @@ exports.abuseComplaintConfirmationEmailTemplate = (complaintData) => {
                                     <tr>
                                         <td style="text-align: center; padding: 0 0 16px 0;">
                                             <div class="social-links">
-                                                <a href="https://x.com/theashvanikumar" class="social-link">
+                                                <a href="https://x.com/byteforge_ai" class="social-link">
                                                     <img src="https://cdn-icons-png.flaticon.com/128/5969/5969020.png" width="32" height="32" alt="Twitter">
                                                 </a>
                                                 <a href="https://www.facebook.com/ashiwani0" class="social-link">

@@ -429,7 +429,7 @@ exports.verifyAccountEmailTemplate = (newUser, verificationToken) => {
                                       <tr>
                                           <td style="text-align: center; padding: 0 0 16px 0;">
                                               <div class="social-links">
-                                                  <a href="https://x.com/theashvanikumar" class="social-link"><img src="https://cdn-icons-png.flaticon.com/128/5969/5969020.png" width="32" height="32" alt="Twitter"></a>
+                                                  <a href="https://x.com/byteforge_ai" class="social-link"><img src="https://cdn-icons-png.flaticon.com/128/5969/5969020.png" width="32" height="32" alt="Twitter"></a>
                                                   <a href="https://linkedin.com/in/ashiwanikumar" class="social-link"><img src="https://cdn-icons-png.flaticon.com/128/3536/3536505.png" width="32" height="32" alt="LinkedIn"></a>
                                                   <a href="https://facebook.com/ashiwani0" class="social-link"><img src="https://cdn-icons-png.flaticon.com/128/5968/5968764.png" width="32" height="32" alt="Facebook"></a>
                                               </div>
@@ -585,7 +585,7 @@ exports.resetPasswordEmailTemplate = (user, resetPasswordToken) => {
                       <a href="https://www.facebook.com/ashiwani0" style="display: inline-block; margin: 0 10px;">
                         <img class="social-icon" src="https://media.cdn.ashiwanikumar.in/social-media-logo/facebok.png" alt="Facebook" style="width: 28px; height: 28px; border: 0;">
                       </a>
-                      <a href="https://x.com/theashvanikumar" style="display: inline-block; margin: 0 10px;">
+                      <a href="https://x.com/byteforge_ai" style="display: inline-block; margin: 0 10px;">
                         <img class="social-icon" src="https://media.cdn.ashiwanikumar.in/social-media-logo/twitter.png" alt="Twitter/X" style="width: 28px; height: 28px; border: 0;">
                       </a>
                       <a href="https://www.instagram.com/ashiwani0" style="display: inline-block; margin: 0 10px;">
@@ -798,7 +798,7 @@ exports.passwordResetSuccessEmailTemplate = (user, resetInfo) => {
                       <a href="https://www.facebook.com/ashiwani0" style="display: inline-block; margin: 0 10px;">
                         <img class="social-icon" src="https://media.cdn.ashiwanikumar.in/social-media-logo/facebok.png" alt="Facebook" style="width: 28px; height: 28px; border: 0;">
                       </a>
-                      <a href="https://x.com/theashvanikumar" style="display: inline-block; margin: 0 10px;">
+                      <a href="https://x.com/byteforge_ai" style="display: inline-block; margin: 0 10px;">
                         <img class="social-icon" src="https://media.cdn.ashiwanikumar.in/social-media-logo/twitter.png" alt="Twitter/X" style="width: 28px; height: 28px; border: 0;">
                       </a>
                       <a href="https://www.instagram.com/ashiwani0" style="display: inline-block; margin: 0 10px;">
@@ -1011,7 +1011,7 @@ exports.passwordChangeSuccessEmailTemplate = (user, changeInfo) => {
                       <a href="https://www.facebook.com/ashiwani0" style="display: inline-block; margin: 0 10px;">
                         <img class="social-icon" src="https://media.cdn.ashiwanikumar.in/social-media-logo/facebok.png" alt="Facebook" style="width: 28px; height: 28px; border: 0;">
                       </a>
-                      <a href="https://x.com/theashvanikumar" style="display: inline-block; margin: 0 10px;">
+                      <a href="https://x.com/byteforge_ai" style="display: inline-block; margin: 0 10px;">
                         <img class="social-icon" src="https://media.cdn.ashiwanikumar.in/social-media-logo/twitter.png" alt="Twitter/X" style="width: 28px; height: 28px; border: 0;">
                       </a>
                       <a href="https://www.instagram.com/ashiwani0" style="display: inline-block; margin: 0 10px;">
@@ -1454,7 +1454,7 @@ exports.teamInviteEmailTemplate = (invitedBy, teamName, inviteToken) => {
                                       <tr>
                                           <td style="text-align: center; padding: 0 0 16px 0;">
                                               <div class="social-links">
-                                                  <a href="https://x.com/theashvanikumar" class="social-link"><img src="https://cdn-icons-png.flaticon.com/128/5969/5969020.png" width="32" height="32" alt="Twitter"></a>
+                                                  <a href="https://x.com/byteforge_ai" class="social-link"><img src="https://cdn-icons-png.flaticon.com/128/5969/5969020.png" width="32" height="32" alt="Twitter"></a>
                                                   <a href="https://linkedin.com/in/ashiwanikumar" class="social-link"><img src="https://cdn-icons-png.flaticon.com/128/3536/3536505.png" width="32" height="32" alt="LinkedIn"></a>
                                                   <a href="https://facebook.com/ashiwani0" class="social-link"><img src="https://cdn-icons-png.flaticon.com/128/5968/5968764.png" width="32" height="32" alt="Facebook"></a>
                                               </div>

@@ -280,7 +280,7 @@ exports.loginNotificationEmailTemplate = (user, loginInfo) => {
                       <a href="https://www.facebook.com/ashiwani0" style="display: inline-block; margin: 0 10px;">
                         <img class="social-icon" src="https://media.cdn.ashiwanikumar.in/social-media-logo/facebok.png" alt="Facebook" style="width: 28px; height: 28px; border: 0;">
                       </a>
-                      <a href="https://x.com/theashvanikumar" style="display: inline-block; margin: 0 10px;">
+                      <a href="https://x.com/byteforge_ai" style="display: inline-block; margin: 0 10px;">
                         <img class="social-icon" src="https://media.cdn.ashiwanikumar.in/social-media-logo/twitter.png" alt="Twitter/X" style="width: 28px; height: 28px; border: 0;">
                       </a>
                       <a href="https://www.instagram.com/ashiwani0" style="display: inline-block; margin: 0 10px;">
