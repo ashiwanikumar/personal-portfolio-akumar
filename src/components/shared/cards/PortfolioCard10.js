@@ -4,11 +4,15 @@ const PortfolioCard10 = ({ portfolio, idx }) => {
 	const { title, img, desc, category, tags } = portfolio ? portfolio : {};
 	return (
 		<div className="flex flex-col md:flex-row md:[&:nth-child(2n)]:flex-row-reverse items-center gap-30px lg:gap-60px xl:gap-75px 2xl:gap-40 overflow-hidden group mb-60px md:mb-80px">
-			<div className="glass-card p-4 md:p-6 w-full max-w-[645px] rounded-2xl relative overflow-hidden">
+			<div className="glass-card p-2 sm:p-4 md:p-6 w-full max-w-[645px] rounded-2xl relative overflow-hidden">
 				<div className="rounded-xl overflow-hidden">
 					<img
 						src={img}
-						className="w-full transition-transform duration-700 group-hover:scale-105"
+						width={800}
+						height={600}
+						loading={idx === 0 ? "eager" : "lazy"}
+						decoding="async"
+						className="w-full h-auto transition-transform duration-700 group-hover:scale-105"
 						alt={`${title} - ${category} project by Ashiwani Kumar`}
 					/>
 				</div>

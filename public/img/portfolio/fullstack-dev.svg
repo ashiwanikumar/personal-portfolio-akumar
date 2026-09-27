@@ -1,116 +1,54 @@
-<svg xmlns="http://www.w3.org/2000/svg" width="800" height="600" viewBox="0 0 800 600">
-  <rect width="800" height="600" fill="#0d0d0f"/>
-
-  <!-- Dot pattern -->
-  <g fill="white" opacity="0.06">
-    <circle cx="40" cy="40" r="1"/><circle cx="80" cy="40" r="1"/><circle cx="120" cy="40" r="1"/><circle cx="160" cy="40" r="1"/><circle cx="200" cy="40" r="1"/><circle cx="240" cy="40" r="1"/><circle cx="280" cy="40" r="1"/><circle cx="320" cy="40" r="1"/><circle cx="360" cy="40" r="1"/><circle cx="400" cy="40" r="1"/><circle cx="440" cy="40" r="1"/><circle cx="480" cy="40" r="1"/><circle cx="520" cy="40" r="1"/><circle cx="560" cy="40" r="1"/><circle cx="600" cy="40" r="1"/><circle cx="640" cy="40" r="1"/><circle cx="680" cy="40" r="1"/><circle cx="720" cy="40" r="1"/><circle cx="760" cy="40" r="1"/>
-    <circle cx="40" cy="80" r="1"/><circle cx="80" cy="80" r="1"/><circle cx="120" cy="80" r="1"/><circle cx="160" cy="80" r="1"/><circle cx="200" cy="80" r="1"/><circle cx="240" cy="80" r="1"/><circle cx="280" cy="80" r="1"/><circle cx="320" cy="80" r="1"/><circle cx="360" cy="80" r="1"/><circle cx="400" cy="80" r="1"/><circle cx="440" cy="80" r="1"/><circle cx="480" cy="80" r="1"/><circle cx="520" cy="80" r="1"/><circle cx="560" cy="80" r="1"/><circle cx="600" cy="80" r="1"/><circle cx="640" cy="80" r="1"/><circle cx="680" cy="80" r="1"/><circle cx="720" cy="80" r="1"/><circle cx="760" cy="80" r="1"/>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 600" role="img" aria-label="Diagram: three-tier web application with a Next.js frontend, Node.js API and MongoDB/PostgreSQL data layer">
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#0b0d10"/><stop offset="1" stop-color="#12151a"/>
+    </linearGradient>
+    <radialGradient id="glow" cx="0.5" cy="0.45" r="0.55">
+      <stop offset="0" stop-color="#10b981" stop-opacity="0.13"/><stop offset="1" stop-color="#10b981" stop-opacity="0"/>
+    </radialGradient>
+    <pattern id="dots" width="24" height="24" patternUnits="userSpaceOnUse">
+      <circle cx="1" cy="1" r="1" fill="#ffffff" fill-opacity="0.05"/>
+    </pattern>
+    <marker id="arr" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+      <path d="M0 0 L10 5 L0 10 z" fill="#34d399"/>
+    </marker>
+    <marker id="arrm" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+      <path d="M0 0 L10 5 L0 10 z" fill="#71717a"/>
+    </marker>
+  </defs>
+  <rect width="800" height="600" fill="url(#bg)"/>
+  <rect width="800" height="600" fill="url(#dots)"/>
+  <rect width="800" height="600" fill="url(#glow)"/>
+  <g transform="translate(0 14)">
+  <rect x="150" y="80" width="500" height="104" rx="14" fill="#161a20" stroke="#2a3038" stroke-width="1"/>
+  <rect x="150" y="80" width="6" height="104" rx="3" fill="#34d399"/>
+  <text x="184" y="124" font-family="Inter, ui-sans-serif, system-ui, -apple-system, 'Segoe UI', sans-serif" font-size="22" font-weight="700" fill="#e4e4e7" text-anchor="start">frontend</text>
+  <text x="184" y="156" font-family="'JetBrains Mono', ui-monospace, SFMono-Regular, Menlo, monospace" font-size="15" font-weight="500" fill="#a1a1aa" text-anchor="start">Next.js  ·  React  ·  Tailwind</text>
+  <rect x="530" y="115" width="96" height="32" rx="16.0" fill="#34d399" fill-opacity="0.12" stroke="#34d399" stroke-width="1"/>
+  <rect x="530" y="115" width="96" height="32" rx="16.0" fill="none" stroke="#34d399" stroke-opacity="0.45"/>
+  <text x="578.0" y="135.68" font-family="'JetBrains Mono', ui-monospace, SFMono-Regular, Menlo, monospace" font-size="13" font-weight="600" fill="#34d399" text-anchor="middle">browser</text>
+  <line x1="400" y1="188" x2="400" y2="222" stroke="#34d399" stroke-width="2" marker-end="url(#arr)"/>
+  <line x1="420" y1="222" x2="420" y2="190" stroke="#71717a" stroke-width="2" marker-end="url(#arrm)"/>
+  <rect x="150" y="230" width="500" height="104" rx="14" fill="#161a20" stroke="#2a3038" stroke-width="1"/>
+  <rect x="150" y="230" width="6" height="104" rx="3" fill="#38bdf8"/>
+  <text x="184" y="274" font-family="Inter, ui-sans-serif, system-ui, -apple-system, 'Segoe UI', sans-serif" font-size="22" font-weight="700" fill="#e4e4e7" text-anchor="start">api</text>
+  <text x="184" y="306" font-family="'JetBrains Mono', ui-monospace, SFMono-Regular, Menlo, monospace" font-size="15" font-weight="500" fill="#a1a1aa" text-anchor="start">Node.js  ·  Express  ·  REST</text>
+  <rect x="530" y="265" width="96" height="32" rx="16.0" fill="#38bdf8" fill-opacity="0.12" stroke="#38bdf8" stroke-width="1"/>
+  <rect x="530" y="265" width="96" height="32" rx="16.0" fill="none" stroke="#38bdf8" stroke-opacity="0.45"/>
+  <text x="578.0" y="285.68" font-family="'JetBrains Mono', ui-monospace, SFMono-Regular, Menlo, monospace" font-size="13" font-weight="600" fill="#38bdf8" text-anchor="middle">server</text>
+  <line x1="400" y1="338" x2="400" y2="372" stroke="#34d399" stroke-width="2" marker-end="url(#arr)"/>
+  <line x1="420" y1="372" x2="420" y2="340" stroke="#71717a" stroke-width="2" marker-end="url(#arrm)"/>
+  <rect x="150" y="380" width="500" height="104" rx="14" fill="#161a20" stroke="#2a3038" stroke-width="1"/>
+  <rect x="150" y="380" width="6" height="104" rx="3" fill="#f59e0b"/>
+  <text x="184" y="424" font-family="Inter, ui-sans-serif, system-ui, -apple-system, 'Segoe UI', sans-serif" font-size="22" font-weight="700" fill="#e4e4e7" text-anchor="start">data</text>
+  <text x="184" y="456" font-family="'JetBrains Mono', ui-monospace, SFMono-Regular, Menlo, monospace" font-size="15" font-weight="500" fill="#a1a1aa" text-anchor="start">MongoDB  ·  PostgreSQL</text>
+  <rect x="530" y="415" width="96" height="32" rx="16.0" fill="#f59e0b" fill-opacity="0.12" stroke="#f59e0b" stroke-width="1"/>
+  <rect x="530" y="415" width="96" height="32" rx="16.0" fill="none" stroke="#f59e0b" stroke-opacity="0.45"/>
+  <text x="578.0" y="435.68" font-family="'JetBrains Mono', ui-monospace, SFMono-Regular, Menlo, monospace" font-size="13" font-weight="600" fill="#f59e0b" text-anchor="middle">storage</text>
+  <text x="380" y="214" font-family="'JetBrains Mono', ui-monospace, SFMono-Regular, Menlo, monospace" font-size="12" font-weight="500" fill="#34d399" text-anchor="end">request</text>
+  <text x="440" y="214" font-family="'JetBrains Mono', ui-monospace, SFMono-Regular, Menlo, monospace" font-size="12" font-weight="500" fill="#71717a" text-anchor="start">json</text>
+  <text x="380" y="364" font-family="'JetBrains Mono', ui-monospace, SFMono-Regular, Menlo, monospace" font-size="12" font-weight="500" fill="#34d399" text-anchor="end">query</text>
+  <text x="440" y="364" font-family="'JetBrains Mono', ui-monospace, SFMono-Regular, Menlo, monospace" font-size="12" font-weight="500" fill="#71717a" text-anchor="start">rows</text>
   </g>
-
-  <!-- Background glow -->
-  <circle cx="400" cy="240" r="200" fill="#61DAFB" opacity="0.025"/>
-
-  <!-- Browser window frame -->
-  <rect x="150" y="55" width="500" height="320" rx="14" fill="#141416" stroke="white" stroke-opacity="0.06"/>
-
-  <!-- Title bar -->
-  <rect x="150" y="55" width="500" height="32" rx="14" fill="#1a1a1e"/>
-  <rect x="150" y="73" width="500" height="14" fill="#1a1a1e"/>
-  <circle cx="168" cy="71" r="4.5" fill="#ff5f57" opacity="0.8"/>
-  <circle cx="184" cy="71" r="4.5" fill="#febc2e" opacity="0.8"/>
-  <circle cx="200" cy="71" r="4.5" fill="#28c840" opacity="0.8"/>
-
-  <!-- URL bar -->
-  <rect x="230" y="64" width="340" height="14" rx="4" fill="white" opacity="0.04"/>
-  <text x="250" y="74" fill="white" opacity="0.2" font-family="Arial, sans-serif" font-size="8">https://myapp.dev</text>
-
-  <!-- Sidebar -->
-  <rect x="162" y="97" width="80" height="265" rx="8" fill="#111115"/>
-  <rect x="172" y="110" width="60" height="6" rx="3" fill="white" opacity="0.08"/>
-  <rect x="172" y="125" width="45" height="5" rx="2" fill="white" opacity="0.05"/>
-  <rect x="172" y="137" width="52" height="5" rx="2" fill="white" opacity="0.05"/>
-  <rect x="172" y="149" width="40" height="5" rx="2" fill="#61DAFB" opacity="0.2"/>
-  <rect x="172" y="161" width="48" height="5" rx="2" fill="white" opacity="0.05"/>
-
-  <!-- Main content -->
-  <rect x="252" y="97" width="386" height="265" rx="8" fill="#0d0d0f"/>
-
-  <!-- Header -->
-  <rect x="262" y="107" width="366" height="30" rx="6" fill="white" opacity="0.02"/>
-  <rect x="272" y="117" width="80" height="8" rx="4" fill="white" opacity="0.08"/>
-
-  <!-- Stats cards -->
-  <rect x="262" y="147" width="85" height="55" rx="8" fill="#141416"/>
-  <text x="275" y="165" fill="white" opacity="0.2" font-family="Arial, sans-serif" font-size="7">Users</text>
-  <text x="275" y="185" fill="white" opacity="0.5" font-family="Arial, sans-serif" font-size="16" font-weight="bold">2.4k</text>
-
-  <rect x="357" y="147" width="85" height="55" rx="8" fill="#141416"/>
-  <text x="370" y="165" fill="white" opacity="0.2" font-family="Arial, sans-serif" font-size="7">Revenue</text>
-  <text x="370" y="185" fill="#10b981" opacity="0.5" font-family="Arial, sans-serif" font-size="16" font-weight="bold">$18k</text>
-
-  <rect x="452" y="147" width="85" height="55" rx="8" fill="#141416"/>
-  <text x="465" y="165" fill="white" opacity="0.2" font-family="Arial, sans-serif" font-size="7">Orders</text>
-  <text x="465" y="185" fill="white" opacity="0.5" font-family="Arial, sans-serif" font-size="16" font-weight="bold">847</text>
-
-  <rect x="547" y="147" width="81" height="55" rx="8" fill="#141416"/>
-  <text x="560" y="165" fill="white" opacity="0.2" font-family="Arial, sans-serif" font-size="7">Uptime</text>
-  <text x="560" y="185" fill="#10b981" opacity="0.5" font-family="Arial, sans-serif" font-size="16" font-weight="bold">99.9</text>
-
-  <!-- Chart area -->
-  <rect x="262" y="212" width="180" height="140" rx="8" fill="#141416"/>
-  <text x="275" y="232" fill="white" opacity="0.2" font-family="Arial, sans-serif" font-size="8" font-weight="bold">Analytics</text>
-  <!-- Bar chart -->
-  <rect x="282" y="295" width="14" height="40" rx="2" fill="#61DAFB" opacity="0.2"/>
-  <rect x="304" y="275" width="14" height="60" rx="2" fill="#61DAFB" opacity="0.25"/>
-  <rect x="326" y="285" width="14" height="50" rx="2" fill="#61DAFB" opacity="0.2"/>
-  <rect x="348" y="265" width="14" height="70" rx="2" fill="#10b981" opacity="0.3"/>
-  <rect x="370" y="280" width="14" height="55" rx="2" fill="#61DAFB" opacity="0.2"/>
-  <rect x="392" y="290" width="14" height="45" rx="2" fill="#61DAFB" opacity="0.15"/>
-  <rect x="414" y="270" width="14" height="65" rx="2" fill="#61DAFB" opacity="0.25"/>
-
-  <!-- Table area -->
-  <rect x="452" y="212" width="176" height="140" rx="8" fill="#141416"/>
-  <text x="465" y="232" fill="white" opacity="0.2" font-family="Arial, sans-serif" font-size="8" font-weight="bold">Recent Activity</text>
-  <rect x="462" y="245" width="156" height="6" rx="3" fill="white" opacity="0.04"/>
-  <rect x="462" y="259" width="130" height="6" rx="3" fill="white" opacity="0.03"/>
-  <rect x="462" y="273" width="145" height="6" rx="3" fill="white" opacity="0.04"/>
-  <rect x="462" y="287" width="110" height="6" rx="3" fill="white" opacity="0.03"/>
-  <rect x="462" y="301" width="140" height="6" rx="3" fill="white" opacity="0.04"/>
-  <rect x="462" y="315" width="125" height="6" rx="3" fill="white" opacity="0.03"/>
-  <rect x="462" y="329" width="150" height="6" rx="3" fill="white" opacity="0.04"/>
-
-  <!-- Tech stack icons -->
-  <!-- Next.js -->
-  <rect x="132" y="402" width="56" height="36" rx="10" fill="#141416" stroke="white" stroke-opacity="0.07"/>
-  <text x="160" y="425" fill="white" opacity="0.6" font-family="Arial, sans-serif" font-size="12" text-anchor="middle" font-weight="bold">N</text>
-  <text x="160" y="458" fill="white" opacity="0.25" font-family="Arial, sans-serif" font-size="9" text-anchor="middle">Next.js</text>
-
-  <!-- React -->
-  <rect x="242" y="402" width="56" height="36" rx="10" fill="#141416" stroke="white" stroke-opacity="0.07"/>
-  <circle cx="270" cy="420" r="4" fill="#61DAFB" opacity="0.5"/>
-  <ellipse cx="270" cy="420" rx="13" ry="5" fill="none" stroke="#61DAFB" stroke-width="1" opacity="0.35"/>
-  <ellipse cx="270" cy="420" rx="13" ry="5" fill="none" stroke="#61DAFB" stroke-width="1" opacity="0.35" transform="rotate(60, 270, 420)"/>
-  <ellipse cx="270" cy="420" rx="13" ry="5" fill="none" stroke="#61DAFB" stroke-width="1" opacity="0.35" transform="rotate(-60, 270, 420)"/>
-  <text x="270" y="458" fill="white" opacity="0.25" font-family="Arial, sans-serif" font-size="9" text-anchor="middle">React</text>
-
-  <!-- Node.js -->
-  <rect x="352" y="402" width="56" height="36" rx="10" fill="#141416" stroke="white" stroke-opacity="0.07"/>
-  <polygon points="380,410 389,415 389,425 380,430 371,425 371,415" fill="none" stroke="#68A063" stroke-width="1.5" opacity="0.5"/>
-  <text x="380" y="458" fill="white" opacity="0.25" font-family="Arial, sans-serif" font-size="9" text-anchor="middle">Node.js</text>
-
-  <!-- TypeScript -->
-  <rect x="462" y="402" width="56" height="36" rx="10" fill="#141416" stroke="white" stroke-opacity="0.07"/>
-  <rect x="482" y="412" width="16" height="16" rx="2" fill="none" stroke="#3178C6" stroke-width="1.5" opacity="0.5"/>
-  <text x="490" y="424" fill="#3178C6" opacity="0.6" font-family="Arial, sans-serif" font-size="10" text-anchor="middle" font-weight="bold">TS</text>
-  <text x="490" y="458" fill="white" opacity="0.25" font-family="Arial, sans-serif" font-size="9" text-anchor="middle">TypeScript</text>
-
-  <!-- Tailwind -->
-  <rect x="572" y="402" width="56" height="36" rx="10" fill="#141416" stroke="white" stroke-opacity="0.07"/>
-  <path d="M592,416 C595,410 600,410 603,416 C606,422 611,422 614,416" fill="none" stroke="#06B6D4" stroke-width="1.5" opacity="0.5"/>
-  <path d="M592,423 C595,417 600,417 603,423 C606,429 611,429 614,423" fill="none" stroke="#06B6D4" stroke-width="1.5" opacity="0.3"/>
-  <text x="600" y="458" fill="white" opacity="0.25" font-family="Arial, sans-serif" font-size="9" text-anchor="middle">Tailwind</text>
-
-  <!-- Title -->
-  <text x="400" y="510" fill="white" font-family="Arial, sans-serif" font-size="20" font-weight="bold" text-anchor="middle" letter-spacing="3">FULL STACK DEVELOPMENT</text>
-  <text x="400" y="538" fill="white" opacity="0.3" font-family="Arial, sans-serif" font-size="13" text-anchor="middle" letter-spacing="1">Next.js - React - Node.js - TypeScript</text>
+  <text x="400" y="540" font-family="'JetBrains Mono', ui-monospace, SFMono-Regular, Menlo, monospace" font-size="15" font-weight="500" fill="#34d399" text-anchor="middle" letter-spacing="0.5">Dockerised  ·  CI-deployed  ·  REST APIs</text>
 </svg>
