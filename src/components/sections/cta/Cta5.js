@@ -324,13 +324,8 @@ const Cta5 = ({ headingLevel = "h2" }) => {
 							</span>
 							<a href="tel:+971566182303" className="flex items-center gap-2 transition-colors duration-300 hover:text-[#34d399]">
 								<i className="fa-solid fa-phone text-[#34d399]/50" aria-hidden="true"></i>
-								<span className="sr-only">UAE phone: </span>
+								<span className="sr-only">Phone: </span>
 								+971 566182303
-							</a>
-							<a href="tel:+918770616837" className="flex items-center gap-2 transition-colors duration-300 hover:text-[#34d399]">
-								<i className="fa-solid fa-phone text-[#34d399]/50" aria-hidden="true"></i>
-								<span className="sr-only">India phone: </span>
-								+91 8770616837
 							</a>
 							<a href={`mailto:${CONTACT_EMAIL}`} className="flex items-center gap-2 transition-colors duration-300 hover:text-[#34d399]">
 								<i className="fa-solid fa-envelope text-[#34d399]/50" aria-hidden="true"></i>
