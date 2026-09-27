@@ -8,8 +8,8 @@ Key facts:
 - Track record: 7+ years in production, 500+ servers managed, 99.9% uptime across aviation, healthcare, and telecom
 - Aviation: critical systems for Abu Dhabi, Sharjah, and other UAE airports; on-site work at Muscat International Airport (Oman, ongoing)
 - Previous: System Engineer at NMC Healthcare (UAE), Linux System Administrator at CoreHive Computing (India), SUSE Linux & VMware Admin at Dilip Buildcon (India)
-- Certifications: AWS Solutions Architect – Associate, RHCSA, CCNA, JNCIA (Cloud, SEC, Junos)
-- Education: B.E. Computer Science Engineering, RGPV University (2015–2018)
+- Certifications: AZ-104 Microsoft Azure Administrator Associate, AZ-400 Microsoft Azure DevOps Engineer Expert, AWS Solutions Architect – Associate, RHCSA & RHCE, CCNA, JNCIA (Cloud, SEC, Junos)
+- Education: B.E. Computer Science Engineering, RGPV University (2014–2018); Diploma in Computer Science Engineering (2011–2014)
 - Open source enthusiast; interested in AI-assisted operations, MLOps, and cloud-native AI platforms
 - Available for DevOps consulting, cloud infrastructure, Kubernetes/OpenShift, and CI/CD automation work
 

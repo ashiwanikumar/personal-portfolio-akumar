@@ -20,7 +20,10 @@ const BOUNCE_SUBJECTS = /(delivery status notification|undelivered mail returned
 function config() {
   return {
     cvNameRegex: new RegExp(
-      process.env.GMAIL_CV_FILENAME_REGEX || "cv|resume|curriculum[ _-]?vitae|profile",
+      process.env.GMAIL_CV_FILENAME_REGEX ||
+        // The last alternative matches the site's own CV (Ashiwani_Kumar_DevOps_SRE.pdf),
+        // whose name carries no generic "cv"/"resume" keyword.
+        "cv|resume|curriculum[ _-]?vitae|profile|ashiwani[ _-]?kumar[ _-]?devops",
       "i"
     ),
     // A name-based cvNameRegex also catches salary certificates, contracts and

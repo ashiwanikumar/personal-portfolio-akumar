@@ -2,7 +2,7 @@ const baseUrl = "https://ashiwanikumar.com";
 
 // Stable dates rather than new Date(), which would move on every build and
 // become noise crawlers learn to ignore. Update when the page content changes.
-const CONTENT_UPDATED = "2026-09-03T00:00:00.000Z";
+const CONTENT_UPDATED = "2026-09-28T00:00:00.000Z";
 const LEGAL_UPDATED = "2026-01-01T00:00:00.000Z";
 
 export default function sitemap() {
@@ -13,7 +13,7 @@ export default function sitemap() {
 		{ path: "/portfolio", changeFrequency: "monthly", priority: 0.9 },
 		{ path: "/resume", changeFrequency: "monthly", priority: 0.9 },
 		{ path: "/contact", changeFrequency: "monthly", priority: 0.8 },
-		{ path: "/cv/Ashiwani_Kumar_CV.pdf", changeFrequency: "monthly", priority: 0.7 },
+		{ path: "/cv/Ashiwani_Kumar_DevOps_SRE.pdf", changeFrequency: "monthly", priority: 0.7 },
 	].map((p) => ({
 		url: `${baseUrl}${p.path}`,
 		lastModified: CONTENT_UPDATED,

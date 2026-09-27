@@ -12,7 +12,7 @@
         "desc": "Managing critical infrastructure for 5 UAE airports with 99.9% uptime, serving 50M+ annual passengers. DevSecOps implementation with 70% faster incident response."
       },
       {
-        "date": "Aug 2022 - Jan 2024",
+        "date": "Jul 2022 - Jan 2024",
         "title": "System Engineer",
         "company": "NMC Healthcare",
         "country": "UAE",
@@ -50,6 +50,25 @@
     "iconName": "flaticon-graduation-cap",
     "resumeItems": [
       {
+        "type": "certification",
+        "date": "Certified",
+        "title": "AZ-104 – Microsoft Azure Administrator Associate",
+        "company": "Microsoft",
+        "country": "Global",
+        "flag": "🌐",
+        "desc": "Managing Azure identities, governance, storage, compute, virtual networking, and monitoring"
+      },
+      {
+        "type": "certification",
+        "date": "Certified",
+        "title": "AZ-400 – Microsoft Azure DevOps Engineer Expert",
+        "company": "Microsoft",
+        "country": "Global",
+        "flag": "🌐",
+        "desc": "Designing and implementing DevOps processes, CI/CD, and release strategies on Azure"
+      },
+      {
+        "type": "certification",
         "date": "2024",
         "title": "AWS Solutions Architect - Associate",
         "company": "Amazon Web Services",
@@ -58,28 +77,51 @@
         "desc": "Cloud architecture and design certification"
       },
       {
+        "type": "certification",
         "date": "Certified",
-        "title": "RHCSA & CCNA",
-        "company": "Red Hat & Cisco",
+        "title": "RHCSA & RHCE",
+        "count": 2,
+        "company": "Red Hat",
         "country": "Global",
         "flag": "🌐",
-        "desc": "Red Hat Certified System Administrator & Cisco Certified Network Associate"
+        "desc": "Red Hat Certified System Administrator & Red Hat Certified Engineer"
       },
       {
+        "type": "certification",
+        "date": "Certified",
+        "title": "CCNA",
+        "company": "Cisco",
+        "country": "Global",
+        "flag": "🌐",
+        "desc": "Cisco Certified Network Associate"
+      },
+      {
+        "type": "certification",
         "date": "Certified",
         "title": "JNCIA-Cloud, JNCIA-SEC, JNCIA-Junos",
+        "count": 3,
         "company": "Juniper Networks",
         "country": "Global",
         "flag": "🌐",
         "desc": "Juniper Networks Certified Associate - Cloud, Security & Junos"
       },
       {
-        "date": "2015 - 2018",
+        "type": "education",
+        "date": "2014 - 2018",
         "title": "B.E. Computer Science Engineering",
         "company": "RGPV University",
         "country": "India",
         "flag": "🇮🇳",
-        "desc": "Rajiv Gandhi Prodyogiki Vishwavidyalaya - First Class Graduate"
+        "desc": "Rajiv Gandhi Proudyogiki Vishwavidyalaya, Madhya Pradesh - First Class"
+      },
+      {
+        "type": "education",
+        "date": "2011 - 2014",
+        "title": "Diploma in Computer Science Engineering",
+        "company": "Haryana State Technical Education",
+        "country": "India",
+        "flag": "🇮🇳",
+        "desc": "Haryana State Board of Technical Education, Haryana"
       }
     ]
   }

@@ -1,31 +1,14 @@
 "use client";
 
-const ButtonDownload = ({ text, path }) => {
-	function handleClick() {
-		try {
-			fetch("/api/public/cv", {
-				method: "POST",
-				headers: { "Content-Type": "application/json" },
-				body: JSON.stringify({
-					action: "download",
-					referrer: document.referrer || "",
-					source: document.referrer ? new URL(document.referrer).hostname : "direct",
-					pageUrl: window.location.href,
-					screenResolution: `${window.screen.width}x${window.screen.height}`,
-					language: navigator.language || "",
-				}),
-			}).catch(() => {});
-		} catch {
-			// Silently fail
-		}
-	}
+import { CV_FILENAME, CV_PATH, trackCvEvent } from "@/libs/cv";
 
+const ButtonDownload = ({ text, path }) => {
 	return (
 		<div>
 			<a
-				href={path || "/cv/Ashiwani_Kumar_CV.pdf"}
-				download="Ashiwani_Kumar_CV.pdf"
-				onClick={handleClick}
+				href={path || CV_PATH}
+				download={CV_FILENAME}
+				onClick={() => trackCvEvent("download")}
 				className="text-sm font-medium text-[#022c22] py-2.5 px-5 bg-[#10b981] hover:bg-[#34d399] rounded-lg leading-1 text-nowrap group inline-flex gap-x-2.5 items-center transition-all duration-300"
 				aria-label={text || "Download CV"}
 			>

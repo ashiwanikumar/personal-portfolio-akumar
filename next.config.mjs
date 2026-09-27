@@ -23,6 +23,12 @@ const nextConfig = {
         destination: "/dashboard",
         permanent: true,
       },
+      // The old CV URL is in sent emails and search indexes; keep it working.
+      {
+        source: "/cv/Ashiwani_Kumar_CV.pdf",
+        destination: "/cv/Ashiwani_Kumar_DevOps_SRE.pdf",
+        permanent: false,
+      },
     ];
   },
   async headers() {
@@ -31,7 +37,7 @@ const nextConfig = {
         source: "/:path((?!_next/static|_next/image|favicon).*)",
         headers: [
           { key: "X-Content-Type-Options", value: "nosniff" },
-          { key: "X-Frame-Options", value: "DENY" },
+          { key: "X-Frame-Options", value: "SAMEORIGIN" },
           { key: "X-XSS-Protection", value: "1; mode=block" },
           { key: "Referrer-Policy", value: "strict-origin-when-cross-origin" },
           { key: "Permissions-Policy", value: "camera=(), microphone=(), geolocation=(self)" },

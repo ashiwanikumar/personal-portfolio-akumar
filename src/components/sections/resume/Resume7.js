@@ -8,6 +8,9 @@ import getResume from "@/libs/getResume";
 const Resume7 = () => {
 	const resume = getResume();
 	const experienceItems = resume?.[0]?.resumeItems || [];
+	const credentialItems = resume?.[1]?.resumeItems || [];
+	const certifications = credentialItems.filter((item) => item.type === "certification");
+	const education = credentialItems.filter((item) => item.type === "education");
 
 	const groupedByCountry = experienceItems.reduce((acc, item) => {
 		const country = item.country || "Other";
@@ -130,6 +133,54 @@ const Resume7 = () => {
 									</div>
 								</div>
 							))}
+
+							{certifications.length > 0 && (
+								<div className="mb-2 min-w-0">
+									<div className="flex items-center gap-3 mb-5 pb-3 border-b border-white/[0.08]">
+										<i className="fa-solid fa-certificate text-[#34d399]" aria-hidden="true"></i>
+										<h3 className="text-sm font-semibold text-white/80 font-mono uppercase tracking-[0.14em]">
+											Certifications
+										</h3>
+									</div>
+									<ul className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+										{certifications.map((cert) => (
+											<li key={cert.title} className="glass-card py-5 px-5 rounded-2xl">
+												<h4 className="text-[15px] leading-snug text-white mb-1.5 font-semibold tracking-[-0.01em]">
+													{cert.title}
+												</h4>
+												<p className="text-[#38bdf8]/80 text-xs font-mono mb-2">{cert.company}</p>
+												<p className="text-white/45 text-sm leading-[1.6]">{cert.desc}</p>
+											</li>
+										))}
+									</ul>
+								</div>
+							)}
+
+							{education.length > 0 && (
+								<div className="mb-2 min-w-0">
+									<div className="flex items-center gap-3 mb-5 pb-3 border-b border-white/[0.08]">
+										<i className="fa-solid fa-graduation-cap text-[#34d399]" aria-hidden="true"></i>
+										<h3 className="text-sm font-semibold text-white/80 font-mono uppercase tracking-[0.14em]">
+											Education
+										</h3>
+									</div>
+									<div className="flex flex-col gap-4">
+										{education.map((edu) => (
+											<article key={edu.title} className="glass-card py-5 px-5 xl:px-8 rounded-2xl flex flex-col sm:flex-row sm:items-center justify-between gap-3">
+												<div className="min-w-0">
+													<h4 className="text-base leading-snug text-white mb-1.5 font-semibold tracking-[-0.01em]">
+														{edu.title}
+													</h4>
+													<p className="text-white/45 text-sm leading-[1.6]">{edu.desc}</p>
+												</div>
+												<span className="self-start sm:self-center inline-flex px-3 py-1.5 bg-[#10b981]/[0.07] border border-[#10b981]/15 rounded-full text-[#34d399]/90 text-xs font-mono font-medium whitespace-nowrap">
+													{edu.date}
+												</span>
+											</article>
+										))}
+									</div>
+								</div>
+							)}
 						</div>
 					</div>
 				</div>

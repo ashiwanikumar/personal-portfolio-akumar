@@ -111,6 +111,7 @@ export function generatePersonSchema() {
       "Linux Administration",
       "Docker",
       "Azure DevOps",
+      "Microsoft Azure",
     ],
   };
 }
@@ -256,6 +257,8 @@ export function generateResumeSchema(experience, education) {
       "@type": "EducationalOccupationalCredential",
       name: edu.title || edu.designation,
       description: edu.desc,
+      credentialCategory: edu.type === "certification" ? "certification" : "degree",
+      ...(edu.company && { recognizedBy: { "@type": "Organization", name: edu.company } }),
     })),
   };
 }

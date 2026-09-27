@@ -126,6 +126,24 @@ describe("buildOutreachDoc", () => {
     expect(buildOutreachDoc(invoice, cfg())).toBeNull();
   });
 
+  it("recognises the site's CV file, which has no cv/resume keyword", () => {
+    const siteCv = {
+      ...message,
+      payload: {
+        ...message.payload,
+        parts: [
+          {
+            mimeType: "application/pdf",
+            filename: "Ashiwani_Kumar_DevOps_SRE.pdf",
+            body: { size: 1000, attachmentId: "a" },
+          },
+        ],
+      },
+    };
+
+    expect(buildOutreachDoc(siteCv, cfg()).cvFileName).toBe("Ashiwani_Kumar_DevOps_SRE.pdf");
+  });
+
   it("skips CV-named files of the wrong type", () => {
     const photo = {
       ...message,
