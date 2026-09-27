@@ -52,8 +52,9 @@ const Newsletter = () => {
 					</h2>
 
 					<p className="text-white/45 text-base leading-[1.75] mb-10 max-w-xl mx-auto">
-						Occasional, practical writing on Kubernetes, cloud infrastructure, and
-						where AI is changing operations. No fluff, no spam — unsubscribe anytime.
+						I write now and then about Kubernetes, cloud infrastructure and how AI is
+						changing operations. Practical notes from real work. Unsubscribe whenever
+						you like.
 					</p>
 
 					<form onSubmit={handleSubmit} className="flex flex-col sm:flex-row gap-3 max-w-lg mx-auto px-4 sm:px-0" aria-label="Newsletter subscription">
@@ -97,8 +98,8 @@ const Newsletter = () => {
 
 					<p id="newsletter-hint" className="text-white/50 text-xs mt-6 font-mono">
 						{status === "error"
-							? "Subscription failed — please try again, or use the contact form below."
-							: "Read by DevOps and SRE folks worldwide."}
+							? "That didn't work. Please try again, or use the contact form below."
+							: "No spam. Just an email when there's something worth reading."}
 					</p>
 
 					{/* Status announcement for screen readers */}

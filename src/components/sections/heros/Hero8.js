@@ -48,12 +48,13 @@ const Hero8 = () => {
 						</h1>
 
 						<p className="text-[15px] md:text-base leading-[1.75] text-white/55 max-w-[480px] mx-auto lg:mx-0 mb-9">
-							I&apos;m Ashiwani Kumar — a Linux DevOps &amp; SRE engineer with 7+ years
-							running mission-critical systems. Today that means keeping five UAE
-							airports online at 99.9% uptime, on Kubernetes, OpenShift, and AWS.
+							I&apos;m Ashiwani, a Linux DevOps and SRE engineer in Abu Dhabi. For 7+
+							years I&apos;ve looked after systems that can&apos;t go down. Right now
+							that&apos;s the infrastructure behind five UAE airports, running on
+							Kubernetes, OpenShift and AWS at 99.9% uptime.
 						</p>
 
-						<div className="flex flex-col sm:flex-row gap-4 items-center lg:items-start justify-center lg:justify-start mb-10">
+						<div className="flex flex-col sm:flex-row gap-4 items-center justify-center lg:justify-start mb-10">
 							<ButtonPrimary isIcon={true} href="/#contact">
 								Start a conversation
 							</ButtonPrimary>
@@ -73,10 +74,9 @@ const Hero8 = () => {
 								{ value: "99.9%", label: "uptime" },
 								{ value: "500+", label: "servers" },
 							].map((m) => (
-								<div key={m.label} className="text-center lg:text-left">
-									<dt className="sr-only">{m.label}</dt>
+								<div key={m.label} className="flex flex-col-reverse text-center lg:text-left">
+									<dt className="text-white/50 text-[11px] uppercase tracking-[0.15em]">{m.label}</dt>
 									<dd className="text-white text-lg font-semibold leading-none mb-1">{m.value}</dd>
-									<dd className="text-white/50 text-[11px] uppercase tracking-[0.15em]">{m.label}</dd>
 								</div>
 							))}
 						</dl>

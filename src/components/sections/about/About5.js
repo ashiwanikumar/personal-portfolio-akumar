@@ -70,14 +70,14 @@ const About5 = () => {
 					<div className="text-center mb-16">
 						<span className="section-badge mb-6 inline-flex">About</span>
 						<h2 id="about-heading" className="text-[26px] md:text-[30px] lg:text-[34px] xl:text-[36px] font-semibold leading-[1.1] tracking-[-0.02em] mb-6 text-white">
-							Reliability isn&apos;t a feature.{" "}
-							<span className="gradient-text">It&apos;s the product.</span>
+							Good infrastructure is the kind{" "}
+							<span className="gradient-text">nobody talks about.</span>
 						</h2>
 						<p className="text-white/50 max-w-2xl mx-auto text-[15px] leading-[1.75]">
-							For seven years I&apos;ve run the systems people only notice when they break —
-							airport infrastructure, healthcare platforms, telecom backbones. Right now
-							that means keeping five UAE airports, serving 50M+ passengers a year, at
-							99.9% uptime. Originally from India, now based in Abu Dhabi, UAE.
+							I&apos;ve spent seven years on systems people only notice when they break:
+							airport infrastructure, hospital platforms, telecom networks. Today I keep
+							five UAE airports running at 99.9% uptime, for more than 50 million
+							passengers a year. I&apos;m originally from India and now live in Abu Dhabi.
 						</p>
 					</div>
 
@@ -113,8 +113,8 @@ const About5 = () => {
 					{/* Info Cards */}
 					<div className="grid md:grid-cols-2 gap-5 max-w-4xl mx-auto mb-14">
 						{[
-							{ icon: "fa-solid fa-heart", title: "Open source, first and always", desc: "Linux, Kubernetes, Terraform — my toolkit is built on open source, and I give back to the communities that build it." },
-							{ icon: "fa-solid fa-plane", title: "Aviation-grade infrastructure", desc: "Critical systems for Abu Dhabi, Sharjah, and other UAE airports, plus Muscat International in Oman. Downtime is not an option." },
+							{ icon: "fa-solid fa-heart", title: "Built on open source", desc: "Almost everything I run is open source: Linux, Kubernetes, Terraform, Ansible. It's what I learned on, and it's what I trust in production." },
+							{ icon: "fa-solid fa-plane", title: "Airport systems", desc: "Critical systems at Abu Dhabi, Sharjah and other UAE airports, plus Muscat International in Oman. There's never a good time for an airport to go offline." },
 						].map((card) => (
 							<div key={card.title} className="glass-card rounded-2xl p-8 group">
 								<div className="flex items-start gap-5">

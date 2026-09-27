@@ -134,7 +134,7 @@ const Header = ({ isSticky }) => {
 
 										<div className="hidden sm:block">
 											<ButtonPrimary type={2} isIcon={true} url={"/#contact"}>
-												Lets Talk
+												Let&apos;s Talk
 											</ButtonPrimary>
 										</div>
 										<div className="mobile-menu-toggle block lg:hidden ">
@@ -149,7 +149,7 @@ const Header = ({ isSticky }) => {
 										isIcon={headerType === 6 ? true : false}
 										url={isIndexPage ? "#contact" : "/#contact"}
 									>
-										{headerType === 6 ? "Lets Talk" : "Hire Me!"}
+										{headerType === 6 ? "Let's Talk" : "Hire Me!"}
 									</ButtonPrimary>
 								) : headerType === 5 ? (
 									<>

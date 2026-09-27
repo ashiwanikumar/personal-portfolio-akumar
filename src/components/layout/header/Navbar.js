@@ -91,7 +91,7 @@ const Navbar = ({ isActiveMobileMenu, setIsActiveMobileMenu, isSticky }) => {
 								isIcon={headerType === 6 ? true : false}
 								url={isIndexPage ? "#contact" : "/#contact"}
 							>
-								{headerType === 6 ? "Lets Talk" : "Hire Me!"}
+								{headerType === 6 ? "Let's Talk" : "Hire Me!"}
 							</ButtonPrimary>
 						)}
 					</li>

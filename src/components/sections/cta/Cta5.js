@@ -102,8 +102,8 @@ const Cta5 = () => {
 						</div>
 
 						<p className="text-white/45 text-[15px] max-w-xl mx-auto mb-8 leading-[1.75]">
-							Tell me what you&apos;re building and where it hurts. I&apos;ll reply with an
-							honest take on whether I can help — usually within a day.
+							Tell me what you&apos;re building and where it hurts. I&apos;ll tell you
+							honestly whether I can help. I usually reply within a day.
 						</p>
 
 						<form

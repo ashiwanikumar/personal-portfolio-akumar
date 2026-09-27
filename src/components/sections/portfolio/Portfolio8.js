@@ -16,8 +16,8 @@ const Portfolio8 = () => {
 							Selected <span className="gradient-text">projects.</span>
 						</h2>
 						<p className="text-white/45 text-base leading-[1.75] max-w-[520px] mx-auto mt-4">
-							Infrastructure work rarely gets screenshots — these are the builds I can
-							talk about.
+							Infrastructure doesn&apos;t screenshot well, so I&apos;ve drawn what each
+							project actually looked like.
 						</p>
 					</div>
 					<div className="flex flex-col gap-50px md:gap-0">

@@ -3,7 +3,7 @@ import PageWrapper from "@/components/shared/wrappers/PageWrapper";
 import { generatePageMetadata } from "@/libs/seo";
 
 export const metadata = generatePageMetadata({
-	title: { absolute: "Ashiwani Kumar | Linux DevOps Engineer & DevOps Practitioner" },
+	title: { absolute: "Ashiwani Kumar | Linux DevOps & SRE Engineer" },
 	description: "Linux DevOps Engineer, 7+ years running mission-critical infrastructure for 5 UAE airports at 99.9% uptime. Kubernetes, OpenShift, AWS, Terraform, Ansible.",
 	keywords: ["DevOps Engineer UAE", "Linux DevOps Engineer", "SRE Abu Dhabi", "Kubernetes Expert", "OpenShift Specialist", "AWS Cloud Engineer", "Terraform IaC", "Ansible Automation", "CI/CD Pipeline", "DevSecOps", "Aviation Infrastructure", "Cloud Migration"],
 });

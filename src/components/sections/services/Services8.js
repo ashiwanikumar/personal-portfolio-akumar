@@ -20,8 +20,8 @@ const Services8 = () => {
 								<span className="gradient-text">off your plate.</span>
 							</h2>
 							<p className="text-white/45 text-base leading-[1.75] max-w-[520px] mt-4">
-								From cloud migrations to on-call firefighting — the unglamorous work
-								that keeps your product shipping.
+								Cloud migrations, pipelines, on-call firefighting. The unglamorous
+								work that keeps your product shipping.
 							</p>
 						</div>
 						<div>

@@ -5,22 +5,22 @@ const AIThoughts = () => {
 		{
 			icon: "fa-solid fa-robot",
 			title: "AI-assisted operations",
-			description: "Predictive scaling and automated incident response — using ML to see problems coming instead of paging humans after the fact.",
+			description: "Using ML to spot trouble early and scale ahead of load, instead of paging someone after it has already broken.",
 		},
 		{
 			icon: "fa-solid fa-brain",
-			title: "The future of SRE",
-			description: "Reactive monitoring is over. The next decade of reliability engineering is proactive, self-healing systems.",
+			title: "Less firefighting",
+			description: "Most monitoring still just tells you something broke. I'm interested in systems that can fix the common failures on their own.",
 		},
 		{
 			icon: "fa-solid fa-microchip",
 			title: "MLOps meets DevOps",
-			description: "ML workflows deserve the same rigor as application code — versioned, tested, and shipped through pipelines.",
+			description: "Models should go through the same process as code: versioned, tested and shipped through a pipeline.",
 		},
 		{
 			icon: "fa-solid fa-cloud",
 			title: "Cloud-native AI",
-			description: "Kubernetes is the natural home for AI workloads. I build the platforms that make model serving boring — in a good way.",
+			description: "Kubernetes suits AI workloads well. The goal is to make serving a model as routine as deploying any other service.",
 		},
 	];
 

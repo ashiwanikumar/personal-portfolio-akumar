@@ -48,8 +48,8 @@ const Resume7 = () => {
 									<span className="gradient-text">been on call.</span>
 								</h2>
 								<p className="text-white/45 mb-8 text-[15px] leading-[1.75]">
-									Seven years across aviation, healthcare, and telecom — industries
-									where an outage makes the news, not just a postmortem.
+									Seven years in aviation, healthcare and telecom. When things break
+									there, people notice fast.
 								</p>
 
 								{/* Stats Grid */}
