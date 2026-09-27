@@ -77,11 +77,18 @@ export function generatePageMetadata({
   };
 }
 
+// One stable id so every page's Person markup resolves to the same entity,
+// which is what Google needs to build a Knowledge Panel for it.
+const PERSON_ID = `${SITE_URL}/#person`;
+
 export function generatePersonSchema() {
   return {
     "@context": "https://schema.org",
     "@type": "Person",
+    "@id": PERSON_ID,
     name: SITE_NAME,
+    givenName: "Ashiwani",
+    familyName: "Kumar",
     url: SITE_URL,
     image: DEFAULT_OG_IMAGE,
     jobTitle: "Linux DevOps Engineer",
@@ -95,8 +102,24 @@ export function generatePersonSchema() {
     address: {
       "@type": "PostalAddress",
       addressLocality: "Abu Dhabi",
-      addressCountry: "UAE",
+      addressCountry: "AE",
     },
+    homeLocation: {
+      "@type": "Place",
+      name: "Abu Dhabi, United Arab Emirates",
+    },
+    nationality: {
+      "@type": "Country",
+      name: "India",
+    },
+    alumniOf: [
+      {
+        "@type": "CollegeOrUniversity",
+        name: "Rajiv Gandhi Proudyogiki Vishwavidyalaya",
+        address: { "@type": "PostalAddress", addressRegion: "Madhya Pradesh", addressCountry: "IN" },
+      },
+    ],
+    knowsLanguage: ["English", "Hindi"],
     sameAs: Object.values(SOCIAL_PROFILES),
     knowsAbout: [
       "Linux DevOps Engineering",
@@ -125,6 +148,7 @@ export function generateWebSiteSchema() {
     description: siteConfig.description,
     author: {
       "@type": "Person",
+      "@id": PERSON_ID,
       name: SITE_NAME,
       url: SITE_URL,
     },
@@ -136,18 +160,8 @@ export function generateProfilePageSchema() {
   return {
     "@context": "https://schema.org",
     "@type": "ProfilePage",
-    mainEntity: {
-      "@type": "Person",
-      name: SITE_NAME,
-      url: SITE_URL,
-      image: DEFAULT_OG_IMAGE,
-      jobTitle: "Linux DevOps Engineer",
-      worksFor: {
-        "@type": "Organization",
-        name: "Astek Middle East",
-      },
-      sameAs: Object.values(SOCIAL_PROFILES),
-    },
+    // Points at the full Person node emitted alongside it in the layout.
+    mainEntity: { "@id": PERSON_ID },
     dateCreated: "2024-01-01",
     dateModified: new Date().toISOString().split("T")[0],
   };
@@ -194,6 +208,7 @@ export function generateServicesSchema(services) {
         description: service.desc,
         provider: {
           "@type": "Person",
+          "@id": PERSON_ID,
           name: SITE_NAME,
           url: SITE_URL,
         },
@@ -216,6 +231,7 @@ export function generatePortfolioSchema(projects) {
     url: `${SITE_URL}/portfolio`,
     author: {
       "@type": "Person",
+      "@id": PERSON_ID,
       name: SITE_NAME,
       url: SITE_URL,
     },
@@ -229,7 +245,7 @@ export function generatePortfolioSchema(projects) {
           "@type": "CreativeWork",
           name: project.title,
           description: project.desc,
-          author: { "@type": "Person", name: SITE_NAME },
+          author: { "@type": "Person", "@id": PERSON_ID, name: SITE_NAME },
           keywords: project.tags?.join(", "),
         },
       })),
@@ -241,8 +257,9 @@ export function generateResumeSchema(experience, education) {
   return {
     "@context": "https://schema.org",
     "@type": "Person",
+    "@id": PERSON_ID,
     name: SITE_NAME,
-    url: `${SITE_URL}/resume`,
+    url: SITE_URL,
     jobTitle: "Linux DevOps Engineer",
     hasOccupation: experience?.map((exp) => ({
       "@type": "Occupation",

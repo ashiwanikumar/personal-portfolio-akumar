@@ -77,7 +77,7 @@ const About5 = () => {
 							For seven years I&apos;ve run the systems people only notice when they break —
 							airport infrastructure, healthcare platforms, telecom backbones. Right now
 							that means keeping five UAE airports, serving 50M+ passengers a year, at
-							99.9% uptime.
+							99.9% uptime. Originally from India, now based in Abu Dhabi, UAE.
 						</p>
 					</div>
 

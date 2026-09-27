@@ -3,6 +3,7 @@
 > Personal portfolio of Ashiwani Kumar, a Linux DevOps / Site Reliability Engineer based in Abu Dhabi, UAE, with 7+ years running mission-critical infrastructure. Currently managing infrastructure for 5 UAE airports (50M+ annual passengers) at 99.9% uptime, plus an ongoing deployment at Muscat International Airport, Oman.
 
 Key facts:
+- Origin: Originally from India (Indian national); lives and works in Abu Dhabi, UAE
 - Role: Linux DevOps Engineer at Astek Middle East (Jan 2024 – present), Abu Dhabi, UAE
 - Focus: Kubernetes, OpenShift, AWS, Terraform, Ansible, CI/CD pipelines (Jenkins, GitLab CI, Azure DevOps), DevSecOps, Docker, cloud migration, monitoring & observability (Prometheus, Grafana, ELK)
 - Track record: 7+ years in production, 500+ servers managed, 99.9% uptime across aviation, healthcare, and telecom
