@@ -3,73 +3,79 @@
 import { useEffect } from "react";
 import Link from "next/link";
 
-export default function Error({ error, reset }) {
+const CONTACT_EMAIL = "ashvanikumar109@gmail.com";
+
+// Next 16.2+ passes `retry` (re-fetches and re-renders the segment); older
+// versions only pass `reset`. Prefer retry, fall back to reset.
+export default function ErrorPage({ error, retry, reset }) {
 	useEffect(() => {
 		console.error(error);
 	}, [error]);
 
+	const tryAgain = typeof retry === "function" ? retry : reset;
+	const digest = error?.digest;
+	const mailSubject = encodeURIComponent(`Error on ashiwanikumar.com${digest ? ` (${digest})` : ""}`);
+
 	return (
-		<main className="min-h-screen bg-[#09090b] flex items-center justify-center px-4 relative overflow-hidden">
+		<main id="main-content" className="min-h-screen bg-[#09090b] flex items-center justify-center px-4 py-16 relative isolate overflow-hidden">
 			<div className="mesh-gradient" aria-hidden="true" />
 
-			<div className="text-center relative z-10">
-				<div className="glass-card rounded-2xl p-8 md:p-12 max-w-2xl mx-auto">
+			<div className="w-full max-w-2xl text-center relative z-10">
+				<div className="bg-white/[0.03] backdrop-blur-xl border border-white/[0.06] rounded-2xl p-6 sm:p-8 md:p-12">
 					{/* Terminal header */}
-					<div className="flex items-center gap-2 mb-8 pb-4 border-b border-white/10">
-						<div className="w-3 h-3 rounded-full bg-[#ff5f57]" aria-hidden="true"></div>
-						<div className="w-3 h-3 rounded-full bg-[#febc2e]" aria-hidden="true"></div>
-						<div className="w-3 h-3 rounded-full bg-[#28c840]" aria-hidden="true"></div>
-						<span className="ml-4 text-white/30 font-mono text-sm">terminal@ashiwanikumar:~</span>
+					<div className="flex items-center gap-2 mb-8 pb-4 border-b border-white/10" aria-hidden="true">
+						<div className="w-3 h-3 rounded-full bg-[#ff5f57]"></div>
+						<div className="w-3 h-3 rounded-full bg-[#febc2e]"></div>
+						<div className="w-3 h-3 rounded-full bg-[#28c840]"></div>
+						<span className="ml-4 text-white/30 font-mono text-sm truncate">terminal@ashiwanikumar:~</span>
 					</div>
 
-					{/* Error icon */}
-					<div className="mb-8">
-						<div className="w-20 h-20 mx-auto bg-[#ff6b6b]/10 border border-[#ff6b6b]/30 rounded-2xl flex items-center justify-center">
-							<i className="fa-solid fa-bug text-3xl text-[#ff6b6b]/80" aria-hidden="true"></i>
+					<div className="mb-6" aria-hidden="true">
+						<div className="w-16 h-16 mx-auto bg-[#ff6b6b]/10 border border-[#ff6b6b]/30 rounded-2xl flex items-center justify-center">
+							<i className="fa-solid fa-bug text-2xl text-[#ff6b6b]/80"></i>
 						</div>
 					</div>
 
-					<h1 className="text-2xl md:text-3xl font-semibold font-mono mb-4">
-						<span className="gradient-text">System Error</span>
+					<h1 className="text-2xl md:text-3xl font-semibold mb-4 tracking-[-0.02em]">
+						<span className="gradient-text">This page didn&apos;t load properly</span>
 					</h1>
 
-					<div className="font-mono text-left bg-[#09090b]/60 rounded-xl p-5 mb-8 border border-white/10">
-						<p className="text-white/60 mb-2">
-							<span className="text-[#38bdf8]">$</span> tail -f /var/log/error.log
+					<p className="text-white/65 leading-relaxed mb-6 max-w-lg mx-auto">
+						Something failed while loading this page. It&apos;s usually a temporary problem, so trying again often fixes it. If it keeps happening, send me an email and mention which page you were on.
+					</p>
+
+					{digest && (
+						<p className="font-mono text-xs text-white/40 mb-6 break-all">
+							Error reference: <span className="text-white/60">{digest}</span>
 						</p>
-						<p className="text-[#ff6b6b]/80 mb-2">
-							ERROR: Something went wrong
-						</p>
-						<p className="text-white/50 mb-2">
-							An unexpected error occurred while processing your request.
-						</p>
-						<p className="text-white/30 text-sm">
-							The system administrators have been notified.
-						</p>
-					</div>
+					)}
 
 					<div className="flex flex-col sm:flex-row gap-3 justify-center">
 						<button
-							onClick={() => reset()}
-							className="inline-flex items-center justify-center gap-2 px-6 py-3 bg-[#10b981] hover:bg-[#34d399] text-[#022c22] font-semibold rounded-xl hover:shadow-[0_0_30px_rgba(16,185,129,0.4)] transition-all duration-300 font-mono text-sm"
+							type="button"
+							onClick={() => tryAgain?.()}
+							className="inline-flex items-center justify-center gap-2 px-6 py-3 bg-[#10b981] hover:bg-[#34d399] text-[#022c22] font-semibold rounded-xl hover:shadow-[0_0_30px_rgba(16,185,129,0.4)] transition-all duration-300 text-sm cursor-pointer"
 						>
 							<i className="fa-solid fa-rotate-right" aria-hidden="true"></i>
-							./retry.sh
+							Try again
 						</button>
 						<Link
 							href="/"
-							className="inline-flex items-center justify-center gap-2 px-6 py-3 bg-transparent border border-white/10 hover:border-white/25 text-white/60 hover:text-white font-semibold rounded-xl hover:bg-[#10b981]/5 transition-all duration-300 font-mono text-sm"
+							className="inline-flex items-center justify-center gap-2 px-6 py-3 bg-transparent border border-white/10 hover:border-white/25 text-white/70 hover:text-white font-semibold rounded-xl hover:bg-[#10b981]/5 transition-all duration-300 text-sm"
 						>
-							<i className="fa-solid fa-home" aria-hidden="true"></i>
-							cd ~/home
+							<i className="fa-solid fa-house" aria-hidden="true"></i>
+							Back to the homepage
 						</Link>
 					</div>
 
 					<div className="mt-8 pt-6 border-t border-white/10">
-						<p className="text-white/40 font-mono text-sm">
-							// If the problem persists, contact:{" "}
-							<a href="mailto:ashvanikumar109@gmail.com" className="text-[#34d399] hover:underline transition-colors">
-								ashvanikumar109@gmail.com
+						<p className="text-white/45 text-sm">
+							Still broken? Email{" "}
+							<a
+								href={`mailto:${CONTACT_EMAIL}?subject=${mailSubject}`}
+								className="text-[#34d399] hover:text-[#6ee7b7] underline underline-offset-4 decoration-[#34d399]/40 transition-colors break-all"
+							>
+								{CONTACT_EMAIL}
 							</a>
 						</p>
 					</div>

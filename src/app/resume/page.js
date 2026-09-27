@@ -13,7 +13,12 @@ export const metadata = generatePageMetadata({
 });
 
 export default function ResumePage() {
-	const experience = resumeData[0]?.resumeItems || [];
+	// generateResumeSchema reads `location` and falls back to "UAE", which would
+	// put the India and Oman roles in the wrong country.
+	const experience = (resumeData[0]?.resumeItems || []).map((item) => ({
+		...item,
+		location: item.location || item.country,
+	}));
 	const education = resumeData[1]?.resumeItems || [];
 	const jsonLd = [
 		generateResumeSchema(experience, education),
@@ -29,8 +34,8 @@ export default function ResumePage() {
 					dangerouslySetInnerHTML={{ __html: JSON.stringify(schema) }}
 				/>
 			))}
-			<main className="overflow-hidden pt-[140px]">
-				<Resume7 />
+			<main id="main-content" className="overflow-hidden pt-[140px]">
+				<Resume7 isPage />
 				<CVViewer />
 			</main>
 		</PageWrapper>

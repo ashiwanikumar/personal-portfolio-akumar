@@ -4,8 +4,8 @@ import { generatePageMetadata, generateBreadcrumbSchema } from "@/libs/seo";
 
 export const metadata = generatePageMetadata({
 	title: "About Me - Linux DevOps Engineer & SRE",
-	description: "Linux DevOps Engineer in Abu Dhabi with 7+ years on aviation infrastructure serving 50M+ passengers a year. Kubernetes, OpenShift, AWS, Terraform, DevSecOps.",
-	keywords: ["About Ashiwani Kumar", "SRE Background", "DevOps Experience", "Linux DevOps Engineer UAE", "Cloud Infrastructure Expert", "Open Source Enthusiast", "Aviation Infrastructure", "Abu Dhabi Engineer", "Indian DevOps Engineer"],
+	description: "Linux DevOps Engineer in Abu Dhabi with 7+ years in production infrastructure, now on airport systems for 50M+ passengers a year. Kubernetes, OpenShift, AWS.",
+	keywords: ["About Ashiwani Kumar", "Linux DevOps Engineer UAE", "DevOps Engineer Abu Dhabi", "SRE Background", "Aviation Infrastructure", "Kubernetes OpenShift Engineer", "RHCE AZ-400 Certified"],
 	path: "/about",
 	ogType: "profile",
 });
@@ -19,8 +19,8 @@ export default function AboutPage() {
 				type="application/ld+json"
 				dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
 			/>
-			<main className="overflow-hidden pt-[140px]">
-				<About5 />
+			<main id="main-content" className="overflow-hidden pt-[140px]">
+				<About5 isPage />
 			</main>
 		</PageWrapper>
 	);

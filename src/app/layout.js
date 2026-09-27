@@ -31,10 +31,10 @@ import "./globals.css";
 export const metadata = {
 	metadataBase: new URL('https://ashiwanikumar.com'),
 	title: {
-		default: "Ashiwani Kumar | Linux DevOps Engineer & DevOps Practitioner",
+		default: "Ashiwani Kumar | Linux DevOps & SRE Engineer",
 		template: "%s | Ashiwani Kumar"
 	},
-	description: "Linux DevOps & SRE engineer with 7+ years running mission-critical systems across the UAE at 99.9% uptime. Kubernetes, OpenShift, AWS, Terraform.",
+	description: "Linux DevOps and SRE engineer in Abu Dhabi with 7+ years running mission-critical systems across the UAE at 99.9% uptime. Kubernetes, OpenShift, AWS, Terraform.",
 	keywords: ["DevOps Engineer", "Linux DevOps Engineer", "SRE", "Kubernetes", "OpenShift", "AWS", "Terraform", "Ansible", "CI/CD", "Cloud Infrastructure", "Abu Dhabi", "UAE", "Infrastructure Automation", "DevSecOps", "Open Source", "Linux Administrator"],
 	authors: [{ name: "Ashiwani Kumar", url: "https://ashiwanikumar.com" }],
 	creator: "Ashiwani Kumar",
@@ -49,14 +49,14 @@ export const metadata = {
 		locale: "en_US",
 		url: "https://ashiwanikumar.com",
 		siteName: "Ashiwani Kumar - SRE & DevOps Engineer",
-		title: "Ashiwani Kumar | Linux DevOps Engineer & DevOps Practitioner",
-		description: "Linux DevOps Engineer with 7+ years experience. Expert in Kubernetes, OpenShift, AWS, Terraform, Ansible, and building reliable infrastructure at scale.",
+		title: "Ashiwani Kumar | Linux DevOps & SRE Engineer",
+		description: "Linux DevOps and SRE engineer in Abu Dhabi with 7+ years running mission-critical systems across the UAE. Kubernetes, OpenShift, AWS, Terraform, Ansible.",
 		images: [
 			{
 				url: "https://ashiwanikumar.com/img/og-card.png",
 				width: 1200,
 				height: 630,
-				alt: "Ashiwani Kumar - Linux DevOps Engineer & DevOps Practitioner"
+				alt: "Ashiwani Kumar, Linux DevOps & SRE Engineer"
 			}
 		]
 	},
@@ -64,8 +64,8 @@ export const metadata = {
 		card: "summary_large_image",
 		site: "@byteforge_ai",
 		creator: "@byteforge_ai",
-		title: "Ashiwani Kumar | SRE & DevOps Practitioner",
-		description: "Linux DevOps Engineer with 7+ years experience managing mission-critical infrastructure across UAE.",
+		title: "Ashiwani Kumar | Linux DevOps & SRE Engineer",
+		description: "Linux DevOps and SRE engineer in Abu Dhabi with 7+ years running mission-critical systems across the UAE.",
 		images: ["https://ashiwanikumar.com/img/og-card.png"]
 	},
 	robots: {
@@ -104,6 +104,11 @@ export const metadata = {
 		"contact:phone:uae": "+971 566182303",
 		"contact:phone:india": "+91 8770616837",
 	}
+};
+
+export const viewport = {
+	themeColor: "#09090b",
+	colorScheme: "dark",
 };
 
 const jsonLdSchemas = [

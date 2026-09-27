@@ -4,9 +4,7 @@ import backTopController from "@/libs/backTopController";
 import { useEffect } from "react";
 
 const BackToTop = () => {
-  useEffect(() => {
-    backTopController();
-  }, []);
+  useEffect(() => backTopController(), []);
   return (
     <div className="progress-wrap" id="scrollUp">
       <svg

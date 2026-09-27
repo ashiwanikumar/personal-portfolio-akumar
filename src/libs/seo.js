@@ -60,10 +60,10 @@ export function generatePageMetadata({
       title: titleText,
       description,
       url,
-      siteName: `${SITE_NAME} - SRE & DevOps Engineer`,
+      siteName: `${SITE_NAME} | Linux DevOps & SRE Engineer`,
       type: ogType,
       images: [
-        { url: resolvedOgImage, width: 1200, height: 600, alt: titleText },
+        { url: resolvedOgImage, width: 1200, height: 630, alt: titleText },
       ],
     },
     twitter: {

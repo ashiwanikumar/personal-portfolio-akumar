@@ -1,11 +1,12 @@
 import { NextResponse } from "next/server";
-import { apiFetch } from "@/lib/admin-api";
+import { apiFetch, visitorHeaders } from "@/lib/admin-api";
 
 export async function POST(request) {
 	try {
 		const body = await request.json();
 		const data = await apiFetch("/newsletter/subscribe", {
 			method: "POST",
+			headers: visitorHeaders(request),
 			body: JSON.stringify(body),
 		});
 

@@ -1,30 +1,13 @@
-const indexingAndActiveLink = () => {
-  const sections = document.querySelectorAll("section"); // All sections
-  const navLinks = document.querySelectorAll("nav>ul li:has(a) > a"); // All nav links
-
-  window.addEventListener("scroll", () => {
-    if (navLinks?.length) {
-      let currentSection = "";
-
-      // Loop through sections to find the current one
-      sections.forEach((section) => {
-        const sectionTop = section.offsetTop;
-        const sectionHeight = section.offsetHeight;
-        if (window.scrollY >= sectionTop - sectionHeight / 3) {
-          currentSection = section.getAttribute("id");
-        }
-      });
-
-      // Remove 'active' class from all links and add it to the current one
-      navLinks.forEach((link) => {
-        link.classList.remove("active");
-
-        if (link.getAttribute("href")?.includes(currentSection)) {
-          link.classList.add("active");
-        }
-      });
-    }
-  });
+// Every nav item is its own page (/about, /services, ...), so the active link
+// is decided by the current route rather than by which section is scrolled
+// into view. Returns true when `href` is the current page or a parent of it.
+const indexingAndActiveLink = (pathname, href) => {
+  if (!pathname || !href || href.includes("#")) return false;
+  const clean = (value) => (value.length > 1 ? value.replace(/\/+$/, "") : value);
+  const current = clean(pathname);
+  const target = clean(href);
+  if (target === "/") return current === "/";
+  return current === target || current.startsWith(`${target}/`);
 };
 
 export default indexingAndActiveLink;

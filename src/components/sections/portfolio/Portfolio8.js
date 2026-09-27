@@ -2,7 +2,10 @@
 import PortfolioCard10 from "@/components/shared/cards/PortfolioCard10";
 import getPortfolio from "@/libs/getPortfolio";
 
-const Portfolio8 = () => {
+// isPage: this is the page heading on /portfolio (h1, cards h2); on the home
+// page it sits under the hero's h1 (h2, cards h3).
+const Portfolio8 = ({ isPage = false }) => {
+	const TitleTag = isPage ? "h1" : "h2";
 	const portfolio = getPortfolio()?.slice(0, 6);
 
 	return (
@@ -12,21 +15,22 @@ const Portfolio8 = () => {
 				<div className="container relative z-10">
 					<div className="mb-10 md:mb-50px xl:mb-60px text-center">
 						<span className="section-badge mb-6 inline-flex">Work</span>
-						<h2 id="portfolio-heading" className="text-[26px] md:text-[30px] lg:text-[34px] font-semibold leading-[1.1] tracking-[-0.02em] block max-w-580px w-full mx-auto text-white">
+						<TitleTag id="portfolio-heading" className="text-[26px] md:text-[30px] lg:text-[34px] font-semibold leading-[1.1] tracking-[-0.02em] block max-w-580px w-full mx-auto text-white">
 							Selected <span className="gradient-text">projects.</span>
-						</h2>
+						</TitleTag>
 						<p className="text-white/45 text-base leading-[1.75] max-w-[520px] mx-auto mt-4">
 							Infrastructure doesn&apos;t screenshot well, so I&apos;ve drawn what each
 							project actually looked like.
 						</p>
 					</div>
-					<div className="flex flex-col gap-50px md:gap-0">
+					<div className="flex flex-col">
 						{portfolio?.length
 							? portfolio?.map((portfolioSingle, idx) => (
 									<PortfolioCard10
-										key={idx}
+										key={portfolioSingle.id ?? idx}
 										portfolio={portfolioSingle}
 										idx={idx}
+										headingTag={isPage ? "h2" : "h3"}
 									/>
 							  ))
 							: null}

@@ -1,29 +1,68 @@
 "use client";
 
-import { useEffect } from "react";
+import { useEffect, useRef } from "react";
 import { createPortal } from "react-dom";
 import { CV_FILENAME, CV_PATH, trackCvEvent } from "@/libs/cv";
 
+const FOCUSABLE = 'a[href], button:not([disabled]), iframe, [tabindex]:not([tabindex="-1"])';
+
 const CVModal = ({ onClose }) => {
-	// Lock page scroll while open, close on Escape, and restore the previous
-	// overflow value on unmount so navigating away never leaves the page frozen.
+	const dialogRef = useRef(null);
+	const closeRef = useRef(null);
+
+	// Lock page scroll while open, keep Tab inside the dialog, close on Escape,
+	// and on unmount restore the previous overflow value and hand focus back to
+	// whatever opened the modal.
 	useEffect(() => {
+		const opener = document.activeElement;
 		const previousOverflow = document.body.style.overflow;
 		document.body.style.overflow = "hidden";
+		closeRef.current?.focus();
 
 		const onKeyDown = (e) => {
-			if (e.key === "Escape") onClose();
+			if (e.key === "Escape") {
+				onClose();
+				return;
+			}
+			if (e.key !== "Tab" || !dialogRef.current) return;
+			const items = dialogRef.current.querySelectorAll(FOCUSABLE);
+			// getClientRects rather than offsetParent: the close button is position:fixed.
+			const visible = Array.from(items).filter((el) => el.getClientRects().length > 0);
+			if (!visible.length) return;
+			const first = visible[0];
+			const last = visible[visible.length - 1];
+			const inside = dialogRef.current.contains(document.activeElement);
+			if (e.shiftKey && (document.activeElement === first || !inside)) {
+				e.preventDefault();
+				last.focus();
+			} else if (!e.shiftKey && (document.activeElement === last || !inside)) {
+				e.preventDefault();
+				first.focus();
+			}
+		};
+		// Tab presses inside the PDF iframe never reach this window, so also pull
+		// focus back if it escapes the dialog that way.
+		const onFocusIn = (e) => {
+			if (dialogRef.current && !dialogRef.current.contains(e.target)) {
+				closeRef.current?.focus();
+			}
 		};
 		window.addEventListener("keydown", onKeyDown);
+		document.addEventListener("focusin", onFocusIn);
 
 		return () => {
 			document.body.style.overflow = previousOverflow;
 			window.removeEventListener("keydown", onKeyDown);
+			document.removeEventListener("focusin", onFocusIn);
+			if (opener && typeof opener.focus === "function" && document.contains(opener)) {
+				opener.focus();
+			}
 		};
 	}, [onClose]);
 
 	return createPortal(
 		<div
+			ref={dialogRef}
 			className="fixed inset-0 z-[9999] flex items-center justify-center"
 			role="dialog"
 			aria-modal="true"
@@ -38,8 +77,9 @@ const CVModal = ({ onClose }) => {
 
 			{/* Close button - Fixed position for mobile */}
 			<button
+				type="button"
+				ref={closeRef}
 				onClick={onClose}
-				autoFocus
 				className="fixed top-4 right-4 z-[10000] w-12 h-12 flex items-center justify-center bg-white/10 hover:bg-white/20 text-white rounded-full border border-white/15 backdrop-blur-md transition-all duration-300"
 				aria-label="Close CV"
 			>

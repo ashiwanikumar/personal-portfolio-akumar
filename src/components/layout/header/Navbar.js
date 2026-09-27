@@ -4,22 +4,19 @@ import ButtonPrimary from "@/components/shared/buttons/ButtonPrimary";
 import ButtonPrimary2 from "@/components/shared/buttons/ButtonPrimary2";
 import { useHeaderContext } from "@/context_api/HeaderContext";
 import getNavItems from "@/libs/getNavItems";
-import indexingAndActiveLink from "@/libs/indexingAndActiveLink";
+import isNavLinkActive from "@/libs/indexingAndActiveLink";
 import Link from "next/link";
-import { useEffect } from "react";
+import { usePathname } from "next/navigation";
 import MobileMenuController from "./MobileMenuController";
 
 const Navbar = ({ isActiveMobileMenu, setIsActiveMobileMenu, isSticky }) => {
 	const { isIndexPage, isInnerPage, isResumeBtn, headerType } =
 		useHeaderContext();
 	const navItems = getNavItems();
-	useEffect(() => {
-		// mobileMenuController();
-		indexingAndActiveLink();
-	}, []);
+	const pathname = usePathname();
 
 	return (
-		<nav>
+		<nav aria-label="Main">
 			<ul
 				className={`nav flex items-center  xl:gap-30px  ${
 					headerType === 5
@@ -34,11 +31,15 @@ const Navbar = ({ isActiveMobileMenu, setIsActiveMobileMenu, isSticky }) => {
 				}`}
 			>
 				{navItems?.length
-					? navItems?.map(({ name, path, path2 }, idx) => (
+					? navItems?.map(({ name, path, path2 }, idx) => {
+							const href = isIndexPage ? path : path2;
+							const isActive = isNavLinkActive(pathname, href);
+							return (
 							<li key={idx} className="nav_item group relative hidden lg:block">
 								<Link
-									href={isIndexPage ? path : path2}
-									className={`text-size-15 font-medium  ${
+									href={href}
+									aria-current={isActive ? "page" : undefined}
+									className={`${isActive ? "active " : ""}text-size-15 font-medium  ${
 										isInnerPage && !isSticky
 											? "text-white-color"
 											: headerType === 5 ||
@@ -68,7 +69,8 @@ const Navbar = ({ isActiveMobileMenu, setIsActiveMobileMenu, isSticky }) => {
 									{name}
 								</Link>
 							</li>
-					  ))
+							);
+					  })
 					: ""}
 
 				{/* <!-- action button --> */}
@@ -89,7 +91,7 @@ const Navbar = ({ isActiveMobileMenu, setIsActiveMobileMenu, isSticky }) => {
 						) : (
 							<ButtonPrimary
 								isIcon={headerType === 6 ? true : false}
-								url={isIndexPage ? "#contact" : "/#contact"}
+								url={isIndexPage ? "#contact" : "/contact"}
 							>
 								{headerType === 6 ? "Let's Talk" : "Hire Me!"}
 							</ButtonPrimary>

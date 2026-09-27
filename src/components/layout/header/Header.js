@@ -7,7 +7,8 @@ import Socials6 from "@/components/shared/socials/Socials6";
 import { useHeaderContext } from "@/context_api/HeaderContext";
 import stickyHeader from "@/libs/stickyHeader";
 import Link from "next/link";
-import { useEffect, useState } from "react";
+import { usePathname } from "next/navigation";
+import { useEffect, useRef, useState } from "react";
 import Logo from "./Logo";
 import MobileMenu from "./MobileMenu";
 import MobileMenuController from "./MobileMenuController";
@@ -16,12 +17,75 @@ import Navbar from "./Navbar";
 const Header = ({ isSticky }) => {
 	const [isActiveMobileMenu, setIsActiveMobileMenu] = useState(false);
 	const { isInnerPage, headerType, isIndexPage } = useHeaderContext();
+	const headerRef = useRef(null);
+	const pathname = usePathname();
 	useEffect(() => {
 		stickyHeader();
 	}, []);
 
+	// Close the mobile menu whenever the route changes.
+	useEffect(() => {
+		setIsActiveMobileMenu(false);
+	}, [pathname]);
+
+	// While the mobile menu is open: lock page scroll, close on Escape or when
+	// the viewport grows to desktop width, and keep Tab focus inside the menu.
+	useEffect(() => {
+		if (!isActiveMobileMenu) return;
+		const header = headerRef.current;
+		const toggle = header?.querySelector('[aria-controls="mobile-menu"]');
+		const menu = header?.querySelector("#mobile-menu");
+		const previousOverflow = document.body.style.overflow;
+		document.body.style.overflow = "hidden";
+
+		const close = (returnFocus) => {
+			setIsActiveMobileMenu(false);
+			if (returnFocus) toggle?.focus();
+		};
+
+		const onKeyDown = (e) => {
+			if (e.key === "Escape") {
+				e.preventDefault();
+				close(true);
+				return;
+			}
+			if (e.key !== "Tab" || !menu) return;
+			const focusables = [
+				toggle,
+				...menu.querySelectorAll("a[href], button:not([disabled])"),
+			].filter(Boolean);
+			if (!focusables.length) return;
+			const first = focusables[0];
+			const last = focusables[focusables.length - 1];
+			if (e.shiftKey && document.activeElement === first) {
+				e.preventDefault();
+				last.focus();
+			} else if (!e.shiftKey && document.activeElement === last) {
+				e.preventDefault();
+				first.focus();
+			} else if (!focusables.includes(document.activeElement)) {
+				e.preventDefault();
+				first.focus();
+			}
+		};
+
+		const desktop = window.matchMedia("(min-width: 1024px)");
+		const onViewportChange = (e) => {
+			if (e.matches) close(false);
+		};
+
+		document.addEventListener("keydown", onKeyDown);
+		desktop.addEventListener("change", onViewportChange);
+		return () => {
+			document.body.style.overflow = previousOverflow;
+			document.removeEventListener("keydown", onKeyDown);
+			desktop.removeEventListener("change", onViewportChange);
+		};
+	}, [isActiveMobileMenu]);
+
 	return (
 		<header
+			ref={headerRef}
 			className={`header-area ${
 				headerType === 6 || headerType === 9 || headerType === 10
 					? "header-6"
@@ -89,14 +153,14 @@ const Header = ({ isSticky }) => {
 								) : (
 									<li className="hidden md:block">
 										<Link
-											href="mailto:mail@gerolddesign.com"
+											href="mailto:ashvanikumar109@gmail.com"
 											className={`text-size-15 font-medium ${
 												isInnerPage && !isSticky
 													? "text-white-color"
 													: "text-seondary-color dark:text-white-color"
 											} `}
 										>
-											mail@gerolddesign.com
+											ashvanikumar109@gmail.com
 										</Link>
 									</li>
 								)}
@@ -133,7 +197,7 @@ const Header = ({ isSticky }) => {
 										{headerType === 10 ? "" : <Socials6 />}
 
 										<div className="hidden sm:block">
-											<ButtonPrimary type={2} isIcon={true} url={"/#contact"}>
+											<ButtonPrimary type={2} isIcon={true} url={isIndexPage ? "#contact" : "/contact"}>
 												Let&apos;s Talk
 											</ButtonPrimary>
 										</div>
@@ -147,7 +211,7 @@ const Header = ({ isSticky }) => {
 								) : headerType === 6 ? (
 									<ButtonPrimary
 										isIcon={headerType === 6 ? true : false}
-										url={isIndexPage ? "#contact" : "/#contact"}
+										url={isIndexPage ? "#contact" : "/contact"}
 									>
 										{headerType === 6 ? "Let's Talk" : "Hire Me!"}
 									</ButtonPrimary>
@@ -166,7 +230,10 @@ const Header = ({ isSticky }) => {
 					</div>
 				</div>
 				{/* <!-- mobile menu --> */}
-				<MobileMenu isActiveMobileMenu={isActiveMobileMenu} />
+				<MobileMenu
+					isActiveMobileMenu={isActiveMobileMenu}
+					setIsActiveMobileMenu={setIsActiveMobileMenu}
+				/>
 			</div>
 		</header>
 	);

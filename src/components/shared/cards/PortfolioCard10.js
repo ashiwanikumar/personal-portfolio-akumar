@@ -1,9 +1,9 @@
 "use client";
 
-const PortfolioCard10 = ({ portfolio, idx }) => {
-	const { title, img, desc, category, tags } = portfolio ? portfolio : {};
+const PortfolioCard10 = ({ portfolio, idx, headingTag: HeadingTag = "h3" }) => {
+	const { title, img, imgAlt, desc, category, tags } = portfolio ? portfolio : {};
 	return (
-		<div className="flex flex-col md:flex-row md:[&:nth-child(2n)]:flex-row-reverse items-center gap-30px lg:gap-60px xl:gap-75px 2xl:gap-40 overflow-hidden group mb-60px md:mb-80px">
+		<div className="flex flex-col md:flex-row md:[&:nth-child(2n)]:flex-row-reverse items-center gap-30px lg:gap-60px xl:gap-75px 2xl:gap-40 overflow-hidden group mb-60px md:mb-80px last:mb-0">
 			<div className="glass-card p-2 sm:p-4 md:p-6 w-full max-w-[645px] rounded-2xl relative overflow-hidden">
 				<div className="rounded-xl overflow-hidden">
 					<img
@@ -13,7 +13,7 @@ const PortfolioCard10 = ({ portfolio, idx }) => {
 						loading={idx === 0 ? "eager" : "lazy"}
 						decoding="async"
 						className="w-full h-auto transition-transform duration-700 group-hover:scale-105"
-						alt={`${title} - ${category} project by Ashiwani Kumar`}
+						alt={imgAlt || `${title}: ${category} project diagram`}
 					/>
 				</div>
 			</div>
@@ -22,32 +22,32 @@ const PortfolioCard10 = ({ portfolio, idx }) => {
 				<div>
 					<div className="flex items-center gap-4 mb-4" aria-hidden="true">
 						<span className="font-mono text-sm text-[#34d399]/70">
-							0{idx + 1}
+							{String(idx + 1).padStart(2, "0")}
 						</span>
 						<span className="h-px flex-1 max-w-[60px] bg-gradient-to-r from-[#34d399]/40 to-transparent"></span>
 						<span className="text-[#38bdf8] text-xs font-mono font-medium uppercase tracking-[0.16em]">
 							{category}
 						</span>
 					</div>
-					<h3 className="block text-xl md:text-2xl lg:text-[28px] text-white font-semibold leading-[1.15] tracking-[-0.02em] mb-4 lg:mb-5">
+					<HeadingTag className="block text-xl md:text-2xl lg:text-[28px] text-white font-semibold leading-[1.15] tracking-[-0.02em] mb-4 lg:mb-5">
 						{title}
-					</h3>
+					</HeadingTag>
 
 					<p className="block text-white/45 mb-6 text-[15px] leading-[1.75]">
 						{desc}
 					</p>
 
 					{tags && tags.length > 0 && (
-						<div className="flex flex-wrap gap-2" aria-label={`Technologies: ${tags.join(', ')}`}>
-							{tags.map((tag, tagIdx) => (
-								<span
-									key={tagIdx}
+						<ul className="flex flex-wrap gap-2" aria-label="Technologies">
+							{tags.map((tag) => (
+								<li
+									key={tag}
 									className="px-3 py-1.5 text-xs font-mono font-medium bg-white/[0.04] text-white/60 border border-white/10 rounded-full transition-colors duration-300 group-hover:border-[#10b981]/25 group-hover:text-[#34d399]"
 								>
 									{tag}
-								</span>
+								</li>
 							))}
-						</div>
+						</ul>
 					)}
 				</div>
 			</div>

@@ -67,6 +67,19 @@ export function isSuperAdminUser(user) {
 	);
 }
 
+/**
+ * The visitor's IP and user agent, for public routes that proxy to the backend.
+ * Without these the backend would record this server's own IP and user agent.
+ */
+export function visitorHeaders(request) {
+	const forwardedFor = request.headers.get("x-forwarded-for") || request.headers.get("x-real-ip") || "";
+	return {
+		"x-forwarded-for": forwardedFor,
+		"x-real-ip": forwardedFor.split(",")[0]?.trim() || "",
+		"user-agent": request.headers.get("user-agent") || "",
+	};
+}
+
 export async function apiFetch(path, options = {}) {
 	const response = await fetch(`${getBackendApiBase()}${path}`, {
 		cache: "no-store",

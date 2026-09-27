@@ -6,7 +6,7 @@ import Link from "next/link";
 const Logo = ({ isSticky }) => {
 	const { isInnerPage, headerType } = useHeaderContext();
 	return (
-		<Link href="/" className="logo" aria-label="Ashiwani Kumar — home">
+		<Link href="/" className="logo" aria-label="Ashiwani Kumar, home">
 			<Image
 				className={`${
 					headerType === 9 || headerType === 10
@@ -30,7 +30,7 @@ const Logo = ({ isSticky }) => {
 			/>
 			<Image
 				className={`${isSticky ? "w-14 h-14" : "w-28 h-28"}  ${
-					isInnerPage && !isSticky ? "hidden" : "inlin-block dark:hidden"
+					isInnerPage && !isSticky ? "hidden" : "inline-block dark:hidden"
 				}`}
 				src="/img/logo/logo-dark.png"
 				alt="Ashiwani Kumar logo"

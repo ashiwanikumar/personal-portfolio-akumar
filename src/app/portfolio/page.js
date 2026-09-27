@@ -5,7 +5,7 @@ import portfolioData from "../../../public/fakedata/portfolio.json";
 
 export const metadata = generatePageMetadata({
 	title: "DevOps & Infrastructure Projects",
-	description: "DevOps and infrastructure projects: Kubernetes migration, AWS cloud automation, CI/CD pipelines, and Terraform IaC for aviation and healthcare systems.",
+	description: "Projects by Linux DevOps Engineer Ashiwani Kumar: Kubernetes migration, CI/CD pipelines, Terraform on AWS, SRE monitoring, Azure DevOps, full stack apps.",
 	keywords: ["DevOps Projects", "Infrastructure Portfolio", "Kubernetes Projects", "Cloud Migration Case Studies", "CI/CD Implementation", "Aviation Infrastructure Projects", "Enterprise DevOps", "AWS Projects", "Terraform Projects", "OpenShift Deployments"],
 	path: "/portfolio",
 });
@@ -25,8 +25,8 @@ export default function PortfolioPage() {
 					dangerouslySetInnerHTML={{ __html: JSON.stringify(schema) }}
 				/>
 			))}
-			<main className="overflow-hidden pt-[140px]">
-				<Portfolio8 />
+			<main id="main-content" className="overflow-hidden pt-[140px]">
+				<Portfolio8 isPage />
 			</main>
 		</PageWrapper>
 	);

@@ -4,9 +4,9 @@ import { generatePageMetadata, generateServicesSchema, generateBreadcrumbSchema 
 import servicesData from "../../../public/fakedata/services.json";
 
 export const metadata = generatePageMetadata({
-	title: "Services - DevOps & SRE Solutions",
-	description: "DevOps and SRE services from Abu Dhabi: cloud infrastructure automation, Kubernetes deployment, CI/CD pipelines, Terraform IaC, and production monitoring.",
-	keywords: ["DevOps Services", "SRE Services", "Cloud Infrastructure Consulting", "Kubernetes Consulting UAE", "CI/CD Pipeline Services", "Infrastructure Automation", "Terraform Consulting", "AWS Solutions", "OpenShift Services", "DevSecOps Implementation", "Cloud Migration Services"],
+	title: "DevOps, Kubernetes & SRE Services",
+	description: "DevOps and SRE work from Abu Dhabi: AWS and Azure built with Terraform, CI/CD pipelines, Kubernetes and OpenShift, and Prometheus and Grafana monitoring.",
+	keywords: ["DevOps Services", "SRE Services", "Cloud Infrastructure Consulting", "Kubernetes Consulting UAE", "CI/CD Pipeline Services", "Infrastructure Automation", "Terraform Consulting", "AWS Infrastructure", "OpenShift Services", "DevSecOps Implementation", "Cloud Migration Services"],
 	path: "/services",
 });
 
@@ -25,8 +25,8 @@ export default function ServicesPage() {
 					dangerouslySetInnerHTML={{ __html: JSON.stringify(schema) }}
 				/>
 			))}
-			<main className="overflow-hidden pt-[140px]">
-				<Services8 />
+			<main id="main-content" className="overflow-hidden pt-[140px]">
+				<Services8 isPage />
 			</main>
 		</PageWrapper>
 	);

@@ -6,13 +6,16 @@ const MobileMenuController = ({
 	return (
 		<div className="mobile-menu-toggle">
 			<button
+				type="button"
 				className={isActiveMobileMenu ? "active" : ""}
 				onClick={() => setIsActiveMobileMenu(!isActiveMobileMenu)}
-				aria-label="Toggle mobile menu"
+				aria-label={isActiveMobileMenu ? "Close menu" : "Open menu"}
+				aria-expanded={isActiveMobileMenu}
+				aria-controls="mobile-menu"
 			>
-				<span className="hamburger-line"></span>
-				<span className="hamburger-line"></span>
-				<span className="hamburger-line"></span>
+				<span className="hamburger-line" aria-hidden="true"></span>
+				<span className="hamburger-line" aria-hidden="true"></span>
+				<span className="hamburger-line" aria-hidden="true"></span>
 			</button>
 		</div>
 	);

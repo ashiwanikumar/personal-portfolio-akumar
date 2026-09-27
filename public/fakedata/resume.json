@@ -9,20 +9,20 @@
         "company": "Astek Middle East",
         "country": "UAE",
         "flag": "🇦🇪",
-        "desc": "Managing critical infrastructure for 5 UAE airports with 99.9% uptime, serving 50M+ annual passengers. DevSecOps implementation with 70% faster incident response."
+        "desc": "Linux and DevOps for the UAE ICP programme, placed with Astek's client Idemia. I look after the systems at 5 UAE airports that handle 50M+ passengers a year, kept at 99.9% uptime. Incident response got 70% faster once we brought in DevSecOps."
       },
       {
         "date": "Jul 2022 - Jan 2024",
-        "title": "System Engineer",
+        "title": "System Engineer – Linux Administrator",
         "company": "NMC Healthcare",
         "country": "UAE",
         "flag": "🇦🇪",
-        "desc": "Managed 400+ servers supporting EMR systems with 99.8% availability. Reduced cloud costs by 35% through AWS/Azure optimization."
+        "desc": "Ran 400+ servers behind the hospital EMR systems at 99.8% availability, and cut AWS and Azure costs by 35%."
       },
       {
         "date": "Ongoing",
-        "title": "Linux DevOps Engineer — Muscat International Airport",
-        "company": "Astek Middle East",
+        "title": "Linux DevOps Engineer",
+        "company": "Astek Middle East · Muscat International Airport",
         "country": "Oman",
         "flag": "🇴🇲",
         "desc": "On-site at Muscat International Airport, taking the aviation programme to Oman. I'm still on this project and support it alongside the UAE airports."
@@ -33,7 +33,7 @@
         "company": "CoreHive Computing",
         "country": "India",
         "flag": "🇮🇳",
-        "desc": "Administered 400+ SUSE Linux servers for telecom clients. Automated provisioning with Ansible, reducing setup time by 60%."
+        "desc": "Looked after 400+ SUSE Linux servers for telecom clients. Automated provisioning with Ansible, which cut setup time by 60%."
       },
       {
         "date": "Aug 2018 - Jun 2021",
@@ -41,7 +41,7 @@
         "company": "Dilip Buildcon",
         "country": "India",
         "flag": "🇮🇳",
-        "desc": "Managed enterprise Linux and VMware environments. Improved operational efficiency by 40% through automation scripts."
+        "desc": "Ran the company's Linux and VMware environments and wrote the automation scripts that made day-to-day operations about 40% more efficient."
       }
     ]
   },

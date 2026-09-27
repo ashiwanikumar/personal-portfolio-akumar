@@ -18,9 +18,7 @@ const PageWrapper = ({
 	headerType,
 	footerType,
 }) => {
-	useEffect(() => {
-		smoothScroll();
-	}, []);
+	useEffect(() => smoothScroll(), []);
 	return (
 		<div>
 			<LinkedInFollowModal />

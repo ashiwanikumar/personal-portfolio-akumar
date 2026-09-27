@@ -1,96 +1,92 @@
 import Link from "next/link";
+import LegalPage, { EmailLink, LegalSection, Term, linkClass, listClass } from "@/components/legal/LegalPage";
 import { generatePageMetadata } from "@/libs/seo";
 
 export const metadata = generatePageMetadata({
 	title: "Cookies Policy",
-	description: "Learn how ashiwanikumar.com uses cookies and similar technologies. Understand your choices regarding cookies and tracking.",
-	keywords: ["Cookies Policy", "Cookie Notice", "Website Cookies", "Tracking Technologies", "Ashiwani Kumar Cookies"],
+	description: "ashiwanikumar.com sets no cookies for visitors. The only cookies are sign-in cookies for the private admin dashboard, plus one session storage flag. Details here.",
+	keywords: ["Cookies Policy", "Cookie Notice", "Website Cookies", "Cookieless Analytics", "Ashiwani Kumar Cookies"],
 	path: "/cookies-policy",
 });
 
+const codeClass = "font-mono text-sm text-white/75";
+
 export default function CookiesPolicy() {
 	return (
-		<main className="min-h-screen bg-[#09090b] py-20">
-			<div className="container max-w-4xl mx-auto px-4">
-				<div className="mb-8">
-					<Link
-						href="/"
-						className="inline-flex items-center gap-2 text-white/50 hover:text-white text-sm font-medium transition-all duration-300"
-					>
-						<i className="fa-solid fa-arrow-left"></i>
-						Back to Home
-					</Link>
-				</div>
+		<LegalPage
+			title="Cookies Policy"
+			current="/cookies-policy"
+			updated={{ iso: "2026-09-28", label: "28 September 2026" }}
+			intro="Short version: if you are just reading this site, it doesn't set any cookies on your device, and there are no advertising or third-party tracking cookies."
+		>
+			<LegalSection id="what-are-cookies" title="What cookies are">
+				<p>
+					Cookies are small text files a website can store in your browser. Sites use them to keep you signed in, remember settings, or track visits. Browsers also offer similar storage, called local storage and session storage.
+				</p>
+			</LegalSection>
 
-				<div className="bg-white/[0.02] border border-white/10 rounded-3xl p-8 md:p-12">
-					<h1 className="text-2xl md:text-3xl font-semibold text-white mb-4 tracking-[-0.02em]">
-						Cookies Policy
-					</h1>
-					<p className="text-white/35 font-mono text-sm mb-8">
-						Last updated: February 2025
-					</p>
+			<LegalSection id="visitors" title="If you are visiting the site">
+				<p>
+					No cookies are set. After a couple of minutes on the site a small box invites you to follow me on LinkedIn. Two values in your browser control when it shows. Neither is ever sent anywhere:
+				</p>
+				<ul className={listClass}>
+					<li>
+						<Term>
+							<code className={codeClass}>linkedinModalSessionStart</code>
+						</Term>{" "}
+						in session storage: the time your visit started, so the box waits a couple of minutes across pages. Your browser deletes it when you close the tab.
+					</li>
+					<li>
+						<Term>
+							<code className={codeClass}>linkedinModalSnoozedUntil</code>
+						</Term>{" "}
+						in local storage: a date before which the box won&apos;t show again. Closing the box sets it 30 days ahead; following me on LinkedIn sets it a year ahead. You can clear it any time by clearing site data in your browser.
+					</li>
+				</ul>
+				<p>
+					Page views are measured with Vercel Web Analytics and Vercel Speed Insights, which work without cookies. The{" "}
+					<Link href="/privacy-notice#what" className={linkClass}>Privacy Notice</Link>{" "}
+					explains what they record.
+				</p>
+			</LegalSection>
 
-					<div className="space-y-8 text-white/55">
-						<section>
-							<h2 className="text-xl font-semibold text-white mb-4">What Are Cookies</h2>
-							<p className="leading-relaxed">
-								Cookies are small text files that are stored on your computer or mobile device when you visit a website. They are widely used to make websites work more efficiently and provide information to website owners.
-							</p>
-						</section>
+			<LegalSection id="admin" title="If you sign in to the admin dashboard">
+				<p>
+					The site has a private dashboard that only I and other authorised users can sign in to. Signing in sets strictly necessary cookies that keep the session open:
+				</p>
+				<ul className={listClass}>
+					<li><code className={codeClass}>cv_admin_access_token</code>: proves you are signed in</li>
+					<li><code className={codeClass}>cv_admin_refresh_token</code>: renews the session when the access token expires</li>
+					<li><code className={codeClass}>cv_admin_user</code>: basic details of the signed-in account used to render the dashboard</li>
+				</ul>
+				<p>
+					These are removed when you sign out or when they expire. The dashboard also loads Cloudflare Turnstile to check that you are not a bot, and Cloudflare may process technical data for that check. None of this happens on the public pages.
+				</p>
+			</LegalSection>
 
-						<section>
-							<h2 className="text-xl font-semibold text-white mb-4">How We Use Cookies</h2>
-							<p className="leading-relaxed mb-4">
-								This website uses cookies for the following purposes:
-							</p>
-							<ul className="list-disc list-inside space-y-2 ml-4">
-								<li><span className="text-[#34d399]">Essential Cookies:</span> Required for the website to function properly</li>
-								<li><span className="text-[#34d399]">Analytics Cookies:</span> Help us understand how visitors interact with our website</li>
-								<li><span className="text-[#34d399]">Preference Cookies:</span> Remember your settings and preferences</li>
-							</ul>
-						</section>
+			<LegalSection id="third-party" title="Third-party services">
+				<p>
+					The public pages don&apos;t embed third-party widgets, videos, social media buttons or ads. Links to LinkedIn, GitHub and other sites are plain links. Once you follow one, that site&apos;s own cookie policy applies.
+				</p>
+			</LegalSection>
 
-						<section>
-							<h2 className="text-xl font-semibold text-white mb-4">Third-Party Cookies</h2>
-							<p className="leading-relaxed">
-								We may use third-party services that set their own cookies, including:
-							</p>
-							<ul className="list-disc list-inside space-y-2 ml-4 mt-4">
-								<li>Google Analytics - for website traffic analysis</li>
-								<li>LinkedIn - for social media integration</li>
-								<li>GitHub - for repository embeds</li>
-							</ul>
-						</section>
+			<LegalSection id="managing" title="Managing cookies and storage">
+				<p>
+					You can view and delete cookies and site data in your browser settings, or block them altogether. Blocking them has no effect on the public site. It will only stop the admin dashboard sign-in from working.
+				</p>
+			</LegalSection>
 
-						<section>
-							<h2 className="text-xl font-semibold text-white mb-4">Managing Cookies</h2>
-							<p className="leading-relaxed">
-								You can control and manage cookies in various ways. Most browsers allow you to:
-							</p>
-							<ul className="list-disc list-inside space-y-2 ml-4 mt-4">
-								<li>View and delete cookies</li>
-								<li>Block third-party cookies</li>
-								<li>Block all cookies from specific sites</li>
-								<li>Block all cookies from being set</li>
-								<li>Delete all cookies when you close your browser</li>
-							</ul>
-							<p className="leading-relaxed mt-4">
-								Please note that blocking cookies may impact your experience on this website.
-							</p>
-						</section>
+			<LegalSection id="changes" title="Changes">
+				<p>
+					If I add anything that uses cookies, I will update this page and the date at the top first.
+				</p>
+			</LegalSection>
 
-						<section>
-							<h2 className="text-xl font-semibold text-white mb-4">Contact</h2>
-							<p className="leading-relaxed">
-								If you have any questions about our use of cookies, please contact me at{" "}
-								<a href="mailto:ashvanikumar109@gmail.com" className="text-[#34d399] hover:underline">
-									ashvanikumar109@gmail.com
-								</a>
-							</p>
-						</section>
-					</div>
-				</div>
-			</div>
-		</main>
+			<LegalSection id="contact" title="Contact">
+				<p>
+					Questions about cookies on this site: <EmailLink />.
+				</p>
+			</LegalSection>
+		</LegalPage>
 	);
 }

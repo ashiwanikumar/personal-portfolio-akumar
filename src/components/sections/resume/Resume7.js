@@ -5,7 +5,12 @@ import ButtonViewCV from "@/components/shared/buttons/ButtonViewCV";
 import CountryFlag from "@/components/shared/icons/CountryFlags";
 import getResume from "@/libs/getResume";
 
-const Resume7 = () => {
+// On the home page this sits under the hero's h1; on /resume it is the page
+// heading, so every level moves up one to keep the outline gap-free.
+const Resume7 = ({ isPage = false }) => {
+	const TitleTag = isPage ? "h1" : "h2";
+	const GroupTag = isPage ? "h2" : "h3";
+	const ItemTag = isPage ? "h3" : "h4";
 	const resume = getResume();
 	const experienceItems = resume?.[0]?.resumeItems || [];
 	const credentialItems = resume?.[1]?.resumeItems || [];
@@ -43,10 +48,10 @@ const Resume7 = () => {
 						<div className="w-full lg:w-[400px] xl:w-[450px] lg:flex-shrink-0">
 							<div className="lg:sticky lg:top-[100px]">
 								<span className="section-badge mb-6 inline-flex">Experience</span>
-								<h2 id="resume-heading" className="text-[26px] md:text-[30px] lg:text-[34px] font-semibold leading-[1.1] tracking-[-0.02em] mb-4 text-white">
+								<TitleTag id="resume-heading" className="text-[26px] md:text-[30px] lg:text-[34px] font-semibold leading-[1.1] tracking-[-0.02em] mb-4 text-white">
 									Where I&apos;ve{" "}
 									<span className="gradient-text">been on call.</span>
-								</h2>
+								</TitleTag>
 								<p className="text-white/45 mb-8 text-[15px] leading-[1.75]">
 									Seven years in aviation, healthcare and telecom. When things break
 									there, people notice fast.
@@ -64,9 +69,9 @@ const Resume7 = () => {
 
 								{/* Highlights */}
 								<div className="mb-8">
-									<h3 className="text-xs font-medium text-white/50 font-mono mb-4 uppercase tracking-[0.2em]">
+									<GroupTag className="text-xs font-medium text-white/50 font-mono mb-4 uppercase tracking-[0.2em]">
 										Core skills
-									</h3>
+									</GroupTag>
 									<div className="flex flex-wrap gap-2">
 										{highlights.map((item, idx) => (
 											<span
@@ -94,9 +99,9 @@ const Resume7 = () => {
 										<div className="flex-shrink-0 rounded overflow-hidden">
 											<CountryFlag country={country} className="w-7 h-5" />
 										</div>
-										<h3 className="text-sm font-semibold text-white/80 font-mono uppercase tracking-[0.14em]">
+										<GroupTag className="text-sm font-semibold text-white/80 font-mono uppercase tracking-[0.14em]">
 											{country}
-										</h3>
+										</GroupTag>
 									</div>
 
 									{/* Experience Cards */}
@@ -108,9 +113,9 @@ const Resume7 = () => {
 											>
 												<div className="flex flex-col gap-3">
 													<div>
-														<h4 className="text-base sm:text-lg leading-snug text-white mb-2 font-semibold tracking-[-0.01em]">
+														<ItemTag className="text-base sm:text-lg leading-snug text-white mb-2 font-semibold tracking-[-0.01em]">
 															{item.title}
-														</h4>
+														</ItemTag>
 														<p className="text-[#38bdf8]/80 text-sm font-mono mb-3 flex items-center gap-2">
 															<i className="fa-solid fa-building text-xs flex-shrink-0" aria-hidden="true"></i>
 															<span>{item.company}</span>
@@ -120,12 +125,12 @@ const Resume7 = () => {
 														</p>
 													</div>
 													<div>
-														<time className="inline-flex items-center gap-2 px-3 py-1.5 bg-[#10b981]/[0.07] border border-[#10b981]/15 rounded-full">
+														<span className="inline-flex items-center gap-2 px-3 py-1.5 bg-[#10b981]/[0.07] border border-[#10b981]/15 rounded-full">
 															<i className="fa-solid fa-calendar text-xs text-[#34d399]" aria-hidden="true"></i>
 															<span className="text-[#34d399]/90 text-xs font-mono font-medium whitespace-nowrap">
 																{item.date}
 															</span>
-														</time>
+														</span>
 													</div>
 												</div>
 											</article>
@@ -138,16 +143,16 @@ const Resume7 = () => {
 								<div className="mb-2 min-w-0">
 									<div className="flex items-center gap-3 mb-5 pb-3 border-b border-white/[0.08]">
 										<i className="fa-solid fa-certificate text-[#34d399]" aria-hidden="true"></i>
-										<h3 className="text-sm font-semibold text-white/80 font-mono uppercase tracking-[0.14em]">
+										<GroupTag className="text-sm font-semibold text-white/80 font-mono uppercase tracking-[0.14em]">
 											Certifications
-										</h3>
+										</GroupTag>
 									</div>
 									<ul className="grid grid-cols-1 sm:grid-cols-2 gap-4">
 										{certifications.map((cert) => (
 											<li key={cert.title} className="glass-card py-5 px-5 rounded-2xl">
-												<h4 className="text-[15px] leading-snug text-white mb-1.5 font-semibold tracking-[-0.01em]">
+												<ItemTag className="text-[15px] leading-snug text-white mb-1.5 font-semibold tracking-[-0.01em]">
 													{cert.title}
-												</h4>
+												</ItemTag>
 												<p className="text-[#38bdf8]/80 text-xs font-mono mb-2">{cert.company}</p>
 												<p className="text-white/45 text-sm leading-[1.6]">{cert.desc}</p>
 											</li>
@@ -160,17 +165,17 @@ const Resume7 = () => {
 								<div className="mb-2 min-w-0">
 									<div className="flex items-center gap-3 mb-5 pb-3 border-b border-white/[0.08]">
 										<i className="fa-solid fa-graduation-cap text-[#34d399]" aria-hidden="true"></i>
-										<h3 className="text-sm font-semibold text-white/80 font-mono uppercase tracking-[0.14em]">
+										<GroupTag className="text-sm font-semibold text-white/80 font-mono uppercase tracking-[0.14em]">
 											Education
-										</h3>
+										</GroupTag>
 									</div>
 									<div className="flex flex-col gap-4">
 										{education.map((edu) => (
 											<article key={edu.title} className="glass-card py-5 px-5 xl:px-8 rounded-2xl flex flex-col sm:flex-row sm:items-center justify-between gap-3">
 												<div className="min-w-0">
-													<h4 className="text-base leading-snug text-white mb-1.5 font-semibold tracking-[-0.01em]">
+													<ItemTag className="text-base leading-snug text-white mb-1.5 font-semibold tracking-[-0.01em]">
 														{edu.title}
-													</h4>
+													</ItemTag>
 													<p className="text-white/45 text-sm leading-[1.6]">{edu.desc}</p>
 												</div>
 												<span className="self-start sm:self-center inline-flex px-3 py-1.5 bg-[#10b981]/[0.07] border border-[#10b981]/15 rounded-full text-[#34d399]/90 text-xs font-mono font-medium whitespace-nowrap">
